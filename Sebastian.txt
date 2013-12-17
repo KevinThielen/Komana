@@ -1,2 +1,0 @@
-Dies ist ein erster Test zum commiten in GitHub
-Noch ein zweiter Test
