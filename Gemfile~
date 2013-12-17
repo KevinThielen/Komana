@@ -46,6 +46,6 @@ end
 
 gem 'bootstrap-sass'
 
-group :deveopment do
+groud :deveopment do
   gem 'rails_layout'
 end
