@@ -1,25 +1,57 @@
 <p>
-  <strong>Project:</strong>
-  <%= @project.name %>
+  <h1>
+	<strong>Project:</strong>
+	<%= @project.name %>
+  </h1>
 </p>
 
-<h2>Lists</h2>
+
 <% @project.lists.each do |list| %>
 	<p>
-		<%= list.name %>
+		<%= list.name %> &nbsp;&nbsp;|&nbsp;&nbsp;
+		<% list.tasks.each do |task| %>
+			<%= task.text %> &nbsp;&nbsp;
+		<% end %>		
 	</p>
 <% end %>
 
-<h2>Add a new List</h2>
-<%= form_for([@project, @project.lists.build]) do |f| %>
-	<p>
-		<%= f.label :name %><br>
-		<%= f.text_field :name %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+
+
+<br><br>
+
+<p>
+	<h2>Add a new List</h2>
+</p>
+<p>
+	<%= form_for([@project, @project.lists.build]) do |f| %>
+		<p>
+			<%= f.label :name %><br>
+			<%= f.text_field :name %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+</p>
+
+<br><br>
+<p>
+	<h2>Add a new task</h2>
+</p>
+<p>
+	<%= form_for([@project,  @currentList.tasks.build]) do |f| %>
+		<p>
+			<%= f.label :text %><br>
+			<%= f.text_field :text %>
+		
+			<%= f.collection_select(:list_id, @lists, :id, :name, :include_blank => false) %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+</p>
+
 
 <%= link_to 'Delete', project_path(@project), method: :delete %>
 <br>
