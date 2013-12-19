@@ -14,13 +14,11 @@
 <%= form_for([@project, @project.lists.build]) do |f| %>
 	<p>
 		<%= f.label :name %><br>
-		<%= f.text_field :name %>
+		<%= f.text_area :name>
 	</p>
 	<p>
 		<%= f.submit %>
 	</p>
 <% end %>
 
-<%= link_to 'Delete', project_path(@project), method: :delete %>
-<br>
-<%= link_to 'back to Projects', projects_path %>
+<%= link_to 'Projects', projects_path %>
