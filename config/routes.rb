@@ -7,7 +7,18 @@ Komana::Application.routes.draw do
   resources :projects
   root "welcome#index"
   
+
+  
+  
   resources :projects do
-  resources :lists
-end
+	resources :lists
+	resources :tasks
+  end
+  
+  
+  resources :lists do
+	resources :tasks
+  end
+  
+  
 end

@@ -14,6 +14,8 @@ class ProjectsController < ApplicationController
 	
 	def show
 		@project = Project.find(params[:id])
+		@currentList = List.new
+		@lists = @project.lists
 	end
 	
 	def index
@@ -26,6 +28,7 @@ class ProjectsController < ApplicationController
 	   
 	   redirect_to projects_path
 	end
+	
 private
 	def project_params
 		params.require(:project).permit(:name)
