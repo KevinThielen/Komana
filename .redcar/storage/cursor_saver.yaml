@@ -21,4 +21,7 @@ cursor_positions:
   - :path: app/assets/stylesheets/sb-admin.css
     :cursor_offset: 0
     :timestamp: 2013-12-04 12:04:42 +01:00
+  - :path: config/routes.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-20 10:13:49 +01:00
 files_to_retain: 0
