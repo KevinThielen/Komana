@@ -45,6 +45,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#devise login
+gem 'devise'
+
 #javascipt runtime
 gem 'execjs'
 gem 'therubyracer'
