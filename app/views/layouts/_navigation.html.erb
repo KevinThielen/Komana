@@ -9,6 +9,16 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+
+      <%# login und logout buttons, ist dein job micha ;) %>
+      <% if current_user %>
+        Welcome <%= link_to current_user.email, 'in progress', method: :get%>!
+        <%= link_to "Ausloggen", destroy_user_session_path, method: :delete %> 
+      <% else %>
+         <%= link_to "Einloggen", new_user_session_path %> </li>
+         <%= link_to "Registrieren", new_user_registration_path %>
+      <% end %>
+
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
