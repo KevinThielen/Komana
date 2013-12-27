@@ -15,7 +15,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav side-nav">
+          <ul class="nav navbar-nav">
             <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li><a href="charts.html"><i class="fa fa-bar-chart-o"></i> Charts</a></li>
             <li><a href="tables.html"><i class="fa fa-table"></i> Tables</a></li>
@@ -70,6 +70,7 @@
                 <li><a href="#">Posteingang öffnen <span class="badge">6</span></a></li>
               </ul>
             </li>
+            
             <li class="dropdown alerts-dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> Alerts <span class="badge">3</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -83,16 +84,25 @@
                 <li><a href="#">Alle ansehen</a></li>
               </ul>
             </li>
-            <li class="dropdown user-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+            
+            
+            
+              <% if current_user %>
+              <li class="dropdown user-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= " #{current_user.email}" %><b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#"><i class="fa fa-user"></i> Profil</a></li>
                 <li><a href="#"><i class="fa fa-envelope"></i> Posteingang <span class="badge">7</span></a></li>
                 <li><a href="#"><i class="fa fa-gear"></i> Einstellungen</a></li>
                 <li class="divider"></li>
-                <li><a href="#"><i class="fa fa-power-off"></i> Abmelden</a></li>
+                <li><a href="#"><%= link_to '<i class="fa fa-power-off"></i> Abmelden'.html_safe, destroy_user_session_path, method: :delete %> </a></li>
               </ul>
             </li>
+            <% else %>
+              <li><%= link_to "Einloggen", new_user_session_path %> </li>
+              <li><%= link_to "Registrieren", new_user_registration_path %></li>
+            <% end %>
+            
           </ul>
         </div><!-- /.navbar-collapse -->
       </nav>

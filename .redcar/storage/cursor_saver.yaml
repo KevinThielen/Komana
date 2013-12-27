@@ -6,24 +6,12 @@ cursor_positions:
   - :path: Gemfile
     :cursor_offset: 1244
     :timestamp: 2013-12-17 18:34:32 +01:00
-  - :path: app/views/layouts/application.html.erb
-    :cursor_offset: 686
-    :timestamp: 2013-12-17 18:37:32 +01:00
   - :path: app/assets/stylesheets/tasks.css.scss
     :cursor_offset: 176
     :timestamp: 2013-12-20 10:10:56 +01:00
   - :path: app/assets/stylesheets/sb-admin.css
     :cursor_offset: 0
     :timestamp: 2013-12-04 12:04:42 +01:00
-  - :path: config/routes.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-20 10:13:49 +01:00
-  - :path: app/models/user.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-20 11:30:13 +01:00
-  - :path: app/models/task.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-20 11:30:13 +01:00
   - :path: app/models/project.rb
     :cursor_offset: 0
     :timestamp: 2013-12-20 11:30:13 +01:00
@@ -42,13 +30,45 @@ cursor_positions:
   - :path: app/controllers/welcome_controller.rb
     :cursor_offset: 0
     :timestamp: 2013-12-20 10:10:56 +01:00
-  - :path: app/assets/stylesheets/application.css.scss
-    :cursor_offset: 0
-    :timestamp: 2013-12-17 18:37:32 +01:00
   - :path: app/views/lists/show.html.erb
     :cursor_offset: 0
     :timestamp: 2013-12-20 10:10:56 +01:00
   - :path: app/assets/stylesheets/projects.css.scss
     :cursor_offset: 0
     :timestamp: 2013-12-20 10:10:56 +01:00
+  - :path: app/views/layouts/_messages.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:37:32 +01:00
+  - :path: app/models/task.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-20 11:30:13 +01:00
+  - :path: app/models/user.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-20 11:30:13 +01:00
+  - :path: config/routes.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-20 10:13:49 +01:00
+  - :path: app/assets/stylesheets/application.css.scss
+    :cursor_offset: 660
+    :timestamp: 2013-12-27 15:15:39 +01:00
+  - :path: app/views/devise/unlocks/new.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 15:07:08 +01:00
+  - :path: app/views/devise/registrations/edit.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 15:07:08 +01:00
+  - :path: app/views/devise/shared/_links.erb
+    :cursor_offset: 1142
+    :timestamp: 2013-12-27 15:21:16 +01:00
+  - :path: app/views/devise/registrations/new.html.erb
+    :cursor_offset: 452
+    :timestamp: 2013-12-27 15:48:48 +01:00
+  - :path: app/views/welcome/index.html.erb
+    :cursor_offset: 190
+    :timestamp: 2013-12-27 14:31:01 +01:00
+    :selection_offset: 199
+    :block_selection_mode: false
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 14:14:51 +01:00
 files_to_retain: 0

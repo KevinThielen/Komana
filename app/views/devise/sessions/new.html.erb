@@ -1,0 +1,16 @@
+<div class="border-form-div">
+  <h2>Anmelden</h2>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    
+    <div class="input-group">
+  <span class="input-group-addon">@</span>
+  <%= f.email_field :email, :autofocus => true, :class=>'form-control', :placeholder => 'E-Mail' %>
+</div>
+    <%= f.password_field :password %>
+    <% if devise_mapping.rememberable? -%> 
+    <input type="checkbox"> <%= f.label :remember_me %></input>
+    <% end -%>
+    <%= f.submit "Sign in" %>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>
