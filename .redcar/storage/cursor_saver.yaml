@@ -56,9 +56,6 @@ cursor_positions:
     :timestamp: 2013-12-27 14:31:01 +01:00
     :selection_offset: 199
     :block_selection_mode: false
-  - :path: app/views/layouts/application.html.erb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 14:14:51 +01:00
   - :path: db/schema.rb
     :cursor_offset: 1602
     :timestamp: 2013-12-27 16:43:42 +01:00
@@ -73,9 +70,6 @@ cursor_positions:
     :timestamp: 2013-12-27 16:48:24 +01:00
     :selection_offset: 600
     :block_selection_mode: false
-  - :path: app/views/layouts/_navigation.html.erb
-    :cursor_offset: 5140
-    :timestamp: 2013-12-27 19:31:41 +01:00
   - :path: app/assets/stylesheets/application.css.scss
     :cursor_offset: 1258
     :timestamp: 2013-12-27 19:31:41 +01:00
@@ -85,4 +79,10 @@ cursor_positions:
   - :path: app/controllers/projects_controller.rb
     :cursor_offset: 0
     :timestamp: 2013-12-20 10:10:56 +01:00
+  - :path: app/views/layouts/_navigation.html.erb
+    :cursor_offset: 43
+    :timestamp: 2013-12-27 19:36:22 +01:00
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 573
+    :timestamp: 2013-12-27 19:35:50 +01:00
 files_to_retain: 0
