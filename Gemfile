@@ -45,15 +45,19 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
 #devise login
 gem 'devise'
+
 
 #javascipt runtime
 gem 'execjs'
 gem 'therubyracer'
 
+#Twitter bootstrap
 gem 'bootstrap-sass'
 
-group :deveopment do
+group :development do
   gem 'rails_layout'
 end
+
