@@ -42,9 +42,6 @@ cursor_positions:
   - :path: app/models/task.rb
     :cursor_offset: 0
     :timestamp: 2013-12-20 11:30:13 +01:00
-  - :path: app/models/user.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-20 11:30:13 +01:00
   - :path: config/routes.rb
     :cursor_offset: 0
     :timestamp: 2013-12-20 10:13:49 +01:00
@@ -71,4 +68,10 @@ cursor_positions:
   - :path: app/views/layouts/application.html.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 14:14:51 +01:00
+  - :path: db/schema.rb
+    :cursor_offset: 1602
+    :timestamp: 2013-12-27 16:43:42 +01:00
+  - :path: app/models/user.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-20 11:30:13 +01:00
 files_to_retain: 0
