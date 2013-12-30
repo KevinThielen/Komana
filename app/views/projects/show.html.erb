@@ -1,56 +1,64 @@
-<p>
-  <h1>
-	<strong>Project:</strong>
-	<%= @project.name %>
-  </h1>
-</p>
+<div id="page-wrapper">
+<div class="row">
+          <div class="col-lg-12">
+            <h1><%= @project.name %> <small>Organisation</small></h1>
+            <ol class="breadcrumb">
+              <li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
+              <li><%= link_to '<i class="fa fa-bar-chart-o"></i> Meine Projekte'.html_safe , projects_path %></li>
+              <li class="active"><i class="fa fa-folder-open-o"></i> <%= @project.name %></li>
+            </ol>
+          </div>
+        </div>
+        <div class="inline">
+        <%# Add List %>
+        
+        <%= form_for([@project, @project.lists.build], :html => {:class => 'form-inline'}) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :name, :class => 'form-control', :placeholder => 'Listenname' %>
+        </div>
+        <%= f.submit "Neue Liste", :class => 'btn btn-default' %>
+			
+	      <% end %>
+        
+        <%# Add Task %>
+        
+        <%= form_for([@project, @currentList.tasks.build], :html => {:class => 'form-inline'}) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :text, :class => 'form-control', :placeholder => 'Listenname' %>
+        </div>
+        <%= f.collection_select(:list_id, @lists, :id, :name, {}, {:class=>'form-control'}) %>
+        <%= f.submit "Neue Aufgabe", :class => 'btn btn-default' %>
+			
+	      <% end %>
+      </div>
+        <br/>
+        <br/>
+        
+        <%# Show Lists and Tasks %>
+        
+      <div class="row">  
+        <% @project.lists.each do |list| %>
+        <div class="well well-lg">
+          <h4><strong><%= list.name %></strong></h4><br/>
+          <% list.tasks.each do |task| %>
+          <div class="panel panel-default">
+            <div class="panel-heading">Task's title here><%= link_to '&times;'.html_safe, project_path(task), method: :delete, :class => 'close pull-right' %></div>
+            <div class="panel-body">
+              <%= task.text %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+		  </div>
+      
+      
+</div>
 
 
-<% @project.lists.each do |list| %>
-	<p>
-		<%= list.name %> &nbsp;&nbsp;|&nbsp;&nbsp;
-		<% list.tasks.each do |task| %>
-			<%= task.text %> &nbsp;&nbsp;
-		<% end %>		
-	</p>
-<% end %>
 
 
 
-<br><br>
-
-<p>
-	<h2>Add a new List</h2>
-</p>
-<p>
-	<%= form_for([@project, @project.lists.build]) do |f| %>
-		<p>
-			<%= f.label :name %><br>
-			<%= f.text_field :name %>
-		</p>
-		<p>
-			<%= f.submit %>
-		</p>
-	<% end %>
-</p>
-
-<br><br>
-<p>
-	<h2>Add a new task</h2>
-</p>
-<p>
-	<%= form_for([@project,  @currentList.tasks.build]) do |f| %>
-		<p>
-			<%= f.label :text %><br>
-			<%= f.text_field :text %>
-		
-			<%= f.collection_select(:list_id, @lists, :id, :name, :include_blank => false) %>
-		</p>
-		<p>
-			<%= f.submit %>
-		</p>
-	<% end %>
-</p>
 
 
 <%= link_to 'Delete', project_path(@project), method: :delete %>

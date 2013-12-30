@@ -6,4 +6,59 @@ cursor_positions:
   - :path: app/views/layouts/_navigation.html.erb
     :cursor_offset: 43
     :timestamp: 2013-12-27 19:36:22 +01:00
+  - :path: Gemfile
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 19:57:15 +01:00
+  - :path: db/development.sqlite3
+    :cursor_offset: 15195
+    :timestamp: 2013-12-28 22:24:56 +01:00
+  - :path: app/controllers/models/user.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/views/devise/registrations/new.html.erb
+    :cursor_offset: 300
+    :timestamp: 2013-12-28 22:41:27 +01:00
+  - :path: config/routes.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/views/devise/shared/_links.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: config/locales/devise.en.yml
+    :cursor_offset: 78
+    :timestamp: 2013-12-27 20:13:13 +01:00
+    :selection_offset: 29
+    :block_selection_mode: false
+  - :path: config/locales/en.yml
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: config/application.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: config/boot.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: config/database.yml
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: bin/rake
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: public/favicon.ico
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: app/views/devise/sessions/new.html.erb
+    :cursor_offset: 505
+    :timestamp: 2013-12-27 20:13:13 +01:00
+    :selection_offset: 477
+    :block_selection_mode: false
+  - :path: db/schema.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/views/layouts/_navigation_links.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
 files_to_retain: 0

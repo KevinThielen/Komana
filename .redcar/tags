@@ -1,4 +1,4 @@
-1388170236
+1388446625
 AddFirstnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154237_add_firstname_to_users.rb	class AddFirstnameToUsers 
 AddLastnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154328_add_lastname_to_users.rb	class AddLastnameToUsers 
 Application	/media/sf_Share/Komana/config/application.rb	  class Application 
