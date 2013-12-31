@@ -12,15 +12,9 @@ cursor_positions:
   - :path: db/development.sqlite3
     :cursor_offset: 15195
     :timestamp: 2013-12-28 22:24:56 +01:00
-  - :path: app/controllers/models/user.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/views/devise/registrations/new.html.erb
     :cursor_offset: 300
     :timestamp: 2013-12-28 22:41:27 +01:00
-  - :path: config/routes.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/views/devise/shared/_links.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -59,6 +53,66 @@ cursor_positions:
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/controllers/lists_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/controllers/projects_controller.rb
+    :cursor_offset: 485
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/models/task.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/controllers/tasks_controller.rb
+    :cursor_offset: 343
+    :timestamp: 2013-12-31 00:54:04 +01:00
+  - :path: app/views/devise/confirmations/new.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/views/devise/mailer/confirmation_instructions.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/views/devise/mailer/reset_password_instructions.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/views/devise/mailer/unlock_instructions.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/views/lists/show.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/helpers/welcome_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/helpers/application_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: app/helpers/lists_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/helpers/projects_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/helpers/tasks_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/controllers/welcome_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/controllers/application_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: app/controllers/models/user.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: config/initializers/devise.rb
+    :cursor_offset: 7403
+    :timestamp: 2013-12-31 01:32:37 +01:00
+  - :path: config/initializers/session_store.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: config/routes.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
 files_to_retain: 0

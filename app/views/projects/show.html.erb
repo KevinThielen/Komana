@@ -26,7 +26,7 @@
         <div class="form-group">
           <%= f.text_field :text, :class => 'form-control', :placeholder => 'Listenname' %>
         </div>
-        <%= f.collection_select(:list_id, @lists, :id, :name, {}, {:class=>'form-control'}) %>
+        <%= f.collection_select(:list_id, @lists, :id, :name, { :include_blank => false }, {:class=>'form-control'}) %>
         <%= f.submit "Neue Aufgabe", :class => 'btn btn-default' %>
 			
 	      <% end %>
@@ -42,7 +42,7 @@
           <h4><strong><%= list.name %></strong></h4><br/>
           <% list.tasks.each do |task| %>
           <div class="panel panel-default">
-            <div class="panel-heading">Task's title here><%= link_to '&times;'.html_safe, project_path(task), method: :delete, :class => 'close pull-right' %></div>
+            <div class="panel-heading">Task's title here<%= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %></div>
             <div class="panel-body">
               <%= task.text %>
             </div>
@@ -52,15 +52,8 @@
         <% end %>
 		  </div>
       
-      
+  <%= link_to 'Projekt löschen', project_path(@project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+  <br/>
+  <br/ >
+  <%= link_to 'Zurück', projects_path, :class => 'btn btn-default' %>
 </div>
-
-
-
-
-
-
-
-<%= link_to 'Delete', project_path(@project), method: :delete %>
-<br>
-<%= link_to 'back to Projects', projects_path %>

@@ -87,7 +87,7 @@
               <li class="dropdown user-dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= " #{current_user.email}" %><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-user"></i> Profil</a></li>
+                <li><%= link_to '<i class="fa fa-user"></i> Profil'.html_safe , root_path %></li>
                 <li><a href="#"><i class="fa fa-envelope"></i> Posteingang <span class="badge">7</span></a></li>
                 <li><a href="#"><i class="fa fa-gear"></i> Einstellungen</a></li>
                 <li class="divider"></li>

@@ -4,5 +4,12 @@ class TasksController < ApplicationController
 		@task = @list.tasks.create(params[:task].permit(:text))
 			redirect_to project_path(@list.project)
 	end
+  
+  def destroy 
+	   @list = List.find(params[:task][:list_id])
+		@task = @list.tasks.find(params[:id])
+	   @task.destroy
+
+	end
 	
 end
