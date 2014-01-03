@@ -55,7 +55,7 @@
           <br/>
           <% list.tasks.each do |task| %>
           <div class="panel panel-default">
-            <div class="panel-heading">Task's title here<%= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %>
+            <div class="panel-heading"><a data-toggle="modal" data-target="#editTaskModal"><strong>[Task Title]</strong></a><%= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %>
               
             </div>
             <div class="panel-body">
@@ -86,3 +86,22 @@
   <br/ >
   <%= link_to 'Zurück', projects_path, :class => 'btn btn-default' %>
 </div>
+
+<!-- Task-Modal -->
+          <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="editTaskModalLabel">[Task title]</h4>
+                </div>
+                <div class="modal-body">
+                  [Task content]
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Speichern</button>                  
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
