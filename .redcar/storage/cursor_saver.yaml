@@ -55,9 +55,6 @@ cursor_positions:
   - :path: app/controllers/lists_controller.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/controllers/projects_controller.rb
-    :cursor_offset: 485
-    :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/models/task.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -74,9 +71,6 @@ cursor_positions:
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/views/devise/mailer/unlock_instructions.html.erb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/views/lists/show.html.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/helpers/welcome_helper.rb
@@ -125,4 +119,16 @@ cursor_positions:
     :timestamp: 2013-12-30 23:08:25 +01:00
     :selection_offset: 957
     :block_selection_mode: false
+  - :path: app/assets/stylesheets/font-awesome.css.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-02 20:58:21 +01:00
+  - :path: app/assets/stylesheets/application.css.scss
+    :cursor_offset: 0
+    :timestamp: 2014-01-02 20:57:54 +01:00
+  - :path: app/views/lists/show.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/controllers/projects_controller.rb
+    :cursor_offset: 485
+    :timestamp: 2013-12-27 20:13:13 +01:00
 files_to_retain: 0
