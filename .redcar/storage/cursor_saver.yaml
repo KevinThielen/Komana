@@ -68,9 +68,6 @@ cursor_positions:
   - :path: app/helpers/tasks_helper.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/controllers/application_controller.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-17 18:01:59 +01:00
   - :path: app/controllers/models/user.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -116,9 +113,6 @@ cursor_positions:
   - :path: config/routes.rb
     :cursor_offset: 0
     :timestamp: 2014-01-06 11:57:46 +01:00
-  - :path: app/views/layouts/_navigation.html.erb
-    :cursor_offset: 4537
-    :timestamp: 2014-01-06 14:02:39 +01:00
   - :path: app/views/welcome/welcome.html.erb
     :cursor_offset: 0
     :timestamp: 2014-01-05 17:50:25 +01:00
@@ -152,4 +146,10 @@ cursor_positions:
   - :path: Gemfile
     :cursor_offset: 1259
     :timestamp: 2014-01-06 17:47:01 +01:00
+  - :path: app/views/layouts/_navigation.html.erb
+    :cursor_offset: 4383
+    :timestamp: 2014-01-06 17:53:09 +01:00
+  - :path: app/controllers/application_controller.rb
+    :cursor_offset: 439
+    :timestamp: 2014-01-06 17:49:57 +01:00
 files_to_retain: 0
