@@ -60,6 +60,11 @@
             </div>
             <div class="panel-body">
               <%= task.text %>
+              <br/>
+              <br/>
+              <%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, project_task_move_to_prev_list_path(project_id:@project.id, task_id:task.id) if task.list != List.first %>
+				
+				      <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != List.last %>
             </div>
           </div>
           <% end %>
@@ -87,66 +92,7 @@
   <%= link_to 'Zurück', projects_path, :class => 'btn btn-default' %>
 </div>
 
-<<<<<<< HEAD
 
-<% @project.lists.each do |list| %>
-<p>
-		<%= list.name %> &nbsp;&nbsp;|&nbsp;&nbsp;
-		<% list.tasks.each do |task| %>
-			[
-				<%= task.text %>
-
-				<%= link_to "[<]", project_task_move_to_prev_list_path(project_id:@project.id, task_id:task.id) if task.list != List.first %>
-				
-				<%= link_to "[>]", project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != List.last %>
-			]
-		<% end %>	
-</p>
-<% end %>
-
-
-
-<br><br>
-
-<p>
-	<h2>Add a new List</h2>
-</p>
-<p>
-	<%= form_for([@project, @project.lists.build]) do |f| %>
-		<p>
-			<%= f.label :name %><br>
-			<%= f.text_field :name %>
-		</p>
-		<p>
-			<%= f.submit %>
-		</p>
-	<% end %>
-</p>
-
-<br><br>
-<p>
-	<h2>Add a new task</h2>
-</p>
-<p>
-	<%= form_for([@project,  @currentList.tasks.build]) do |f| %>
-		<p>
-			<%= f.label :text %><br>
-			<%= f.text_field :text %>
-		
-			<%= f.collection_select(:list_id, @lists, :id, :name, :include_blank => false) %>
-		</p>
-		<p>
-			<%= f.submit %>
-		</p>
-	<% end %>
-</p>
-
-
-<%= link_to 'Delete', project_path(@project), method: :delete %>
-<br>
-<%= link_to 'back to Projects', projects_path %>
-
-=======
 <!-- Task-Modal -->
           <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -165,4 +111,4 @@
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
->>>>>>> origin/development
+

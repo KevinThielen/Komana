@@ -1,4 +1,4 @@
-1388868377
+1389006934
 AddFirstnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154237_add_firstname_to_users.rb	class AddFirstnameToUsers 
 AddLastnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154328_add_lastname_to_users.rb	class AddLastnameToUsers 
 Application	/media/sf_Share/Komana/config/application.rb	  class Application 
@@ -51,6 +51,8 @@ destroy	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def destr
 destroy	/media/sf_Share/Komana/app/controllers/tasks_controller.rb	  def destroy 
 index	/media/sf_Share/Komana/app/controllers/welcome_controller.rb	  def index
 index	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def index
+move_to_next_list	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def move_to_next_list
+move_to_prev_list	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def move_to_prev_list
 new	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def new 
 project_params	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def project_params
 show	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def show
