@@ -3,8 +3,6 @@ Komana::Application.routes.draw do
   get "welcome/index"
   
   
-  #collection of projects
-  resources :projects
   root "welcome#index"
   
 
@@ -12,13 +10,9 @@ Komana::Application.routes.draw do
   
   resources :projects do
 	resources :lists
-	resources :tasks
+	resources :tasks do
+		get "move_to_next_list"
+		get "move_to_prev_list"
+	end
   end
-  
-  
-  resources :lists do
-	resources :tasks
-  end
-  
-  
 end
