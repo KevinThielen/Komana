@@ -1,4 +1,4 @@
-1389020272
+1389022273
 AddFirstnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154237_add_firstname_to_users.rb	class AddFirstnameToUsers 
 AddLastnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154328_add_lastname_to_users.rb	class AddLastnameToUsers 
 Application	/media/sf_Share/Komana/config/application.rb	  class Application 
@@ -8,6 +8,7 @@ CreateLists	/media/sf_Share/Komana/db/migrate/20131218151103_create_lists.rb	cla
 CreateProjects	/media/sf_Share/Komana/db/migrate/20131218150831_create_projects.rb	class CreateProjects 
 CreateTasks	/media/sf_Share/Komana/db/migrate/20131218151614_create_tasks.rb	class CreateTasks 
 DeviseCreateUsers	/media/sf_Share/Komana/db/migrate/20131220083306_devise_create_users.rb	class DeviseCreateUsers 
+DeviseHelper	/media/sf_Share/Komana/app/helpers/devise_helper.rb	module DeviseHelper
 Komana	/media/sf_Share/Komana/config/application.rb	module Komana
 List	/media/sf_Share/Komana/app/controllers/models/list.rb	class List 
 List	/media/sf_Share/Komana/app/models/list.rb	class List 
@@ -49,6 +50,7 @@ create	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def create
 create	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def create
 destroy	/media/sf_Share/Komana/app/controllers/tasks_controller.rb	  def destroy 
 destroy	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def destroy 
+devise_error_messages!	/media/sf_Share/Komana/app/helpers/devise_helper.rb	  def devise_error_messages!
 index	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def index
 index	/media/sf_Share/Komana/app/controllers/welcome_controller.rb	  def index
 move_to_next_list	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def move_to_next_list
