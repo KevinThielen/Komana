@@ -5,6 +5,13 @@ class TasksController < ApplicationController
 		
 		redirect_to project_path(@list.project)
 	end
+  
+  def destroy 
+	   @list = List.find(params[:task][:list_id])
+		@task = @list.tasks.find(params[:id])
+	   @task.destroy
+
+	end
 	
 	def move_to_next_list
 		@task = Task.find(params[:task_id])
