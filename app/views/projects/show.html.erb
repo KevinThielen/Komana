@@ -7,12 +7,18 @@
 
 
 <% @project.lists.each do |list| %>
-	<p>
+<p>
 		<%= list.name %> &nbsp;&nbsp;|&nbsp;&nbsp;
 		<% list.tasks.each do |task| %>
-			<%= task.text %> &nbsp;&nbsp;
-		<% end %>		
-	</p>
+			[
+				<%= task.text %>
+
+				<%= link_to "[<]", project_task_move_to_prev_list_path(project_id:@project.id, task_id:task.id) if task.list != List.first %>
+				
+				<%= link_to "[>]", project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != List.last %>
+			]
+		<% end %>	
+</p>
 <% end %>
 
 
@@ -56,3 +62,4 @@
 <%= link_to 'Delete', project_path(@project), method: :delete %>
 <br>
 <%= link_to 'back to Projects', projects_path %>
+
