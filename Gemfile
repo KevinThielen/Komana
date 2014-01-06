@@ -49,6 +49,8 @@ end
 #devise login
 gem 'devise'
 
+#devise international-plugin
+gem 'devise-i18n-views'
 
 #javascipt runtime
 gem 'execjs'
