@@ -9,9 +9,6 @@ cursor_positions:
   - :path: app/views/devise/registrations/new.html.erb
     :cursor_offset: 300
     :timestamp: 2013-12-28 22:41:27 +01:00
-  - :path: app/views/devise/shared/_links.erb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: config/boot.rb
     :cursor_offset: 0
     :timestamp: 2013-12-17 18:01:59 +01:00
@@ -24,11 +21,6 @@ cursor_positions:
   - :path: public/favicon.ico
     :cursor_offset: 0
     :timestamp: 2013-12-17 18:01:59 +01:00
-  - :path: app/views/devise/sessions/new.html.erb
-    :cursor_offset: 505
-    :timestamp: 2013-12-27 20:13:13 +01:00
-    :selection_offset: 477
-    :block_selection_mode: false
   - :path: app/views/layouts/_navigation_links.html.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -107,9 +99,6 @@ cursor_positions:
   - :path: config/locales/en.yml
     :cursor_offset: 0
     :timestamp: 2013-12-17 18:01:59 +01:00
-  - :path: app/assets/stylesheets/application.css.scss
-    :cursor_offset: 1061
-    :timestamp: 2014-01-06 16:08:52 +01:00
   - :path: config/routes.rb
     :cursor_offset: 0
     :timestamp: 2014-01-06 11:57:46 +01:00
@@ -124,9 +113,6 @@ cursor_positions:
     :timestamp: 2014-01-06 13:17:10 +01:00
   - :path: db/schema.rb
     :cursor_offset: 2004
-    :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: config/locales/devise.en.yml
-    :cursor_offset: 3530
     :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: config/locales/devise.views.de.yml
     :cursor_offset: 0
@@ -146,10 +132,22 @@ cursor_positions:
   - :path: Gemfile
     :cursor_offset: 1259
     :timestamp: 2014-01-06 17:47:01 +01:00
-  - :path: app/views/layouts/_navigation.html.erb
-    :cursor_offset: 4383
-    :timestamp: 2014-01-06 17:53:09 +01:00
   - :path: app/controllers/application_controller.rb
     :cursor_offset: 439
     :timestamp: 2014-01-06 17:49:57 +01:00
+  - :path: config/locales/devise.en.yml
+    :cursor_offset: 3530
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/views/layouts/_navigation.html.erb
+    :cursor_offset: 5124
+    :timestamp: 2014-01-06 22:11:55 +01:00
+  - :path: app/views/devise/sessions/new.html.erb
+    :cursor_offset: 841
+    :timestamp: 2014-01-06 22:21:02 +01:00
+  - :path: app/views/devise/shared/_links.erb
+    :cursor_offset: 640
+    :timestamp: 2014-01-06 22:20:34 +01:00
+  - :path: app/assets/stylesheets/application.css.scss
+    :cursor_offset: 1138
+    :timestamp: 2014-01-06 22:21:09 +01:00
 files_to_retain: 0
