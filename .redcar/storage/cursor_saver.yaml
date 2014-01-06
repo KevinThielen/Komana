@@ -12,9 +12,6 @@ cursor_positions:
   - :path: app/views/devise/shared/_links.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: config/application.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: config/boot.rb
     :cursor_offset: 0
     :timestamp: 2013-12-17 18:01:59 +01:00
@@ -32,9 +29,6 @@ cursor_positions:
     :timestamp: 2013-12-27 20:13:13 +01:00
     :selection_offset: 477
     :block_selection_mode: false
-  - :path: db/schema.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/views/layouts/_navigation_links.html.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -80,15 +74,9 @@ cursor_positions:
   - :path: app/controllers/models/user.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: config/initializers/devise.rb
-    :cursor_offset: 7403
-    :timestamp: 2013-12-31 01:32:37 +01:00
   - :path: config/initializers/session_store.rb
     :cursor_offset: 0
     :timestamp: 2013-12-17 18:01:59 +01:00
-  - :path: config/routes.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/views/lists/show.html.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -107,14 +95,6 @@ cursor_positions:
   - :path: app/assets/stylesheets/font-awesome.css
     :cursor_offset: 0
     :timestamp: 2014-01-04 21:28:39 +01:00
-  - :path: app/views/welcome/index.html.erb
-    :cursor_offset: 121
-    :timestamp: 2014-01-06 13:17:10 +01:00
-  - :path: app/views/layouts/_navigation.html.erb
-    :cursor_offset: 1008
-    :timestamp: 2014-01-04 21:51:11 +01:00
-    :selection_offset: 955
-    :block_selection_mode: false
   - :path: app/views/devise/registrations/edit.html.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -127,21 +107,49 @@ cursor_positions:
   - :path: app/assets/stylesheets/framework_and_overrides.css.scss
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: config/locales/devise.en.yml
-    :cursor_offset: 78
-    :timestamp: 2013-12-27 20:13:13 +01:00
-    :selection_offset: 29
-    :block_selection_mode: false
   - :path: config/locales/en.yml
     :cursor_offset: 0
     :timestamp: 2013-12-17 18:01:59 +01:00
-  - :path: config/locales/devise.views.de.yml
-    :cursor_offset: 0
-    :timestamp: 2014-01-06 14:24:05 +01:00
-  - :path: Gemfile
-    :cursor_offset: 1258
-    :timestamp: 2014-01-06 14:22:50 +01:00
   - :path: app/assets/stylesheets/application.css.scss
     :cursor_offset: 1061
     :timestamp: 2014-01-06 16:08:52 +01:00
+  - :path: config/routes.rb
+    :cursor_offset: 0
+    :timestamp: 2014-01-06 11:57:46 +01:00
+  - :path: app/views/layouts/_navigation.html.erb
+    :cursor_offset: 4537
+    :timestamp: 2014-01-06 14:02:39 +01:00
+  - :path: app/views/welcome/welcome.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-05 17:50:25 +01:00
+  - :path: app/views/welcome/dashboard.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-05 17:50:58 +01:00
+  - :path: app/views/welcome/index.html.erb
+    :cursor_offset: 121
+    :timestamp: 2014-01-06 13:17:10 +01:00
+  - :path: db/schema.rb
+    :cursor_offset: 2004
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: config/locales/devise.en.yml
+    :cursor_offset: 3530
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: config/locales/devise.views.de.yml
+    :cursor_offset: 0
+    :timestamp: 2014-01-06 14:24:05 +01:00
+  - :path: app/models/project.rb
+    :cursor_offset: 0
+    :timestamp: 2014-01-06 11:57:46 +01:00
+  - :path: config/initializers/devise.rb
+    :cursor_offset: 9230
+    :timestamp: 2014-01-06 17:02:55 +01:00
+  - :path: config/application.rb
+    :cursor_offset: 852
+    :timestamp: 2014-01-06 17:25:09 +01:00
+  - :path: app/models/user.rb
+    :cursor_offset: 264
+    :timestamp: 2014-01-06 17:27:31 +01:00
+  - :path: Gemfile
+    :cursor_offset: 1259
+    :timestamp: 2014-01-06 17:47:01 +01:00
 files_to_retain: 0
