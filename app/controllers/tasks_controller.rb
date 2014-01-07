@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 	def create
 		@list = List.find(params[:task][:list_id])
-		@task = @list.tasks.create(params[:task].permit(:text))
+		@task = @list.tasks.create(task_params)
 		
 		redirect_to project_path(@list.project)
 	end
@@ -30,5 +30,10 @@ class TasksController < ApplicationController
 		@newList.tasks << @task
 		
 		redirect_to project_path(params[:project_id])
+	end
+	
+private
+	def task_params
+	  params.require(:task).permit(:titel, :text)
 	end
 end
