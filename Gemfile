@@ -59,7 +59,11 @@ gem 'therubyracer'
 #Twitter bootstrap
 gem 'bootstrap-sass'
 
+#Mailboxer
+gem 'mailboxer'
+
 group :development do
   gem 'rails_layout'
 end
+
 

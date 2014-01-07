@@ -6,7 +6,8 @@ Komana::Application.routes.draw do
   root "welcome#index"
   
 
-  
+  resources :messages
+  resources :conversations
   
   resources :projects do
 	resources :lists
