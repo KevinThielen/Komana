@@ -8,9 +8,8 @@ class TasksController < ApplicationController
   
   def destroy 
 	   @list = List.find(params[:task][:list_id])
-		@task = @list.tasks.find(params[:id])
+	   @task = @list.tasks.find(params[:id])
 	   @task.destroy
-
 	end
 	
 	def move_to_next_list
