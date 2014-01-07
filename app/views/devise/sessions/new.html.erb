@@ -3,17 +3,24 @@
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     
     <div class="input-group">
-      <span class="input-group-addon">@</span>
+      <span class="input-group-addon"><i class="fa fa-user"></i></span>
       <%= f.email_field :email, :autofocus => true, :class=>'form-control', :placeholder => 'E-Mail' %>
     </div>
     <div class="input-group">
-      <span class="input-group-addon">@</span>
+      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
       <%= f.password_field :password,:class=>'form-control', :placeholder => 'Passwort' %>
     </div>
-    <% if devise_mapping.rememberable? -%> 
-    <input type="checkbox"> <%= f.label :remember_me %></input>
+    <% if devise_mapping.rememberable? -%>
+    <div class="input-group">
+      <input type="checkbox"> Angemeldet bleiben</input>
+    </div>
     <% end -%>
+    <div class="input-group">
     <%= f.submit "Anmelden", :class=>'btn btn-primary'%>
+    </div>
   <% end %>
+  
   <%= render "devise/shared/links" %>
-</div>
+
+ </div> 
+

@@ -1,14 +1,46 @@
+
 <div class="border-form-div">
   <h2>Registrieren</h2>
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-    <%= f.text_field :firstname, :autofocus => true, :placeholder => 'Vorname'  %>
-    <%= f.text_field :lastname, :placeholder => 'Nachname'  %>
-    <%= f.email_field :email, :placeholder => 'E-Mail' %>
-    <%= f.password_field :password, :placeholder => 'Passwort' %>
-    <%= f.password_field :password_confirmation, :placeholder => 'Passwort wiederholen' %>
-    <%= f.submit "Registrieren",:class=>'btn btn-primary' %>
+  
+ <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="input-group">
+    <label for="inputFirstname" class="control-label">Vorname</label>
+    <div class="">
+      <%= f.text_field :firstname, :autofocus => true, :placeholder => 'Vorname', :id => "inputFirstname", :class => "form-control"  %>
+    </div>
+  </div>
+  <div class="input-group">
+    <label for="inputLastname" class="control-label">Nachname</label>
+    <div class="">
+      <%= f.text_field :lastname, :placeholder => 'Nachname', :id => "inputLastname", :class => "form-control"  %>
+    </div>
+  </div>
+  <div class="input-group">
+    <label for="inputEmail" class="control-label">E-Mail</label>
+    <div class="">
+      <%= f.email_field :email, :placeholder => 'E-Mail', :id => "inputEmail", :class => "form-control"  %>
+    </div>
+  </div>
+  <div class="input-group">
+    <label for="inputPassword" class="control-label">Passwort</label>
+    <div class="">
+      <%= f.password_field :password, :placeholder => 'Passwort', :id => "inputPassword", :class => "form-control"  %>
+    </div>
+  </div>
+  <div class="input-group">
+    <label for="inputConfirmPassword" class="control-label">Passwort wiederholen</label>
+    <div class="">
+      <%= f.password_field :password_confirmation, :placeholder => 'Passwort wiederholen', :id => "inputConfirmPassword", :class => "form-control"  %>
+    </div>
+  </div>
+  <div class="input-group border-form-button">
+    <div class="">
+      <%= f.submit "Registrieren",:class=>'btn btn-success' %>
+    </div>
+  </div>
   <% end %>
-  <%= render "devise/shared/links" %>
-</div>
 
+  <%= render "devise/shared/links" %>
+
+  </div>
