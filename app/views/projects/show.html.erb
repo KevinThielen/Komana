@@ -22,7 +22,7 @@
         
         <%# Add Task %>
         
-        <%= form_for( new_project_list_path(@project.id), :html => {:class => 'form-inline'}) do |f| %>
+       <%= form_for( [@project, @currentList.tasks.build], :html => {:class => 'form-inline'}) do |f| %>
         <div class="form-group">
           <%= f.text_field :text, :class => 'form-control', :placeholder => 'Listenname' %>
         </div>
@@ -62,8 +62,8 @@
               <%= task.text %>
               <br/>
               <br/>
-              <%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, project_task_move_to_prev_list_path(project_id:@project.id, task_id:task.id) if task.list != List.first %>
-			  <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != List.last %>
+              <%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, project_task_move_to_prev_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.first %>
+			  <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.last %>
             </div>
           </div>
           <% end %>
