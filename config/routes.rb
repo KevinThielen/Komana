@@ -4,6 +4,7 @@ Komana::Application.routes.draw do
   
   
   root "welcome#index"
+  get "welcome/dashboard"
   
 
   resources :messages

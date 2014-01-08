@@ -1,4 +1,4 @@
-1389168069
+1389172502
 AddAttachments	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	class AddAttachments 
 AddFirstnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154237_add_firstname_to_users.rb	class AddFirstnameToUsers 
 AddGlobalNotificationSupport	/media/sf_Share/Komana/db/migrate/20140107080664_add_global_notification_support.mailboxer_engine.rb	class AddGlobalNotificationSupport 
@@ -28,7 +28,6 @@ ListsController	/media/sf_Share/Komana/app/controllers/lists_controller.rb	class
 ListsControllerTest	/media/sf_Share/Komana/test/controllers/lists_controller_test.rb	class ListsControllerTest 
 ListsHelper	/media/sf_Share/Komana/app/helpers/lists_helper.rb	module ListsHelper
 ListsHelperTest	/media/sf_Share/Komana/test/helpers/lists_helper_test.rb	class ListsHelperTest 
-MessagesController	/media/sf_Share/Komana/app/controllers/messages_controller.rb	class MessagesController 
 MessagesControllerTest	/media/sf_Share/Komana/test/controllers/messages_controller_test.rb	class MessagesControllerTest 
 MessagesHelper	/media/sf_Share/Komana/app/helpers/messages_helper.rb	module MessagesHelper
 MessagesHelperTest	/media/sf_Share/Komana/test/helpers/messages_helper_test.rb	class MessagesHelperTest 
@@ -66,10 +65,10 @@ change	/media/sf_Share/Komana/db/migrate/20140107080664_add_global_notification_
 configure_permitted_parameters	/media/sf_Share/Komana/app/controllers/application_controller.rb	  def configure_permitted_parameters
 conversation	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation
 conversation_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation_params(*keys)
-create	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def create
+create	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def create
 create	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def create
 create	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def create
-create	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def create
+create	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def create
 destroy	/media/sf_Share/Komana/app/controllers/tasks_controller.rb	  def destroy 
 destroy	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def destroy 
 devise_error_messages!	/media/sf_Share/Komana/app/helpers/devise_helper.rb	  def devise_error_messages!

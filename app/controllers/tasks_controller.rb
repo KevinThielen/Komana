@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_filter :authenticate_user!
 	def create
 		@list = List.find(params[:task][:list_id])
 		@task = @list.tasks.create(params[:task].permit(:text))

@@ -1,9 +1,12 @@
 class WelcomeController < ApplicationController
+  
   def index
-    #if signed_in?
-           # render 'show_welcome_dashboard'
-      # else
-         #   render 'show_welcome'
-      # end
+    if signed_in?
+        redirect_to welcome_dashboard_path
+    end
   end
+
+  
 end
+
+
