@@ -5,6 +5,8 @@ class WelcomeController < ApplicationController
         redirect_to welcome_dashboard_path
     end
   end
+  def contact
+  end
 
   
 end

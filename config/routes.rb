@@ -5,9 +5,10 @@ Komana::Application.routes.draw do
   
   root "welcome#index"
   get "welcome/dashboard"
+  get "welcome/contact"
   
 
-  resources :messages
+  resources :portfolios
   resources :conversations
   
   resources :projects do

@@ -1,4 +1,4 @@
-1389172502
+1389214523
 AddAttachments	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	class AddAttachments 
 AddFirstnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154237_add_firstname_to_users.rb	class AddFirstnameToUsers 
 AddGlobalNotificationSupport	/media/sf_Share/Komana/db/migrate/20140107080664_add_global_notification_support.mailboxer_engine.rb	class AddGlobalNotificationSupport 
@@ -31,6 +31,10 @@ ListsHelperTest	/media/sf_Share/Komana/test/helpers/lists_helper_test.rb	class L
 MessagesControllerTest	/media/sf_Share/Komana/test/controllers/messages_controller_test.rb	class MessagesControllerTest 
 MessagesHelper	/media/sf_Share/Komana/app/helpers/messages_helper.rb	module MessagesHelper
 MessagesHelperTest	/media/sf_Share/Komana/test/helpers/messages_helper_test.rb	class MessagesHelperTest 
+PortfoliosController	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	class PortfoliosController 
+PortfoliosControllerTest	/media/sf_Share/Komana/test/controllers/portfolios_controller_test.rb	class PortfoliosControllerTest 
+PortfoliosHelper	/media/sf_Share/Komana/app/helpers/portfolios_helper.rb	module PortfoliosHelper
+PortfoliosHelperTest	/media/sf_Share/Komana/test/helpers/portfolios_helper_test.rb	class PortfoliosHelperTest 
 Project	/media/sf_Share/Komana/app/controllers/models/project.rb	class Project 
 Project	/media/sf_Share/Komana/app/models/project.rb	class Project 
 ProjectTest	/media/sf_Share/Komana/test/models/project_test.rb	class ProjectTest 
@@ -63,6 +67,7 @@ change	/media/sf_Share/Komana/db/migrate/20131218151614_create_tasks.rb	  def ch
 change	/media/sf_Share/Komana/db/migrate/20131227154237_add_firstname_to_users.rb	  def change
 change	/media/sf_Share/Komana/db/migrate/20140107080664_add_global_notification_support.mailboxer_engine.rb	  def change
 configure_permitted_parameters	/media/sf_Share/Komana/app/controllers/application_controller.rb	  def configure_permitted_parameters
+contact	/media/sf_Share/Komana/app/controllers/welcome_controller.rb	  def contact
 conversation	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation
 conversation_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation_params(*keys)
 create	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def create
@@ -79,6 +84,7 @@ down	/media/sf_Share/Komana/db/migrate/20140107080661_add_notification_code.mail
 down	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	  def self.down
 fetch_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def fetch_params(key, *subkeys)
 index	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def index
+index	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def index
 index	/media/sf_Share/Komana/app/controllers/welcome_controller.rb	  def index
 mailbox	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def mailbox
 mailboxer_email	/media/sf_Share/Komana/app/models/user.rb	        def mailboxer_email(object)
@@ -91,6 +97,7 @@ notice	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def notice
 project_params	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def project_params
 reply	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def reply
 show	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def show
+show	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def show
 trash	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def trash
 untrash	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def untrash
 up	/media/sf_Share/Komana/db/migrate/20140107080660_add_notified_object.mailboxer_engine.rb	  def self.up
