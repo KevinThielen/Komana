@@ -185,9 +185,6 @@ cursor_positions:
   - :path: app/views/welcome/index.html.erb
     :cursor_offset: 0
     :timestamp: 2014-01-05 17:50:25 +01:00
-  - :path: app/views/portfolios/index.html.erb
-    :cursor_offset: 0
-    :timestamp: 2014-01-08 10:11:15 +01:00
   - :path: app/views/projects/show.html.erb
     :cursor_offset: 5
     :timestamp: 2014-01-08 09:12:43 +01:00
@@ -229,4 +226,7 @@ cursor_positions:
   - :path: app/controllers/conversations_controller.rb
     :cursor_offset: 119
     :timestamp: 2014-01-07 16:33:27 +01:00
+  - :path: app/views/portfolios/index.html.erb
+    :cursor_offset: 3161
+    :timestamp: 2014-01-09 10:26:08 +01:00
 files_to_retain: 0
