@@ -1,3 +1,5 @@
 --- 
-open_files: []
-
+open_files: 
+  - app/views/layouts/_navigation.html.erb
+  - app/views/conversations/index.html.erb
+  - app/views/projects/index.html.erb

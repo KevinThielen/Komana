@@ -1,4 +1,4 @@
-1389261461
+1389269644
 AddAttachments	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	class AddAttachments 
 AddFirstnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154237_add_firstname_to_users.rb	class AddFirstnameToUsers 
 AddGlobalNotificationSupport	/media/sf_Share/Komana/db/migrate/20140107080664_add_global_notification_support.mailboxer_engine.rb	class AddGlobalNotificationSupport 
