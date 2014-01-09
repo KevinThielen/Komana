@@ -1,0 +1,25 @@
+
+Inbox: <%= current_user.mailbox.inbox.count %> Send: <%= current_user.mailbox.sentbox.count %>
+
+<%= form_for :conversation, url: :conversations do |f| %>
+<div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+      <%= f.email_field :recipients, :autofocus => true, :class=>'form-control', :placeholder => 'E-Mail' %>
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+      <%= f.text_field :subject,:class=>'form-control', :placeholder => 'Subject' %>
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+      <%= f.text_area :body,:class=>'form-control', :placeholder => 'body' %>
+    </div>
+<%= f.submit "Anmelden", :class=>'btn btn-primary'%>
+<% end %>
+
+
+---
+<% mailbox.inbox.each do |conversation| %>
+  <%= link_to conversation.subject, conversation%>
+<% end %>
+---
