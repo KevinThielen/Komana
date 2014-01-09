@@ -25,7 +25,7 @@
        <%= form_for( [@project, @currentList.tasks.build], :html => {:class => 'form-inline'}) do |f| %>
         <div class="form-group">
           <%= f.text_field :titel, :class => 'form-control', :placeholder => 'Tasktitel' %>
-          <%= f.text_field :text, :class => 'form-control', :placeholder => 'Taskname' %>
+          <%= f.text_field :text, :class => 'form-control', :placeholder => 'Tasktext' %>
         </div>
         <%= f.collection_select(:list_id, @lists, :id, :name, { :include_blank => false }, {:class=>'form-control'}) %>
         <%= f.submit "Neue Aufgabe", :class => 'btn btn-default' %>
@@ -56,8 +56,12 @@
           <br/>
           <% list.tasks.each do |task| %>
           <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="modal" data-target="#editTaskModal"><strong><%= task.titel %></strong></a><%= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %>
-              
+            <div class="panel-heading">
+          
+             <a data-toggle="modal" data-target="#editTaskModal"><strong><%= task.titel %></strong></a><%= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %>
+            
+          
+           
             </div>
             <div class="panel-body">
               <%= task.text %>
@@ -103,12 +107,13 @@
                 </div>
                 <div class="modal-body">
                   [Task content]
-                </div>
+                  <%= params.inspect %>
+             
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary">Speichern</button>                  
                   <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
                 </div>
-              </div><!-- /.modal-content -->
+              </div><!--     <%= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %>/.modal-content -->
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
 

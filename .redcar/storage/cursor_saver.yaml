@@ -21,12 +21,6 @@ cursor_positions:
   - :path: app/views/layouts/_navigation_links.html.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/views/layouts/application.html.erb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/controllers/lists_controller.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/models/task.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -45,19 +39,7 @@ cursor_positions:
   - :path: app/helpers/welcome_helper.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/helpers/application_helper.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-17 18:01:59 +01:00
   - :path: app/helpers/lists_helper.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/helpers/projects_helper.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/helpers/tasks_helper.rb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/controllers/models/user.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: config/initializers/session_store.rb
@@ -66,91 +48,185 @@ cursor_positions:
   - :path: app/views/lists/show.html.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/controllers/projects_controller.rb
-    :cursor_offset: 323
-    :timestamp: 2014-01-03 12:39:50 +01:00
-  - :path: app/controllers/tasks_controller.rb
-    :cursor_offset: 596
-    :timestamp: 2014-01-06 11:57:46 +01:00
-  - :path: app/assets/stylesheets/font-awesome.css.erb
-    :cursor_offset: 0
-    :timestamp: 2014-01-02 20:58:21 +01:00
   - :path: app/assets/stylesheets/font-awesome.css
     :cursor_offset: 0
     :timestamp: 2014-01-04 21:28:39 +01:00
-  - :path: app/views/devise/registrations/edit.html.erb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/views/projects/show.html.erb
-    :cursor_offset: 1057
-    :timestamp: 2014-01-06 13:12:37 +01:00
-  - :path: app/controllers/welcome_controller.rb
-    :cursor_offset: 179
-    :timestamp: 2014-01-06 14:06:31 +01:00
   - :path: app/assets/stylesheets/framework_and_overrides.css.scss
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: config/locales/en.yml
-    :cursor_offset: 0
-    :timestamp: 2013-12-17 18:01:59 +01:00
-  - :path: config/routes.rb
-    :cursor_offset: 0
-    :timestamp: 2014-01-06 11:57:46 +01:00
-  - :path: app/views/welcome/dashboard.html.erb
-    :cursor_offset: 0
-    :timestamp: 2014-01-05 17:50:58 +01:00
   - :path: db/schema.rb
     :cursor_offset: 2004
     :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: config/locales/devise.views.de.yml
     :cursor_offset: 0
     :timestamp: 2014-01-06 14:24:05 +01:00
-  - :path: app/models/project.rb
-    :cursor_offset: 0
-    :timestamp: 2014-01-06 11:57:46 +01:00
   - :path: config/initializers/devise.rb
     :cursor_offset: 9230
     :timestamp: 2014-01-06 17:02:55 +01:00
-  - :path: config/application.rb
-    :cursor_offset: 852
-    :timestamp: 2014-01-06 17:25:09 +01:00
-  - :path: Gemfile
-    :cursor_offset: 1259
-    :timestamp: 2014-01-06 17:47:01 +01:00
-  - :path: app/controllers/application_controller.rb
-    :cursor_offset: 439
-    :timestamp: 2014-01-06 17:49:57 +01:00
   - :path: config/locales/devise.en.yml
     :cursor_offset: 3530
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/views/devise/sessions/new.html.erb
-    :cursor_offset: 841
-    :timestamp: 2014-01-06 22:21:02 +01:00
   - :path: app/views/devise/shared/_links.erb
     :cursor_offset: 640
     :timestamp: 2014-01-06 22:20:34 +01:00
-  - :path: app/assets/stylesheets/application.css.scss
-    :cursor_offset: 1138
-    :timestamp: 2014-01-06 22:21:09 +01:00
-  - :path: app/views/devise/registrations/new.html.erb
-    :cursor_offset: 1716
-    :timestamp: 2014-01-06 22:21:46 +01:00
-  - :path: app/helpers/devise_helper.rb
-    :cursor_offset: 546
-    :timestamp: 2014-01-06 16:28:11 +01:00
   - :path: app/views/welcome/welcome.html.erb
     :cursor_offset: 0
     :timestamp: 2014-01-05 17:50:25 +01:00
-  - :path: app/views/welcome/index.html.erb
-    :cursor_offset: 121
-    :timestamp: 2014-01-06 13:17:10 +01:00
+  - :path: app/views/devise/registrations/new.html.erb
+    :cursor_offset: 955
+    :timestamp: 2014-01-06 22:21:46 +01:00
+    :selection_offset: 1515
+    :block_selection_mode: false
+  - :path: config/initializers/mailboxer.rb
+    :cursor_offset: 151
+    :timestamp: 2014-01-07 09:09:25 +01:00
+  - :path: app/controllers/models/list.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/controllers/models/user.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/controllers/MessagesController.rb
+    :cursor_offset: 1918
+    :timestamp: 2014-01-07 09:35:24 +01:00
+  - :path: app/assets/stylesheets/font-awesome.css.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-02 20:58:21 +01:00
+  - :path: app/controllers/ConversationsController.rb
+    :cursor_offset: 2552
+    :timestamp: 2014-01-07 10:27:47 +01:00
+    :selection_offset: 0
+    :block_selection_mode: false
+  - :path: app/views/conversations/index.html.haml
+    :cursor_offset: 644
+    :timestamp: 2014-01-07 10:58:35 +01:00
+  - :path: app/models/project.rb
+    :cursor_offset: 0
+    :timestamp: 2014-01-06 11:57:46 +01:00
+  - :path: app/views/messages/index.html.erb
+    :cursor_offset: 67
+    :timestamp: 2014-01-07 14:49:59 +01:00
   - :path: app/models/user.rb
-    :cursor_offset: 94
-    :timestamp: 2014-01-06 17:27:31 +01:00
+    :cursor_offset: 701
+    :timestamp: 2014-01-07 09:27:46 +01:00
+  - :path: app/views/conversations/new.html.erb
+    :cursor_offset: 703
+    :timestamp: 2014-01-07 15:26:58 +01:00
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/helpers/conversation_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2014-01-07 10:30:28 +01:00
+  - :path: app/helpers/application_helper.rb
+    :cursor_offset: 99
+    :timestamp: 2014-01-07 09:18:05 +01:00
+  - :path: app/helpers/conversations_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2014-01-07 10:53:56 +01:00
+  - :path: app/views/devise/sessions/new.html.erb
+    :cursor_offset: 569
+    :timestamp: 2014-01-06 22:21:02 +01:00
+    :selection_offset: 153
+    :block_selection_mode: false
+  - :path: app/controllers/application_controller.rb
+    :cursor_offset: 450
+    :timestamp: 2014-01-07 18:34:07 +01:00
+  - :path: app/helpers/tasks_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/views/conversations/index.html.erb
+    :cursor_offset: 922
+    :timestamp: 2014-01-07 16:47:30 +01:00
+  - :path: app/views/conversations/show.html.erb
+    :cursor_offset: 222
+    :timestamp: 2014-01-07 18:02:05 +01:00
+  - :path: Gemfile
+    :cursor_offset: 1405
+    :timestamp: 2014-01-07 20:05:19 +01:00
+  - :path: config/application.rb
+    :cursor_offset: 852
+    :timestamp: 2014-01-06 17:25:09 +01:00
+  - :path: config/environment.rb
+    :cursor_offset: 153
+    :timestamp: 2014-01-07 21:41:23 +01:00
+  - :path: app/assets/stylesheets/application.css.scss
+    :cursor_offset: 1138
+    :timestamp: 2014-01-06 22:21:09 +01:00
+  - :path: config/locales/en.yml
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: app/views/welcome/lismpf.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-08 09:36:25 +01:00
+  - :path: app/controllers/messages_controller.rb
+    :cursor_offset: 51
+    :timestamp: 2014-01-07 15:07:33 +01:00
+    :selection_offset: 84
+    :block_selection_mode: false
+  - :path: app/controllers/lists_controller.rb
+    :cursor_offset: 81
+    :timestamp: 2014-01-08 09:46:20 +01:00
+  - :path: app/helpers/devise_helper.rb
+    :cursor_offset: 546
+    :timestamp: 2014-01-06 16:28:11 +01:00
+  - :path: app/controllers/conversations_controller.rb
+    :cursor_offset: 119
+    :timestamp: 2014-01-07 16:33:27 +01:00
+  - :path: app/controllers/tasks_controller.rb
+    :cursor_offset: 81
+    :timestamp: 2014-01-08 09:45:36 +01:00
+  - :path: app/views/welcome/dashboard.html.erb
+    :cursor_offset: 11293
+    :timestamp: 2014-01-08 09:36:11 +01:00
+  - :path: app/helpers/projects_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
+  - :path: app/controllers/projects_controller.rb
+    :cursor_offset: 119
+    :timestamp: 2014-01-08 09:45:46 +01:00
+  - :path: app/views/welcome/index.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-05 17:50:25 +01:00
+  - :path: app/views/portfolios/index.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-08 10:11:15 +01:00
+  - :path: app/views/projects/show.html.erb
+    :cursor_offset: 5
+    :timestamp: 2014-01-08 09:12:43 +01:00
+  - :path: app/views/portfolios/show.html.erb
+    :cursor_offset: 1909
+    :timestamp: 2014-01-08 10:14:55 +01:00
+  - :path: app/controllers/welcome_controller.rb
+    :cursor_offset: 157
+    :timestamp: 2014-01-08 13:24:52 +01:00
+  - :path: app/assets/stylesheets/welcome.css.scss
+    :cursor_offset: 731
+    :timestamp: 2014-01-08 15:44:57 +01:00
   - :path: app/views/layouts/_navigation.html.erb
-    :cursor_offset: 1150
-    :timestamp: 2014-01-06 22:42:07 +01:00
+    :cursor_offset: 1227
+    :timestamp: 2014-01-08 15:31:37 +01:00
+  - :path: app/views/welcome/contact.html.erb
+    :cursor_offset: 438
+    :timestamp: 2014-01-08 15:42:01 +01:00
   - :path: app/views/projects/index.html.erb
-    :cursor_offset: 335
-    :timestamp: 2014-01-06 22:42:22 +01:00
+    :cursor_offset: 0
+    :timestamp: 2014-01-08 15:57:35 +01:00
+    :selection_offset: 951
+    :block_selection_mode: false
+  - :path: app/assets/stylesheets/portfolios.css.scss
+    :cursor_offset: 0
+    :timestamp: 2014-01-08 13:18:56 +01:00
+  - :path: app/controllers/portfolios_controller.rb
+    :cursor_offset: 85
+    :timestamp: 2014-01-08 13:21:09 +01:00
+  - :path: config/locales/de.yml
+    :cursor_offset: 4176
+    :timestamp: 2014-01-08 18:04:31 +01:00
+  - :path: app/views/devise/registrations/edit.html.erb
+    :cursor_offset: 2215
+    :timestamp: 2014-01-08 17:47:37 +01:00
+  - :path: config/routes.rb
+    :cursor_offset: 183
+    :timestamp: 2014-01-08 21:54:04 +01:00
 files_to_retain: 0
