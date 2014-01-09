@@ -1,5 +1,6 @@
-1389269644
+1389282924
 AddAttachments	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	class AddAttachments 
+AddDescriptionToTasks	/media/sf_Share/Komana/db/migrate/20140109121953_add_description_to_tasks.rb	class AddDescriptionToTasks 
 AddFirstnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154237_add_firstname_to_users.rb	class AddFirstnameToUsers 
 AddGlobalNotificationSupport	/media/sf_Share/Komana/db/migrate/20140107080664_add_global_notification_support.mailboxer_engine.rb	class AddGlobalNotificationSupport 
 AddLastnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154328_add_lastname_to_users.rb	class AddLastnameToUsers 
@@ -59,6 +60,7 @@ WelcomeControllerTest	/media/sf_Share/Komana/test/controllers/welcome_controller
 WelcomeHelper	/media/sf_Share/Komana/app/helpers/welcome_helper.rb	module WelcomeHelper
 WelcomeHelperTest	/media/sf_Share/Komana/test/helpers/welcome_helper_test.rb	class WelcomeHelperTest 
 alert	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def alert
+avatar_url	/media/sf_Share/Komana/app/helpers/conversations_helper.rb	  def avatar_url(user)
 change	/media/sf_Share/Komana/db/migrate/20131220083306_devise_create_users.rb	  def change
 change	/media/sf_Share/Komana/db/migrate/20131218150831_create_projects.rb	  def change
 change	/media/sf_Share/Komana/db/migrate/20131227154328_add_lastname_to_users.rb	  def change
@@ -66,6 +68,7 @@ change	/media/sf_Share/Komana/db/migrate/20131218151103_create_lists.rb	  def ch
 change	/media/sf_Share/Komana/db/migrate/20131218151614_create_tasks.rb	  def change
 change	/media/sf_Share/Komana/db/migrate/20131227154237_add_firstname_to_users.rb	  def change
 change	/media/sf_Share/Komana/db/migrate/20140107080664_add_global_notification_support.mailboxer_engine.rb	  def change
+change	/media/sf_Share/Komana/db/migrate/20140109121953_add_description_to_tasks.rb	  def change
 configure_permitted_parameters	/media/sf_Share/Komana/app/controllers/application_controller.rb	  def configure_permitted_parameters
 contact	/media/sf_Share/Komana/app/controllers/welcome_controller.rb	  def contact
 conversation	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation

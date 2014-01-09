@@ -10,7 +10,7 @@ Komana::Application.routes.draw do
 
   resources :portfolios
   resources :conversations
-  
+
   resources :projects do
 	resources :lists
 	resources :tasks do

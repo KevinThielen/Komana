@@ -24,8 +24,9 @@
         
        <%= form_for( [@project, @currentList.tasks.build], :html => {:class => 'form-inline'}) do |f| %>
         <div class="form-group">
-          <%= f.text_field :text, :class => 'form-control', :placeholder => 'Listenname' %>
+          <%= f.text_field :text, :class => 'form-control', :placeholder => 'Aufgabenname' %>
         </div>
+      
         <%= f.collection_select(:list_id, @lists, :id, :name, { :include_blank => false }, {:class=>'form-control'}) %>
         <%= f.submit "Neue Aufgabe", :class => 'btn btn-default' %>
 			
