@@ -12,7 +12,10 @@ Komana::Application.routes.draw do
   resources :conversations
   
   resources :projects do
-	resources :lists
+	resources :lists do
+	 resources :tasks
+	end
+	
 	resources :tasks do
 		get "move_to_next_list"
 		get "move_to_prev_list"

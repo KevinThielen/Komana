@@ -1,16 +1,18 @@
 class TasksController < ApplicationController
   before_filter :authenticate_user!
 	def create
-		@list = List.find(params[:task][:list_id])
-		@task = @list.tasks.create(task_params)
+		@list = List.find(params[:list_id])
+		@task = @list.tasks.create(:titel => "neue Aufgabe", :text => "")
 		
 		redirect_to project_path(@list.project)
 	end
   
-  def destroy 
-	   @list = List.find(params[:task][:list_id])
-	   @task = @list.tasks.find(params[:id])
+    def destroy 
+	   @list = List.find(params[:list_id])
+	   @task = @list.tasks.find(params[:task_id])
 	   @task.destroy
+	   
+	   redirect_to project_path(params[:project_id])
 	end
 	
 	def move_to_next_list

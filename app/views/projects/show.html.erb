@@ -20,17 +20,7 @@
 			
 	      <% end %>
         
-        <%# Add Task %>
-        
-       <%= form_for( [@project, @currentList.tasks.build], :html => {:class => 'form-inline'}) do |f| %>
-        <div class="form-group">
-          <%= f.text_field :titel, :class => 'form-control', :placeholder => 'Tasktitel' %>
-          <%= f.text_field :text, :class => 'form-control', :placeholder => 'Tasktext' %>
-        </div>
-        <%= f.collection_select(:list_id, @lists, :id, :name, { :include_blank => false }, {:class=>'form-control'}) %>
-        <%= f.submit "Neue Aufgabe", :class => 'btn btn-default' %>
-			
-	      <% end %>
+
       </div>
         <br/>
         <br/>
@@ -46,7 +36,7 @@
             <div class="dropdown pull-right">
               <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-bars"></span></button>
               <ul class="dropdown-menu" role="menu">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Neue Aufgabe</a></li>
+                <li role="presentation"><%= link_to 'Aufgabe anlegen', project_list_tasks_path(@project, list), :method =>:post %></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Neuer Bereich</a></li>
                 <li role="presentation" class="divider"></li>
                 <li role="presentation"><%= link_to 'Liste löschen', project_list_path(project_id:@project, list_id:list), method: :delete, :confirm => "Soll die Liste wirklich gelöscht werden?", :class => 'btn btn-danger' %></li>
@@ -58,10 +48,12 @@
           <div class="panel panel-default">
             <div class="panel-heading">
           
-             <a data-toggle="modal" data-target="#editTaskModal"><strong><%= task.titel %></strong></a><%= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %>
+			
+             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(1, '<%= task.titel %>','<%= task.text %>');"><strong><%= task.titel %></strong></a>
             
+             <%#= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %>
+             <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
           
-           
             </div>
             <div class="panel-body">
               <%= task.text %>
@@ -96,7 +88,6 @@
   <%= link_to 'Zurück', projects_path, :class => 'btn btn-default' %>
 </div>
 
-
 <!-- Task-Modal -->
           <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -106,9 +97,19 @@
                   <h4 class="modal-title" id="editTaskModalLabel">[Task title]</h4>
                 </div>
                 <div class="modal-body">
-                  [Task content]
-                  <%= params.inspect %>
-             
+                 
+                 <%# Add Task %>
+        
+				 <%= form_for( [@project, @currentList.tasks.build], :html => {:class => 'form-inline'}) do |f| %>
+				 <div class="form-group">
+                 <%= f.text_field :titel, :class => 'form-control' %>
+                 <%= f.text_field :text, :class => 'form-control', :placeholder => 'Tasktext' %>
+                 </div>
+                 <%= f.collection_select(:list_id, @lists, :id, :name, { :include_blank => false }, {:class=>'form-control'}) %>
+                 <%= f.submit "Neue Aufgabe", :class => 'btn btn-default' %>
+	             <% end %> 
+                 
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary">Speichern</button>                  
                   <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
@@ -116,4 +117,19 @@
               </div><!--     <%= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %>/.modal-content -->
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
+
+ <script type="text/javascript">
+
+   function updateTask(id, titel, text){ 
+     var taskTitel = document.getElementById("task_titel");
+     taskTitel.value = titel;
+
+     var taskText = document.getElementById("task_text");
+     taskText.value = text;
+     
+     $('#editTaskModal').modal('show');
+     
+
+   }
+ </script>
 
