@@ -9,14 +9,14 @@
     </div>
   </div>
   <div class="table-responsive">
-    <table class="table table-hover"> 
-      <% @projects.each do |project| %>
+    <table class="table table-hover">
       <tr>
         <th>Projekt</th>
         <th>Erstellt durch</th>
         <th>Erstellt am</th>
         <th>Letzte Änderung</th>
       </tr>
+      <% @projects.each do |project| %>
       <tr>
         <td><%= link_to project.name, project_path(project) %></td>
         <td></td>

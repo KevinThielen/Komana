@@ -174,11 +174,6 @@ cursor_positions:
   - :path: app/views/welcome/dashboard.html.erb
     :cursor_offset: 880
     :timestamp: 2014-01-09 11:32:32 +01:00
-  - :path: app/views/projects/index.html.erb
-    :cursor_offset: 944
-    :timestamp: 2014-01-08 15:57:35 +01:00
-    :selection_offset: 368
-    :block_selection_mode: false
   - :path: db/migrate/20131218150831_create_projects.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -220,24 +215,33 @@ cursor_positions:
   - :path: app/helpers/application_helper.rb
     :cursor_offset: 250
     :timestamp: 2014-01-09 23:49:54 +01:00
-  - :path: app/controllers/conversations_controller.rb
-    :cursor_offset: 119
-    :timestamp: 2014-01-07 16:33:27 +01:00
   - :path: app/views/layouts/_navigation.html.erb
     :cursor_offset: 2219
     :timestamp: 2014-01-09 23:51:26 +01:00
     :selection_offset: 2135
     :block_selection_mode: false
-  - :path: app/views/conversations/index.html.erb
-    :cursor_offset: 193
-    :timestamp: 2014-01-10 00:02:34 +01:00
   - :path: app/views/conversations/new.html.erb
     :cursor_offset: 727
     :timestamp: 2014-01-09 14:18:43 +01:00
   - :path: app/views/conversations/show.html.erb
     :cursor_offset: 222
     :timestamp: 2014-01-10 09:04:51 +01:00
+  - :path: app/views/projects/index.html.erb
+    :cursor_offset: 710
+    :timestamp: 2014-01-10 09:20:41 +01:00
+  - :path: app/assets/javascripts/projects.js.coffee
+    :cursor_offset: 212
+    :timestamp: 2014-01-10 09:27:59 +01:00
+  - :path: app/assets/stylesheets/projects.css.scss
+    :cursor_offset: 211
+    :timestamp: 2014-01-10 09:56:17 +01:00
   - :path: app/views/projects/show.html.erb
-    :cursor_offset: 2624
-    :timestamp: 2014-01-10 09:17:57 +01:00
+    :cursor_offset: 4499
+    :timestamp: 2014-01-10 09:51:30 +01:00
+  - :path: app/views/conversations/index.html.erb
+    :cursor_offset: 193
+    :timestamp: 2014-01-10 00:02:34 +01:00
+  - :path: app/controllers/conversations_controller.rb
+    :cursor_offset: 119
+    :timestamp: 2014-01-07 16:33:27 +01:00
 files_to_retain: 0
