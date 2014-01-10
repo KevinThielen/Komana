@@ -7,7 +7,7 @@ Inbox: <%= current_user.mailbox.inbox.count %> Send: <%= current_user.mailbox.se
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1>Dashboard <small><%= current_user.firstname %> <%= current_user.lastname %></small></h1>
+      <h1>Nachrichten <small><%= current_user.firstname %> <%= current_user.lastname %></small></h1>
       <ol class="breadcrumb">
         <li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
         <li><i class="fa fa-envelope"></i> Nachrichten</li>
@@ -16,7 +16,7 @@ Inbox: <%= current_user.mailbox.inbox.count %> Send: <%= current_user.mailbox.se
   </div><!-- /.row -->
   <div class="row">
     <div class="col-lg-2"></div>
-    <div class="col-lg-8"><h3>Konversationen</h3></div>
+    <div class="col-lg-8"><h3>Konversationen <small>(Gesamt: <%= current_user.mailbox.inbox.count %> | Ungelesen: <%= current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s %>)</small></h3></div>
     <div class="col-lg-2"></div>
   </div>
   
