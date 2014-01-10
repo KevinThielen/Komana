@@ -15,7 +15,8 @@ class ProjectsController < ApplicationController
 	
 	def show
 		@project = Project.find(params[:id])
-		@currentList = List.new
+		@current_list = List.new
+		@current_task = Task.new
 		@lists = @project.lists.find(:all)
 	end
 	

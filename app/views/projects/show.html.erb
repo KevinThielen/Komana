@@ -49,7 +49,7 @@
             <div class="panel-heading">
           
 			
-             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(1, '<%= task.titel %>','<%= task.text %>');"><strong><%= task.titel %></strong></a>
+             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>');"><strong><%= task.titel %></strong></a>
             
              <%#= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %>
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
@@ -99,19 +99,19 @@
                 <div class="modal-body">
                  
                  <%# Add Task %>
-        
-				 <%= form_for( [@project, @currentList.tasks.build], :html => {:class => 'form-inline'}) do |f| %>
-				 <div class="form-group">
-                 <%= f.text_field :titel, :class => 'form-control' %>
-                 <%= f.text_field :text, :class => 'form-control', :placeholder => 'Tasktext' %>
-                 </div>
-                 <%= f.collection_select(:list_id, @lists, :id, :name, { :include_blank => false }, {:class=>'form-control'}) %>
-                 <%= f.submit "Neue Aufgabe", :class => 'btn btn-default' %>
-	             <% end %> 
                  
+				 <%= form_for(@current_task , :url => project_task_path(@project.id, 0), :method => :put, :html => {:class => 'form-inline'}) do |f| %>
+				 <div class="form-group"> 
+					 <%= f.hidden_field :id, :class => 'form-control' %>
+					 <%= f.text_field :titel, :class => 'form-control' %>
+					 <%= f.text_field :text, :class => 'form-control' %>
+                 </div>
+       
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-primary">Speichern</button>                  
+                  <%= f.submit "Speichern", :class => 'btn btn-primary' %>
+                  <% end %> 
+               <!--   <button type="button" class="btn btn-primary">Speichern</button>         -->         
                   <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
                 </div>
               </div><!--     <%= link_to '&times;'.html_safe, project_path(@project), :class => 'close pull-right' %>/.modal-content -->
@@ -126,6 +126,9 @@
 
      var taskText = document.getElementById("task_text");
      taskText.value = text;
+     
+     var taskId = document.getElementById("task_id");
+     taskId.value = id;
      
      $('#editTaskModal').modal('show');
      
