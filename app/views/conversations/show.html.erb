@@ -25,10 +25,13 @@
           <% message = receipt.message%>
           <% conversation.mark_as_read(current_user) %>
          <% @sender = User.where(email: message.sender.email).first %>
-        <div cass="col-lg-3">
-          
+        <div class="col-lg-1">
+          <div class="pull-right">
+          <%= image_tag avatar_url(@sender, 90) %>
+          </div>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-11">
+          
           <div class="panel panel-default">
             <div class="panel-heading">
                <span class="panel-title"><%= @sender.firstname %> <%= @sender.lastname%></span>

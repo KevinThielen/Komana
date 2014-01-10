@@ -38,6 +38,9 @@ de:
     sessions:
       new:
         sign_in: Anmelden
+      user:
+        signed_in: Sie wurden eingeloggt.
+        signed_out: Sie wurden erfolgreich ausgeloggt.
     shared:
       links:
         didn_t_receive_confirmation_instructions: Keine Anleitung zur Bestätigung erhalten?
