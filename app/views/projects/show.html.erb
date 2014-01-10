@@ -143,13 +143,6 @@
      
      
      
-     
-     
-     
-     
-     
-     
-     
      var lastField = 0;
      var lastListname = "";
      var lastListTag = 0;
@@ -197,6 +190,14 @@
 				lastListname = lastInput.value;
 				
 				
+
+				$.ajax({
+				  type: "PUT",
+				  url: <%= project_lists_path(@project) %>,
+				  data: data,
+				  success: success,
+				  dataType: dataType
+				});
 			}
 			
 			lastField.parentNode.removeChild(lastField);
