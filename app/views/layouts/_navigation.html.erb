@@ -37,14 +37,14 @@
                 <li class="dropdown-header"><%= current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s %> Neue Nachrichten</li>
                 <% current_user.mailbox.inbox(:read => false).order('updated_at ASC').each_with_index do |conversation, n| %>
                 <% if (n<3)%>
-                <% @User = User.where(email: conversation.last_sender.email).first%>
+                <% @last_sender = User.where(email: conversation.last_sender.email).first%>
                 <li class="message-preview">
-                  <a href="#">
-                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
-                    <span class="name"><%= @User.firstname %> <%= @User.lastname%></span>
+                <%= link_to conversation_path(conversation), :method => :get do %>
+                    <span class="avatar"><%= image_tag avatar_url(@last_sender) %></span>
+                    <span class="name"><%= @last_sender.firstname %> <%= @last_sender.lastname%></span>
                     <span class="message"><%=raw truncate(conversation.last_message.body, :length => 40,  :omission => "...") %></span>
                     <span class="time"><i class="fa fa-clock-o"></i> <%= time_ago_in_words(conversation.created_at) %></span>
-                  </a>
+                  <% end %>
                 </li>
                 <li class="divider"></li>
                 <% end %>
