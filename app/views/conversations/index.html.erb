@@ -1,25 +1,78 @@
 
 Inbox: <%= current_user.mailbox.inbox.count %> Send: <%= current_user.mailbox.sentbox.count %>
 
-<%= form_for :conversation, url: :conversations do |f| %>
-<div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-user"></i></span>
-      <%= f.email_field :recipients, :autofocus => true, :class=>'form-control', :placeholder => 'E-Mail' %>
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-      <%= f.text_field :subject,:class=>'form-control', :placeholder => 'Subject' %>
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-      <%= f.text_area :body,:class=>'form-control', :placeholder => 'body' %>
-    </div>
-<%= f.submit "Anmelden", :class=>'btn btn-primary'%>
-<% end %>
 
 
----
-<% mailbox.inbox.each do |conversation| %>
-  <%= link_to conversation.subject, conversation%>
-<% end %>
----
+
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Dashboard <small><%= current_user.firstname %> <%= current_user.lastname %></small></h1>
+      <ol class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
+        <li><i class="fa fa-envelope"></i> Nachrichten</li>
+      </ol>
+    </div>
+  </div><!-- /.row -->
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8"><h3>Konversationen</h3></div>
+    <div class="col-lg-2"></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="list-group">
+        <%= link_to '<i class="fa fa-envelope"></i> Posteingang'.html_safe, conversations_path, :class => 'list-group-item' %>
+        <%= link_to '<i class="glyphicon glyphicon-send"></i> Postausgang'.html_safe, conversations_path, :class => 'list-group-item' %>
+        <%= link_to '<i class="fa fa-trash-o"></i> Papierkorb'.html_safe, conversations_path, :class => 'list-group-item' %>
+      </div>
+    </div>
+   
+    <div class="col-lg-10">
+      
+      <div class="table-responsive">
+        <table class="table table-hover table-striped"> 
+          <tr>
+            <th><input type="checkbox"></th>
+            <th>Thema</th>
+            <th></th>
+            <th>Letzte Nachricht</th>
+            <th>Themenstarter</th>
+            <th></th>
+            <th></th>
+            <th></th>            
+            <th>
+              <div class="dropdown pull-right">
+              <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-bars"></span></button>
+              <ul class="dropdown-menu" role="menu">
+                <li role="presentation"><%= link_to "Neue Konversation", new_conversation_path%></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ausgewählte Konversationen löschen</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Alle Konversationen löschen</a></li>
+              </ul>
+            </div>
+            </th>
+          </tr>
+          <% current_user.mailbox.inbox.order('updated_at ASC').each do |conversation|%>
+          <% @Originator = User.where(email: conversation.originator.email).first%>
+          <% @last_sender = User.where(email: conversation.last_sender.email).first%>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td><%= conversation.subject %></td>
+            <td><%= image_tag avatar_url(@last_sender), :class => 'pull-right' %></td>
+            <td><em><strong> <%= link_to @last_sender.firstname + " " + @last_sender.lastname %></strong> schreibt:</em><br> <%=raw truncate(conversation.last_message.body, :length => 40,  :omission => "...")%></td>
+            <td><%= @Originator.firstname %> <%= @Originator.lastname %></td>
+            <td><%= link_to '<i class="fa fa-mail-reply"></i>'.html_safe %></td>
+            <td><%= link_to '<i class="fa fa-mail-reply-all"></i>'.html_safe %></td>
+            <td><%= link_to '<i class="fa fa-mail-forward"></i>'.html_safe %></td>
+            <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe%></td>
+          </tr>
+          
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

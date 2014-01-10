@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140107080664) do
+ActiveRecord::Schema.define(version: 20140109121953) do
 
   create_table "conversations", force: true do |t|
     t.string   "subject",    default: ""
@@ -77,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140107080664) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "titel"
+    t.string   "decription"
   end
 
   add_index "tasks", ["list_id"], name: "index_tasks_on_list_id"
