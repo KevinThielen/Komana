@@ -25,7 +25,6 @@ lastListName = ''
 lastListTag = 0
 active = false
 lastInput = 0
-lastForm = 0
 current_selected_list = 0
 
 #triggered when user clicks on a list. Replaces the list with an inpult field to change the listname
@@ -34,30 +33,19 @@ updateList = (element, id) ->
 		listTag = element
 		current_selected_list = id
 		
-		# create the form element with an input field
-		form = document.createElement('form')
-		form.setAttribute('method','put')
-		form.setAttribute('action', '/lists/'+id)
-
-		#emulate rails patch method
-		hidden = document.createElement('hidden')
-		hidden.setAttribute('name', '_method')
-		hidden.setAttribute('value', 'put')
-		form.appendChild(hidden)
-		
 
 		input = document.createElement('input')
 		input.setAttribute('type','text');
 		input.setAttribute('name','Listname');
 		input.value = listTag.innerHTML;
-		form.appendChild(input);
+		listTag.appendChild(input);
 	 
 		#replace the List text with the form
 		lastListName = listTag.innerHTML
 		listTag.innerHTML = ''
-		listTag.appendChild(form)
+		listTag.appendChild(input)
 		 
-		lastForm = form
+
 		lastInput = input
 		
 		lastListTag = listTag
@@ -72,11 +60,8 @@ listChanged = () ->
 
 	if(lastInput.value != lastListName)
 		lastListName = lastInput.value;
-		#lastForm.submit() 
-		
 
-	
-      
+		#ajax call to list update path
 		$.ajax({
 			type: "POST",
 			data: { '_method':"PUT", 'list_name': lastListName},
@@ -84,7 +69,7 @@ listChanged = () ->
 		});
 
 
-	lastForm.parentNode.removeChild(lastForm);
+	lastInput.parentNode.removeChild(lastInput);
 	lastListTag.innerHTML = lastListName;
 
 	
