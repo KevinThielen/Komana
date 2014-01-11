@@ -187,15 +187,9 @@ cursor_positions:
   - :path: app/views/projects/index.html.erb
     :cursor_offset: 710
     :timestamp: 2014-01-10 09:20:41 +01:00
-  - :path: app/views/projects/show.html.erb
-    :cursor_offset: 3243
-    :timestamp: 2014-01-10 12:09:30 +01:00
   - :path: app/views/welcome/contact.html.erb
     :cursor_offset: 438
     :timestamp: 2014-01-08 15:42:01 +01:00
-  - :path: app/views/layouts/application.html.erb
-    :cursor_offset: 598
-    :timestamp: 2014-01-10 13:38:49 +01:00
   - :path: app/helpers/application_helper.rb
     :cursor_offset: 260
     :timestamp: 2014-01-10 13:11:23 +01:00
@@ -223,9 +217,6 @@ cursor_positions:
   - :path: config/locales/devise.views.de.yml
     :cursor_offset: 2700
     :timestamp: 2014-01-10 14:24:44 +01:00
-  - :path: app/views/conversations/index.html.erb
-    :cursor_offset: 2981
-    :timestamp: 2014-01-10 14:35:04 +01:00
   - :path: app/views/welcome/dashboard.html.erb
     :cursor_offset: 880
     :timestamp: 2014-01-09 11:32:32 +01:00
@@ -241,4 +232,24 @@ cursor_positions:
   - :path: app/views/welcome/index.html.erb
     :cursor_offset: 21
     :timestamp: 2014-01-11 13:55:17 +01:00
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 525
+    :timestamp: 2014-01-10 13:38:49 +01:00
+    :selection_offset: 559
+    :block_selection_mode: false
+  - :path: app/views/conversations/index.html.erb
+    :cursor_offset: 567
+    :timestamp: 2014-01-11 15:57:16 +01:00
+  - :path: app/views/conversations/_inbox.html.erb
+    :cursor_offset: 1787
+    :timestamp: 2014-01-11 16:20:50 +01:00
+  - :path: app/views/conversations/_sent.html.erb
+    :cursor_offset: 91
+    :timestamp: 2014-01-11 16:19:20 +01:00
+  - :path: app/views/conversations/_trash.html.erb
+    :cursor_offset: 329
+    :timestamp: 2014-01-11 16:19:06 +01:00
+  - :path: app/views/projects/show.html.erb
+    :cursor_offset: 1883
+    :timestamp: 2014-01-11 17:37:57 +01:00
 files_to_retain: 0

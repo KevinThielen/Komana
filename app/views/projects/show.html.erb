@@ -37,7 +37,7 @@
                 <li role="presentation"><%= link_to 'Aufgabe anlegen', project_list_tasks_path(@project, list), :method =>:post %></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Neuer Bereich</a></li>
                 <li role="presentation" class="divider"></li>
-                <li role="presentation"><%= link_to '<span class="label label-danger">Liste löschen</span>'.html_safe, project_list_path(project_id:@project, list_id:list), method: :delete, :confirm => "Soll die Liste wirklich gelöscht werden?" %></li>
+                <li role="presentation"><%= link_to 'Liste löschen <span class="label label-danger"><i class="fa fa-"></i></span>'.html_safe, project_list_path(project_id:@project, list_id:list), method: :delete, :confirm => "Soll die Liste wirklich gelöscht werden?" %></li>
               </ul>
             </div>
           </h4>
