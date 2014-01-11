@@ -52,3 +52,7 @@ de:
     unlocks:
       new:
         resend_unlock_instructions: Anleitung zum Entsperren noch mal schicken
+    failure:
+      user:
+        not_found_in_database: Wir konnten diesen Benutzer nicht finden.
+        invalid: Das Passwort zu diesem Benutzer ist nicht richtig.
