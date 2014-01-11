@@ -9,22 +9,8 @@
     </ol>
   </div>
 </div>
-        <div class="inline">
-        <%# Add List %>
         
-        <%= form_for([@project, @project.lists.build], :html => {:class => 'form-inline'}) do |f| %>
-        <div class="form-group">
-          <%= f.text_field :name, :class => 'form-control', :placeholder => 'Listenname' %>
-        </div>
-        <%= f.submit "Neue Liste", :class => 'btn btn-default' %>
-			
-	      <% end %>
-      </div>
-        <br/>
-        <br/>
-        
-        <%# Show Lists and Tasks %>
-        
+       <%# Show Lists and Tasks %>
       <div class="row">
         
         <% @lists.each_with_index do |list, n| %>
@@ -84,7 +70,7 @@
         <% end %>
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 			<div class="well well-lg">
-				<h4 class = "new_list"><strong>Neue Liste..</strong></h4>
+				<h4><strong><%= link_to '...',  project_lists_path(@project), :method => :POST %></strong></h4>
 			</div>
           </div>
 		</div>
@@ -101,7 +87,7 @@
           <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <%= form_for(@current_task , :url => project_task_path(@project.id, 0), :method => :put, :html => {:class => 'form-inline'}) do |f| %>
+                <%= form_for(@current_task, :url => project_task_path(@project.id, 0), :method => :put, :html => {:class => 'form-inline'}) do |f| %>
                 <%= f.hidden_field :id, :class => 'form-control' %>
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -124,85 +110,4 @@
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
 
- <script type="text/javascript">
-
-   function updateTask(id, titel, text){ 
-     var taskTitel = document.getElementById("task_titel");
-     taskTitel.value = titel;
-
-     var taskText = document.getElementById("task_text");
-     taskText.value = text;
-     
-     var taskId = document.getElementById("task_id");
-     taskId.value = id;
-     
-     $('#editTaskModal').modal('show');
-     }
-     
-     
-     
-     var lastField = 0;
-     var lastListname = "";
-     var lastListTag = 0;
-     var active = false;
-     var lastInput = 0;
-     var current_selected_list;
-     
-     function updateList(element, id){ 
-     if(active == false)
-     {
-		 var listTag = element;
-		 current_selected_list = id;
-		 
-		 var f = document.createElement("form");
-		 f.setAttribute('method',"post");
-		 f.setAttribute('action',"submit.php");
-
-		 var i = document.createElement("input"); //input element, text
-		 i.setAttribute('type',"text");
-		 i.setAttribute('name',"Listname");
-		 i.value = listTag.innerHTML;
-		 f.appendChild(i);
-		 
-	
-		 
-		 lastListname = listTag.innerHTML;
-		 listTag.innerHTML = "";
-		 listTag.appendChild(f);
-		 
-		 lastField = f;
-		 lastInput = i;
-		 
-		 lastListTag = listTag;
-		 i.focus();
-		 i.onblur = function (){ changeList(); };
-		 active = true;
-		 
-		 
-	  }
-	  
-	  function changeList()
-	  {	
-			if(lastInput.innerHTML != lastListname)
-			{
-				lastListname = lastInput.value;
-				
-				
-
-				$.ajax({
-				  type: "PUT",
-				  url: <%= project_lists_path(@project) %>,
-				  data: data,
-				  success: success,
-				  dataType: dataType
-				});
-			}
-			
-			lastField.parentNode.removeChild(lastField);
-			lastListTag.innerHTML = lastListname;
-		
-			active = false;
-	  }
-   }
- </script>
-
+ 

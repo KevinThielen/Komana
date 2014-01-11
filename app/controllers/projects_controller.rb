@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
 	
 	def show
 		@project = Project.find(params[:id])
-		@current_list = List.new
+		#used for the task modal.
 		@current_task = Task.new
 		@lists = @project.lists.find(:all)
 	end
