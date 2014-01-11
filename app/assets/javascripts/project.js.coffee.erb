@@ -3,6 +3,9 @@
 	It will open the modal and pass the calling Task
 	params to the form.
 ###
+
+
+
 updateTask = (id, titel, text) ->
 	taskTitel = document.getElementById('task_titel')
 	taskTitel.value = titel
@@ -32,17 +35,17 @@ updateList = (element, id) ->
 		current_selected_list = id
 		
 		# create the form element with an input field
-		
 		form = document.createElement('form')
-		form.setAttribute('method','post')
+		form.setAttribute('method','put')
 		form.setAttribute('action', '/lists/'+id)
 
 		#emulate rails patch method
 		hidden = document.createElement('hidden')
 		hidden.setAttribute('name', '_method')
-		hidden.setAttribute('value', 'post')
+		hidden.setAttribute('value', 'put')
 		form.appendChild(hidden)
 		
+
 		input = document.createElement('input')
 		input.setAttribute('type','text');
 		input.setAttribute('name','Listname');
@@ -69,8 +72,18 @@ listChanged = () ->
 
 	if(lastInput.value != lastListName)
 		lastListName = lastInput.value;
-		lastForm.submit()
+		#lastForm.submit() 
 		
+
+	
+      
+		$.ajax({
+			type: "POST",
+			data: { '_method':"PUT", 'list_name': lastListName},
+			url: "/lists/"+current_selected_list,
+		});
+
+
 	lastForm.parentNode.removeChild(lastForm);
 	lastListTag.innerHTML = lastListName;
 

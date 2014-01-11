@@ -6,18 +6,18 @@ class ListsController < ApplicationController
 			redirect_to project_path(@project)
 	end
 	
-	def show
+	def show	
 		@list = List.find(params[:id])
 		redirect_to project_path(@list.project_id)
 	end
 	
 	def update
-		raise
+
 		@list = List.find(params[:id])
 		@list_name = params[:list_name]
-		@list.update!(list_name)
+		@list.update!(:name => @list_name)
 		
-		redirect_to project_path(params[:project_id])
+		redirect_to project_path(@list.project_id)
 	end
 	
 	def destroy 
