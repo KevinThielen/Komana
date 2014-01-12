@@ -63,8 +63,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= " #{current_user.firstname}  #{current_user.lastname} " %><b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to '<i class="fa fa-user"></i> Profil'.html_safe , edit_user_registration_path %></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> Posteingang <span class="badge"><%= current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s %></span></a></li>
-                <li><a href="#"><i class="fa fa-gear"></i> Einstellungen</a></li>
+                <li><%= link_to 'Posteingang <span class="badge">'.html_safe + current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s + '</span>'.html_safe, conversations_path  %><a href="#"><i class="fa fa-envelope"></i> Posteingang </a></li>
+                <!-- <li><a href="#"><i class="fa fa-gear"></i> Einstellungen</a></li> -->
                 <li class="divider"></li>
                 <li><%= link_to '<i class="fa fa-power-off"></i> Abmelden'.html_safe, destroy_user_session_path, method: :delete %></li>
               </ul>
