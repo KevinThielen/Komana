@@ -42,7 +42,7 @@
                 <li role="presentation"><%= link_to 'Aufgabe anlegen', project_list_tasks_path(@project, list), :method =>:post %></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Neuer Bereich</a></li>
                 <li role="presentation" class="divider"></li>
-                <li role="presentation"><%= link_to '<span class="label label-danger">Liste löschen</span>'.html_safe, project_list_path(project_id:@project, list_id:list), method: :delete, :confirm => "Soll die Liste wirklich gelöscht werden?" %></li>
+                <li role="presentation"><%= link_to 'Liste löschen <i class="fa fa-exclamation-circle"></i>'.html_safe, project_list_path(project_id:@project, list_id:list), method: :delete, :confirm => "Soll die Liste wirklich gelöscht werden?" %></li>
               </ul>
             </div>
           </h4>
@@ -89,7 +89,7 @@
         <% end %>
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 			<div class="well well-lg">
-				<h4><strong><%= link_to '...',  project_lists_path(@project), :method => :POST %></strong></h4>
+				<h4><strong><%= link_to 'Neue Liste anlegen...',  project_lists_path(@project), :method => :POST %></strong></h4>
 			</div>
           </div>
 		</div>
