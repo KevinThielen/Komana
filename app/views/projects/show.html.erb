@@ -9,7 +9,22 @@
     </ol>
   </div>
 </div>
-        
+		<!-- Display all user who are added the current in the project -->
+		<div class="well well-lg pull-right">
+			<% @users = User.joins(:projects).where("project_id == ?", @project.id) %>
+			
+			<% @users.each_with_index do |user| %>
+				<%= image_tag avatar_url(user, 15) %>
+				<%= user.id %>
+				<%= user.firstname %>
+				<%= user.lastname %>
+			<% end %>
+			
+			
+		<!-- add a new user to the project -->	
+		</div>
+          
+          
        <%# Show Lists and Tasks %>
       <div class="row">
         
