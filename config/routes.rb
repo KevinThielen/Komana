@@ -14,6 +14,7 @@ Komana::Application.routes.draw do
 
   resources :lists
   resources :projects do
+	post "add_user"
 	resources :lists do
 	 resources :tasks
 	end

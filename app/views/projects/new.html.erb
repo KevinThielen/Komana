@@ -14,7 +14,7 @@
 <!-- Form that will submit name to create action of projects controller  -->
 <%= form_for :project, url: projects_path, :role => 'form' do |f| %>
 
-		<%= f.label "Projektname" %>
+	<%= f.label "Projektname" %>
     <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
     <%= f.text_field :name,:class=>'form-control', :placeholder => 'Projektname' %>

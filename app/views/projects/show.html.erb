@@ -21,7 +21,11 @@
 			<% end %>
 			
 			
-		<!-- add a new user to the project -->	
+		<!-- add a new user to the project -->
+		<%= form_tag project_add_user_path(@project.id) do %>
+			<%= text_field_tag :user_email, nil, :placeholder => 'Email' %>
+			<%= submit_tag "Add", :class=>'btn btn-primary'%>
+		<% end %>
 		</div>
           
           
