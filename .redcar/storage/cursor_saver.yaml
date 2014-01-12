@@ -157,9 +157,6 @@ cursor_positions:
   - :path: app/models/task.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: config/routes.rb
-    :cursor_offset: 210
-    :timestamp: 2014-01-09 16:52:15 +01:00
   - :path: app/helpers/conversations_helper.rb
     :cursor_offset: 29
     :timestamp: 2014-01-09 23:49:45 +01:00
@@ -255,4 +252,7 @@ cursor_positions:
   - :path: app/controllers/portfolios_controller.rb
     :cursor_offset: 105
     :timestamp: 2014-01-12 23:28:13 +01:00
+  - :path: config/routes.rb
+    :cursor_offset: 162
+    :timestamp: 2014-01-12 23:28:28 +01:00
 files_to_retain: 0
