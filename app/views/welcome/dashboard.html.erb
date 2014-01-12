@@ -21,7 +21,7 @@
                     <i class="fa fa-comments fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= Project.all.count %></p>
+                    <p class="announcement-heading"><%= Project.joins(:users).where("user_id == ?", current_user.id).count %></p>
                     <p class="announcement-text">Aktuelle Projekte</p>
                   </div>
                 </div>
