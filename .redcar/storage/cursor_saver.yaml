@@ -124,18 +124,12 @@ cursor_positions:
   - :path: app/views/portfolios/show.html.erb
     :cursor_offset: 1909
     :timestamp: 2014-01-08 10:14:55 +01:00
-  - :path: app/controllers/welcome_controller.rb
-    :cursor_offset: 157
-    :timestamp: 2014-01-08 13:24:52 +01:00
   - :path: app/assets/stylesheets/welcome.css.scss
     :cursor_offset: 731
     :timestamp: 2014-01-08 15:44:57 +01:00
   - :path: app/assets/stylesheets/portfolios.css.scss
     :cursor_offset: 0
     :timestamp: 2014-01-08 13:18:56 +01:00
-  - :path: app/controllers/portfolios_controller.rb
-    :cursor_offset: 85
-    :timestamp: 2014-01-08 13:21:09 +01:00
   - :path: app/views/portfolios/index.html.erb
     :cursor_offset: 3161
     :timestamp: 2014-01-09 10:26:08 +01:00
@@ -163,9 +157,6 @@ cursor_positions:
   - :path: app/models/task.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: config/routes.rb
-    :cursor_offset: 210
-    :timestamp: 2014-01-09 16:52:15 +01:00
   - :path: app/helpers/conversations_helper.rb
     :cursor_offset: 29
     :timestamp: 2014-01-09 23:49:45 +01:00
@@ -255,4 +246,13 @@ cursor_positions:
   - :path: app/views/projects/show.html.erb
     :cursor_offset: 3709
     :timestamp: 2014-01-12 01:05:24 +01:00
+  - :path: app/controllers/welcome_controller.rb
+    :cursor_offset: 140
+    :timestamp: 2014-01-12 23:28:06 +01:00
+  - :path: app/controllers/portfolios_controller.rb
+    :cursor_offset: 105
+    :timestamp: 2014-01-12 23:28:13 +01:00
+  - :path: config/routes.rb
+    :cursor_offset: 162
+    :timestamp: 2014-01-12 23:28:28 +01:00
 files_to_retain: 0
