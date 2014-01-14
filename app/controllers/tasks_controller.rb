@@ -28,7 +28,7 @@ class TasksController < ApplicationController
 		@task = Task.find(params[:task_id])
 		@old_list = List.find(@task.list)
 		
-		@newList = List.where("id > ?",  @old_list.id).order("id ASC").first
+		@newList = List.where("project_id = ? AND position > ?",  @old_list.project_id, @old_list.position).order("position ASC").first
 		@newList.tasks << @task
 		
 		redirect_to project_path(params[:project_id])
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
 		@task = Task.find(params[:task_id])
 		@old_list = List.find(@task.list)
 		
-		@newList = List.where("id < ?",  @old_list.id).order("id ASC").last
+		@newList = List.where("project_id = ? AND position < ?",  @old_list.project_id, @old_list.position).order("position DESC").first
 		@newList.tasks << @task
 		
 		redirect_to project_path(params[:project_id])
