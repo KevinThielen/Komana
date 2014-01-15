@@ -38,19 +38,18 @@
 		<%# saves the current list at the end of the loop and use it as param for the next lists move up method) %>
 		<% previous_list  = @lists.first %>
 		
-	
-        <% @lists.each do |list| %>	
-      
+        <% @lists.each do |list| %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="well well-lg">
-
-        <a onClick = "toggleList(this, <%= list.id %>)">HIDE</a>
-          
-	      <h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
-
+<<<<<<< HEAD
+          <h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
+=======
+      
+            
+            <h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
 			<%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, list_move_up_path(:list_id => previous_list), :method => :POST if list != @lists.first %>
 			<%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, list_move_up_path(:list_id => list), :method => :POST if list != @lists.last %>
-
+>>>>>>> 4942528a4b9e498da98a66987c6a99d1218695b7
             <div class="dropdown pull-right">
               <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-bars"></span></button>
               <ul class="dropdown-menu" role="menu">
@@ -62,9 +61,9 @@
           </h4>
           <br/>
           <% list.tasks.each do |task| %>
-          <div class="panel panel-default <%= list.id %>">
+          <div class="panel panel-default">
             <div class="panel-heading">
-              
+          
 			
              <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>');"><strong><%= task.titel %></strong></a>
             
