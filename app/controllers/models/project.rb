@@ -1,3 +1,3 @@
 class Project < ActiveRecord::Base
-	has_many :lists
+	has_many :lists, :order => "position ASC"
 end

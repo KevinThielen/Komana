@@ -12,9 +12,10 @@
   
   <div class="row">
     <div class="col-lg-2">
-      <div class="list-group">
-        <%= link_to '<i class="fa fa-mail-reply"></i> Antworten'.html_safe, conversations_path, :class => 'list-group-item' %>
-        <%= link_to '<i class="fa fa-mail-reply-all"></i> Allen antworten'.html_safe, conversations_path, :class => 'list-group-item' %>
+      <div class="list-group"> <%= link_to 'Move to trash', [:trash, conversation], method: :post, :class => 'list-group-item' %>
+       <% current_user.reply_to_conversation(conversation, "Reply body") %>
+       <%#= link_to '<i class="fa fa-mail-reply"></i> Antworten'.html_safe, [:reply, conversation], method: :post, :class => 'list-group-item' %>
+       <%= link_to '<i class="fa fa-mail-reply-all"></i> Allen antworten'.html_safe, conversations_path, :class => 'list-group-item' %>
         <%= link_to '<i class="fa fa-mail-forward"></i> Weiterleiten'.html_safe, conversations_path, :class => 'list-group-item' %>
         <%= link_to '<i class="fa fa-envelope"></i> Als Ungelesen markieren'.html_safe, conversations_path, :class => 'list-group-item' %>
       </div>
