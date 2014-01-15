@@ -36,8 +36,7 @@
 		<% n = 0 %>
 		
 		<%# saves the current list at the end of the loop and use it as param for the next lists move up method) %>
-		<% previous_list  = @lists.first %>
-		
+
 	
         <% @lists.each do |list| %>	
       
@@ -48,7 +47,7 @@
           
 	      <h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
 
-			<%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, list_move_up_path(:list_id => previous_list), :method => :POST if list != @lists.first %>
+			<%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, list_move_down_path(:list_id => list), :method => :POST if list != @lists.first %>
 			<%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, list_move_up_path(:list_id => list), :method => :POST if list != @lists.last %>
 
             <div class="dropdown pull-right">
@@ -80,8 +79,6 @@
             </div>
           </div>
           
-
-          <% previous_list = list %>
           <% end %>
 
       

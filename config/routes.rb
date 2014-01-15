@@ -20,6 +20,7 @@ Komana::Application.routes.draw do
 
   resources :lists do
 		post "move_up"
+		post "move_down"
   end
   resources :projects do
 	post "add_user"

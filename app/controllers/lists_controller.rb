@@ -28,7 +28,19 @@ class ListsController < ApplicationController
 		
 		redirect_to project_path(list1.project_id)
     end
-  
+    
+  	def move_down
+		list1 = List.find(params[:list_id])
+		list2 = List.where("project_id = ? AND position < ?",  list1.project_id, list1.position).order("position DESC").first
+		
+		tmp_position = list1.position
+		
+		list1.update!(:position => list2.position)
+		list2.update!(:position => tmp_position)
+		
+		redirect_to project_path(list1.project_id)
+    end
+    
 	def update
 
 		@list = List.find(params[:id])
