@@ -14,8 +14,9 @@ class ConversationsController < ApplicationController
   end
 
   def reply
-    current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
-    redirect_to conversation
+    myConversation = conversation.find(params[:conversation_id])
+    current_user.reply_to_conversation(myConversation, params[:body])
+    redirect_to conversations_path
   end
 
   def trash

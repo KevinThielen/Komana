@@ -1,3 +1,4 @@
 --- 
-open_files: []
-
+open_files: 
+  - app/views/conversations/show.html.erb
+  - config/routes.rb
