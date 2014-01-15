@@ -10,13 +10,17 @@ Komana::Application.routes.draw do
   
 
   resources :portfolios
+ 
   resources :conversations
 
-  resources :lists
+  resources :lists do
+		post "move_up"
+		post "move_down"
+  end
   resources :projects do
 	post "add_user"
 	resources :lists do
-	 resources :tasks
+		resources :tasks
 	end
 	
 	resources :tasks do

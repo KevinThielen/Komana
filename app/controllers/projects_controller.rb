@@ -6,9 +6,7 @@ class ProjectsController < ApplicationController
 	
 	def create
 		@project = Project.new(project_params)
-		
 	
-		
 		if @project.save	
 			ProjectsUsers.addUserToProject(@project.id, current_user.id)
 
@@ -37,7 +35,7 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:id])
 		#used for the task modal.
 		@current_task = Task.new
-		@lists = @project.lists.find(:all)
+		@lists = List.where("project_id = ?",  @project.id).order("position ASC")
 	end
 	
 	def index

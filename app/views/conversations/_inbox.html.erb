@@ -46,7 +46,7 @@
             <td><%= image_tag avatar_url(@last_sender,50), :class => 'pull-right' %></td>
             <td><em><strong> <%= link_to @last_sender.firstname + " " + @last_sender.lastname %></strong> schreibt:</em><br> <%=raw truncate(conversation.last_message.body, :length => 40,  :omission => "...")%></td>
             <td><%= @Originator.firstname %> <%= @Originator.lastname %></td>
-            <td><%= link_to '<i class="fa fa-mail-reply"></i>'.html_safe %></td>
+            <td><%= link_to '<i class="fa fa-mail-reply"></i>'.html_safe%></td>
             <td><%= link_to '<i class="fa fa-mail-reply-all"></i>'.html_safe %></td>
             <td><%= link_to '<i class="fa fa-mail-forward"></i>'.html_safe %></td>
             <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe%></td>

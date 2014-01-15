@@ -9,11 +9,11 @@
 updateTask = (id, titel, text) ->
 	taskTitel = document.getElementById('task_titel')
 	taskTitel.value = titel
-	taskText = document.getElementById('task_text');
-	taskText.value = text;
-	taskId = document.getElementById('task_id');
-	taskId.value = id;     
-	$('#editTaskModal').modal('show');
+	taskText = document.getElementById('task_text')
+	taskText.value = text
+	taskId = document.getElementById('task_id')
+	taskId.value = id
+	$('#editTaskModal').modal('show')
     
 
 window.updateTask = updateTask
