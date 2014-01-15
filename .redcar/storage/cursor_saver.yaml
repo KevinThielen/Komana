@@ -15,9 +15,6 @@ cursor_positions:
   - :path: bin/rake
     :cursor_offset: 0
     :timestamp: 2013-12-17 18:01:59 +01:00
-  - :path: public/favicon.ico
-    :cursor_offset: 0
-    :timestamp: 2013-12-17 18:01:59 +01:00
   - :path: app/views/layouts/_navigation_links.html.erb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -42,9 +39,6 @@ cursor_positions:
   - :path: config/initializers/session_store.rb
     :cursor_offset: 0
     :timestamp: 2013-12-17 18:01:59 +01:00
-  - :path: app/views/lists/show.html.erb
-    :cursor_offset: 0
-    :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/assets/stylesheets/font-awesome.css
     :cursor_offset: 0
     :timestamp: 2014-01-04 21:28:39 +01:00
@@ -130,9 +124,6 @@ cursor_positions:
   - :path: db/migrate/20140109121953_add_description_to_tasks.rb
     :cursor_offset: 0
     :timestamp: 2014-01-09 13:19:53 +01:00
-  - :path: app/controllers/projects_controller.rb
-    :cursor_offset: 119
-    :timestamp: 2014-01-08 09:45:46 +01:00
   - :path: app/controllers/lists_controller.rb
     :cursor_offset: 81
     :timestamp: 2014-01-08 09:46:20 +01:00
@@ -154,9 +145,6 @@ cursor_positions:
   - :path: app/views/conversations/new.html.erb
     :cursor_offset: 727
     :timestamp: 2014-01-09 14:18:43 +01:00
-  - :path: app/assets/stylesheets/projects.css.scss
-    :cursor_offset: 211
-    :timestamp: 2014-01-10 09:56:17 +01:00
   - :path: app/controllers/conversations_controller.rb
     :cursor_offset: 119
     :timestamp: 2014-01-07 16:33:27 +01:00
@@ -213,18 +201,9 @@ cursor_positions:
   - :path: app/views/conversations/show.html.erb
     :cursor_offset: 1541
     :timestamp: 2014-01-10 13:14:31 +01:00
-  - :path: app/views/conversations/index.html.erb
-    :cursor_offset: 567
-    :timestamp: 2014-01-11 15:57:16 +01:00
-  - :path: app/views/conversations/_inbox.html.erb
-    :cursor_offset: 1787
-    :timestamp: 2014-01-11 16:20:50 +01:00
   - :path: app/views/welcome/contact.html.erb
     :cursor_offset: 2846
     :timestamp: 2014-01-12 01:20:12 +01:00
-  - :path: app/views/projects/show.html.erb
-    :cursor_offset: 3709
-    :timestamp: 2014-01-12 01:05:24 +01:00
   - :path: app/controllers/welcome_controller.rb
     :cursor_offset: 140
     :timestamp: 2014-01-12 23:28:06 +01:00
@@ -246,9 +225,6 @@ cursor_positions:
   - :path: app/assets/javascripts/projects.js.coffee
     :cursor_offset: 212
     :timestamp: 2014-01-10 09:27:59 +01:00
-  - :path: app/assets/javascripts/project.js.coffee.erb
-    :cursor_offset: 914
-    :timestamp: 2014-01-13 15:34:57 +01:00
   - :path: app/assets/stylesheets/framework_and_overrides.css.scss
     :cursor_offset: 20
     :timestamp: 2014-01-13 00:23:16 +01:00
@@ -258,4 +234,43 @@ cursor_positions:
   - :path: app/views/devise/sessions/new.html.erb
     :cursor_offset: 669
     :timestamp: 2014-01-06 22:21:02 +01:00
+  - :path: app/assets/javascripts/project.js.coffee.erb
+    :cursor_offset: 1714
+    :timestamp: 2014-01-13 15:46:01 +01:00
+  - :path: app/controllers/projects_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2014-01-13 15:36:40 +01:00
+  - :path: app/views/conversations/index.html.erb
+    :cursor_offset: 567
+    :timestamp: 2014-01-11 15:57:16 +01:00
+  - :path: app/views/conversations/_inbox.html.erb
+    :cursor_offset: 1787
+    :timestamp: 2014-01-11 16:20:50 +01:00
+  - :path: app/views/projects/show.html.erb
+    :cursor_offset: 1341
+    :timestamp: 2014-01-13 16:33:24 +01:00
+  - :path: app/assets/stylesheets/projects.css.scss
+    :cursor_offset: 246
+    :timestamp: 2014-01-13 16:33:15 +01:00
+  - :path: tmp/pids/server.pid
+    :cursor_offset: 0
+    :timestamp: 2014-01-12 00:52:45 +01:00
+  - :path: public/404.html
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: public/422.html
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: public/500.html
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: public/favicon.ico
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: public/robots.txt
+    :cursor_offset: 0
+    :timestamp: 2013-12-17 18:01:59 +01:00
+  - :path: app/views/lists/show.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-12-27 20:13:13 +01:00
 files_to_retain: 0

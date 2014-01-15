@@ -9,19 +9,37 @@
     </ol>
   </div>
 </div>
-        
+		<!-- Display all user who are added the current in the project -->
+		<div class="well well-lg">
+			<% @users = User.joins(:projects).where("project_id == ?", @project.id) %>
+			
+			<% @users.each_with_index do |user| %>
+				<%= image_tag avatar_url(user, 15) %>
+				<%= user.id %>
+				<%= user.firstname %>
+				<%= user.lastname %>
+			<% end %>
+			
+			
+		<!-- add a new user to the project -->
+		<%= form_tag project_add_user_path(@project.id) do %>
+			<%= text_field_tag :user_email, nil, :placeholder => 'Email' %>
+			<%= submit_tag "Add", :class=>'btn btn-primary'%>
+		<% end %>
+		</div>
+          
+          
        <%# Show Lists and Tasks %>
       <div class="row">
         
         <% @lists.each_with_index do |list, n| %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="well well-lg">
-          <h4> <strong onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
+          <h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
             <div class="dropdown pull-right">
               <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-bars"></span></button>
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation"><%= link_to 'Aufgabe anlegen', project_list_tasks_path(@project, list), :method =>:post %></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Neuer Bereich</a></li>
                 <li role="presentation" class="divider"></li>
                 <li role="presentation"><%= link_to 'Liste löschen <i class="fa fa-exclamation-circle"></i>'.html_safe, project_list_path(project_id:@project, list_id:list), method: :delete, :confirm => "Soll die Liste wirklich gelöscht werden?" %></li>
               </ul>
@@ -78,7 +96,7 @@
   <%= link_to 'Projekt löschen', project_path(@project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
   <br/>
   <br/ >
-  <%= link_to 'Zurück', projects_path, :class => 'btn btn-default' %>
+  <%= link_to 'Zurück zur Projektübersicht', projects_path, :class => 'btn btn-default' %>
 </div>
 
 <!-- Task-Modal -->

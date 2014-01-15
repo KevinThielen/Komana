@@ -1,5 +1,6 @@
 Komana::Application.routes.draw do
   devise_for :users
+
   get "welcome/index"
   
   
@@ -13,6 +14,7 @@ Komana::Application.routes.draw do
 
   resources :lists
   resources :projects do
+	post "add_user"
 	resources :lists do
 	 resources :tasks
 	end

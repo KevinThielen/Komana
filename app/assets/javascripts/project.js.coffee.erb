@@ -35,12 +35,12 @@ updateList = (element, id) ->
 		
 
 		input = document.createElement('input')
-		input.setAttribute('type','text');
-		input.setAttribute('name','Listname');
-    $(input).addClass('form-control');
-    
-		input.value = listTag.innerHTML;
-		listTag.appendChild(input);
+		input.setAttribute('type','text')
+		input.setAttribute('name','Listname')
+		$(input).addClass("form-control")
+		
+		input.value = listTag.innerHTML
+		listTag.appendChild(input)
 	 
 		#replace the List text with the form
 		lastListName = listTag.innerHTML
