@@ -99,11 +99,17 @@ window.updateList = updateList
 
 toggleList = (list, list_class) ->
 	
-	if list.innerHTML == 'HIDE'
+	if $(list).hasClass('hidden_list') == false
 		$("."+list_class).css( "display", "none" );
+		$(list).addClass('hidden_list')
+		
+		#SHOW should be replaced with symbol/graphic for decollapsing
 		list.innerHTML = 'SHOW'
 	else
 		$("."+list_class).css( "display", "block" );
+		
+		#HIDE should be replaced with symbol/graphic for collapsing
 		list.innerHTML = 'HIDE'
+		$(list).removeClass('hidden_list')
 
 window.toggleList = toggleList
