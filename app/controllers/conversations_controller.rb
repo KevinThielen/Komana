@@ -3,20 +3,26 @@ class ConversationsController < ApplicationController
   helper_method :mailbox, :conversation
 
   def create
+  
+   raise
+	if params[:reply]
+		raise
+	end
     
+
     recipient_emails = conversation_params(:recipients)
     recipients = User.where(email: recipient_emails).all
 
     conversation = current_user.
-      send_message(recipients, *conversation_params(:body, :subject)).conversation
+    send_message(recipients, *conversation_params(:body, :subject)).conversation
 
     redirect_to conversations_path
   end
 
   def reply
-    myConversation = conversation.find(params[:conversation_id])
-    current_user.reply_to_conversation(myConversation, params[:body])
-    redirect_to conversations_path
+	current_conversation = Conversation.find(params[:conversation_id])
+    current_user.reply_to_conversation(current_conversation, params[:body])
+    redirect_to conversation_path(current_conversation)
   end
 
   def trash

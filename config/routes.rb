@@ -12,9 +12,9 @@ Komana::Application.routes.draw do
   resources :portfolios
  
   resources :conversations do
-    post "reply"
-    post :trash
-    post :untrash
+		post :reply
+		post :trash
+		post :untrash
   end
     
 
