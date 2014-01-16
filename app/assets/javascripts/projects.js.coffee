@@ -17,9 +17,16 @@ updateTask = (id, titel, text, user) ->
 	taskText.value = text
 	taskId = document.getElementById('task_id')
 	taskId.value = id
+	
+    # dropdown menu default value
+	assigned_user = document.getElementById('user_id')
+	i = 0
+	while i < assigned_user.options.length
+		assigned_user.options[i].selected = true  if assigned_user.options[i].value is user
+		i++
+
 	$('#editTaskModal').modal('show')
     
-
 window.updateTask = updateTask
 
 
