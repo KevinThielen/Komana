@@ -3,22 +3,24 @@ class ConversationsController < ApplicationController
   helper_method :mailbox, :conversation
 
   def create
-  
-   raise
-	if params[:reply]
-		raise
-	end
-    
-
     recipient_emails = conversation_params(:recipients)
     recipients = User.where(email: recipient_emails).all
 
     conversation = current_user.
     send_message(recipients, *conversation_params(:body, :subject)).conversation
-
+	#flash[:notice] = "Nachricht gesendet"
+	
     redirect_to conversations_path
   end
 
+  def index
+	 if params[:partial]
+		@partial = params[:partial]
+	 else
+		@partial = "conversations/inbox"
+	 end
+  end
+  
   def reply
 	current_conversation = Conversation.find(params[:conversation_id])
     current_user.reply_to_conversation(current_conversation, params[:body])
@@ -26,8 +28,10 @@ class ConversationsController < ApplicationController
   end
 
   def trash
-    conversation.move_to_trash(current_user)
-    redirect_to :conversations
+    current_conversation = Conversation.find(params[:conversation_id])
+    current_user.trash(current_conversation)    
+
+    redirect_to conversations_path
   end
 
   def untrash

@@ -15,5 +15,7 @@ Inbox: <%= current_user.mailbox.inbox.count %> Send: <%= current_user.mailbox.se
     </div>
   </div><!-- /.row -->
   <!-- Partial einfügen-->
-  <%= render 'conversations/inbox' %>
+  
+
+  <%= render @partial %>
 </div>

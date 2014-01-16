@@ -5,13 +5,9 @@
   </div>
   
   <div class="row">
-    <div class="col-lg-2">
-      <div class="list-group">
-        <%= link_to '<i class="fa fa-envelope"></i> Posteingang'.html_safe, conversations_path, :class => 'list-group-item' %>
-        <%= link_to '<i class="glyphicon glyphicon-send"></i> Postausgang'.html_safe, conversations_path, :class => 'list-group-item' %>
-        <%= link_to '<i class="fa fa-trash-o"></i> Papierkorb'.html_safe, conversations_path, :class => 'list-group-item' %>
-      </div>
-    </div>
+    <%= render "conversations/list_group" %>
+    
+  
    
     <div class="col-lg-10">
       
