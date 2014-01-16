@@ -64,13 +64,19 @@
           <div class="panel panel-default <%= list.id %>">
             <div class="panel-heading">
               
-			
+             <!-- get the assigned user -->
+             <% @user = User.joins(:tasks).where("task_id == ?", task.id).first %> 
              <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>');"><strong><%= task.titel %></strong></a>
              
              <%# Let the Task move up and down in list %>
              <%= link_to 'DOWN '.html_safe, project_task_move_down_path(@project, :task_id => task), :method => :GET if task != @tasks.last %>
              <%= link_to ' UP'.html_safe, project_task_move_up_path(@project, :task_id => task), :method => :GET if task != @tasks.first %>
-            
+			 [
+				<%= if @user.present?
+					@user.firstname 
+				end %>  
+			]
+			 
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
           
             </div>
@@ -122,25 +128,29 @@
 <!-- Task-Modal -->
           
           
+             
           <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <%= form_for(@current_task, :url => project_task_path(@project.id, 0), :method => :put, :html => {:class => 'form-inline'}) do |f| %>
-                <%= f.hidden_field :id, :class => 'form-control' %>
+                <%= form_tag project_task_path(@project.id, 0), :method => :put, :html => {:class => 'form-inline'} do %>
+                <%= hidden_field_tag 'task_id', NIL, {:class => 'form-control'} %>
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="editTaskModalLabel"><%= f.text_field :titel, :class => 'form-control' %></h4>
+                  <h4 class="modal-title" id="editTaskModalLabel"><%= text_field_tag :titel, NIL, {:class => 'form-control', :id=> 'task_titel'} %></h4>
                 </div>
                 <div class="modal-body">
                  
                  <%# Add Task %>
-				        <div class="form-group"> 
-					        <%= f.text_area :text, :size => "100x3", :class => 'form-control' %>
+				 <div class="form-group"> 
+					   <%= text_area_tag :text, NIL, {:size => "100x3", :class => 'form-control', :id=> 'task_text'} %>
+					   Zuweisen an:<%= select_tag "user_id", options_from_collection_for_select(@users, "id", "firstname"), include_blank: true %>
                 </div>
        
 
+       
+
                 <div class="modal-footer">
-                  <%= f.submit "Speichern", :class => 'btn btn-primary' %>
+                  <%= submit_tag "Speichern", :class => 'btn btn-primary' %>
                   <% end %>        
                   <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
                 </div>

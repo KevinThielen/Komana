@@ -10,7 +10,7 @@
 
 
 
-updateTask = (id, titel, text) ->
+updateTask = (id, titel, text, user) ->
 	taskTitel = document.getElementById('task_titel')
 	taskTitel.value = titel
 	taskText = document.getElementById('task_text')

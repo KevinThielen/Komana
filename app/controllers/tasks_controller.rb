@@ -24,9 +24,14 @@ class TasksController < ApplicationController
 	end
 	
 	def update
-		@task = Task.find(params[:task][:id])
+
+
+		@task = Task.find(params[:task_id])
+		@task.update!(:titel => params[:titel], :text=>params[:text])
 		
-		@task.update!(task_params)
+		TasksUsers.assignUserToTask(@task.id, params[:user_id])
+		
+		
 		redirect_to project_path(params[:project_id])	
 	end
 	

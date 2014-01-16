@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115071101) do
+ActiveRecord::Schema.define(version: 20140116122104) do
 
   create_table "conversations", force: true do |t|
     t.string   "subject",    default: ""
@@ -87,6 +87,13 @@ ActiveRecord::Schema.define(version: 20140115071101) do
   end
 
   add_index "tasks", ["list_id"], name: "index_tasks_on_list_id"
+
+  create_table "tasks_users", force: true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_projects", force: true do |t|
     t.integer  "project_id"
