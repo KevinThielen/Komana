@@ -35,9 +35,7 @@
         <%# counter for css style elements in the loop %>
 		<% n = 0 %>
 		
-		<%# saves the current list at the end of the loop and use it as param for the next lists move up method) %>
 
-	
         <% @lists.each do |list| %>	
       
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -60,12 +58,18 @@
             </div>
           </h4>
           <br/>
-          <% list.tasks.each do |task| %>
+          <% @tasks = Task.where("list_id = ?",  list.id).order("position DESC") %>
+          
+          <% @tasks.each do |task| %>
           <div class="panel panel-default <%= list.id %>">
             <div class="panel-heading">
               
 			
              <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>');"><strong><%= task.titel %></strong></a>
+             
+             <%# Let the Task move up and down in list %>
+             <%= link_to 'DOWN '.html_safe, project_task_move_down_path(@project, :task_id => task), :method => :GET if task != @tasks.last %>
+             <%= link_to ' UP'.html_safe, project_task_move_up_path(@project, :task_id => task), :method => :GET if task != @tasks.first %>
             
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
           

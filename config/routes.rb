@@ -29,6 +29,8 @@ Komana::Application.routes.draw do
 	end
 	
 	resources :tasks do
+		get "move_up"
+		get "move_down"
 		get "move_to_next_list"
 		get "move_to_prev_list"
 	end
