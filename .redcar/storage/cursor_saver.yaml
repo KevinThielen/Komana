@@ -186,12 +186,6 @@ cursor_positions:
     :timestamp: 2014-01-10 13:38:49 +01:00
     :selection_offset: 559
     :block_selection_mode: false
-  - :path: app/views/conversations/_sent.html.erb
-    :cursor_offset: 91
-    :timestamp: 2014-01-11 16:19:20 +01:00
-  - :path: app/views/conversations/_trash.html.erb
-    :cursor_offset: 329
-    :timestamp: 2014-01-11 16:19:06 +01:00
   - :path: app/views/welcome/contact.html.erb
     :cursor_offset: 2846
     :timestamp: 2014-01-12 01:20:12 +01:00
@@ -255,14 +249,6 @@ cursor_positions:
   - :path: app/views/projects/show.html.erb~
     :cursor_offset: 0
     :timestamp: 2014-01-15 13:14:08 +01:00
-  - :path: app/views/conversations/index.html.erb
-    :cursor_offset: 0
-    :timestamp: 2014-01-15 13:14:08 +01:00
-  - :path: app/views/conversations/_inbox.html.erb
-    :cursor_offset: 1933
-    :timestamp: 2014-01-15 14:27:23 +01:00
-    :selection_offset: 1909
-    :block_selection_mode: false
   - :path: app/views/projects/show.html.erb
     :cursor_offset: 5232
     :timestamp: 2014-01-15 13:14:32 +01:00
@@ -271,15 +257,30 @@ cursor_positions:
   - :path: app/controllers/conversations_controller.rb
     :cursor_offset: 541
     :timestamp: 2014-01-15 15:33:09 +01:00
+  - :path: config/routes.rb
+    :cursor_offset: 0
+    :timestamp: 2014-01-18 12:32:24 +01:00
+  - :path: app/views/conversations/show.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-18 12:32:24 +01:00
   - :path: app/views/conversations/new.html.erb
     :cursor_offset: 0
     :timestamp: 2014-01-09 14:18:43 +01:00
     :selection_offset: 727
     :block_selection_mode: false
-  - :path: app/views/conversations/show.html.erb
-    :cursor_offset: 1232
-    :timestamp: 2014-01-15 15:52:14 +01:00
-  - :path: config/routes.rb
-    :cursor_offset: 236
-    :timestamp: 2014-01-15 15:48:50 +01:00
+  - :path: app/views/conversations/_sent.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-18 12:32:24 +01:00
+  - :path: app/views/conversations/_trash.html.erb
+    :cursor_offset: 92
+    :timestamp: 2014-01-18 12:32:24 +01:00
+  - :path: app/views/conversations/_inbox.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-18 12:32:24 +01:00
+  - :path: app/views/conversations/_list_group.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-18 12:32:24 +01:00
+  - :path: app/views/conversations/index.html.erb
+    :cursor_offset: 407
+    :timestamp: 2014-01-18 12:53:10 +01:00
 files_to_retain: 0
