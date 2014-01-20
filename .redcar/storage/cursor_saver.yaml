@@ -159,12 +159,6 @@ cursor_positions:
   - :path: app/assets/stylesheets/messages.css.scss
     :cursor_offset: 0
     :timestamp: 2014-01-07 14:52:20 +01:00
-  - :path: app/assets/stylesheets/application.css.scss
-    :cursor_offset: 1138
-    :timestamp: 2014-01-06 22:21:09 +01:00
-  - :path: app/assets/stylesheets/framework_and_overrides.css.scss
-    :cursor_offset: 20
-    :timestamp: 2014-01-13 00:23:16 +01:00
   - :path: app/views/devise/sessions/new.html.erb
     :cursor_offset: 669
     :timestamp: 2014-01-06 22:21:02 +01:00
@@ -270,9 +264,6 @@ cursor_positions:
   - :path: app/helpers/application_helper.rb
     :cursor_offset: 424
     :timestamp: 2014-01-20 12:53:26 +01:00
-  - :path: app/views/layouts/_navigation.html.erb
-    :cursor_offset: 3583
-    :timestamp: 2014-01-20 11:54:50 +01:00
   - :path: app/controllers/conversations_controller.rb
     :cursor_offset: 1192
     :timestamp: 2014-01-20 13:45:23 +01:00
@@ -289,6 +280,15 @@ cursor_positions:
     :cursor_offset: 1949
     :timestamp: 2014-01-20 14:06:10 +01:00
   - :path: config/locales/de.yml
-    :cursor_offset: 4176
-    :timestamp: 2014-01-08 18:04:31 +01:00
+    :cursor_offset: 1717
+    :timestamp: 2014-01-20 14:52:43 +01:00
+  - :path: app/assets/stylesheets/framework_and_overrides.css.scss
+    :cursor_offset: 20
+    :timestamp: 2014-01-13 00:23:16 +01:00
+  - :path: app/views/layouts/_navigation.html.erb
+    :cursor_offset: 3843
+    :timestamp: 2014-01-20 14:54:22 +01:00
+  - :path: app/assets/stylesheets/application.css.scss
+    :cursor_offset: 1165
+    :timestamp: 2014-01-20 15:37:13 +01:00
 files_to_retain: 0

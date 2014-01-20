@@ -6,7 +6,9 @@
       <li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
       <li><%= link_to '<i class="fa fa-clipboard"></i> Meine Projekte'.html_safe , projects_path %></li>
       <li class="active"><i class="fa fa-clipboard"></i> <%= @project.name %></li>
+      <span class="pull-right"><a class="text-weak"><i class="fa fa-gear"></i></a></span>
     </ol>
+    
   </div>
 </div>
 		<!-- Display all user who are added the current in the project -->
@@ -88,6 +90,8 @@
             <div class="panel-body">
               <%= task.text %>
               <br/>
+              <br>
+              <small class="text-weak">   <i class="fa fa-clock-o"></i> Endet in <%= distance_of_time_in_words(Time.now, Time.now) %></small>
               <br/>
               <%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, project_task_move_to_prev_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.first %>
 			  <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.last %>

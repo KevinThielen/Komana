@@ -35,3 +35,18 @@
   padding: 7px 9px;
 }
 
+/* Add weak text color */
+.text-weak {
+  color: gray;
+} 
+a:active.text-weak,
+a:visited.text-weak,
+a:link.text-weak,
+a:focus.text-weak {
+  color: gray;
+}
+
+a:hover.text-weak  {
+  color: dimgray;
+}
+
