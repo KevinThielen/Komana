@@ -142,26 +142,17 @@ cursor_positions:
   - :path: app/helpers/devise_helper.rb
     :cursor_offset: 21
     :timestamp: 2014-01-10 14:11:50 +01:00
-  - :path: app/views/welcome/dashboard.html.erb
-    :cursor_offset: 880
-    :timestamp: 2014-01-09 11:32:32 +01:00
   - :path: app/views/layouts/_messages.html.erb
     :cursor_offset: 68
     :timestamp: 2014-01-10 13:39:46 +01:00
   - :path: app/views/devise/registrations/new.html.erb
     :cursor_offset: 672
     :timestamp: 2014-01-10 14:12:56 +01:00
-  - :path: app/views/welcome/index.html.erb
-    :cursor_offset: 21
-    :timestamp: 2014-01-11 13:55:17 +01:00
   - :path: app/views/layouts/application.html.erb
     :cursor_offset: 525
     :timestamp: 2014-01-10 13:38:49 +01:00
     :selection_offset: 559
     :block_selection_mode: false
-  - :path: app/views/welcome/contact.html.erb
-    :cursor_offset: 2846
-    :timestamp: 2014-01-12 01:20:12 +01:00
   - :path: app/controllers/welcome_controller.rb
     :cursor_offset: 140
     :timestamp: 2014-01-12 23:28:06 +01:00
@@ -291,4 +282,13 @@ cursor_positions:
   - :path: app/views/conversations/show.html.erb
     :cursor_offset: 500
     :timestamp: 2014-01-20 13:44:22 +01:00
+  - :path: app/views/welcome/index.html.erb
+    :cursor_offset: 21
+    :timestamp: 2014-01-11 13:55:17 +01:00
+  - :path: app/views/welcome/contact.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-15 13:14:08 +01:00
+  - :path: app/views/welcome/dashboard.html.erb
+    :cursor_offset: 1949
+    :timestamp: 2014-01-20 14:06:10 +01:00
 files_to_retain: 0

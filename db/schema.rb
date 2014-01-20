@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 20140116122104) do
     t.integer  "list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "titel"
     t.string   "decription"
+    t.string   "titel"
   end
 
   add_index "tasks", ["list_id"], name: "index_tasks_on_list_id"
