@@ -79,7 +79,8 @@
              <%# Let the Task move up and down in list %>
              <%= link_to '<i class="fa fa-arrow-circle-down"></i>'.html_safe, project_task_move_down_path(@project, :task_id => task), :method => :GET if task != @tasks.last %>
              <%= link_to '<i class="fa fa-arrow-circle-up"></i>'.html_safe, project_task_move_up_path(@project, :task_id => task), :method => :GET if task != @tasks.first %>
-			 [<%=@user_name%>]
+			      <!-- Hübschere Darstellungsform -->  
+            <%=@user_name%>
 			 
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
           
@@ -141,7 +142,7 @@
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                   <h4 class="modal-title" id="editTaskModalLabel"><%= text_field_tag :titel, NIL, {:class => 'form-control', :id=> 'task_titel'} %></h4>
-                  Zuweisen an:<%= select_tag "user_id", options_from_collection_for_select(@users, "id", "firstname"), include_blank: true %>
+                  Zuweisen an:<%= select_tag "user_id", options_from_collection_for_select(@users, "id", "firstname"), include_blank: true, :class => "form-control" %>
                 </div>
                 <div class="modal-body">
                  

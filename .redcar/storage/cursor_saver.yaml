@@ -133,9 +133,6 @@ cursor_positions:
   - :path: app/views/projects/index.html.erb
     :cursor_offset: 710
     :timestamp: 2014-01-10 09:20:41 +01:00
-  - :path: config/locales/de.yml
-    :cursor_offset: 4176
-    :timestamp: 2014-01-08 18:04:31 +01:00
   - :path: config/locales/devise.en.yml
     :cursor_offset: 3041
     :timestamp: 2014-01-10 13:59:49 +01:00
@@ -291,4 +288,7 @@ cursor_positions:
   - :path: app/views/welcome/dashboard.html.erb
     :cursor_offset: 1949
     :timestamp: 2014-01-20 14:06:10 +01:00
+  - :path: config/locales/de.yml
+    :cursor_offset: 4176
+    :timestamp: 2014-01-08 18:04:31 +01:00
 files_to_retain: 0
