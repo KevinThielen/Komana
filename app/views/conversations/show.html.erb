@@ -12,17 +12,37 @@
   
   <div class="row">
     <div class="col-lg-2">
-      <div class="list-group"> <%= link_to 'Move to trash', [:trash, conversation], method: :post, :class => 'list-group-item' %>
-       <% current_user.reply_to_conversation(conversation, "Reply body") %>
-       <%#= link_to '<i class="fa fa-mail-reply"></i> Antworten'.html_safe, [:reply, conversation], method: :post, :class => 'list-group-item' %>
-       <%= link_to '<i class="fa fa-mail-reply-all"></i> Allen antworten'.html_safe, conversations_path, :class => 'list-group-item' %>
-        <%= link_to '<i class="fa fa-mail-forward"></i> Weiterleiten'.html_safe, conversations_path, :class => 'list-group-item' %>
-        <%= link_to '<i class="fa fa-envelope"></i> Als Ungelesen markieren'.html_safe, conversations_path, :class => 'list-group-item' %>
+      <div class="list-group"> 
+        <%= link_to '<i class="fa fa-envelope"></i> Trash'.html_safe, conversation_trash_path(conversation), :method => :post, :id => conversation.id, :class => 'list-group-item' %>
       </div>
     </div>
     <div class="col-lg-10">
+      <div class="row"><!-- row Reply-->
+        <div class="col-lg-1">
+          <div class="pull-right">
+          <%= image_tag avatar_url(current_user, 90) %>
+          </div>
+        </div>
+        <div class="col-lg-11">
+          
+          <div class="panel panel-default">
+            <div class="panel-heading">
+               <span class="panel-title"><%= current_user.firstname %> <%= current_user.lastname%></span>
+            </div>
+            <div class="panel-body">
+
+             <%#= link_to 'test', conversation_reply_path(conversation), :method => :post %>
+			 <%= form_tag conversation_reply_path(conversation) do %>
+			 <%= text_field_tag 'body' %>
+			 <%= submit_tag "absenden" %>
+             <%end%>
+                         </div>
+          </div><!-- /.Panel -->
+        </div>
+      </div><!-- /.row Reply-->
+      <% conversation.receipts_for(current_user).order('updated_at DESC').each do |receipt| %>
       <div class="row">
-        <% conversation.receipts_for(current_user).each do |receipt| %>
+        
           <% message = receipt.message%>
           <% conversation.mark_as_read(current_user) %>
          <% @sender = User.where(email: message.sender.email).first %>
@@ -47,6 +67,10 @@
     </div>
   </div><!-- /.row -->
   
+  
+
+
+
 </div><!-- /.page-wrapper -->
 
 

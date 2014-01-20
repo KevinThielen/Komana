@@ -5,14 +5,8 @@
   </div>
   
   <div class="row">
-    <div class="col-lg-2">
-      <div class="list-group">
-        <%= link_to '<i class="fa fa-envelope"></i> Posteingang'.html_safe, conversations_path, :class => 'list-group-item' %>
-        <%= link_to '<i class="glyphicon glyphicon-send"></i> Postausgang'.html_safe, conversations_path, :class => 'list-group-item' %>
-        <%= link_to '<i class="fa fa-trash-o"></i> Papierkorb'.html_safe, conversations_path, :class => 'list-group-item' %>
-      </div>
-    </div>
-   
+    <%= render "conversations/list_group" %>
+    
     <div class="col-lg-10">
       
       <div class="table-responsive">
@@ -39,7 +33,7 @@
             </div>
             </th>
           </tr>
-          <% current_user.mailbox.inbox.order('updated_at ASC').each do |conversation|%>
+          <% current_user.mailbox.sentbox.order('updated_at ASC').each do |conversation|%>
           <% @Originator = User.where(email: conversation.originator.email).first%>
           <% @last_sender = User.where(email: conversation.last_sender.email).first%>
           <tr>
