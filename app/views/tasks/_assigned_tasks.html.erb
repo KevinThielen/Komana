@@ -1,0 +1,5 @@
+ <% @tasks = Task.joins(:users).where("user_id == ?", current_user.id) %>
+ 
+<% @tasks.each do |task| %>
+<%= task.titel %>
+<% end %>

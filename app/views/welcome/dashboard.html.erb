@@ -49,7 +49,7 @@
                   </div>
                 </div>
               </div>
-			  <%= link_to (tasks_path) do%>
+			  <%= link_to tasks_path do%>
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -99,13 +99,12 @@
                     <i class="fa fa-comments fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                 <%#= select * from tasks where id not in (select task_id from tasks_users) %>
 					<p class="announcement-heading"><%= Task.includes(:users).where("users.id is NULL").count %></p> 
                     <p class="announcement-text">Freie Aufgaben</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+                <%= link_to tasks_path(:partial => 'tasks/free_tasks') do %>
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -116,7 +115,7 @@
                     </div>
                   </div>
                 </div>
-              </a>
+             <% end %>
             </div>
           </div>
         </div><!-- /.row -->

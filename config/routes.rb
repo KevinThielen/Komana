@@ -17,7 +17,9 @@ Komana::Application.routes.draw do
 		post :untrash
   end
     
-  resources :tasks
+  resources :tasks do
+	post "search"
+  end
   
   resources :lists do
 		post "move_up"
