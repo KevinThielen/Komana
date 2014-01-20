@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   		@project = Project.find(params[:project_id])
  		project_user = ProjectsUsers.where("user_id =?", current_user).first
 
-  		if project_user.role != "member"
+  		if project_user.role != "author"
   			flash[:notice] = "Keine Berechtigung"
   			redirect_to project_path(@project)
 

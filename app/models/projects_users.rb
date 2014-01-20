@@ -4,7 +4,7 @@ class ProjectsUsers < ActiveRecord::Base
 
 	def self.addUserToProject(project_id, user_id, role)	
 		if(ProjectsUsers.where(:project_id => project_id, :user_id => user_id).blank?)
-			ProjectsUsers.create(:project_id => project_id, :user_id => user_id, :role => "member")
+			ProjectsUsers.create(:project_id => project_id, :user_id => user_id, :role => role)
 		end
 	end	
 end
