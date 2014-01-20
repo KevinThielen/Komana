@@ -40,7 +40,11 @@
                 <li class="dropdown-header"><%= current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s %> Neue Nachrichten</li>
                 <% current_user.mailbox.inbox(:read => false).order('updated_at ASC').each_with_index do |conversation, n| %>
                 <% if (n<3)%>
+                <% if conversation.last_sender.present? %>
                 <% @last_sender = User.where(email: conversation.last_sender.email).first%>
+                <% else %>
+                <% @last_sender = create_temp_deleted_user() %>
+                <% end %>
                 <li class="message-preview">
                 <%= link_to conversation_path(conversation), :method => :get do %>
                     <span class="avatar"><%= image_tag avatar_url(@last_sender, 50) %></span>

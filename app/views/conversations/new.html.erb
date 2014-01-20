@@ -1,3 +1,15 @@
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Nachrichten <small>Neue Konversation</small></h1>
+      <ol class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
+        <li><%= link_to '<i class="fa fa-envelope"></i> Nachrichten'.html_safe , conversations_path %></li>
+        <li><i class="fa fa-comments"></i> Neue Konversation</li>
+      </ol>
+    </div>
+  </div><!-- /.row -->
+
 <%= form_for :conversation, url: :conversations do |f| %>
 <div class="input-group">
       <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -13,3 +25,5 @@
     </div>
 <%= f.submit "Anmelden", :class=>'btn btn-primary'%>
 <% end %>
+
+</div>
