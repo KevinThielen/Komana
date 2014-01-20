@@ -37,8 +37,10 @@ class ProjectsController < ApplicationController
 		@user = User.where("email = ?", params[:user_email]).first
 		
 		if @user.present? && @project.present?
+
 			ProjectsUsers.addUserToProject(@project.id, @user.id, "member") 
-			current_user.send_message(@user, "#{@user.firstname} #{@user.lastname} added you to Project #{@project.name}." , "added to Project" ).conversation
+			@user.notify("#{current_user.firstname} #{current_user.lastname} added you to Project \"#{@project.name}\"." , "added to Project" ).conversation
+
 		else
 			#TODO: error handling
 			raise
