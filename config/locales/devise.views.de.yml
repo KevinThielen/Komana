@@ -35,6 +35,8 @@ de:
         we_need_your_current_password_to_confirm_your_changes: wir benötigen Ihr aktuelles Passwort, um die Änderung zu bestätigen
       new:
         sign_up: Registrieren
+      user:
+        updated: Ihr Benutzerprofil wurde erfolgreich geändert.
     sessions:
       new:
         sign_in: Anmelden

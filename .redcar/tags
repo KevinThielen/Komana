@@ -1,4 +1,4 @@
-1389797555
+1390210062
 AddAttachments	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	class AddAttachments 
 AddDescriptionToTasks	/media/sf_Share/Komana/db/migrate/20140109121953_add_description_to_tasks.rb	class AddDescriptionToTasks 
 AddFirstnameToUsers	/media/sf_Share/Komana/db/migrate/20131227154237_add_firstname_to_users.rb	class AddFirstnameToUsers 
@@ -21,6 +21,7 @@ CreateMailboxer	/media/sf_Share/Komana/db/migrate/20140107080659_create_mailboxe
 CreateProjects	/media/sf_Share/Komana/db/migrate/20131218150831_create_projects.rb	class CreateProjects 
 CreateProjectsUsers	/media/sf_Share/Komana/db/migrate/20140110093010_create_projects_users.rb	class CreateProjectsUsers 
 CreateTasks	/media/sf_Share/Komana/db/migrate/20131218151614_create_tasks.rb	class CreateTasks 
+CreateTasksUsers	/media/sf_Share/Komana/db/migrate/20140116122104_create_tasks_users.rb	class CreateTasksUsers 
 CreateUserProjects	/media/sf_Share/Komana/db/migrate/20140110084744_create_user_projects.rb	class CreateUserProjects 
 CreateUsersProjects	/media/sf_Share/Komana/db/migrate/20140110092705_create_users_projects.rb	class CreateUsersProjects 
 DeviseCreateUsers	/media/sf_Share/Komana/db/migrate/20131220083306_devise_create_users.rb	class DeviseCreateUsers 
@@ -61,6 +62,8 @@ TasksController	/media/sf_Share/Komana/app/controllers/tasks_controller.rb	class
 TasksControllerTest	/media/sf_Share/Komana/test/controllers/tasks_controller_test.rb	class TasksControllerTest 
 TasksHelper	/media/sf_Share/Komana/app/helpers/tasks_helper.rb	module TasksHelper
 TasksHelperTest	/media/sf_Share/Komana/test/helpers/tasks_helper_test.rb	class TasksHelperTest 
+TasksUsers	/media/sf_Share/Komana/app/models/tasks_users.rb	class TasksUsers 
+TasksUsersTest	/media/sf_Share/Komana/test/models/tasks_users_test.rb	class TasksUsersTest 
 TestCase	/media/sf_Share/Komana/test/test_helper.rb	class ActiveSupport::TestCase
 User	/media/sf_Share/Komana/app/controllers/models/user.rb	class User 
 User	/media/sf_Share/Komana/app/models/user.rb	class User 
@@ -76,6 +79,7 @@ WelcomeHelperTest	/media/sf_Share/Komana/test/helpers/welcome_helper_test.rb	cla
 addUserToProject	/media/sf_Share/Komana/app/models/projects_users.rb		def self.addUserToProject(project_id, user_id)	
 add_user	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def add_user
 alert	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def alert
+assignUserToTask	/media/sf_Share/Komana/app/models/tasks_users.rb		def self.assignUserToTask(task_id, user_id)	
 avatar_url	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def avatar_url(user, size)
 change	/media/sf_Share/Komana/db/migrate/20131220083306_devise_create_users.rb	  def change
 change	/media/sf_Share/Komana/db/migrate/20131218150831_create_projects.rb	  def change
@@ -93,17 +97,18 @@ change	/media/sf_Share/Komana/db/migrate/20140110093010_create_projects_users.rb
 change	/media/sf_Share/Komana/db/migrate/20140110092935_drop_users_projects.rb	  def change
 change	/media/sf_Share/Komana/db/migrate/20140115071101_tasks.rb	  def change
 change	/media/sf_Share/Komana/db/migrate/20140114200148_lists.rb	  def change
+change	/media/sf_Share/Komana/db/migrate/20140116122104_create_tasks_users.rb	  def change
 configure_permitted_parameters	/media/sf_Share/Komana/app/controllers/application_controller.rb	  def configure_permitted_parameters
 contact	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def contact
 conversation	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation
 conversation_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation_params(*keys)
-create	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def create
 create	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def create
 create	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def create
 create	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def create
-destroy	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def destroy 
+create	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def create
 destroy	/media/sf_Share/Komana/app/controllers/tasks_controller.rb	    def destroy 
 destroy	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def destroy 
+destroy	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def destroy 
 down	/media/sf_Share/Komana/db/migrate/20140107080660_add_notified_object.mailboxer_engine.rb	  def self.down
 down	/media/sf_Share/Komana/db/migrate/20140107080659_create_mailboxer.mailboxer_engine.rb	  def self.down
 down	/media/sf_Share/Komana/db/migrate/20140107080663_rename_receipts_read.mailboxer_engine.rb	  def down
@@ -112,12 +117,16 @@ down	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_
 fetch_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def fetch_params(key, *subkeys)
 index	/media/sf_Share/Komana/app/controllers/welcome_controller.rb	  def index
 index	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def index
+index	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def index
 index	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def index
 mailbox	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def mailbox
 mailboxer_email	/media/sf_Share/Komana/app/models/user.rb	        def mailboxer_email(object)
 message_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def message_params(*keys)
+move_down	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def move_down
+move_down	/media/sf_Share/Komana/app/controllers/lists_controller.rb	  	def move_down
 move_to_next_list	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def move_to_next_list
-move_to_prev_list	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def move_to_prev_list
+move_to_prev_list	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def move_to_prev_list	
+move_up	/media/sf_Share/Komana/app/controllers/tasks_controller.rb	    def move_up
 move_up	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def move_up
 name	/media/sf_Share/Komana/app/models/user.rb	        def name
 new	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def new 
@@ -125,8 +134,8 @@ notice	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def notice
 project_params	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def project_params
 reply	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def reply
 show	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def show
-show	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def show
 show	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def show	
+show	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def show
 task_params	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def task_params
 trash	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def trash
 untrash	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def untrash

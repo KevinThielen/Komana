@@ -5,12 +5,13 @@ class ProjectsController < ApplicationController
  
 
   	def check_auth
-  		@project = Project.find(params[:id])
+  		@project = Project.find(params[:project_id])
  		project_user = ProjectsUsers.where("user_id =?", current_user).first
 
   		if project_user.role != "author"
   			flash[:notice] = "Keine Berechtigung"
   			redirect_to project_path(@project)
+
   		end
   	end
 
@@ -57,7 +58,7 @@ class ProjectsController < ApplicationController
 	end
 	
 	def destroy 
-	   @project = Project.find(params[:id])
+	   @project = Project.find(params[:project_id])
 	   @project.destroy
 	   
 	   redirect_to projects_path

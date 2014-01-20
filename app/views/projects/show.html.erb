@@ -41,12 +41,12 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="well well-lg">
 
-        <a onClick = "toggleList(this, <%= list.id %>)">HIDE</a>
+        <%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, list_move_down_path(:list_id => list), :method => :POST if list != @lists.first %>
+			  <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, list_move_up_path(:list_id => list), :method => :POST if list != @lists.last %>
           
 	      <h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
-
-			<%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, list_move_down_path(:list_id => list), :method => :POST if list != @lists.first %>
-			<%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, list_move_up_path(:list_id => list), :method => :POST if list != @lists.last %>
+            <a onClick = "toggleList(this, <%= list.id %>)"><i class="fa fa-caret-square-o-down"></i></a>
+			      
 
             <div class="dropdown pull-right">
               <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-bars"></span></button>
@@ -77,8 +77,8 @@
              <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');"><strong><%= task.titel %></strong></a>
              
              <%# Let the Task move up and down in list %>
-             <%= link_to 'DOWN '.html_safe, project_task_move_down_path(@project, :task_id => task), :method => :GET if task != @tasks.last %>
-             <%= link_to ' UP'.html_safe, project_task_move_up_path(@project, :task_id => task), :method => :GET if task != @tasks.first %>
+             <%= link_to '<i class="fa fa-arrow-circle-down"></i>'.html_safe, project_task_move_down_path(@project, :task_id => task), :method => :GET if task != @tasks.last %>
+             <%= link_to '<i class="fa fa-arrow-circle-up"></i>'.html_safe, project_task_move_up_path(@project, :task_id => task), :method => :GET if task != @tasks.first %>
 			 [<%=@user_name%>]
 			 
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
@@ -122,8 +122,8 @@
 			</div>
           </div>
 		</div>
-      
-  <%= link_to 'Projekt löschen', project_path(@project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+    <hr>
+  <%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
   <br/>
   <br/ >
   <%= link_to 'Zurück zur Projektübersicht', projects_path, :class => 'btn btn-default' %>
