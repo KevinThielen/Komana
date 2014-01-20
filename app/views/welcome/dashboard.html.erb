@@ -71,7 +71,8 @@
                     <i class="fa fa-tasks fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">[18]</p>
+                  Post.includes(:comments).where("comments.visible", true)
+                    <p class="announcement-heading"></p>
                     <p class="announcement-text">Dringende Aufgaben</p>
                   </div>
                 </div>
@@ -98,7 +99,8 @@
                     <i class="fa fa-comments fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">[56]</p>
+                 <%#= select * from tasks where id not in (select task_id from tasks_users) %>
+					<p class="announcement-heading"><%= Task.includes(:users).where("users.id is NULL").count %></p> 
                     <p class="announcement-text">Freie Aufgaben</p>
                   </div>
                 </div>

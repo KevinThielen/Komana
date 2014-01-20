@@ -11,6 +11,5 @@ class TasksUsers < ActiveRecord::Base
 			old_relation = TasksUsers.where(:task_id => task_id).first
 			old_relation.update!(:user_id => user_id)
 		end
-		
 	end
 end
