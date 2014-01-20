@@ -123,7 +123,7 @@
           </div>
 		</div>
     <hr>
-  <%= link_to 'Projekt löschen', project_path(@project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+  <%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
   <br/>
   <br/ >
   <%= link_to 'Zurück zur Projektübersicht', projects_path, :class => 'btn btn-default' %>
