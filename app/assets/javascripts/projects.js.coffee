@@ -110,13 +110,13 @@ toggleList = (list, list_class) ->
 		$("."+list_class).css( "display", "none" );
 		$(list).addClass('hidden_list')
 		
-		#SHOW should be replaced with symbol/graphic for decollapsing
-		list.innerHTML = 'SHOW'
+		#SHOW 
+		list.innerHTML = '<i class="fa fa-caret-square-o-right"></i>'
 	else
 		$("."+list_class).css( "display", "block" );
 		
-		#HIDE should be replaced with symbol/graphic for collapsing
-		list.innerHTML = 'HIDE'
+		#HIDE 
+		list.innerHTML = '<i class="fa fa-caret-square-o-down"></i>'
 		$(list).removeClass('hidden_list')
 
 window.toggleList = toggleList

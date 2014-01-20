@@ -25,7 +25,7 @@ class ConversationsController < ApplicationController
 	current_conversation = Conversation.find(params[:conversation_id])
     current_user.reply_to_conversation(current_conversation, params[:body])
     redirect_to conversation_path(current_conversation)
-    flash[:notice] = "Antwort gesendet."
+    flash[:notice] = "Antwort gesendet"
   end
 
   def trash
