@@ -12,6 +12,7 @@ class ConversationsController < ApplicationController
 	
     redirect_to conversations_path
   end
+  
 
   def index
 	 if params[:partial]

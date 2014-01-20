@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140116122104) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   create_table "receipts", force: true do |t|
