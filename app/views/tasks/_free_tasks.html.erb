@@ -1,0 +1,5 @@
+ <% @tasks = Task.includes(:users).where("users.id is NULL") %>
+ 
+<% @tasks.each do |task| %>
+<%= task.titel %>
+<% end %>

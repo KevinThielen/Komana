@@ -2,12 +2,15 @@ class TasksController < ApplicationController
   before_filter :authenticate_user!
 	
 	
-	def search
+	def search	
+	 
+	
 	 if params[:partial]
 		@partial = params[:partial]
 	 else
 		@partial = "tasks/assigned_tasks"
 	 end
+	 
 
    end
   
