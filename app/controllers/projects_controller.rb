@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
   	def check_auth
   		@project = Project.find(params[:project_id])
- 		project_user = ProjectsUsers.where("user_id =?", current_user).first
+ 		project_user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first
 
   		if project_user.role != "author"
   			flash[:notice] = "Keine Berechtigung"
