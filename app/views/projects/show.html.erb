@@ -35,9 +35,7 @@
         <%# counter for css style elements in the loop %>
 		<% n = 0 %>
 		
-		<%# saves the current list at the end of the loop and use it as param for the next lists move up method) %>
 
-	
         <% @lists.each do |list| %>	
       
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -60,13 +58,29 @@
             </div>
           </h4>
           <br/>
-          <% list.tasks.each do |task| %>
+          <% @tasks = Task.where("list_id = ?",  list.id).order("position DESC") %>
+          
+          <% @tasks.each do |task| %>
           <div class="panel panel-default <%= list.id %>">
             <div class="panel-heading">
               
-			
-             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>');"><strong><%= task.titel %></strong></a>
-            
+             <!-- get the assigned user for the dropdown/default value -->
+             <% @user = User.joins(:tasks).where("task_id == ?", task.id).first %> 
+             <% if @user.present?
+					@user_name = @user.firstname
+					@task_user_id = @user.id
+				else
+					@user_name = ""
+					@task_user_id = -1
+				end %>  
+				
+             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');"><strong><%= task.titel %></strong></a>
+             
+             <%# Let the Task move up and down in list %>
+             <%= link_to 'DOWN '.html_safe, project_task_move_down_path(@project, :task_id => task), :method => :GET if task != @tasks.last %>
+             <%= link_to ' UP'.html_safe, project_task_move_up_path(@project, :task_id => task), :method => :GET if task != @tasks.first %>
+			 [<%=@user_name%>]
+			 
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
           
             </div>
@@ -118,25 +132,30 @@
 <!-- Task-Modal -->
           
           
+             
           <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <%= form_for(@current_task, :url => project_task_path(@project.id, 0), :method => :put, :html => {:class => 'form-inline'}) do |f| %>
-                <%= f.hidden_field :id, :class => 'form-control' %>
+                <%= form_tag project_task_path(@project.id, 0), :method => :put, :html => {:class => 'form-inline'} do %>
+                <%= hidden_field_tag 'task_id', NIL, {:class => 'form-control'} %>
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="editTaskModalLabel"><%= f.text_field :titel, :class => 'form-control' %></h4>
+                  <h4 class="modal-title" id="editTaskModalLabel"><%= text_field_tag :titel, NIL, {:class => 'form-control', :id=> 'task_titel'} %></h4>
+                  Zuweisen an:<%= select_tag "user_id", options_from_collection_for_select(@users, "id", "firstname"), include_blank: true %>
                 </div>
                 <div class="modal-body">
                  
                  <%# Add Task %>
-				        <div class="form-group"> 
-					        <%= f.text_area :text, :size => "100x3", :class => 'form-control' %>
+				 <div class="form-group"> 
+					   <%= text_area_tag :text, NIL, {:size => "100x3", :class => 'form-control', :id=> 'task_text'} %>
+					  
                 </div>
        
 
+       
+
                 <div class="modal-footer">
-                  <%= f.submit "Speichern", :class => 'btn btn-primary' %>
+                  <%= submit_tag "Speichern", :class => 'btn btn-primary' %>
                   <% end %>        
                   <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
                 </div>

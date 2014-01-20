@@ -44,12 +44,12 @@
                     <i class="fa fa-check fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= "[12]" %></p>
+                    <p class="announcement-heading"><%= Task.joins(:users).where("user_id == ?", current_user.id).count %></p></p>
                     <p class="announcement-text">Aufgaben warten</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+			  <%= link_to (tasks_path) do%>
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -60,7 +60,7 @@
                     </div>
                   </div>
                 </div>
-              </a>
+              <% end %>
             </div>
           </div>
           <div class="col-lg-3">

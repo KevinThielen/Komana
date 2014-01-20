@@ -11,8 +11,14 @@ Komana::Application.routes.draw do
 
   resources :portfolios
  
-  resources :conversations
-
+  resources :conversations do
+		post :reply
+		post :trash
+		post :untrash
+  end
+    
+  resources :tasks
+  
   resources :lists do
 		post "move_up"
 		post "move_down"
@@ -24,6 +30,8 @@ Komana::Application.routes.draw do
 	end
 	
 	resources :tasks do
+		get "move_up"
+		get "move_down"
 		get "move_to_next_list"
 		get "move_to_prev_list"
 	end
