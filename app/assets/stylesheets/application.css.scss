@@ -50,3 +50,20 @@ a:hover.text-weak  {
   color: dimgray;
 }
 
+/* ShowUserBatch */
+div.user-batch {
+  height: 30px;
+  display:inline-block;
+  background-color: lightgray;
+}
+div.user-batch img.user-image {
+  float: left !important;
+  width: 30px;
+  height: 30 px;
+}
+div.user-batch div.user-name {
+  vertical-align:middle;
+  padding: 5px 10px 5px 40px;
+}
+
+
