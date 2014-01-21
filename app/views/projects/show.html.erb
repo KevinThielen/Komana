@@ -48,22 +48,20 @@
               
              <!-- get the assigned user for the dropdown/default value -->
              <% @user = User.joins(:tasks).where("task_id == ?", task.id).first %> 
+            
             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');"><strong><%= task.titel %></strong></a>
-             <% if @user.present? @task_user_id = @user.id %>
+             <% if @user.present? %>
+              <%@task_user_id = @user.id %>
               <div class="user-batch">
-                <%= image_tag avatar_url(current_user, 30), :class => "user-image" %>
+                <%= image_tag avatar_url(@user, 30), :class => "user-image" %>
                 <div class="user-name">
                   <%= @user.firstname.first %><%= @user.lastname.first %>
                 </div>
               </div>
-				    <% else 
-					@user_firstname = ""
-          @user_lastname = ""
-					@task_user_id = -1
-            end %>  
-				
-             
-      
+				    <% else %>
+					  <% @task_user_id = -1 %>
+            <% end %>  
+
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
           
             </div>

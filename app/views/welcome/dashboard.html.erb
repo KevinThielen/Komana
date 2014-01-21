@@ -99,7 +99,9 @@
                     <i class="fa fa-comments fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-					<p class="announcement-heading"><%= Task.includes(:users).where("users.id is NULL").count %></p> 
+                    <% @free_tasks = Task.includes(:users).where("users.id is NULL") %>
+                    
+					<p class="announcement-heading">[X]</p> 
                     <p class="announcement-text">Freie Aufgaben</p>
                   </div>
                 </div>
