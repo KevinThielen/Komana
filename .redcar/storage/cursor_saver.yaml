@@ -197,9 +197,6 @@ cursor_positions:
   - :path: app/assets/javascripts/messages.js.coffee
     :cursor_offset: 0
     :timestamp: 2014-01-15 13:14:08 +01:00
-  - :path: app/assets/javascripts/project.js.coffee.erb
-    :cursor_offset: 367
-    :timestamp: 2014-01-15 01:37:08 +01:00
   - :path: app/assets/javascripts/lists.js.coffee
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
@@ -289,4 +286,7 @@ cursor_positions:
   - :path: app/views/conversations/_trash.html.erb
     :cursor_offset: 1567
     :timestamp: 2014-01-21 12:59:37 +01:00
+  - :path: app/assets/javascripts/project.js.coffee.erb
+    :cursor_offset: 367
+    :timestamp: 2014-01-15 01:37:08 +01:00
 files_to_retain: 0

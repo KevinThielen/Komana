@@ -49,8 +49,8 @@
              <!-- get the assigned user for the dropdown/default value -->
              <% @user = User.joins(:tasks).where("task_id == ?", task.id).first %> 
              <% if @user.present?
-					@user_name = @user.firstname
-
+					@user_firstname = @user.firstname
+          @user_lastname = @user.lastname
 					@task_user_id = @user.id
 				else
 					@user_name = ""
@@ -58,6 +58,12 @@
         end %>  
 				
              <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');"><strong><%= task.titel %></strong></a>
+              <div class="user-batch">
+                    <%= image_tag avatar_url(current_user, 30), :class => "user-image" %>
+                    <div class="user-name">
+                      <%= @user_firstname.first %><%= @user_lastname.first %>
+                    </div>
+              </div>
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
           
             </div>
@@ -65,20 +71,14 @@
               <%= task.text %>
               <br/>
               <br>
-              <small class="text-weak">   <i class="fa fa-clock-o"></i> Endet in <%= distance_of_time_in_words(Time.now, Time.now) %></small>
-              <br/>
+
               <%# Let the Task move up and down in list %>
              <%= link_to '<i class="fa fa-arrow-circle-down"></i>'.html_safe, project_task_move_down_path(@project, :task_id => task), :method => :GET if task != @tasks.last %>
              <%= link_to '<i class="fa fa-arrow-circle-up"></i>'.html_safe, project_task_move_up_path(@project, :task_id => task), :method => :GET if task != @tasks.first %>
             <!-- Let Task change List to the left or right-->
               <%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, project_task_move_to_prev_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.first %>
 			        <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.last %>
-              <div class="user-batch">
-                    <%= image_tag avatar_url(current_user, 30), :class => "user-image" %>
-                    <div class="user-name">
-                      <%= @user_name%>
-                    </div>
-              </div>
+              <small class="text-weak">   <i class="fa fa-clock-o"></i> Endet in <%= distance_of_time_in_words(Time.now, Time.now) %></small>
             </div>
           </div>
           
