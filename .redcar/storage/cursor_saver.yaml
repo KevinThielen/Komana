@@ -109,9 +109,6 @@ cursor_positions:
   - :path: app/controllers/lists_controller.rb
     :cursor_offset: 81
     :timestamp: 2014-01-08 09:46:20 +01:00
-  - :path: app/controllers/tasks_controller.rb
-    :cursor_offset: 81
-    :timestamp: 2014-01-08 09:45:36 +01:00
   - :path: app/models/projectUser.rb
     :cursor_offset: 0
     :timestamp: 2014-01-09 23:42:31 +01:00
@@ -203,9 +200,6 @@ cursor_positions:
   - :path: app/controllers/models/user.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/assets/javascripts/projects.js.coffee
-    :cursor_offset: 2513
-    :timestamp: 2014-01-18 13:09:02 +01:00
   - :path: app/models/user.rb
     :cursor_offset: 421
     :timestamp: 2014-01-18 12:32:24 +01:00
@@ -289,4 +283,10 @@ cursor_positions:
   - :path: app/assets/javascripts/project.js.coffee.erb
     :cursor_offset: 367
     :timestamp: 2014-01-15 01:37:08 +01:00
+  - :path: app/assets/javascripts/projects.js.coffee
+    :cursor_offset: 2327
+    :timestamp: 2014-01-21 15:58:18 +01:00
+  - :path: app/controllers/tasks_controller.rb
+    :cursor_offset: 719
+    :timestamp: 2014-01-21 15:29:53 +01:00
 files_to_retain: 0

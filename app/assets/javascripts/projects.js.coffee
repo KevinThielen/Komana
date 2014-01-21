@@ -101,7 +101,7 @@ window.updateList = updateList
 
 
 ###
-	Hide the list
+	Toogle the list
 ###
 
 toggleList = (list, list_class) ->
