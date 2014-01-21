@@ -74,8 +74,8 @@
               </ul>
             </li>
             <% else %>
-            <li class="<%= "active" if params[:controller] == "devise/sessions" %>"><%= link_to " Einloggen ", new_user_session_path %> </li>
-            <li class="<%= "active" if params[:controller] == "devise/registrations" %>"><%= link_to " Registrieren ", new_user_registration_path %></li>
+            <li class="<%= "active" if params[:controller] == "devise/sessions" %>"><%= link_to '<i class="fa fa-sign-in"></i> Anmelden '.html_safe, new_user_session_path %> </li>
+            <li class="<%= "active" if params[:controller] == "devise/registrations" %>"><%= link_to '<i class="fa fa-pencil"></i> Registrieren '.html_safe, new_user_registration_path %></li>
             <% end %>
             
           </ul>
