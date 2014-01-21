@@ -6,38 +6,11 @@
       <li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
       <li><%= link_to '<i class="fa fa-clipboard"></i> Meine Projekte'.html_safe , projects_path %></li>
       <li class="active"><i class="fa fa-clipboard"></i> <%= @project.name %></li>
-      <span class="pull-right"><a class="text-weak"><i class="fa fa-gear"></i></a></span>
+      <span class="pull-right"><a class="text-weak" data-toggle="modal" data-target="#settingsModal"><i class="fa fa-gear"></i></a></span>
     </ol>
     
-    <div class="user-batch">
-    <%= image_tag avatar_url(current_user, 30), :class => "user-image" %>
-    <div class="user-name">
-      Michael Landreh
-    </div>
-    </div>
     
-  </div>
-</div>
-		<!-- Display all user who are added the current in the project -->
-		<div class="well well-lg">
-			<% @users = User.joins(:projects).where("project_id == ?", @project.id) %>
-			
-			<% @users.each_with_index do |user| %>
-				<%= image_tag avatar_url(user, 15) %>
-				<%= user.id %>
-				<%= user.firstname %>
-				<%= user.lastname %>
-			<% end %>
-			
-			
-		<!-- add a new user to the project -->
-		<%= form_tag project_add_user_path(@project.id) do %>
-			<%= text_field_tag :user_email, nil, :placeholder => 'Email' %>
-			<%= submit_tag "Add", :class=>'btn btn-primary'%>
-		<% end %>
-		</div>
-          
-          
+</div>        
        <%# Show Lists and Tasks %>
       <div class="row">
       
@@ -77,20 +50,14 @@
              <% @user = User.joins(:tasks).where("task_id == ?", task.id).first %> 
              <% if @user.present?
 					@user_name = @user.firstname
+
 					@task_user_id = @user.id
 				else
 					@user_name = ""
 					@task_user_id = -1
-				end %>  
+        end %>  
 				
              <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');"><strong><%= task.titel %></strong></a>
-             
-             <%# Let the Task move up and down in list %>
-             <%= link_to '<i class="fa fa-arrow-circle-down"></i>'.html_safe, project_task_move_down_path(@project, :task_id => task), :method => :GET if task != @tasks.last %>
-             <%= link_to '<i class="fa fa-arrow-circle-up"></i>'.html_safe, project_task_move_up_path(@project, :task_id => task), :method => :GET if task != @tasks.first %>
-			      <!-- Hübschere Darstellungsform -->  
-            <%=@user_name%>
-			 
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
           
             </div>
@@ -100,8 +67,18 @@
               <br>
               <small class="text-weak">   <i class="fa fa-clock-o"></i> Endet in <%= distance_of_time_in_words(Time.now, Time.now) %></small>
               <br/>
+              <%# Let the Task move up and down in list %>
+             <%= link_to '<i class="fa fa-arrow-circle-down"></i>'.html_safe, project_task_move_down_path(@project, :task_id => task), :method => :GET if task != @tasks.last %>
+             <%= link_to '<i class="fa fa-arrow-circle-up"></i>'.html_safe, project_task_move_up_path(@project, :task_id => task), :method => :GET if task != @tasks.first %>
+            <!-- Let Task change List to the left or right-->
               <%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, project_task_move_to_prev_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.first %>
-			  <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.last %>
+			        <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.last %>
+              <div class="user-batch">
+                    <%= image_tag avatar_url(current_user, 30), :class => "user-image" %>
+                    <div class="user-name">
+                      <%= @user_name%>
+                    </div>
+              </div>
             </div>
           </div>
           
@@ -140,11 +117,10 @@
   <br/ >
   <%= link_to 'Zurück zur Projektübersicht', projects_path, :class => 'btn btn-default' %>
 </div>
+<!-- Select all Users of current Project --> 
+<% @users = User.joins(:projects).where("project_id == ?", @project.id) %>
 
-<!-- Task-Modal -->
-          
-          
-             
+<!-- Task-Modal --> 
           <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -153,19 +129,16 @@
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                   <h4 class="modal-title" id="editTaskModalLabel"><%= text_field_tag :titel, NIL, {:class => 'form-control', :id=> 'task_titel'} %></h4>
-                  Zuweisen an:<%= select_tag "user_id", options_from_collection_for_select(@users, "id", "firstname"), include_blank: true, :class => "form-control" %>
+                  
                 </div>
                 <div class="modal-body">
-                 
+                 Zuweisen an:<%= select_tag "user_id", options_from_collection_for_select(@users, "id", "firstname"), include_blank: true, :class => "form-control" %>
                  <%# Add Task %>
-				 <div class="form-group"> 
-					   <%= text_area_tag :text, NIL, {:size => "100x3", :class => 'form-control', :id=> 'task_text'} %>
-					  
-                </div>
-       
-
-       
-
+				            <div class="form-group"> 
+                      <h4>Beschreibung:</h4>
+					            <%= text_area_tag :text, NIL, {:size => "100x7", :class => 'form-control', :id=> 'task_text'} %>
+					          </div>
+                  </div>
                 <div class="modal-footer">
                   <%= submit_tag "Speichern", :class => 'btn btn-primary' %>
                   <% end %>        
@@ -174,5 +147,45 @@
               </div><!--/.modal-content -->
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
+          
+          <!-- Settingsmodal --> 
+          <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="settingsModalLabel">Projekteinstellungen</h4>
+                </div>
+                <div class="modal-body">
+                 <!-- Display all user who are added the current in the project -->
+                
+			            <% @users.each_with_index do |user| %>     
+                  <div class="user-batch">
+                    <%= image_tag avatar_url(user, 30), :class => "user-image" %>
+                    <div class="user-name">
+                      <%= user.firstname %> <%= user.lastname %>
+                    </div>
+                  </div>
+			            <% end %>
+		              <!-- add a new user to the project -->
+		              <%= form_tag project_add_user_path(@project.id) do %>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Benutzer hinzufügen</label>
+                    <%= text_field_tag :user_email, nil, :class => "form-control", :placeholder => 'E-Mail' %>
+                  </div>
+			            
+			            <%= submit_tag "Hinzufügen", :class=>'btn btn-primary'%>
+                </div>
+                <div class="modal-footer">
+                  <%= submit_tag "Speichern", :class => 'btn btn-primary' %>
+                  <% end %>        
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                </div><!-- /.modal-footer -->
+              </div><!--/.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
 
- 
+  </div>
+  
+  
+  

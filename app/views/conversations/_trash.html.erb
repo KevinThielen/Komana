@@ -1,6 +1,6 @@
   <div class="row">
     <div class="col-lg-2"></div>
-    <div class="col-lg-8"><h3>Gelöscht<small>(Gesamt: <%= current_user.mailbox.trash.count %> | Ungelesen: <%= current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s %>)</small></h3></div>
+    <div class="col-lg-8"><h3>Gelöscht <small>(Gesamt: <%= current_user.mailbox.trash.count %> | Ungelesen: <%= current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s %>)</small></h3></div>
     <div class="col-lg-2"></div>
   </div>
   

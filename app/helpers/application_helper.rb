@@ -19,4 +19,6 @@ module ApplicationHelper
     @temp_user.lastname = "Benutzer >"
     return @temp_user
   end
+  
+
 end

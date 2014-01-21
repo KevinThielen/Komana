@@ -16,14 +16,14 @@
       <%= f.email_field :recipients, :autofocus => true, :class=>'form-control', :placeholder => 'E-Mail' %>
     </div>
     <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-      <%= f.text_field :subject,:class=>'form-control', :placeholder => 'Subject' %>
+      
+      <%= f.text_field :subject,:class=>'form-control', :placeholder => 'Thema' %>
     </div>
     <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-      <%= f.text_area :body,:class=>'form-control', :placeholder => 'body' %>
+      
+      <%= f.text_area :body,:class=>'form-control', :placeholder => 'Nachricht' %>
     </div>
-<%= f.submit "Anmelden", :class=>'btn btn-primary'%>
+<%= f.submit "Absenden", :class=>'btn btn-primary'%>
 <% end %>
 
 </div>

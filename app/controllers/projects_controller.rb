@@ -1,3 +1,4 @@
+# coding: UTF-8
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_auth, :only => [:destroy, :add_user]
@@ -9,7 +10,7 @@ class ProjectsController < ApplicationController
  		project_user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first
 
   		if project_user.role != "author"
-  			flash[:notice] = "Keine Berechtigung"
+  			flash[:notice] = "Für diesen Vorgang haben Sie keine Berechtigung."
   			redirect_to project_path(@project)
 
   		end
