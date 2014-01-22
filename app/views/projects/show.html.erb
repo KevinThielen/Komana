@@ -45,7 +45,10 @@
           <% @tasks.each do |task| %>
           <div class="panel panel-default <%= list.id %>">
             <div class="panel-heading">
-              
+
+            <!--für Micha: Priority -->
+            <%= task.priority %>
+
              <!-- get the assigned user for the dropdown/default value -->
              <% @user = User.joins(:tasks).where("task_id == ?", task.id).first %> 
             
