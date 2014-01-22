@@ -129,6 +129,15 @@
                 </div>
                 <div class="modal-body">
                  Zuweisen an:<%= select_tag "user_id", options_from_collection_for_select(@projectusers, "id", "firstname"), include_blank: true, :class => "form-control" %>
+                 <%# form for priority %> Priorität: <p>
+                  <%= radio_button_tag(:priority, "low") %>
+                  <%= label_tag(:priority_low, "Niedrig") %>
+                  <%= radio_button_tag(:priority, "medium") %>
+                  <%= label_tag(:priority_medium, "Mittel") %>
+                  <%= radio_button_tag(:priority, "high") %>
+                  <%= label_tag(:priority_high, "Hoch") %> <p>
+                  <%# for for deadline %> Deadline: <p>
+                  <%= date_field(:task, :deadline) %>
                  <%# Add Task %>
 				            <div class="form-group"> 
                       <h4>Beschreibung:</h4>
