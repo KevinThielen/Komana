@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
 
     conversation = current_user.
     send_message(recipients, *conversation_params(:body, :subject)).conversation
-	flash[:notice] = "Nachricht gesendet"
+	flash[:notice] = "Die Nachricht wurde erfolgreich gesendet."
 	
     redirect_to conversations_path
   end
@@ -26,7 +26,7 @@ class ConversationsController < ApplicationController
 	current_conversation = Conversation.find(params[:conversation_id])
     current_user.reply_to_conversation(current_conversation, params[:body])
     redirect_to conversation_path(current_conversation)
-    flash[:notice] = "Antwort gesendet"
+    flash[:notice] = "Die Antwort wurde erfolgreich gesendet."
   end
 
   def trash
@@ -37,8 +37,27 @@ class ConversationsController < ApplicationController
   end
 
   def untrash
-    conversation.untrash(current_user)
+    current_conversation = Conversation.find(params[:conversation_id])
+    current_user.untrash(current_conversation) 
     redirect_to :conversations
+  end
+  
+  def mark_as_unread
+    current_conversation = Conversation.find(params[:conversation_id])
+    current_conversation.mark_as_unread(current_user)
+    redirect_to conversations_path
+  end
+  
+  def mark_as_read
+    current_conversation = Conversation.find(params[:conversation_id])
+    current_conversation.mark_as_read(current_user)
+    redirect_to conversations_path
+  end
+  
+  def delete
+    current_conversation = Conversation.find(params[:conversation_id])
+    current_conversation.mark_as_deleted(current_user)
+    redirect_to conversations_path(:partial => 'conversations/trash')
   end
 
   private
@@ -68,4 +87,5 @@ class ConversationsController < ApplicationController
       end
     end
   end
+
 end
