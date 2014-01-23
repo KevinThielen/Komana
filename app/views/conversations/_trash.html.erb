@@ -16,7 +16,7 @@
           <tr>
             <tr>
             <th><input type="checkbox"></th>
-            <th></th>
+            <!-- <th></th> -->
             <th>Thema</th>
             <th></th>
             <th>Letzte Nachricht</th>
@@ -30,7 +30,7 @@
           <% @last_sender = User.where(email: conversation.last_sender.email).first%>
           <tr>
             <td><input type="checkbox"></td>
-            <td><% if conversation.is_unread?(current_user) %><%= link_to '<i class="fa fa-envelope"></i>'.html_safe, conversation_mark_as_read_path(conversation),  :method => :post, :id => conversation.id, :class => 'black-link' %><% else %><%= link_to '<i class="fa fa-envelope-o text-weak"></i>'.html_safe, conversation_mark_as_unread_path(conversation),  :method => :post, :id => conversation.id %><% end %></td>
+           <!--  <td><% if conversation.is_unread?(current_user) %><%= link_to '<i class="fa fa-envelope"></i>'.html_safe, conversation_mark_as_read_path(conversation),  :method => :post, :id => conversation.id, :class => 'black-link' %><% else %><%= link_to '<i class="fa fa-envelope-o text-weak"></i>'.html_safe, conversation_mark_as_unread_path(conversation),  :method => :post, :id => conversation.id %><% end %></td> -->
             <td><%= link_to conversation.subject, conversation_path(conversation), :method => :get %></td>
             <td><%= image_tag avatar_url(@last_sender,50), :size => "50", :class => 'pull-right' %></td>
             <td><em><strong> <%= @last_sender.firstname %> <%= @last_sender.lastname %></strong> schreibt:</em><br> <%=raw truncate(conversation.last_message.body, :length => 40,  :omission => "...")%></td>

@@ -227,18 +227,12 @@ cursor_positions:
   - :path: app/controllers/application_controller.rb
     :cursor_offset: 0
     :timestamp: 2014-01-18 12:32:24 +01:00
-  - :path: app/controllers/projects_controller.rb
-    :cursor_offset: 334
-    :timestamp: 2014-01-21 11:03:13 +01:00
   - :path: app/helpers/projects_helper.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
   - :path: app/views/conversations/_sent.html.erb
     :cursor_offset: 209
     :timestamp: 2014-01-21 12:56:16 +01:00
-  - :path: app/views/conversations/_trash.html.erb
-    :cursor_offset: 1567
-    :timestamp: 2014-01-21 12:59:37 +01:00
   - :path: app/assets/javascripts/project.js.coffee.erb
     :cursor_offset: 367
     :timestamp: 2014-01-15 01:37:08 +01:00
@@ -263,11 +257,6 @@ cursor_positions:
   - :path: app/views/tasks/search.html.erb
     :cursor_offset: 26
     :timestamp: 2014-01-21 18:31:42 +01:00
-  - :path: app/views/projects/index.html.erb
-    :cursor_offset: 368
-    :timestamp: 2014-01-11 00:39:10 +01:00
-    :selection_offset: 438
-    :block_selection_mode: false
   - :path: app/views/tasks/_assigned_tasks.html.erb
     :cursor_offset: 361
     :timestamp: 2014-01-21 18:43:13 +01:00
@@ -277,11 +266,6 @@ cursor_positions:
   - :path: app/views/conversations/show.html.erb
     :cursor_offset: 448
     :timestamp: 2014-01-21 12:58:52 +01:00
-  - :path: app/views/projects/show.html.erb
-    :cursor_offset: 592
-    :timestamp: 2014-01-22 16:07:45 +01:00
-    :selection_offset: 460
-    :block_selection_mode: false
   - :path: app/assets/javascripts/projects.js.coffee
     :cursor_offset: 2327
     :timestamp: 2014-01-21 15:58:18 +01:00
@@ -311,4 +295,18 @@ cursor_positions:
   - :path: app/views/devise/registrations/edit.html.erb
     :cursor_offset: 853
     :timestamp: 2014-01-23 12:35:47 +01:00
+  - :path: app/views/projects/show.html.erb
+    :cursor_offset: 592
+    :timestamp: 2014-01-22 16:07:45 +01:00
+    :selection_offset: 460
+    :block_selection_mode: false
+  - :path: app/controllers/projects_controller.rb
+    :cursor_offset: 334
+    :timestamp: 2014-01-21 11:03:13 +01:00
+  - :path: app/views/projects/index.html.erb
+    :cursor_offset: 817
+    :timestamp: 2014-01-23 13:27:26 +01:00
+  - :path: app/views/conversations/_trash.html.erb
+    :cursor_offset: 2076
+    :timestamp: 2014-01-23 13:51:02 +01:00
 files_to_retain: 0
