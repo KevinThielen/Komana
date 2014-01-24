@@ -15,6 +15,9 @@ Komana::Application.routes.draw do
 		post :reply
 		post :trash
 		post :untrash
+    post :mark_as_unread
+    post :mark_as_read
+    delete :delete
   end
     
   resources :tasks do

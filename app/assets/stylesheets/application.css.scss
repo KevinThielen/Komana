@@ -50,6 +50,17 @@ a:hover.text-weak  {
   color: dimgray;
 }
 
+a:active.black-link,
+a:visited.black-link,
+a:link.black-link,
+a:focus.black-link {
+  color: black;
+}
+a:hover.black-link {
+  color: dimgray;
+}
+
+
 /* ShowUserBatch */
 div.user-batch {
   margin-left: 5px;
@@ -78,6 +89,7 @@ div.panel-heading a{
 div.panel-heading > * {
     vertical-align:middle;  // Align children to middle of line
 }
+
 
 
 

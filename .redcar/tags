@@ -1,4 +1,4 @@
-1390323263
+1390481840
 Ability	/media/sf_Share/Komana/app/models/ability.rb	class Ability
 AddAttachments	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	class AddAttachments 
 AddDescriptionToTasks	/media/sf_Share/Komana/db/migrate/20140109121953_add_description_to_tasks.rb	class AddDescriptionToTasks 
@@ -106,10 +106,11 @@ contact	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def co
 conversation	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation
 conversation_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation_params(*keys)
 create	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def create
-create	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def create
 create	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def create
 create	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def create
+create	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def create
 create_temp_deleted_user	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def create_temp_deleted_user
+delete	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def delete
 destroy	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def destroy 
 destroy	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def destroy 
 destroy	/media/sf_Share/Komana/app/controllers/tasks_controller.rb	    def destroy 
@@ -121,11 +122,13 @@ down	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_
 fetch_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def fetch_params(key, *subkeys)
 index	/media/sf_Share/Komana/app/controllers/welcome_controller.rb	  def index
 index	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def index
-index	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def index
 index	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def index
+index	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def index
 initialize	/media/sf_Share/Komana/app/models/ability.rb	  def initialize(user)
 mailbox	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def mailbox
 mailboxer_email	/media/sf_Share/Komana/app/models/user.rb	        def mailboxer_email(object)
+mark_as_read	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def mark_as_read
+mark_as_unread	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def mark_as_unread
 message_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def message_params(*keys)
 move_down	/media/sf_Share/Komana/app/controllers/lists_controller.rb	  	def move_down
 move_down	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def move_down
