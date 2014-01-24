@@ -60,6 +60,7 @@ class ProjectsController < ApplicationController
 		#used for the task modal.
 		@current_task = Task.new
 		@lists = List.where("project_id = ?",  @project.id).order("position ASC")
+
 	end
 	
 	def index
