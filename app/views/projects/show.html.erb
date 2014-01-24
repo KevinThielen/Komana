@@ -47,7 +47,8 @@
             <div class="panel-heading">
 
             <!--für Micha: Priority -->
-            <%= task.priority %>
+            Priorität: <%= task.priority %> <p> 
+            Deadline: <%= task.deadline %> <p>
 
              <!-- get the assigned user for the dropdown/default value -->
              <% @user = User.joins(:tasks).where("task_id == ?", task.id).first %> 
@@ -135,12 +136,12 @@
                  <%# form for priority %> Priorität: <p>
                   <%= radio_button_tag(:priority, "low") %>
                   <%= label_tag(:priority_low, "Niedrig") %>
-                  <%= radio_button_tag(:priority, "medium") %>
+                  <%= radio_button_tag(:priority, "medium", :checked=>true) %>
                   <%= label_tag(:priority_medium, "Mittel") %>
                   <%= radio_button_tag(:priority, "high") %>
                   <%= label_tag(:priority_high, "Hoch") %> <p>
                   <%# for for deadline %> Deadline: <p>
-                  <%= date_field(:task, :deadline) %>
+                  <%= date_field_tag(:deadline) %>
                  <%# Add Task %>
 				            <div class="form-group"> 
                       <h4>Beschreibung:</h4>

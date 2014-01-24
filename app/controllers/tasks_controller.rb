@@ -38,6 +38,7 @@ class TasksController < ApplicationController
 	
 	def update
 
+		
 		@task = Task.find(params[:task_id])
 		@task.update!(:titel => params[:titel], :text=>params[:text], :priority=>params[:priority], :deadline=>params[:deadline])
 		

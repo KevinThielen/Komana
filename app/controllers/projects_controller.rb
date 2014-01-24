@@ -21,14 +21,20 @@ class ProjectsController < ApplicationController
 	end
 	
 	def create
+		
 		@project = Project.new(project_params)
+		if @project.valid?
 	
-		if @project.save	
-			ProjectsUsers.addUserToProject(@project.id, current_user.id, "author")
+			if @project.save	
+				ProjectsUsers.addUserToProject(@project.id, current_user.id, "author")
 
-			redirect_to project_path(@project)
-		else
-			render 'new'
+				redirect_to project_path(@project)
+			else
+				render 'new'
+			end
+		else 
+			redirect_to new_project_path
+			flash[:notice] = "Projektname darf nicht leer sein"
 		end
 	end
 	
