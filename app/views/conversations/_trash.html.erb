@@ -33,7 +33,7 @@
            <!--  <td><% if conversation.is_unread?(current_user) %><%= link_to '<i class="fa fa-envelope"></i>'.html_safe, conversation_mark_as_read_path(conversation),  :method => :post, :id => conversation.id, :class => 'black-link' %><% else %><%= link_to '<i class="fa fa-envelope-o text-weak"></i>'.html_safe, conversation_mark_as_unread_path(conversation),  :method => :post, :id => conversation.id %><% end %></td> -->
             <td><%= link_to conversation.subject, conversation_path(conversation), :method => :get %></td>
             <td><%= image_tag avatar_url(@last_sender,50), :size => "50", :class => 'pull-right' %></td>
-            <td><em><strong> <%= @last_sender.firstname %> <%= @last_sender.lastname %></strong> schreibt:</em><br> <%=raw truncate(conversation.last_message.body, :length => 40,  :omission => "...")%></td>
+            <td><em class="text-weak"><strong> <%= @last_sender.firstname %> <%= @last_sender.lastname %></strong> schreibt:</em><br> <%=raw truncate(conversation.last_message.body, :length => 40,  :omission => "...")%></td>
             <td><%= @Originator.firstname %> <%= @Originator.lastname %></td>
             <td><%= link_to '<i class="fa fa-mail-reply"></i>'.html_safe, conversation_path(conversation), {:'data-toogle' => 'tooltip', :title => 'Antworten', :class => 'text-weak'}%></td>
             <td><%= link_to '<i class="fa fa-undo"></i>'.html_safe, conversation_untrash_path(conversation), :method => :post, :'data-toogle' => 'tooltip', :title => 'In den Posteingang verschieben', :class => 'text-weak'%></td>
