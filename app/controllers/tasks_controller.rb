@@ -47,69 +47,39 @@ class TasksController < ApplicationController
 		
 		redirect_to project_path(params[:project_id])	
 	end
+		
+	def update_position
+		moved_task = Task.find(params[:task_id])
+		moved_to_list = List.find(params[:list_id])
+		moved_to_position = params[:position]
+		
+		#check if there are other taks after this in the old list and reduce their positions by 1
+		sibling_tasks = Task.where("list_id = ? and position > ?", moved_task.list, moved_task.position).order("position ASC")
+		
+		sibling_tasks.each do |t|
+			old_position = t.position
+			t.update!(:position => old_position-1)
+		end
 	
-	def move_to_next_list
-		@task = Task.find(params[:task_id])
-		@old_list = List.find(@task.list)
-		
-		@newList = List.where("project_id = ? AND position > ?",  @old_list.project_id, @old_list.position).order("position ASC").first
-		
-		
-		new_position = @newList.tasks.maximum(:position)
-		if new_position.blank?
-			new_position = 0
+			
+		if( moved_task.list.id != moved_to_list.id)
+			#check if there are other taks after this and increase thei positions by 1
+			
+			new_sibling_tasks = Task.where("list_id = ? and position >= ?", moved_to_list.id, moved_to_position).order("position ASC")
+			
+			new_sibling_tasks.each do |t|
+				old_position = t.position
+				t.update!(:position => old_position+1)
+			end
+			
+			moved_task.update!(:position => moved_to_position)
+			moved_to_list.tasks << moved_task
 		end
 		
-		@task.position = new_position +1
-		
-		@newList.tasks << @task
-		redirect_to project_path(params[:project_id])
-	end
+			
+		redirect_to project_path(moved_to_list.project_id)
+	end 
 	
-	def move_to_prev_list	
-		@task = Task.find(params[:task_id])
-		@old_list = List.find(@task.list)
-		
-		@newList = List.where("project_id = ? AND position < ?",  @old_list.project_id, @old_list.position).order("position DESC").first
-		
-		new_position = @newList.tasks.maximum(:position)
-		if new_position.blank?
-			new_position = 0
-		end
-		
-		@task.position = new_position+1
-		
-		@newList.tasks << @task
-		
-		redirect_to project_path(params[:project_id])
-	end
-	
-	def move_down
-		task1 = Task.find(params[:task_id])
-		task2 = Task.where("list_id = ? AND position < ?",  task1.list_id, task1.position).order("position DESC").first
-		
-		tmp_position = task1.position
-		
-		task1.update!(:position => task2.position)
-		task2.update!(:position => tmp_position)
-		
-		redirect_to project_path(task1.list.project_id)
-    end
-    
-    def move_up
-		task1 = Task.find(params[:task_id])
-		task2 = Task.where("list_id = ? AND position > ?",  task1.list_id, task1.position).order("position ASC").first
-		
-		raise if task1.blank? 
-		raise if task2.blank? 
-		
-		tmp_position = task1.position
-		
-		task1.update!(:position => task2.position)
-		task2.update!(:position => tmp_position)
-		
-		redirect_to project_path(task1.list.project_id)
-	end
 private
 	def task_params
 	  params.require(:task).permit(:titel, :text)

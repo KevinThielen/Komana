@@ -65,9 +65,9 @@
           <% @tasks.each do |task| %>
           
           <!-- Drag & Drop target -->
-          <div  id = "position<%= task.position %>" ondrop="drop(event)" class="panel panel-default" ondragenter="drag_enter(event, <%=list.id%>)" ></div>
+          <div  id = "position<%= task.position %>" ondragover = "allow_drop(event)" ondrop="drop(event)" class="panel panel-default" ondragenter="drag_enter(event, <%= task.position %>, <%=task.list.id%>)" ></div>
           
-          <div class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.position %>, <%=list.id%>)" >
+          <div id = "task<%=task.id%>" class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.id %>, <%= task.position %>, <%=list.id%>)" >
             <div class="panel-heading">
               
              <!-- get the assigned user for the dropdown/default value -->
@@ -80,12 +80,10 @@
 					@task_user_id = -1
 				end %>  
 				
-             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');"><strong><%= task.titel %></strong></a>
+             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');"><strong><%=task.position%><%= task.titel %></strong></a>
              
-             <%# Let the Task move up and down in list %>
-             <%= link_to '<i class="fa fa-arrow-circle-down"></i>'.html_safe, project_task_move_down_path(@project, :task_id => task), :method => :GET if task != @tasks.last %>
-             <%= link_to '<i class="fa fa-arrow-circle-up"></i>'.html_safe, project_task_move_up_path(@project, :task_id => task), :method => :GET if task != @tasks.first %>
-			      <!-- Hübschere Darstellungsform -->  
+
+			<!-- Hübschere Darstellungsform -->  
             <%=@user_name%>
 			 
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
@@ -97,15 +95,13 @@
               <br>
               <small class="text-weak">   <i class="fa fa-clock-o"></i> Endet in <%= distance_of_time_in_words(Time.now, Time.now) %></small>
               <br/>
-              <%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, project_task_move_to_prev_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.first %>
-			  <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.last %>
-            </div>
+			</div>
           </div>
           
           <% end %>
           
         <!-- last Drag&Drop position -->
-		<div  id = "position0" ondrop="drop(event)" class="panel panel-default" ondragenter="drag_enter(event, <%=list.id%>)" ></div>
+		<div  id = "position0" ondrop="drop(event)" class="panel panel-default"  ondragover = "allow_drop(event)" ondragenter="drag_enter(event, 1, <%=list.id%>)"></div>
       
  
         </div>

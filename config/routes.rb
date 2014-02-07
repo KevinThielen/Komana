@@ -19,6 +19,7 @@ Komana::Application.routes.draw do
     
   resources :tasks do
 	post "search"
+	post :update_position
   end
   
   resources :lists do
@@ -32,10 +33,7 @@ Komana::Application.routes.draw do
 	end
 	
 	resources :tasks do
-		get "move_up"
-		get "move_down"
-		get "move_to_next_list"
-		get "move_to_prev_list"
+
 	end
   end
 end
