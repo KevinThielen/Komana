@@ -63,7 +63,11 @@
           <% @tasks = Task.where("list_id = ?",  list.id).order("position DESC") %>
           
           <% @tasks.each do |task| %>
-          <div class="panel panel-default <%= list.id %>">
+          
+          <!-- Drag & Drop target -->
+          <div  id = "position<%= task.position %>" ondrop="drop(event)" class="panel panel-default" ondragenter="drag_enter(event, <%=list.id%>)" ></div>
+          
+          <div class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.position %>, <%=list.id%>)" >
             <div class="panel-heading">
               
              <!-- get the assigned user for the dropdown/default value -->
@@ -99,7 +103,9 @@
           </div>
           
           <% end %>
-
+          
+        <!-- last Drag&Drop position -->
+		<div  id = "position0" ondrop="drop(event)" class="panel panel-default" ondragenter="drag_enter(event, <%=list.id%>)" ></div>
       
  
         </div>
@@ -135,9 +141,7 @@
 </div>
 
 <!-- Task-Modal -->
-          
-          
-             
+         
           <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">

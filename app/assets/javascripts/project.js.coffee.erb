@@ -1,3 +1,63 @@
+
+
+
+
+
+
+
+###
+	Drag and Drop for Tasks in a Single List.
+###
+
+current_drag_target = null
+dragged_element_position = 0
+dragged_element_list = 0
+
+drag_enter = (event, list) ->
+	#event.preventDefault()
+
+	if list isnt dragged_element_list or (event.target.id isnt 'position'+dragged_element_position and event.target.id isnt 'position'+(dragged_element_position-1))
+		if current_drag_target?
+			change_drag_target()
+		current_drag_target = event.target
+		$(event.target).css('background-color','blue')
+		$(event.target).css('height','150px')
+
+change_drag_target = () ->
+	$(current_drag_target).css('background-color','')
+	$(current_drag_target).css('height','')
+	
+drag = (event, position, list) ->
+	document.addEventListener "dragend", (->
+		change_drag_target()
+	), true
+	dragged_element_position = position
+	dragged_element_list = list
+	event.dataTransfer.setData("dragged", event.target.id)
+
+		
+drop = (event) ->
+	event.preventDefault()
+	dragged_element = document.getElementById(event.dataTransfer.getData("dragged"))
+
+	change_drag_target
+	current_drag_target = null	
+
+#swap 2 html elements with each other
+swap_elements = (element1, element2) ->
+	tmp_element = document.createElement("div")
+	element1.parentNode.insertBefore(tmp_element, element1)
+
+	element2.parentNode.insertBefore(element1, element2)
+
+	tmp_element.parentNode.insertBefore(element2, tmp_element)
+	tmp_element.parentNode.removeChild(tmp_element)
+
+		
+window.drag_enter = drag_enter
+window.drag = drag
+window.drop = drop
+
 ###
 	Updates the Task on the project view. 
 	It will open the modal and pass the calling Task

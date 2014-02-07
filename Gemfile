@@ -72,4 +72,5 @@ end
 gem 'cancan'
 gem 'rolify'
 
-
+#logger
+gem 'public_activity'
