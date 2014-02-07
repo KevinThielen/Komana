@@ -1,6 +1,6 @@
   <div class="row">
     <div class="col-lg-2"></div>
-    <div class="col-lg-8"><h3>Gesendet <small>(Gesamt: <%= current_user.mailbox.inbox.count %> | Ungelesen: <%= current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s %>)</small></h3></div>
+    <div class="col-lg-8"><h3>Gesendet <small>(Gesamt: <%= current_user.mailbox.inbox.count %>)</small></h3></div>
     <div class="col-lg-2"></div>
   </div>
   
@@ -17,21 +17,7 @@
             <th></th>
             <th>Letzte Nachricht</th>
             <th>Themenstarter</th>
-            <th></th>
-            <th></th>
-            <th></th>            
-            <th>
-              <div class="dropdown pull-right">
-              <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-bars"></span></button>
-              <ul class="dropdown-menu" role="menu">
-                <li role="presentation"><%= link_to "Neue Konversation", new_conversation_path%></li>
-                <li role="presentation" class="divider"></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ausgewählte Konversationen löschen</a></li>
-                <li role="presentation" class="divider"></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Alle Konversationen löschen</a></li>
-              </ul>
-            </div>
-            </th>
+            <th><%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_conversation_path, {:'data-toogle' => 'tooltip', :title => 'Neue Konversation beginnen', :class => 'text-weak'}%></th>           
           </tr>
           <% current_user.mailbox.sentbox.order('updated_at ASC').each do |conversation|%>
           <% @Originator = User.where(email: conversation.originator.email).first%>
@@ -39,13 +25,10 @@
           <tr>
             <td><input type="checkbox"></td>
             <td><%= link_to conversation.subject, conversation_path(conversation), :method => :get %></td>
-            <td><%= image_tag avatar_url(@last_sender,50), :class => 'pull-right' %></td>
+            <td><%= image_tag avatar_url(@last_sender,50), :size => "50", :class => 'pull-right' %></td>
             <td><em><strong> <%= link_to @last_sender.firstname + " " + @last_sender.lastname %></strong> schreibt:</em><br> <%=raw truncate(conversation.last_message.body, :length => 40,  :omission => "...")%></td>
             <td><%= @Originator.firstname %> <%= @Originator.lastname %></td>
-            <td><%= link_to '<i class="fa fa-mail-reply"></i>'.html_safe %></td>
-            <td><%= link_to '<i class="fa fa-mail-reply-all"></i>'.html_safe %></td>
-            <td><%= link_to '<i class="fa fa-mail-forward"></i>'.html_safe %></td>
-            <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe%></td>
+            <td></td>
           </tr>
           
           <% end %>

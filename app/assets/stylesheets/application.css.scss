@@ -50,3 +50,46 @@ a:hover.text-weak  {
   color: dimgray;
 }
 
+a:active.black-link,
+a:visited.black-link,
+a:link.black-link,
+a:focus.black-link {
+  color: black;
+}
+a:hover.black-link {
+  color: dimgray;
+}
+
+
+/* ShowUserBatch */
+div.user-batch {
+  margin-left: 5px;
+  height: 30px;
+  display:inline-block;
+  background-color: lightgray;
+  border-radius: 5px; 
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
+}
+div.user-batch img.user-image {
+  float: left !important;
+  width: 30px;
+  height: 30 px;
+  border-radius: 5px;
+}
+div.user-batch div.user-name {
+  vertical-align:middle;
+  padding: 5px 10px 5px 40px;
+}
+div.panel-heading a{
+  display: inline;
+  color: #120000;
+}
+
+div.panel-heading > * {
+    vertical-align:middle;  // Align children to middle of line
+}
+
+
+
+

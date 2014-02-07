@@ -43,7 +43,7 @@ de:
       new:
         sign_in: Anmelden
       user:
-        signed_in: Sie wurden eingeloggt.
+        signed_in: Sie wurden erfolgreich eingeloggt.
         signed_out: Sie wurden erfolgreich ausgeloggt.
     shared:
       links:

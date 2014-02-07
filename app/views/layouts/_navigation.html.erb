@@ -47,10 +47,10 @@
                 <% end %>
                 <li class="message-preview">
                 <%= link_to conversation_path(conversation), :method => :get do %>
-                    <span class="avatar"><%= image_tag avatar_url(@last_sender, 50) %></span>
+                    <span class="avatar"><%= image_tag avatar_url(@last_sender, 50), :size => "50" %></span>
                     <span class="name"><%= @last_sender.firstname %> <%= @last_sender.lastname%></span>
                     <span class="message"><%=raw truncate(conversation.last_message.body, :length => 40,  :omission => "...") %></span>
-                    <span class="time"><i class="fa fa-clock-o"></i>vor <%= time_ago_in_words(conversation.created_at) %></span>
+                    <span class="time"><i class="fa fa-clock-o"></i> vor <%= time_ago_in_words(conversation.created_at) %></span>
                   <% end %>
                 </li>
                 <li class="divider"></li>
@@ -74,8 +74,8 @@
               </ul>
             </li>
             <% else %>
-            <li class="<%= "active" if params[:controller] == "devise/sessions" %>"><%= link_to " Einloggen ", new_user_session_path %> </li>
-            <li class="<%= "active" if params[:controller] == "devise/registrations" %>"><%= link_to " Registrieren ", new_user_registration_path %></li>
+            <li class="<%= "active" if params[:controller] == "devise/sessions" %>"><%= link_to '<i class="fa fa-sign-in"></i> Anmelden '.html_safe, new_user_session_path %> </li>
+            <li class="<%= "active" if params[:controller] == "devise/registrations" %>"><%= link_to '<i class="fa fa-pencil"></i> Registrieren '.html_safe, new_user_registration_path %></li>
             <% end %>
             
           </ul>

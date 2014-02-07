@@ -22,7 +22,7 @@ class TasksController < ApplicationController
 			new_position = 0
 		end
 		
-		@task = @list.tasks.create(:titel => "neue Aufgabe", :text => "", :position => new_position+1)
+		@task = @list.tasks.create(:titel => "neue Aufgabe", :text => "", :position => new_position+1, :priority => "medium")
 		
 		redirect_to project_path(@list.project)
 	end
@@ -38,9 +38,9 @@ class TasksController < ApplicationController
 	
 	def update
 
-
+		
 		@task = Task.find(params[:task_id])
-		@task.update!(:titel => params[:titel], :text=>params[:text])
+		@task.update!(:titel => params[:titel], :text=>params[:text], :priority=>params[:priority], :deadline=>params[:deadline])
 		
 		TasksUsers.assignUserToTask(@task.id, params[:user_id])
 		

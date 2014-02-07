@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140121154945) do
 
   create_table "activities", force: true do |t|
@@ -29,6 +30,9 @@ ActiveRecord::Schema.define(version: 20140121154945) do
   add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
+=======
+ActiveRecord::Schema.define(version: 20140122143815) do
+>>>>>>> 57cd4e9f7c86effa9e5f54e1c11407775ed5906a
 
   create_table "conversations", force: true do |t|
     t.string   "subject",    default: ""
@@ -102,6 +106,8 @@ ActiveRecord::Schema.define(version: 20140121154945) do
     t.datetime "updated_at"
     t.string   "decription"
     t.string   "titel"
+    t.string   "priority"
+    t.date     "deadline"
   end
 
   add_index "tasks", ["list_id"], name: "index_tasks_on_list_id"

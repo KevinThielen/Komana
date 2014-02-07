@@ -11,20 +11,21 @@
   <div class="table-responsive"> 
     <table class="table table-hover"> 
      
-      
      <% @projects = Project.joins(:users).where("user_id == ?", current_user.id) %>
       <tr>
         <th>Projekt</th>
-        <th>Erstellt durch</th>
+        <th>Projektleiter</th>
         <th>Erstellt am</th>
-        <th>Letzte Änderung</th>
+        <th>Letzte Änderung am</th>
       </tr>
       <% @projects.each do |project| %>
+
+      <% @project_owner = ProjectsUsers.joins(:users).where("role=? and project_id=?, \"author\", project.id") %>
       <tr>
         <td><%= link_to project.name, project_path(project) %></td>
-        <td></td>
-        <td><%= project.created_at %></td>
-        <td><%= project.updated_at %></td>
+        <td>[Projektleiter]</td>
+        <td><%= project.created_at.strftime("%d.%m.%Y") %></td>
+        <td><%= project.updated_at.strftime("%d.%m.%Y") %></td>
       </tr>
      <% end %>
     </table>
