@@ -11,12 +11,11 @@ dragged_element = 0
 allow_drop = (event) ->
 	event.preventDefault()
 
-### Tempoary. Will be replaced with a class bases approach ###
 drag_enter = (event, position, list) ->
 	event.preventDefault()
 	
 	if list isnt dragged_element.list or (position isnt dragged_element.position and position isnt dragged_element.position-1)
-		if current_drag_target?
+		if drop_target?
 			reset_drag_target()
 			
 		drop_target = event.target

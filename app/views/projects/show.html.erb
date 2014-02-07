@@ -57,22 +57,6 @@
              <!-- get the assigned user for the dropdown/default value -->
              <% @user = User.joins(:tasks).where("task_id == ?", task.id).first %> 
 
-             <% if @user.present?
-					@user_name = @user.firstname
-					@task_user_id = @user.id
-				else
-					@user_name = ""
-					@task_user_id = -1
-				end %>  
-				
-             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');"><strong><%=task.position%><%= task.titel %></strong></a>
-             
-
-			<!-- Hübschere Darstellungsform -->  
-            <%=@user_name%>
-			 
-
-            
             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');"><strong><%= task.titel %></strong></a>
              <% if @user.present? %>
               <%@task_user_id = @user.id %>
@@ -86,7 +70,6 @@
 					  <% @task_user_id = -1 %>
             <% end %>  
 
-
              <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
           
             </div>
@@ -98,14 +81,6 @@
               <small class="text-weak">   <i class="fa fa-clock-o"></i> Endet in <%= distance_of_time_in_words(Time.now, Time.now) %></small>
               <br/>
 			</div>
-
-              <hr>
-
-              <!-- Let Task change List to the left or right-->
-              <%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, project_task_move_to_prev_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.first %>
-			  <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, project_task_move_to_next_list_path(project_id:@project.id, task_id:task.id) if task.list != @lists.last %>
-              <small class="text-weak">   <i class="fa fa-clock-o"></i> Endet in <%= distance_of_time_in_words(Time.now, Time.now) %></small>
-            </div>
 
           </div>
           
