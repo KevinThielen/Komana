@@ -225,9 +225,6 @@ cursor_positions:
   - :path: app/assets/javascripts/project.js.coffee.erb
     :cursor_offset: 367
     :timestamp: 2014-01-15 01:37:08 +01:00
-  - :path: app/controllers/tasks_controller.rb
-    :cursor_offset: 719
-    :timestamp: 2014-01-21 15:29:53 +01:00
   - :path: config/locales/devise.views.de.yml
     :cursor_offset: 2224
     :timestamp: 2014-01-21 18:03:07 +01:00
@@ -237,12 +234,6 @@ cursor_positions:
   - :path: app/views/welcome/dashboard.html.erb
     :cursor_offset: 3942
     :timestamp: 2014-01-21 18:25:21 +01:00
-  - :path: app/views/tasks/index.html.erb
-    :cursor_offset: 0
-    :timestamp: 2014-01-21 18:29:43 +01:00
-  - :path: app/views/tasks/search.html.erb
-    :cursor_offset: 26
-    :timestamp: 2014-01-21 18:31:42 +01:00
   - :path: app/views/tasks/_assigned_tasks.html.erb
     :cursor_offset: 361
     :timestamp: 2014-01-21 18:43:13 +01:00
@@ -289,12 +280,6 @@ cursor_positions:
   - :path: app/views/projects/index.html.erb
     :cursor_offset: 817
     :timestamp: 2014-01-23 13:27:26 +01:00
-  - :path: app/views/conversations/_trash.html.erb
-    :cursor_offset: 2076
-    :timestamp: 2014-01-23 13:51:02 +01:00
-  - :path: app/views/conversations/_inbox.html.erb
-    :cursor_offset: 2396
-    :timestamp: 2014-01-23 12:27:50 +01:00
   - :path: app/controllers/conversations_controller.rb
     :cursor_offset: 1545
     :timestamp: 2014-01-23 11:01:39 +01:00
@@ -311,5 +296,22 @@ cursor_positions:
     :timestamp: 2014-01-23 10:22:55 +01:00
   - :path: app/views/conversations/_sent.html.erb
     :cursor_offset: 1424
-    :timestamp: 2014-02-02 14:59:40 +01:00
+    :timestamp: 2014-02-02 15:00:01 +01:00
+  - :path: app/views/conversations/_inbox.html.erb
+    :cursor_offset: 2119
+    :timestamp: 2014-01-23 12:27:50 +01:00
+    :selection_offset: 2097
+    :block_selection_mode: false
+  - :path: app/views/conversations/_trash.html.erb
+    :cursor_offset: 2327
+    :timestamp: 2014-02-02 14:58:26 +01:00
+  - :path: app/views/tasks/search.html.erb
+    :cursor_offset: 26
+    :timestamp: 2014-01-21 18:31:42 +01:00
+  - :path: app/views/tasks/index.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-01-21 18:29:43 +01:00
+  - :path: app/controllers/tasks_controller.rb
+    :cursor_offset: 719
+    :timestamp: 2014-01-21 15:29:53 +01:00
 files_to_retain: 0
