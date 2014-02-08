@@ -26,7 +26,7 @@
             <td><input type="checkbox"></td>
             <td><%= link_to conversation.subject, conversation_path(conversation), :method => :get %></td>
             <td><%= image_tag avatar_url(@last_sender,50), :size => "50", :class => 'pull-right' %></td>
-            <td><em><strong> <%= link_to @last_sender.firstname + " " + @last_sender.lastname %></strong> schreibt:</em><br> <%=raw truncate(conversation.last_message.body, :length => 40,  :omission => "...")%></td>
+            <td><em class="text-weak"><strong> <%= @last_sender.firstname %><%= @last_sender.lastname %></strong> schreibt:</em><br> <%=raw truncate(conversation.last_message.body, :length => 40,  :omission => "...")%></td>
             <td><%= @Originator.firstname %> <%= @Originator.lastname %></td>
             <td></td>
           </tr>
