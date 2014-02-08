@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -67,10 +66,18 @@ gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 
 group :development do
   gem 'rails_layout'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
+
 
 gem 'cancan'
 gem 'rolify'
 
 #logger
 gem 'public_activity'
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end

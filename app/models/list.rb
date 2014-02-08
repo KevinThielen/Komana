@@ -3,6 +3,6 @@ class List < ActiveRecord::Base
   
   has_many :tasks, :dependent => :destroy
   
-  include PublicActivity::Model
-	 tracked
+ # include PublicActivity::Model
+	# tracked
 end
