@@ -45,7 +45,11 @@
           <% @tasks.each do |task| %>
           <div class="panel panel-default <%= list.id %>">
             <div class="panel-heading">
-              
+
+            <!--für Micha: Priority -->
+            Priorität: <%= task.priority %> <p> 
+            Deadline: <%= task.deadline %> <p>
+
              <!-- get the assigned user for the dropdown/default value -->
              <% @user = User.joins(:tasks).where("task_id == ?", task.id).first %> 
             
@@ -129,6 +133,15 @@
                 </div>
                 <div class="modal-body">
                  Zuweisen an:<%= select_tag "user_id", options_from_collection_for_select(@projectusers, "id", "firstname"), include_blank: true, :class => "form-control" %>
+                 <%# form for priority %> Priorität: <p>
+                  <%= radio_button_tag(:priority, "low") %>
+                  <%= label_tag(:priority_low, "Niedrig") %>
+                  <%= radio_button_tag(:priority, "medium", :checked=>true) %>
+                  <%= label_tag(:priority_medium, "Mittel") %>
+                  <%= radio_button_tag(:priority, "high") %>
+                  <%= label_tag(:priority_high, "Hoch") %> <p>
+                  <%# for for deadline %> Deadline: <p>
+                  <%= date_field_tag(:deadline) %>
                  <%# Add Task %>
 				            <div class="form-group"> 
                       <h4>Beschreibung:</h4>
