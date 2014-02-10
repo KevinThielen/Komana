@@ -15,9 +15,15 @@ Komana::Application.routes.draw do
 		post :reply
 		post :trash
 		post :untrash
+    post :mark_as_unread
+    post :mark_as_read
+    delete :delete
   end
     
-  resources :tasks
+  resources :tasks do
+	post "search"
+	post :update_position
+  end
   
   resources :lists do
 		post "move_up"
@@ -30,10 +36,7 @@ Komana::Application.routes.draw do
 	end
 	
 	resources :tasks do
-		get "move_up"
-		get "move_down"
-		get "move_to_next_list"
-		get "move_to_prev_list"
+
 	end
   end
 end

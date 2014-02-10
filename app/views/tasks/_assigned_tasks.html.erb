@@ -1,0 +1,34 @@
+
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Meine Aufgaben <small>Übersicht</small></h1>
+      <ol class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
+        <li class="active"><i class="fa fa-edit"></i> Meine Aufgaben</li>
+      </ol>
+    </div>
+  </div>
+ 
+<div class="table-responsive"> 
+    <table class="table table-hover"> 
+      <% @tasks = Task.joins(:users).where("user_id == ?", current_user.id) %>
+      <tr>
+        <th>Aufgabe</th>
+        <th>Frist</th>
+        <th>Projekt</th>
+        <th>Priorität</th>
+        <th>Kategorie</th>
+      </tr>
+      <% @tasks.each do |task| %>
+      <tr>
+        <td><a><%= task.titel %></a></td>
+        <td>[distance_of_time_in_words]</td>
+        <td>[Projektname]</td>
+        <td>[Priorität]</td>
+        <td>[Kategorie]</td>
+      </tr>
+     <% end %>
+    </table>
+  </div>
+</div>

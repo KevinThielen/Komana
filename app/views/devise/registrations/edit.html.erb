@@ -8,54 +8,65 @@
       </ol>
     </div>
   </div>
-
-<h3>Profildaten ändern</h3>
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <div class="form-group">
-    <label for="inputFirstname" class="col-sm-2 control-label">Vorname</label>
-    <div class="col-sm-10">
-      <%= f.text_field :firstname, :autofocus => true, :placeholder => 'Vorname', :id => "inputFirstname", :class => "form-control"  %>
+  <div class="row">
+    <div class="col-sm-5">
+    <h3>Profildaten ändern</h3>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
+    <div class="form-group">
+      <div class="col-sm-4 col-sm-offset-4 col-sm-8">
+      <%= link_to ("http://www.gravatar.com/emails/") do %>
+        <%= image_tag avatar_url(current_user,150), :size => "150", :class => "pull-left" %>
+        <% end %>
+      </div>      
     </div>
-  </div>
-  <div class="form-group">
-    <label for="inputLastname" class="col-sm-2 control-label">Nachname</label>
-    <div class="col-sm-10">
+    <div class="form-group">
+      <label for="inputFirstname" class="col-sm-4 control-label">Vorname</label>
+      <div class="col-sm-8">
+        <%= f.text_field :firstname, :autofocus => true, :placeholder => 'Vorname', :id => "inputFirstname", :class => "form-control"  %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastname" class="col-sm-4 control-label">Nachname</label>
+      <div class="col-sm-8">
       <%= f.text_field :lastname, :placeholder => 'Nachname', :id => "inputLastname", :class => "form-control"  %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail" class="col-sm-2 control-label">E-Mail</label>
-    <div class="col-sm-10">
-      <%= f.email_field :email, :id => "inputEmail", :class => "form-control"  %>
+    <div class="form-group">
+      <label for="inputEmail" class="col-sm-4 control-label">E-Mail</label>
+      <div class="col-sm-8">
+        <%= f.email_field :email, :id => "inputEmail", :class => "form-control"  %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="inputNewPassword" class="col-sm-2 control-label">Passwort</label>
-    <div class="col-sm-10">
-      <%= f.password_field :password, :placeholder => 'Passwort', :id => "inputNewPassword", :class => "form-control"  %>
+    <div class="form-group">
+      <label for="inputNewPassword" class="col-sm-4 control-label">Passwort</label>
+      <div class="col-sm-8">
+        <%= f.password_field :password, :placeholder => 'Passwort', :id => "inputNewPassword", :class => "form-control"  %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="inputConfirmNewPassword" class="col-sm-2 control-label">Passwort wiederholen</label>
-    <div class="col-sm-10">
-      <%= f.password_field :password_confirmation, :placeholder => 'Passwort wiederholen', :id => "inputConfirmNewPassword", :class => "form-control"  %>
+    <div class="form-group">
+      <label for="inputConfirmNewPassword" class="col-sm-4 control-label">Passwort wiederholen</label>
+      <div class="col-sm-8">
+        <%= f.password_field :password_confirmation, :placeholder => 'Passwort wiederholen', :id => "inputConfirmNewPassword", :class => "form-control"  %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="inputConfirmOldPassword" class="col-sm-2 control-label">Aktuelles Passwort</label>
-    <div class="col-sm-10">
-      <%= f.password_field :current_password, :placeholder => 'Mit aktuellem Passwort bestätigen', :id => "inputConfirmOldPassword", :class => "form-control"  %>
+    <div class="form-group">
+      <label for="inputConfirmOldPassword" class="col-sm-4 control-label">Aktuelles Passwort</label>
+      <div class="col-sm-8">
+        <%= f.password_field :current_password, :placeholder => 'Mit aktuellem Passwort bestätigen', :id => "inputConfirmOldPassword", :class => "form-control"  %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit "Aktualisieren", :class => "btn btn-success" %>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-8">
+        <%= f.submit "Aktualisieren", :class => "btn btn-success" %>
+      </div>
     </div>
-  </div>
-
-  <div></div>
+    
 <% end %>
 
+  </div><!-- ./col -->
+  <div><!-- Zweite Seitenspalte --></div>
+</div><!-- ./row -->
+<hr>
 <h3>Account löschen</h3>
 
 <p>Sie wollen Ihren Account endgütig löschen? <%= button_to "Diesen Account löschen", registration_path(resource_name), :data => { :confirm => "Wenn Sie auf OK klicken wird ihr Account mit allem Projekten gelöscht. Sie haben dann keinen Zugriff mehr auf ihre Projekte oder Projekte auf denen Sie Mitglied waren. Möchten Sie fortfahren?" }, :class => 'btn btn-danger' , :method => :delete %></p>

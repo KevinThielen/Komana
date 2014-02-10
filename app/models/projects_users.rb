@@ -7,4 +7,7 @@ class ProjectsUsers < ActiveRecord::Base
 			ProjectsUsers.create(:project_id => project_id, :user_id => user_id, :role => role)
 		end
 	end	
+	
+	#include PublicActivity::Model
+	# tracked
 end

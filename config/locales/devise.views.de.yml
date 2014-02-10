@@ -37,11 +37,13 @@ de:
         sign_up: Registrieren
       user:
         updated: Ihr Benutzerprofil wurde erfolgreich geändert.
+        signed_up: Sie haben sich erfolgreich registriert.
+        destroyed: Sie haben Ihren Account erfolgreich gelöscht.
     sessions:
       new:
         sign_in: Anmelden
       user:
-        signed_in: Sie wurden eingeloggt.
+        signed_in: Sie wurden erfolgreich eingeloggt.
         signed_out: Sie wurden erfolgreich ausgeloggt.
     shared:
       links:
@@ -58,3 +60,5 @@ de:
       user:
         not_found_in_database: Wir konnten diesen Benutzer nicht finden.
         invalid: Das Passwort zu diesem Benutzer ist nicht richtig.
+        unauthenticated: Dies ist ein geschützter Bereich. Bitte melden Sie sich an um fortzufahren.
+        already_authenticated: Sie sind bereits angemeldet.

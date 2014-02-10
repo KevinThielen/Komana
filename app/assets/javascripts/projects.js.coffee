@@ -101,19 +101,19 @@ window.updateList = updateList
 
 
 ###
-	Hide the list
+	Toogle the list
 ###
 
 toggleList = (list, list_class) ->
-	
+	#TODO: Change effect from simple css display:none to jquery fade effect
 	if $(list).hasClass('hidden_list') == false
-		$("."+list_class).css( "display", "none" );
+		$("."+list_class).slideUp();
 		$(list).addClass('hidden_list')
 		
 		#SHOW 
 		list.innerHTML = '<i class="fa fa-caret-square-o-right"></i>'
 	else
-		$("."+list_class).css( "display", "block" );
+		$("."+list_class).slideDown();
 		
 		#HIDE 
 		list.innerHTML = '<i class="fa fa-caret-square-o-down"></i>'

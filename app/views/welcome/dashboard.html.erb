@@ -14,7 +14,7 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-comments fa-5x"></i>
+                    <i class="fa fa-clipboard fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading"><%= Project.joins(:users).where("user_id == ?", current_user.id).count %></p>
@@ -41,15 +41,15 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-check fa-5x"></i>
+                    <i class="fa fa-edit fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= Task.joins(:users).where("user_id == ?", current_user.id).count %></p></p>
+                    <p class="announcement-heading"><%= Task.joins(:users).where("user_id == ?", current_user.id).count %></p>
                     <p class="announcement-text">Aufgaben warten</p>
                   </div>
                 </div>
               </div>
-			  <%= link_to (tasks_path) do%>
+			  <%= link_to task_search_path(0), :method => :post do%>
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -68,10 +68,11 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-tasks fa-5x"></i>
+                    <i class="fa fa-exclamation fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">[18]</p>
+                  Post.includes(:comments).where("comments.visible", true)
+                    <p class="announcement-heading"></p>
                     <p class="announcement-text">Dringende Aufgaben</p>
                   </div>
                 </div>
@@ -95,15 +96,17 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-comments fa-5x"></i>
+                    <i class="fa fa-tasks fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">[56]</p>
+                    <% @free_tasks = Task.includes(:users).where("users.id is NULL") %>
+                    
+					<p class="announcement-heading">[X]</p> 
                     <p class="announcement-text">Freie Aufgaben</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+                <%= link_to task_search_path(0, :partial => 'tasks/free_tasks'), :method => :post do %>
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -114,7 +117,7 @@
                     </div>
                   </div>
                 </div>
-              </a>
+             <% end %>
             </div>
           </div>
         </div><!-- /.row -->
@@ -271,3 +274,8 @@
       </div><!-- /#page-wrapper -->
 
     </div><!-- /#wrapper -->
+    
+ <% @activities = PublicActivity::Activity.all  %>
+<%= @activities.each do |a| %>
+
+<% end %>

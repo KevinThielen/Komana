@@ -1,11 +1,11 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1><%= conversation.subject%> <small>Nachrichten</small></h1>
+      <h1><%= conversation.subject %> <small>Nachrichten</small></h1>
       <ol class="breadcrumb">
         <li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
         <li><%= link_to '<i class="fa fa-envelope"></i> Nachrichten'.html_safe , conversations_path %></li>
-        <li><i class="fa fa-comments"></i> <%= conversation.subject%></li>
+        <li><i class="fa fa-comments"></i> <%= conversation.subject %></li>
       </ol>
     </div>
   </div><!-- /.row -->
@@ -13,7 +13,8 @@
   <div class="row">
     <div class="col-lg-2">
       <div class="list-group"> 
-        <%= link_to '<i class="fa fa-envelope"></i> Trash'.html_safe, conversation_trash_path(conversation), :method => :post, :id => conversation.id, :class => 'list-group-item' %>
+        <%= link_to '<i class="fa fa-trash-o"></i> In den Papierkorb'.html_safe, conversation_trash_path(conversation), :method => :post, :id => conversation.id, :class => 'list-group-item' %>
+        <%= link_to '<i class="fa fa-envelope"></i> Als ungelesen markieren'.html_safe, conversation_mark_as_unread_path(conversation),  :method => :post, :id => conversation.id, :class => 'list-group-item' %>
       </div>
     </div>
     <div class="col-lg-10">
@@ -46,12 +47,12 @@
           <% message = receipt.message%>
           <% conversation.mark_as_read(current_user) %>
          <% @sender = User.where(email: message.sender.email).first %>
-        <div class="col-lg-1">
+        <div class="col-sm-1">
           <div class="pull-right">
           <%= image_tag avatar_url(@sender, 90) %>
           </div>
         </div>
-        <div class="col-lg-11">
+        <div class="col-sm-11">
           
           <div class="panel panel-default">
             <div class="panel-heading">
