@@ -199,5 +199,11 @@ de:
     errors:
       <<: *errors
   activerecord:
+    attributes:
+      user:
+        email: "E-mail"
+        firstname: "Vorname"
+        lastname: "Nachname"
+        password_confirmation: "Password wiederholen"
     errors:
       <<: *errors

@@ -20,6 +20,14 @@
     <%= f.text_field :name,:class=>'form-control', :placeholder => 'Projektname' %>
   </div>
 </div>
+
+<!-- validation handling -->
+<ul>
+  <% @project.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+  <% end %>
+</ul>
+
 <br/ >
 <div class="row">
     <div class="col-xs-12 col-md-4 col-lg-2 ">
