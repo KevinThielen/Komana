@@ -1,154 +1,154 @@
 <div i class=""id="page-wrapper">
-  <div class="row">
-  <div class="col-lg-12">
-    <h1><%= @project.name %> <small>Organisation</small></h1>
-    <ol class="breadcrumb">
-      <li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
-      <li><%= link_to '<i class="fa fa-clipboard"></i> Meine Projekte'.html_safe , projects_path %></li>
-      <li class="active"><i class="fa fa-clipboard"></i> <%= @project.name %></li>
-      <span class="pull-right"><a class="text-weak" data-toggle="modal" data-target="#settingsModal"><i class="fa fa-gear"></i></a></span>
-    </ol>
-    
-    
-</div>  
-      
-<!-- Show Lists and Tasks -->
-<div class="row">
-	<!-- counter for css style elements in the loop -->
-	<% n = 0 %>
-
-	<!-- iterates over all list elements in this project and renders them with their tasks -->
-	<% @lists.each do |list| %>	
-
-		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">	
+	<div class="row">
+		<div class="col-lg-12">
+			<h1><%= @project.name %> <small>Organisation</small></h1>
 		
-			<!-- div element for the complete list -->
-			<div class="well well-lg">
-				
-				<!-- div "header" -->
-				
-				<!-- TODO: replace with drag and drop -->
-				<%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, list_move_down_path(:list_id => list), :method => :POST if list != @lists.first %>
-				<%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, list_move_up_path(:list_id => list), :method => :POST if list != @lists.last %>
-				
-				<!-- list header, changes to input field for list name on click -->
-				<h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
-					<a onClick = "toggleList(this, <%= list.id %>)"><i class="fa fa-caret-square-o-down"></i></a>
-				  
-					<div class="dropdown pull-right">
+			<ol class="breadcrumb">
+				<li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
+				<li><%= link_to '<i class="fa fa-clipboard"></i> Meine Projekte'.html_safe , projects_path %></li>
+				<li class="active"><i class="fa fa-clipboard"></i> <%= @project.name %></li>
+				<span class="pull-right"><a class="text-weak" data-toggle="modal" data-target="#settingsModal"><i class="fa fa-gear"></i></a></span>
+			</ol>
+		</div>
+	</div>  
+		  
+	<!-- Show Lists and Tasks -->
+	<div class="row">
+		<!-- counter for css style elements in the loop -->
+		<% n = 0 %>
+
+		<!-- iterates over all list elements in this project and renders them with their tasks -->
+		<% @lists.each do |list| %>	
+
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">	
+			
+				<!-- div element for the complete list -->
+				<div class="well well-lg">
 					
-						<!-- settings for the list. Allows to add a new task and delete the whole list -->
-						<button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-bars"></span></button>
+					<!-- div "header" -->
+					
+					<!-- TODO: replace with drag and drop -->
+					<%= link_to '<i class="fa fa-arrow-circle-left"></i>'.html_safe, list_move_down_path(:list_id => list), :method => :POST if list != @lists.first %>
+					<%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, list_move_up_path(:list_id => list), :method => :POST if list != @lists.last %>
+					
+					<!-- list header, changes to input field for list name on click -->
+					<h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
+						<a onClick = "toggleList(this, <%= list.id %>)"><i class="fa fa-caret-square-o-down"></i></a>
+					  
+						<div class="dropdown pull-right">
 						
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><%= link_to 'Aufgabe anlegen', project_list_tasks_path(@project, list), :method =>:post %></li>
-							<li role="presentation" class="divider"></li>
-							<li role="presentation"><%= link_to 'Liste löschen <i class="fa fa-exclamation-circle"></i>'.html_safe, project_list_path(project_id:@project, list_id:list), method: :delete, :confirm => "Soll die Liste wirklich gelöscht werden?" %></li>
-						</ul>
-					</div>
-				</h4>
+							<!-- settings for the list. Allows to add a new task and delete the whole list -->
+							<button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-bars"></span></button>
+							
+							<ul class="dropdown-menu" role="menu">
+								<li role="presentation"><%= link_to 'Aufgabe anlegen', project_list_tasks_path(@project, list), :method =>:post %></li>
+								<li role="presentation" class="divider"></li>
+								<li role="presentation"><%= link_to 'Liste löschen <i class="fa fa-exclamation-circle"></i>'.html_safe, project_list_path(project_id:@project, list_id:list), method: :delete, :confirm => "Soll die Liste wirklich gelöscht werden?" %></li>
+							</ul>
+						</div>
+					</h4>
 <br/>  
-				<!-- Get all Tasks in the List and renders them-->  
-				<% list.tasks.each do |task| %>
-				
-					<!-- TODO: Dynamisch mit coffescript hinzufügen, vor alle tagged elemente -->
-					<!-- Drag & Drop target Div -->
-					<div  id = "position<%= task.position %>" ondragover = "allow_drop(event)" class="droptarget<%=task.id%> panel panel-default" ondragenter="drag_enter(event, <%= task.position %>, <%=task.list.id%>)" ></div>
-			  
-					<div id = "task<%=task.id%>" class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.id %>, <%= task.position %>, <%=list.id%>)" >
-						
-						<!-- task header -->
-						<div class="panel-heading">
-
-							<!--TODO: für Micha: Priority/Deadline -->
-							Priorität: <%= task.priority %> <p> 
-							Deadline: <%= task.deadline %> <p>
-
-							<!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
-							<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');">
-								<strong>
-									<%= task.titel %>
-								</strong>
-							</a>
+					<!-- Get all Tasks in the List and renders them-->  
+					<% list.tasks.each do |task| %>
+					
+						<!-- TODO: Dynamisch mit coffescript hinzufügen, vor alle tagged elemente -->
+						<!-- Drag & Drop target Div -->
+						<div  id = "position<%= task.position %>" ondragover = "allow_drop(event)" class="droptarget<%=task.id%> panel panel-default" ondragenter="drag_enter(event, <%= task.position %>, <%=task.list.id%>)" ></div>
+				  
+						<div id = "task<%=task.id%>" class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.id %>, <%= task.position %>, <%=list.id%>)" >
 							
-							<!-- shows the to this task assigned user, if there is any -->
-							<% assigned_user = task.users.first %>
-							
-							<% if assigned_user.present? %>
-								<!-- Needed to set the default value of the tasks modal-->
-								<% task_user_id = assigned_user.id %> 
+							<!-- task header -->
+							<div class="panel-heading">
+
+								<!--TODO: für Micha: Priority/Deadline -->
+								Priorität: <%= task.priority %> <p> 
+								Deadline: <%= task.deadline %> <p>
+
+								<!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
+								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');">
+									<strong>
+										<%= task.titel %>
+									</strong>
+								</a>
 								
-								<!-- renders the user initials and the avatar -->
-								<div class="user-batch">
-									<%= image_tag avatar_url(assigned_user, 30), :class => "user-image" %>
-									<div class="user-name">
-										<%= assigned_user.firstname.first %><%= assigned_user.lastname.first %>
+								<!-- shows the to this task assigned user, if there is any -->
+								<% assigned_user = task.users.first %>
+								
+								<% if assigned_user.present? %>
+									<!-- Needed to set the default value of the tasks modal-->
+									<% task_user_id = assigned_user.id %> 
+									
+									<!-- renders the user initials and the avatar -->
+									<div class="user-batch">
+										<%= image_tag avatar_url(assigned_user, 30), :class => "user-image" %>
+										<div class="user-name">
+											<%= assigned_user.firstname.first %><%= assigned_user.lastname.first %>
+										</div>
 									</div>
-								</div>
-								
-							<% else %>
-								<!-- default value if there are no assinged users, because all user ids are greater equals 0 -->
-								<% task_user_id = -1 %>
-							<% end %>  
+									
+								<% else %>
+									<!-- default value if there are no assinged users, because all user ids are greater equals 0 -->
+									<% task_user_id = -1 %>
+								<% end %>  
 
-							<!-- button to delete the task. Opens confirmation window before -->
-							<%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
-			  
-						</div> <!-- /task header -->
-				
-						<div class="panel-body">
-							<%= task.text %>
+								<!-- button to delete the task. Opens confirmation window before -->
+								<%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
+				  
+							</div> <!-- /task header -->
+					
+							<div class="panel-body">
+								<%= task.text %>
 <br>
 <br>
-							<!-- task footer in the body that displays the remaining time for a task -->
-							<small class="text-weak">   
-								<!-- clock symbol -->
-								<i class="fa fa-clock-o"></i> 
-								
-								Endet in <%= distance_of_time_in_words(Time.now, Time.now) %>
-							</small>
+								<!-- task footer in the body that displays the remaining time for a task -->
+								<small class="text-weak">   
+									<!-- clock symbol -->
+									<i class="fa fa-clock-o"></i> 
+									
+									Endet in <%= distance_of_time_in_words(Time.now, Time.now) %>
+								</small>
 <br>
-						</div> <!-- /task header -->
-					</div> <!-- / task panel -->
-				<% end %> <!-- /tasks loop -->
-	  
-				<!-- TODO: dynamicly adding last Drag&Drop position -->
-				<div  id = "position0" ondrop="drop(event)" class="panel panel-default"  ondragover = "allow_drop(event)" ondragenter="drag_enter(event, 1, <%=list.id%>)"></div>
+							</div> <!-- /task header -->
+						</div> <!-- / task panel -->
+					<% end %> <!-- /tasks loop -->
+		  
+					<!-- TODO: dynamicly adding last Drag&Drop position -->
+					<div  id = "position0" ondrop="drop(event)" class="panel panel-default"  ondragover = "allow_drop(event)" ondragenter="drag_enter(event, 1, <%=list.id%>)"></div>
+				</div>
 			</div>
-		</div>
 
-		<!-- TODO: wofür war der block? -->
-		<!-- changes the background color of the 
-		<% if (n+1)%2 == 0 %>
-			<div class="clearfix visible-sm"></div>
-		<% end %>
+			<!-- TODO: wofür war der block? -->
+			<!-- changes the background color of the -->
+			<% if (n+1)%2 == 0 %>
+				<div class="clearfix visible-sm"></div>
+			<% end %>
 
-		<% if (n+1)%3 == 0 %>
-			<div class="clearfix visible-md"></div>
-		<% end %>
+			<% if (n+1)%3 == 0 %>
+				<div class="clearfix visible-md"></div>
+			<% end %>
 
-		<% if (n+1)%4 == 0 %>
-			<div class="clearfix visible-lg"></div>
-		<% end %>
+			<% if (n+1)%4 == 0 %>
+				<div class="clearfix visible-lg"></div>
+			<% end %>
 
-		<% n = n+1%>
-	-->
-	<% end %> <!-- /lists loops -->
+			<% n = n+1%>
+		
+		<% end %> <!-- /lists loops -->
 
-	<!-- Add an additional List on click -->
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-		<div class="well well-lg">
-			<h4><strong><%= link_to 'Neue Liste anlegen...',  project_lists_path(@project), :method => :POST %></strong></h4>
-		</div>
-	</div>	
-</div> <!-- row -->
+		<!-- Add an additional List on click -->
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="well well-lg">
+				<h4><strong><%= link_to 'Neue Liste anlegen...',  project_lists_path(@project), :method => :POST %></strong></h4>
+			</div>
+		</div>	
+	</div> <!-- row -->
 
-<hr>
+	<hr>
 
-<%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
-<br>
-<br>
-<%= link_to 'Zur Projektübersicht', projects_path, :class => 'btn btn-default' %>
+	<%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+	<br>
+	<br>
+	<%= link_to 'Zur Projektübersicht', projects_path, :class => 'btn btn-default' %>
 </div>
 
 <!-- modal partials -->
