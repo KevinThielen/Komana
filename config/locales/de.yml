@@ -100,7 +100,7 @@ de:
     messages:
       accepted: muss akzeptiert werden
       blank: muss ausgefüllt werden
-      confirmation: stimmt nicht mit der Bestätigung überein
+      confirmation: stimmt nicht mit der Bestätigung überein 
       empty: muss ausgefüllt werden
       equal_to: muss genau %{count} sein
       even: muss gerade sein
@@ -204,6 +204,8 @@ de:
         email: "E-mail"
         firstname: "Vorname"
         lastname: "Nachname"
-        password_confirmation: "Password wiederholen"
+        password: "Passwort"
+        password_confirmation: "Passwort wiederholen"
+        current_password: "Aktuelles Passwort"
     errors:
       <<: *errors
