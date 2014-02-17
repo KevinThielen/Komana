@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :tasks
+
+  validates :firstname, :lastname, :password_confirmation, presence: true
+  validates :password, length: { in: 6..20 }
+  validates :firstname, :lastname, length: { maximum: 20 }
   	
         acts_as_messageable
         
