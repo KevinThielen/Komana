@@ -163,10 +163,7 @@ DEPENDENCIES
   jquery-rails
   mailboxer
   pg
-<<<<<<< HEAD
-=======
   public_activity
->>>>>>> 069344a5502e0b7c032935373c47017f23d4d1c8
   rails (= 4.0.2)
   rails-i18n (~> 4.0.0)
   rails_12factor
