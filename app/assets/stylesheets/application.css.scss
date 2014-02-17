@@ -9,9 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require_tree
+*= require bootstrap-datepicker
  */
+
 /* User sign in and sign forms. */
+
 .border-form-div {
   max-width: 300px;
   padding: 19px 29px 29px;

@@ -1,4 +1,4 @@
-1392646003
+1392658065
 Ability	/media/sf_Share/Komana/app/models/ability.rb	class Ability
 AddAttachments	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	class AddAttachments 
 AddDescriptionToTasks	/media/sf_Share/Komana/db/migrate/20140109121953_add_description_to_tasks.rb	class AddDescriptionToTasks 
@@ -71,6 +71,8 @@ TasksHelperTest	/media/sf_Share/Komana/test/helpers/tasks_helper_test.rb	class T
 TasksUsers	/media/sf_Share/Komana/app/models/tasks_users.rb	class TasksUsers 
 TasksUsersTest	/media/sf_Share/Komana/test/models/tasks_users_test.rb	class TasksUsersTest 
 TestCase	/media/sf_Share/Komana/test/test_helper.rb	class ActiveSupport::TestCase
+UTCDate	/media/sf_Share/Komana/app/assets/javascripts/bootstrap-datepicker/core.js	function UTCDate()
+UTCToday	/media/sf_Share/Komana/app/assets/javascripts/bootstrap-datepicker/core.js	function UTCToday()
 User	/media/sf_Share/Komana/app/controllers/models/user.rb	class User 
 User	/media/sf_Share/Komana/app/models/user.rb	class User 
 UserProjects	/media/sf_Share/Komana/app/models/user_projects.rb	class UserProjects 
@@ -85,6 +87,7 @@ WelcomeHelperTest	/media/sf_Share/Komana/test/helpers/welcome_helper_test.rb	cla
 addUserToProject	/media/sf_Share/Komana/app/models/projects_users.rb		def self.addUserToProject(project_id, user_id, role)	
 add_user	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def add_user
 alert	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def alert
+alias	/media/sf_Share/Komana/app/assets/javascripts/bootstrap-datepicker/core.js	function alias(method)
 assignUserToTask	/media/sf_Share/Komana/app/models/tasks_users.rb		def self.assignUserToTask(task_id, user_id)	
 avatar_url	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def avatar_url(user, size)
 change	/media/sf_Share/Komana/db/migrate/20140110092705_create_users_projects.rb	  def change
@@ -138,13 +141,17 @@ mailbox	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def
 mailboxer_email	/media/sf_Share/Komana/app/models/user.rb	        def mailboxer_email(object)
 mark_as_read	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def mark_as_read
 mark_as_unread	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def mark_as_unread
+match_part	/media/sf_Share/Komana/app/assets/javascripts/bootstrap-datepicker/core.js	function match_part()
 message_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def message_params(*keys)
 move_down	/media/sf_Share/Komana/app/controllers/lists_controller.rb	  	def move_down
 move_up	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def move_up
 name	/media/sf_Share/Komana/app/models/user.rb	        def name
 new	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def new 
 notice	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def notice
+opts_from_el	/media/sf_Share/Komana/app/assets/javascripts/bootstrap-datepicker/core.js	function opts_from_el(el, prefix)
+opts_from_locale	/media/sf_Share/Komana/app/assets/javascripts/bootstrap-datepicker/core.js	function opts_from_locale(lang)
 project_params	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def project_params
+re_lower	/media/sf_Share/Komana/app/assets/javascripts/bootstrap-datepicker/core.js	function re_lower(_,a)
 reply	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def reply
 search	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def search	
 show	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def show

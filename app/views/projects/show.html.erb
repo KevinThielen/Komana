@@ -62,7 +62,6 @@
 
 								<!--TODO: für Micha: Priority/Deadline -->
 								Priorität: <%= task.priority %> <p> 
-								Deadline: <%= task.deadline %> <p>
 
 								<!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
 								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');">
@@ -106,7 +105,7 @@
 									<!-- clock symbol -->
 									<i class="fa fa-clock-o"></i> 
 									
-									 Endet in <%= distance_of_time_in_words(Time.now, task.deadline.to_time) %>
+									 Endet in <%= distance_of_time_in_words(Time.now, task.deadline.to_datetime) %>
 								</small>
                 <% end %>
 <br>
@@ -155,4 +154,14 @@
 
 <!-- modal partials -->
 <%= render 'task_modal' %>
-<%= render 'settings_modal' %>          
+<%= render 'settings_modal' %>  
+
+
+<script type="text/javascript">
+
+$('.input-group.date').datepicker({
+    todayBtn: true,
+    language: "de",
+    autoclose: true
+});
+</script>
