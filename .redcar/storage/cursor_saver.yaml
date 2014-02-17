@@ -175,18 +175,12 @@ cursor_positions:
   - :path: app/helpers/projects_helper.rb
     :cursor_offset: 0
     :timestamp: 2013-12-27 20:13:13 +01:00
-  - :path: app/assets/javascripts/project.js.coffee.erb
-    :cursor_offset: 367
-    :timestamp: 2014-01-15 01:37:08 +01:00
   - :path: app/views/conversations/index.html.erb
     :cursor_offset: 338
     :timestamp: 2014-01-21 18:16:53 +01:00
   - :path: app/views/tasks/_assigned_tasks.html.erb
     :cursor_offset: 361
     :timestamp: 2014-01-21 18:43:13 +01:00
-  - :path: app/assets/javascripts/projects.js.coffee
-    :cursor_offset: 2327
-    :timestamp: 2014-01-21 15:58:18 +01:00
   - :path: app/views/conversations/_list_group.erb
     :cursor_offset: 533
     :timestamp: 2014-01-21 18:15:59 +01:00
@@ -362,9 +356,6 @@ cursor_positions:
   - :path: app/assets/stylesheets/bootstrap-datepicker.css
     :cursor_offset: 17945
     :timestamp: 2014-02-17 18:13:15 +01:00
-  - :path: app/assets/javascripts/application.js
-    :cursor_offset: 724
-    :timestamp: 2014-02-17 17:30:11 +01:00
   - :path: app/views/projects/show.html.erb
     :cursor_offset: 6636
     :timestamp: 2014-02-17 18:19:32 +01:00
@@ -373,4 +364,25 @@ cursor_positions:
   - :path: app/views/projects/_task_modal.html.erb
     :cursor_offset: 1220
     :timestamp: 2014-02-17 18:21:06 +01:00
+  - :path: app/assets/javascripts/project.js.coffee.erb
+    :cursor_offset: 0
+    :timestamp: 2014-02-08 18:07:30 +01:00
+  - :path: app/assets/javascripts/project.js.coffee
+    :cursor_offset: 0
+    :timestamp: 2014-02-08 18:07:30 +01:00
+  - :path: app/assets/javascripts/conversation.js.coffee
+    :cursor_offset: 0
+    :timestamp: 2014-02-08 18:07:30 +01:00
+  - :path: app/assets/javascripts/drag_and_drop.js.coffee
+    :cursor_offset: 0
+    :timestamp: 2014-02-16 18:45:13 +01:00
+  - :path: app/assets/javascripts/projects.js.coffee
+    :cursor_offset: 2818
+    :timestamp: 2014-02-08 18:07:30 +01:00
+  - :path: app/assets/javascripts/application-js.js
+    :cursor_offset: 0
+    :timestamp: 2014-02-17 22:36:34 +01:00
+  - :path: app/assets/javascripts/application.js
+    :cursor_offset: 666
+    :timestamp: 2014-02-17 22:46:38 +01:00
 files_to_retain: 0
