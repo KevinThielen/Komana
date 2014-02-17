@@ -55,7 +55,7 @@
             Deadline: <%= task.deadline %> <p>
 
              <!-- get the assigned user for the dropdown/default value -->
-             <% @user = User.joins(:tasks).where("task_id == ?", task.id).first %> 
+             <% @user = User.joins(:tasks).where("task_id = ?", task.id).first %> 
 
             <a class ="task_modal" data-toggle="modal" data-id = "666" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');"><strong><%= task.titel %></strong></a>
              <% if @user.present? %>
