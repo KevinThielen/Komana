@@ -44,7 +44,7 @@
                     <i class="fa fa-edit fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= Task.joins(:users).where("user_id == ?", current_user.id).count %></p>
+                    <p class="announcement-heading"><%#= Task.joins(:users).where("user_id == ?", current_user.id).count %></p>
                     <p class="announcement-text">Aufgaben warten</p>
                   </div>
                 </div>
