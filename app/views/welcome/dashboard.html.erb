@@ -71,13 +71,13 @@
                     <i class="fa fa-exclamation fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                  Post.includes(:comments).where("comments.visible", true)
+                    <p class="announcement-heading"><%= Task.where("priority == ?", "high").count %></p>
                     <p class="announcement-heading"></p>
                     <p class="announcement-text">Dringende Aufgaben</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+              <%= link_to task_search_path(0, :partial => 'tasks/urgent_tasks'), :method => :post do%>
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -88,7 +88,7 @@
                     </div>
                   </div>
                 </div>
-              </a>
+              <% end %>
             </div>
           </div>
           <div class="col-lg-3">
