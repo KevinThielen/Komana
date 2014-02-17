@@ -1,0 +1,44 @@
+ 
+<!-- Task-Modal --> 
+
+<div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		
+		<div class="modal-content">
+			<%= form_tag project_task_path(@project.id, 0), :method => :put, :html => {:class => 'form-inline'} do %>
+			<%= hidden_field_tag 'task_id', NIL, {:class => 'form-control'} %>
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="editTaskModalLabel"><%= text_field_tag :titel, NIL, {:class => 'form-control', :id=> 'task_titel'} %></h4>
+			</div>
+		
+			<div class="modal-body">
+				Zuweisen an:<%= select_tag "user_id", options_from_collection_for_select(@project.users, "id", "firstname"), include_blank: true, :class => "form-control" %>
+				<%# form for priority %> 
+				
+				Priorität: <p>
+				<%= radio_button_tag(:priority, "low") %>
+				<%= label_tag(:priority_low, "Niedrig") %>
+				<%= radio_button_tag(:priority, "medium", :checked=>true) %>
+				<%= label_tag(:priority_medium, "Mittel") %>
+				<%= radio_button_tag(:priority, "high") %>
+				<%= label_tag(:priority_high, "Hoch") %> <p>
+				
+				<%# for for deadline %> Deadline: <p>
+				<%= date_field_tag(:deadline) %>
+				
+				<div class="form-group"> 
+					<h4>Beschreibung:</h4>
+					<%= text_area_tag :text, NIL, {:size => "100x7", :class => 'form-control', :id=> 'task_text'} %>
+				</div>
+			</div>
+			
+			<div class="modal-footer">
+				<%= submit_tag "Speichern", :class => 'btn btn-primary' %>
+				<% end %>        
+				<button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+			</div>
+		</div><!--/.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

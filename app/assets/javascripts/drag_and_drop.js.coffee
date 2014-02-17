@@ -1,11 +1,11 @@
 
 ###
-	Drag and Drop for Tasks in a Single List.
+	Drag and Drop for Tasks in a List.
 ###
 
 
 drop_target = null
-dragged_element = 0
+dragged_element = null
 
 
 allow_drop = (event) ->
@@ -29,23 +29,34 @@ reset_drag_target = () ->
 	$(drop_target).css('background-color','')
 	$(drop_target).css('height','')
 	drop_target = null
-	
+
+
 drag = (event, task, position, list) ->
 	document.addEventListener "dragend", (->
-		reset_drag_target()
+		drop(event)
 	), true
 	
-
+	
+	console.log(event.target.id)
 	dragged_element = event.target
 	dragged_element.position = position
 	dragged_element.list = list
 	dragged_element.task_id = task
 	
+	
 drop = (event) ->
 	event.preventDefault()
 	if drop_target?
+		changed = true
+		droptarget_element = $('.droptarget'+dragged_element.task_id)
 		$(drop_target).before($(dragged_element))
+		$(dragged_element).before(droptarget_element)
 		
+		
+		#TODO: only on successfull ajax call
+		#update the drag event for the dragged element
+		$(dragged_element).attr('ondragstart', 'drag(event, '+dragged_element.task_id+', '+drop_target.position+', '+drop_target.list+')')
+	
 		#ajax call to update the task
 		$.ajax({
 			type: "POST",
