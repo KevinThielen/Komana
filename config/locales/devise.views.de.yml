@@ -61,4 +61,4 @@ de:
         not_found_in_database: Wir konnten diesen Benutzer nicht finden.
         invalid: Das Passwort zu diesem Benutzer ist nicht richtig.
         unauthenticated: Dies ist ein geschützter Bereich. Bitte melden Sie sich an um fortzufahren.
-        already_authenticated: Sie sind bereits angemeldet.
+      already_authenticated: Sie sind bereits angemeldet.

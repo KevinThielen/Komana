@@ -105,7 +105,7 @@
 									<!-- clock symbol -->
 									<i class="fa fa-clock-o"></i> 
 									
-									Endet in <%= distance_of_time_in_words(Time.now, Time.now) %>
+									Endet in <%= distance_of_time_in_words(Time.now, task.deadline.to_datetime) %>
 								</small>
 <br>
 							</div> <!-- /task header -->
