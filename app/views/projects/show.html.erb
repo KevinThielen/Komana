@@ -151,7 +151,7 @@
                  <%# Add Task %>
 				            <div class="form-group"> 
                       <h4>Beschreibung:</h4>
-					            <%= text_area_tag :text, NIL, {:size => "100x7", :class => 'form-control', :id=> 'task_text'} %>
+					            <%= text_area_tag :text, NIL, {:size => "100x7", :class => 'form-control', :id => 'task_text', :maxlength => 512} %>
 					          </div>
                   </div>
                 <div class="modal-footer">

@@ -12,11 +12,11 @@
   </div>
 
   <%# validation handling %>
-  <ul>
+  <div class="validation-group">
     <% @user.errors.full_messages_for(:firstname).each do |msg| %>
-      <li><%= msg %></li>
+      <%= msg %>
     <% end %>
-  </ul>
+  </div>
 
   <div class="input-group">
     <label for="inputLastname" class="control-label">Nachname</label>
@@ -26,11 +26,11 @@
   </div>
 
   <%# validation handling %>
-  <ul>
+  <div class="validation-group">
     <% @user.errors.full_messages_for(:lastname).each do |msg| %>
-      <li><%= msg %></li>
+      <%= msg %>
     <% end %>
-  </ul>
+  </div>
 
   <div class="input-group">
     <label for="inputEmail" class="control-label">E-Mail</label>
@@ -40,11 +40,11 @@
   </div>
 
   <%# validation handling %>
-  <ul>
+  <div class="validation-group">
     <% @user.errors.full_messages_for(:email).each do |msg| %>
-      <li><%= msg %></li>
+      <%= msg %>
     <% end %>
-  </ul>
+  </div>
 
   <div class="input-group">
     <label for="inputPassword" class="control-label">Passwort</label>
@@ -54,11 +54,11 @@
   </div>
 
   <%# validation handling %>
-  <ul>
+  <div class="validation-group">
     <% @user.errors.full_messages_for(:password).each do |msg| %>
-      <li><%= msg %></li>
+      <%= msg if @user.errors.full_messages_for(:password).second == msg %>
     <% end %>
-  </ul>
+  </div>
 
   <div class="input-group">
     <label for="inputConfirmPassword" class="control-label">Passwort wiederholen</label>
@@ -68,12 +68,12 @@
   </div>
 
   <%# validation handling %>
-  <ul>
+  <div class="validation-group">
     <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
-      <li><%= msg %></li>
+      <%= msg %>
     <% end %>
-  </ul>
-  
+  </div>
+
   <div class="input-group border-form-button">
     <div class="">
       <%= f.submit "Registrieren",:class=>'btn btn-success' %>

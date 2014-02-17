@@ -27,11 +27,11 @@
     </div>
 
     <%# validation handling %>
-    <ul>
+    <div class="validation-group">
       <% @user.errors.full_messages_for(:firstname).each do |msg| %>
-        <li><%= msg %></li>
+        <%= msg %>
       <% end %>
-    </ul>
+    </div>
 
     <div class="form-group">
       <label for="inputLastname" class="col-sm-4 control-label">Nachname</label>
@@ -41,11 +41,11 @@
     </div>
 
     <%# validation handling %>
-    <ul>
+    <div class="validation-group">
       <% @user.errors.full_messages_for(:lastname).each do |msg| %>
-        <li><%= msg %></li>
+        <%= msg %>
       <% end %>
-    </ul>
+    </div>
 
     <div class="form-group">
       <label for="inputEmail" class="col-sm-4 control-label">E-Mail</label>
@@ -55,11 +55,11 @@
     </div>
 
     <%# validation handling %>
-    <ul>
+    <div class="validation-group">
       <% @user.errors.full_messages_for(:email).each do |msg| %>
-        <li><%= msg %></li>
+        <%= msg %>
       <% end %>
-    </ul>
+    </div>
 
     <div class="form-group">
       <label for="inputNewPassword" class="col-sm-4 control-label">Passwort</label>
@@ -69,11 +69,11 @@
     </div>
 
     <%# validation handling %>
-    <ul>
+    <div class="validation-group">
       <% @user.errors.full_messages_for(:password).each do |msg| %>
-        <li><%= msg %></li>
+        <%= msg if @user.errors.full_messages_for(:password).second == msg %>
       <% end %>
-    </ul>
+    </div>
 
     <div class="form-group">
       <label for="inputConfirmNewPassword" class="col-sm-4 control-label">Passwort wiederholen</label>
@@ -83,11 +83,11 @@
     </div>
 
     <%# validation handling %>
-    <ul>
+    <div class="validation-group">
       <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
-        <li><%= msg %></li>
+        <%= msg %>
       <% end %>
-    </ul>
+    </div>
 
     <div class="form-group">
       <label for="inputConfirmOldPassword" class="col-sm-4 control-label">Aktuelles Passwort</label>
@@ -97,11 +97,11 @@
     </div>
 
     <%# validation handling %>
-    <ul>
+    <div class="validation-group">
       <% @user.errors.full_messages_for(:current_password).each do |msg| %>
-        <li><%= msg %></li>
+        <%= msg %>
       <% end %>
-    </ul>
+    </div>
 
     <div class="form-group">
       <div class="col-sm-offset-4 col-sm-8">

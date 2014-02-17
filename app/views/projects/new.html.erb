@@ -21,12 +21,12 @@
   </div>
 </div>
 
-<!-- validation handling -->
-<ul>
-  <% @project.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-  <% end %>
-</ul>
+<%# validation handling %>
+  <div class="validation-group">
+    <% @project.errors.full_messages_for(:name).each do |msg| %>
+      <%= msg if @project.errors.full_messages_for(:name).second == msg %>
+    <% end %>
+  </div>
 
 <br/ >
 <div class="row">
