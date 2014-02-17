@@ -344,9 +344,6 @@ cursor_positions:
   - :path: Gemfile
     :cursor_offset: 1385
     :timestamp: 2014-02-17 16:40:31 +01:00
-  - :path: app/assets/stylesheets/application.css.scss
-    :cursor_offset: 571
-    :timestamp: 2014-02-17 17:24:13 +01:00
   - :path: app/assets/javascripts/bootstrap-datepicker/bootstrap-datepicker.de.js
     :cursor_offset: 693
     :timestamp: 2014-02-17 18:15:22 +01:00
@@ -376,13 +373,16 @@ cursor_positions:
   - :path: app/assets/javascripts/drag_and_drop.js.coffee
     :cursor_offset: 0
     :timestamp: 2014-02-16 18:45:13 +01:00
-  - :path: app/assets/javascripts/projects.js.coffee
-    :cursor_offset: 2818
-    :timestamp: 2014-02-08 18:07:30 +01:00
   - :path: app/assets/javascripts/application-js.js
     :cursor_offset: 0
     :timestamp: 2014-02-17 22:36:34 +01:00
   - :path: app/assets/javascripts/application.js
     :cursor_offset: 666
     :timestamp: 2014-02-17 22:46:38 +01:00
+  - :path: app/assets/javascripts/projects.js.coffee
+    :cursor_offset: 2377
+    :timestamp: 2014-02-17 23:20:40 +01:00
+  - :path: app/assets/stylesheets/application.css.scss
+    :cursor_offset: 571
+    :timestamp: 2014-02-17 17:24:13 +01:00
 files_to_retain: 0
