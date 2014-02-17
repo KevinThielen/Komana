@@ -10,30 +10,70 @@
       <%= f.text_field :firstname, :autofocus => true, :placeholder => 'Vorname', :id => "inputFirstname", :class => "form-control"  %>
     </div>
   </div>
+
+  <%# validation handling %>
+  <div class="validation-group">
+    <% @user.errors.full_messages_for(:firstname).each do |msg| %>
+      <%= msg %>
+    <% end %>
+  </div>
+
   <div class="input-group">
     <label for="inputLastname" class="control-label">Nachname</label>
     <div class="">
       <%= f.text_field :lastname, :placeholder => 'Nachname', :id => "inputLastname", :class => "form-control"  %>
     </div>
   </div>
+
+  <%# validation handling %>
+  <div class="validation-group">
+    <% @user.errors.full_messages_for(:lastname).each do |msg| %>
+      <%= msg %>
+    <% end %>
+  </div>
+
   <div class="input-group">
     <label for="inputEmail" class="control-label">E-Mail</label>
     <div class="">
       <%= f.email_field :email, :placeholder => 'E-Mail', :id => "inputEmail", :class => "form-control"  %>
     </div>
   </div>
+
+  <%# validation handling %>
+  <div class="validation-group">
+    <% @user.errors.full_messages_for(:email).each do |msg| %>
+      <%= msg %>
+    <% end %>
+  </div>
+
   <div class="input-group">
     <label for="inputPassword" class="control-label">Passwort</label>
     <div class="">
       <%= f.password_field :password, :placeholder => 'Passwort', :id => "inputPassword", :class => "form-control"  %>
     </div>
   </div>
+
+  <%# validation handling %>
+  <div class="validation-group">
+    <% @user.errors.full_messages_for(:password).each do |msg| %>
+      <%= msg if @user.errors.full_messages_for(:password).second == msg %>
+    <% end %>
+  </div>
+
   <div class="input-group">
     <label for="inputConfirmPassword" class="control-label">Passwort wiederholen</label>
     <div class="">
       <%= f.password_field :password_confirmation, :placeholder => 'Passwort wiederholen', :id => "inputConfirmPassword", :class => "form-control"  %>
     </div>
   </div>
+
+  <%# validation handling %>
+  <div class="validation-group">
+    <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
+      <%= msg %>
+    <% end %>
+  </div>
+
   <div class="input-group border-form-button">
     <div class="">
       <%= f.submit "Registrieren",:class=>'btn btn-success' %>
