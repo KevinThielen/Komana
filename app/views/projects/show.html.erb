@@ -100,13 +100,15 @@
 								<%= task.text %>
 <br>
 <br>
+                <% if task.deadline.present? %>
 								<!-- task footer in the body that displays the remaining time for a task -->
 								<small class="text-weak">   
 									<!-- clock symbol -->
 									<i class="fa fa-clock-o"></i> 
 									
-									Endet in <%= distance_of_time_in_words(Time.now, task.deadline.to_datetime) %>
+									 Endet in <%= distance_of_time_in_words(Time.now, task.deadline.to_time) %>
 								</small>
+                <% end %>
 <br>
 							</div> <!-- /task header -->
 						</div> <!-- / task panel -->
