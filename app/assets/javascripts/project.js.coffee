@@ -85,3 +85,22 @@ listChanged = () ->
 
 
 window.updateList = updateList
+
+
+### 
+	DatePicker
+###
+
+
+datepicker = () ->
+	$('.date').datepicker({
+		todayBtn: true,
+		language: "de",
+		autoclose: true,
+		todayHighlight: false,
+		startDate: "+1d"
+	});
+
+$(document).ready () ->
+  datepicker()
+  

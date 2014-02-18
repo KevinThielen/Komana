@@ -25,36 +25,84 @@
         <%= f.text_field :firstname, :autofocus => true, :placeholder => 'Vorname', :id => "inputFirstname", :class => "form-control"  %>
       </div>
     </div>
+
+    <%# validation handling %>
+    <div class="validation-group">
+      <% @user.errors.full_messages_for(:firstname).each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+
     <div class="form-group">
       <label for="inputLastname" class="col-sm-4 control-label">Nachname</label>
       <div class="col-sm-8">
       <%= f.text_field :lastname, :placeholder => 'Nachname', :id => "inputLastname", :class => "form-control"  %>
       </div>
     </div>
+
+    <%# validation handling %>
+    <div class="validation-group">
+      <% @user.errors.full_messages_for(:lastname).each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+
     <div class="form-group">
       <label for="inputEmail" class="col-sm-4 control-label">E-Mail</label>
       <div class="col-sm-8">
         <%= f.email_field :email, :id => "inputEmail", :class => "form-control"  %>
       </div>
     </div>
+
+    <%# validation handling %>
+    <div class="validation-group">
+      <% @user.errors.full_messages_for(:email).each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+
     <div class="form-group">
       <label for="inputNewPassword" class="col-sm-4 control-label">Passwort</label>
       <div class="col-sm-8">
         <%= f.password_field :password, :placeholder => 'Passwort', :id => "inputNewPassword", :class => "form-control"  %>
       </div>
     </div>
+
+    <%# validation handling %>
+    <div class="validation-group">
+      <% @user.errors.full_messages_for(:password).each do |msg| %>
+        <%= msg if @user.errors.full_messages_for(:password).second == msg %>
+      <% end %>
+    </div>
+
     <div class="form-group">
       <label for="inputConfirmNewPassword" class="col-sm-4 control-label">Passwort wiederholen</label>
       <div class="col-sm-8">
         <%= f.password_field :password_confirmation, :placeholder => 'Passwort wiederholen', :id => "inputConfirmNewPassword", :class => "form-control"  %>
       </div>
     </div>
+
+    <%# validation handling %>
+    <div class="validation-group">
+      <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+
     <div class="form-group">
       <label for="inputConfirmOldPassword" class="col-sm-4 control-label">Aktuelles Passwort</label>
       <div class="col-sm-8">
         <%= f.password_field :current_password, :placeholder => 'Mit aktuellem Passwort bestätigen', :id => "inputConfirmOldPassword", :class => "form-control"  %>
       </div>
     </div>
+
+    <%# validation handling %>
+    <div class="validation-group">
+      <% @user.errors.full_messages_for(:current_password).each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+
     <div class="form-group">
       <div class="col-sm-offset-4 col-sm-8">
         <%= f.submit "Aktualisieren", :class => "btn btn-success" %>

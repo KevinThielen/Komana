@@ -67,6 +67,9 @@ gem 'mailboxer'
 #Rails Intenational gem
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 
+# Datepicker
+gem 'bootstrap-datepicker-rails'
+
 group :development do
   gem 'rails_layout'
 
@@ -79,7 +82,7 @@ group :production do
 
 end
 
-
+# Admin gems
 gem 'cancan'
 gem 'rolify'
 

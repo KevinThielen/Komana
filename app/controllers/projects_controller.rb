@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
  		project_user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first
 
   		if project_user.role != "author"
-  			flash[:notice] = "Für diesen Vorgang haben Sie keine Berechtigung."
+  			flash[:error] = "Für diesen Vorgang haben Sie keine Berechtigung."
   			redirect_to project_path(@project)
 
   		end
@@ -23,19 +23,17 @@ class ProjectsController < ApplicationController
 	def create
 		
 		@project = Project.new(project_params)
-		if @project.valid?
-	
+
 			if @project.save	
 				ProjectsUsers.addUserToProject(@project.id, current_user.id, "author")
 
 				redirect_to project_path(@project)
-			else
-				render 'new'
-			end
-		else 
-			redirect_to new_project_path
-			flash[:notice] = "Projektname darf nicht leer sein"
-		end
+
+		  else 
+			  redirect_to new_project_path
+			  flash[:error] = "Projektname darf nicht leer sein."
+		  end
+
 	end
 	
 	

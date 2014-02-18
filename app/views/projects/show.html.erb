@@ -33,7 +33,7 @@
 					
 					<!-- list header, changes to input field for list name on click -->
 					<h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
-						<a onClick = "toggleList(this, <%= list.id %>)"><i class="fa fa-caret-square-o-down"></i></a>
+						<a class="text-weak" onClick = "toggleList(this, <%= list.id %>)"><i class="fa fa-chevron-down"></i></a>
 					  
 						<div class="dropdown pull-right">
 						
@@ -60,14 +60,16 @@
 							<!-- task header -->
 							<div class="panel-heading">
 
-								<!--TODO: für Micha: Priority/Deadline -->
-								Priorität: <%= task.priority %> <p> 
-								Deadline: <%= task.deadline %> <p>
-
 								<!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
 								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');">
 									<strong>
-										<%= task.titel %>
+                    <% case task.priority
+                      when "low" %><i class="fa fa-dot-circle-o priority-low"></i>
+                      <% when "medium" %><i class="fa fa-dot-circle-o priority-medium"></i>
+                      <% when "high" %><i class="fa fa-dot-circle-o priority-high"></i>
+                    <% end %>
+										
+                    <%= task.titel %>
 									</strong>
 								</a>
 								
@@ -101,13 +103,15 @@
 								<%= task.text %>
 <br>
 <br>
+                <% if task.deadline.present? %>
 								<!-- task footer in the body that displays the remaining time for a task -->
 								<small class="text-weak">   
 									<!-- clock symbol -->
 									<i class="fa fa-clock-o"></i> 
 									
-									Endet in <%= distance_of_time_in_words(Time.now, Time.now) %>
+									 Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %>
 								</small>
+                <% end %>
 <br>
 							</div> <!-- /task header -->
 						</div> <!-- / task panel -->
@@ -156,7 +160,4 @@
 
 <!-- modal partials -->
 <%= render 'task_modal' %>
-<%= render 'settings_modal' %>          
-
-  
-  
+<%= render 'settings_modal' %>  
