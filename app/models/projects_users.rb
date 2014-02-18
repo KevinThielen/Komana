@@ -8,6 +8,6 @@ class ProjectsUsers < ActiveRecord::Base
 		end
 	end	
 	
-	#include PublicActivity::Model
-	# tracked
+	include PublicActivity::Model
+	 tracked
 end
