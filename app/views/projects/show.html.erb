@@ -155,7 +155,11 @@
 
 	<hr>
 
-	<%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+	<% @user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first %>
+	<% if @user.role == "author" %>
+		<%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+	<% end %>
+	
 	<br>
 	<br>
 	<%= link_to 'Zur Projektübersicht', projects_path, :class => 'btn btn-default' %>
