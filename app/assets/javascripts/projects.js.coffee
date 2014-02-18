@@ -111,12 +111,12 @@ toggleList = (list, list_class) ->
 		$(list).addClass('hidden_list')
 		
 		#SHOW 
-		list.innerHTML = '<i class="fa fa-angle-right"></i>'
+		list.innerHTML = '<i class="fa fa-chevron-right"></i>'
 	else
 		$("."+list_class).slideDown();
 		
 		#HIDE 
-		list.innerHTML = '<i class="fa fa-angle-down"></i>'
+		list.innerHTML = '<i class="fa fa-chevron-down"></i>'
 		$(list).removeClass('hidden_list')
 
 window.toggleList = toggleList
