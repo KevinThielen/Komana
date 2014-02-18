@@ -53,15 +53,23 @@
 					
 						<!-- TODO: Dynamisch mit coffescript hinzufügen, vor alle tagged elemente -->
 						<!-- Drag & Drop target Div -->
-						<div  id = "position<%= task.position %>" ondragover = "allow_drop(event)" class="droptarget<%=task.id%> panel panel-default" ondragenter="drag_enter(event, <%= task.position %>, <%=task.list.id%>)" ></div>
-				  
-						<div id = "task<%=task.id%>" class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.id %>, <%= task.position %>, <%=list.id%>)" >
+					
+						<div class="panel panel-default">
 							
 							<!-- task header -->
 							<div class="panel-heading">
 
+								<!-- gets the to this task assigned user -->
+								<% assigned_user = task.users.first %>						
+								
 								<!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
-								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');">
+								<% if assigned_user.present? %>
+									<%  assigned_user_id = assigned_user.id %>
+								<% else %>
+									<% assigned_user_id = NIL %>
+								<% end %>
+								
+								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>');">
 									<strong>
                     <% case task.priority
                       when "low" %><i class="fa fa-dot-circle-o priority-low"></i>
@@ -74,7 +82,7 @@
 								</a>
 								
 								<!-- shows the to this task assigned user, if there is any -->
-								<% assigned_user = task.users.first %>
+								
 								
 								<% if assigned_user.present? %>
 									<!-- Needed to set the default value of the tasks modal-->

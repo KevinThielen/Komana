@@ -120,3 +120,24 @@ toggleList = (list, list_class) ->
 		$(list).removeClass('hidden_list')
 
 window.toggleList = toggleList
+
+
+
+
+### 
+	DatePicker
+###
+
+
+datepicker = () ->
+	$('.date').datepicker({
+		todayBtn: true,
+		language: "de",
+		autoclose: true,
+		todayHighlight: false,
+		startDate: "+1d"
+	});
+
+$(document).ready () ->
+  datepicker()
+  
