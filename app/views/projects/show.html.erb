@@ -60,13 +60,16 @@
 							<!-- task header -->
 							<div class="panel-heading">
 
-								<!--TODO: für Micha: Priority/Deadline -->
-								Priorität: <%= task.priority %> <p> 
-
 								<!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
 								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');">
 									<strong>
-										<%= task.titel %>
+                    <% case task.priority
+                      when "low" %><i class="fa fa-dot-circle-o priority-low"></i>
+                      <% when "medium" %><i class="fa fa-dot-circle-o priority-medium"></i>
+                      <% when "high" %><i class="fa fa-dot-circle-o priority-high"></i>
+                    <% end %>
+										
+                    <%= task.titel %>
 									</strong>
 								</a>
 								
@@ -163,7 +166,7 @@ $('.date').datepicker({
     todayBtn: true,
     language: "de",
     autoclose: true,
-    todayHighlight: true,
+    todayHighlight: false,
     startDate: "+1d"
 });
 </script>
