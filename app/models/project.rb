@@ -3,13 +3,14 @@ class Project < ActiveRecord::Base
 	has_many :lists, :dependent => :destroy
 	has_and_belongs_to_many :users
 
-	validates :name, presence: true, length: { minimum: 5 }
+	validates :name, presence: true, length: { minimum: 3 }
 	
 	 #include PublicActivity::Model
 	 #tracked
 
 	 def get_last_updated
 
+	 	@last_updated_project = Project.find(id).updated_at
 	 	last_updated_list = List.where("project_id = ?", id).order(updated_at).first
 	 	last_updated_list_for_tasks = List.where("project_id = ?", id)
 

@@ -29,10 +29,9 @@ class ProjectsController < ApplicationController
 
 				redirect_to project_path(@project)
 
-		  else 
+		  	else 
 			  redirect_to new_project_path
-			  flash[:error] = "Projektname darf nicht leer sein."
-		  end
+		  	end
 
 	end
 	
