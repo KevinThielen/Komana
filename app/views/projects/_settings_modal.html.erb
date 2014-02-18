@@ -20,14 +20,18 @@
 				<% end %>
 			
 				<!-- add a new user to the project -->
-				<%= form_tag project_add_user_path(@project.id) do %>
-				<div class="form-group">
-					<label for="exampleInputEmail1">Benutzer hinzufügen</label>
-					<%= text_field_tag :user_email, nil, :class => "form-control", :placeholder => 'E-Mail' %>
-					</div>
+				<% @user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first %>
+				<% if @user.role == "author" %>
+					<%= form_tag project_add_user_path(@project.id) do %>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Benutzer hinzufügen</label>
+						<%= text_field_tag :user_email, nil, :class => "form-control", :placeholder => 'E-Mail' %>
+						</div>
 
-				<%= submit_tag "Hinzufügen", :class=>'btn btn-primary'%>
-			</div>
+					<%= submit_tag "Hinzufügen", :class=>'btn btn-primary'%>
+					</div>
+				<% end %>
+
 			
 			<div class="modal-footer">
 				<%= submit_tag "Speichern", :class => 'btn btn-primary' %>
