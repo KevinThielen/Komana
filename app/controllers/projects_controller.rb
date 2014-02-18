@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
 
 		else
 			#TODO: error handling
-			raise
+			flash[:error] = "Lolz"
 		end
 		redirect_to project_path(@project)
 	end 
