@@ -26,7 +26,7 @@
         <td><%= link_to project.name, project_path(project) %></td>
         <td><%= @project_user.firstname %> <%= @project_user.lastname %> </td>
         <td><%= project.created_at.strftime("%d.%m.%Y") %></td>
-        <td><%= project.updated_at.strftime("%d.%m.%Y") %></td>
+        <td><%= Project.find(project.id).get_last_updated.strftime("%d.%m.%Y") %></td>
       </tr>
      <% end %>
     </table>
