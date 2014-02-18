@@ -86,7 +86,4 @@ gem 'rolify'
 #logger
 gem 'public_activity'
 
-group :production do
-  gem 'rails_12factor'
-  gem 'pg'
-end
+
