@@ -10,14 +10,45 @@
   width: 70%;
 }
 
-i.priority-low {
-  color: #3AAE3F;
+div.priority-low {
+  background-color: #3AAE3F;
 }
 
-i.priority-medium {
-  color: gray;
+div.priority-medium {
+  background-color: gray;
 }
 
-i.priority-high {
-  color: #DA4244;
+div.priority-high {
+  background-color: #DA4244;
+}
+
+div.priority {
+  margin-top: -10px;
+  margin-left: -15px;
+  margin-right: -15px;
+  height: 5px;
+  width: auto;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.batch-task {
+  position: relative;
+  top: -23px;
+}
+
+.task-title {
+  margin-bottom: -3px;
+  margin-top: 10px;
+}
+
+.task-title a {
+  display: inline;
+  vertical-align: middle;
+}
+
+.panel-heading a.close {
+  margin-right: 5px;
+  margin-bottom: 10px;
+
 }

@@ -54,25 +54,19 @@
 						<!-- TODO: Dynamisch mit coffescript hinzufügen, vor alle tagged elemente -->
 						<!-- Drag & Drop target Div -->
 						<div  id = "position<%= task.position %>" ondragover = "allow_drop(event)" class="droptarget<%=task.id%> panel panel-default" ondragenter="drag_enter(event, <%= task.position %>, <%=task.list.id%>)" ></div>
-				  
+				    
+            <!-- task -->
 						<div id = "task<%=task.id%>" class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.id %>, <%= task.position %>, <%=list.id%>)" >
 							
 							<!-- task header -->
 							<div class="panel-heading">
-
-								<!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
-								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');">
-									<strong>
-                    <% case task.priority
-                      when "low" %><i class="fa fa-dot-circle-o priority-low"></i>
-                      <% when "medium" %><i class="fa fa-dot-circle-o priority-medium"></i>
-                      <% when "high" %><i class="fa fa-dot-circle-o priority-high"></i>
-                    <% end %>
-										
-                    <%= task.titel %>
-									</strong>
-								</a>
-								
+                
+                <% case task.priority
+                  when "low" %><div class="priority priority-low"></div>
+                  <% when "medium" %><div class="priority priority-medium"></div>
+                  <% when "high" %><div class="priority priority-high"></div>
+                <% end %>                
+                
 								<!-- shows the to this task assigned user, if there is any -->
 								<% assigned_user = task.users.first %>
 								
@@ -81,7 +75,7 @@
 									<% task_user_id = assigned_user.id %> 
 									
 									<!-- renders the user initials and the avatar -->
-									<div class="user-batch">
+									<div class="user-batch batch-task">
 										<%= image_tag avatar_url(assigned_user, 30), :class => "user-image" %>
 										<div class="user-name">
 											<%= assigned_user.firstname.first %><%= assigned_user.lastname.first %>
@@ -91,10 +85,23 @@
 								<% else %>
 									<!-- default value if there are no assinged users, because all user ids are greater equals 0 -->
 									<% task_user_id = -1 %>
-								<% end %>  
+								<% end %>                 
+                
+                
 
-								<!-- button to delete the task. Opens confirmation window before -->
-								<%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close pull-right", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
+								<!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
+                <div class="task-title">
+								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');">									
+                  <strong>					
+                    <%= task.titel %>
+									</strong>
+								</a>
+                <!-- button to delete the task. Opens confirmation window before -->
+								<%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
+								</div>
+ 
+
+								
 				  
 							</div> <!-- /task header -->
 					
