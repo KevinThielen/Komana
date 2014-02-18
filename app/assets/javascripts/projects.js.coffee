@@ -10,7 +10,7 @@
 
 
 
-updateTask = (id, titel, text, user) ->
+updateTask = (id, titel, text, user, priority) ->
 	taskTitel = document.getElementById('task_titel')
 	taskTitel.value = titel
 	taskText = document.getElementById('task_text')
@@ -25,6 +25,9 @@ updateTask = (id, titel, text, user) ->
 		assigned_user.options[i].selected = true  if assigned_user.options[i].value is user
 		i++
 
+	# default value for priority
+	$('input:radio[name="priority"]').filter('[value='+priority+']').attr('checked', true)
+	
 	$('#editTaskModal').modal('show')
     
 window.updateTask = updateTask

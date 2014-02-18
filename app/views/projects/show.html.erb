@@ -69,7 +69,7 @@
 									<% assigned_user_id = NIL %>
 								<% end %>
 								
-								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>');">
+								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>', '<%= task.priority %>');">
 									<strong>
                     <% case task.priority
                       when "low" %><i class="fa fa-dot-circle-o priority-low"></i>
@@ -116,7 +116,7 @@
 									<!-- clock symbol -->
 									<i class="fa fa-clock-o"></i> 
 									
-									 Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %>
+									Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %>
 								</small>
                 <% end %>
 <br>
@@ -124,8 +124,6 @@
 						</div> <!-- / task panel -->
 					<% end %> <!-- /tasks loop -->
 		  
-					<!-- TODO: dynamicly adding last Drag&Drop position -->
-					<div  id = "position0" ondrop="drop(event)" class="panel panel-default"  ondragover = "allow_drop(event)" ondragenter="drag_enter(event, 1, <%=list.id%>)"></div>
 				</div>
 			</div>
 
