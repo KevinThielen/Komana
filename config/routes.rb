@@ -1,6 +1,6 @@
 Komana::Application.routes.draw do
   devise_for :users
-
+  resources :projects
   get "welcome/index"
   
   

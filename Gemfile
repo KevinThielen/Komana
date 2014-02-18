@@ -72,8 +72,9 @@ gem 'bootstrap-datepicker-rails'
 
 group :development do
   gem 'rails_layout'
-
+  gem 'rspec-rails','~>3.0.0.beta'
   gem 'sqlite3'
+  gem 'capybara'
 end
 
 group :production do 
