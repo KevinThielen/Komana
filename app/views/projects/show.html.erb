@@ -69,7 +69,7 @@
 									<% assigned_user_id = NIL %>
 								<% end %>
 								
-								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>', '<%= task.priority %>');">
+								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>', '<%= task.priority %>', '<%= task.deadline %>' );">
 									<strong>
                     <% case task.priority
                       when "low" %><i class="fa fa-dot-circle-o priority-low"></i>
