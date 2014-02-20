@@ -21,7 +21,7 @@ window.dragstartEvent = dragstartEvent
 #droptarget
 
 #get all droptargets and give them the drag events 
-$(document).on 'page:load', ->
+ready = () ->
 	$('.droptarget').bind 'dragenter', dragenterEvent
 	$('.droptarget').bind 'dragleave', dragleaveEvent
 	$('.droptarget').bind 'dragover', dragoverEvent
@@ -59,6 +59,11 @@ isOtherTask = (position, list) ->
 	return list isnt dragged_task.list or (position isnt dragged_task.position and position-1 isnt dragged_task.position) 
 		
 window.dropEvent = dropEvent
+
+	  
+$(document).ready(ready)
+$(document).on('page:load', ready) 
+
 ###
 drop_target = null
 dragged_element = null
