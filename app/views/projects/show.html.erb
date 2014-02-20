@@ -23,7 +23,7 @@
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">	
 			
 				<!-- div element for the complete list -->
-				<div class="well well-lg">
+				<div class="well well-lg" >
 					
 					<!-- div "header" -->
 					
@@ -33,7 +33,7 @@
 					
 					<!-- list header, changes to input field for list name on click -->
 					<h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
-						<a class="text-weak" onClick = "toggleList(this, <%= list.id %>)"><i class="fa fa-chevron-down"></i></a>
+						<a class="text-weak" onClick = "toggleList(this, 'list<%= list.id %>')"><i class="fa fa-chevron-down"></i></a>
 					  
 						<div class="dropdown pull-right">
 						
@@ -50,31 +50,39 @@
 <br/>  
 					<!-- Get all Tasks in the List and renders them-->  
 					<% list.tasks.each do |task| %>
-					
-						<!-- TODO: Dynamisch mit coffescript hinzufügen, vor alle tagged elemente -->
+
 						<!-- Drag & Drop target Div -->
-						<div  id = "position<%= task.position %>" ondragover = "allow_drop(event)" class="droptarget<%=task.id%> panel panel-default" ondragenter="drag_enter(event, <%= task.position %>, <%=task.list.id%>)" ></div>
-				  
-						<div id = "task<%=task.id%>" class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.id %>, <%= task.position %>, <%=list.id%>)" >
-							
+						<div class ="droptarget task<%= task.id %> list<%= list.id %>" ondrop = "dropEvent(event, '<%= task.position %>', '<%= task.list.id %>');"></div>
+<br/>
+						<div class="panel panel-default task<%= task.id %>  list<%= list.id %> draggable" draggable="true" ondragstart = "dragstartEvent(event, '<%= task.id %>', '<%= task.position %>', '<%= task.list.id %>');">
 							<!-- task header -->
 							<div class="panel-heading">
 
+								<!-- gets the to this task assigned user -->
+								<% assigned_user = task.users.first %>						
+								
 								<!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
-								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= @task_user_id %>');">
+								<% if assigned_user.present? %>
+									<%  assigned_user_id = assigned_user.id %>
+								<% else %>
+									<% assigned_user_id = NIL %>
+								<% end %>
+								
+								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>', '<%= task.priority %>', '<%= task.deadline %>' );">
 									<strong>
-                    <% case task.priority
-                      when "low" %><i class="fa fa-dot-circle-o priority-low"></i>
-                      <% when "medium" %><i class="fa fa-dot-circle-o priority-medium"></i>
-                      <% when "high" %><i class="fa fa-dot-circle-o priority-high"></i>
-                    <% end %>
-										
-                    <%= task.titel %>
+									
+								<% case task.priority
+								  when "low" %><i class="fa fa-dot-circle-o priority-low"></i>
+								  <% when "medium" %><i class="fa fa-dot-circle-o priority-medium"></i>
+								  <% when "high" %><i class="fa fa-dot-circle-o priority-high"></i>
+								<% end %>
+													
+								<%= task.titel %>
 									</strong>
 								</a>
 								
 								<!-- shows the to this task assigned user, if there is any -->
-								<% assigned_user = task.users.first %>
+								
 								
 								<% if assigned_user.present? %>
 									<!-- Needed to set the default value of the tasks modal-->
@@ -103,22 +111,20 @@
 								<%= task.text %>
 <br>
 <br>
-                <% if task.deadline.present? %>
+							<% if task.deadline.present? %>
 								<!-- task footer in the body that displays the remaining time for a task -->
 								<small class="text-weak">   
 									<!-- clock symbol -->
 									<i class="fa fa-clock-o"></i> 
 									
-									 Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %>
+									Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %>
 								</small>
-                <% end %>
+							<% end %>
 <br>
 							</div> <!-- /task header -->
 						</div> <!-- / task panel -->
 					<% end %> <!-- /tasks loop -->
 		  
-					<!-- TODO: dynamicly adding last Drag&Drop position -->
-					<div  id = "position0" ondrop="drop(event)" class="panel panel-default"  ondragover = "allow_drop(event)" ondragenter="drag_enter(event, 1, <%=list.id%>)"></div>
 				</div>
 			</div>
 
@@ -152,7 +158,11 @@
 
 	<hr>
 
-	<%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+	<% @user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first %>
+	<% if @user.role == "author" %>
+		<%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+	<% end %>
+	
 	<br>
 	<br>
 	<%= link_to 'Zur Projektübersicht', projects_path, :class => 'btn btn-default' %>

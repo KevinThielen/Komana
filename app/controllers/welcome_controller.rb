@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  before_filter :authenticate_user!
   
   def index
     if signed_in?

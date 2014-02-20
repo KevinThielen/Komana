@@ -71,13 +71,17 @@
                     <i class="fa fa-exclamation fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
+<<<<<<< HEAD
                   
+=======
+                    <p class="announcement-heading"><%= Task.where("priority = ?", "high").joins(:users).where("user_id == ?", current_user.id).count %></p>
+>>>>>>> 83ba8e2cedfead9d089e491c2da4481e8c3e3ec0
                     <p class="announcement-heading"></p>
                     <p class="announcement-text">Dringende Aufgaben</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+              <%= link_to task_search_path(0, :partial => 'tasks/urgent_tasks'), :method => :post do%>
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -88,7 +92,7 @@
                     </div>
                   </div>
                 </div>
-              </a>
+              <% end %>
             </div>
           </div>
           <div class="col-lg-3">
@@ -101,7 +105,20 @@
                   <div class="col-xs-6 text-right">
                     <% @free_tasks = Task.includes(:users).where("users.id is NULL") %>
                     
-					<p class="announcement-heading">[X]</p> 
+					           <p class="announcement-heading">
+                      <% @tasks_count = 0 %>
+                      <% @project_users = ProjectsUsers.where("user_id = ?", current_user.id) %>
+                      <% @project_users.each do |project_user| %>
+
+                        <% @lists = List.where("project_id = ?", project_user.project_id) %>
+                        <% @lists.each do |list| %>
+
+
+                          <% @tasks_count = @tasks_count + Task.includes(:users).where("users.id is NULL", "list_id = ?", list.id).count %>
+                        <% end %>
+                      <% end %>
+                      <%= @tasks_count %>
+                     </p> 
                     <p class="announcement-text">Freie Aufgaben</p>
                   </div>
                 </div>

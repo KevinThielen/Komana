@@ -80,12 +80,12 @@ end
 group :production do 
 	gem 'pg'
 	gem 'rails_12factor'
-
 end
 
 # Admin gems
 gem 'cancan'
 gem 'rolify'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 #logger
 gem 'public_activity'

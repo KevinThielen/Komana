@@ -12,7 +12,6 @@ class ProjectsController < ApplicationController
   		if project_user.role != "author"
   			flash[:error] = "Für diesen Vorgang haben Sie keine Berechtigung."
   			redirect_to project_path(@project)
-
   		end
   	end
 
@@ -29,11 +28,12 @@ class ProjectsController < ApplicationController
 
 				redirect_to project_path(@project)
 
-		  else 
+		  	else 
+		  		 @project.errors.full_messages_for(:name).each do |msg| 
+    				 flash[:error] = msg
+  				 end 
 			  redirect_to new_project_path
-			  flash[:error] = "Projektname darf nicht leer sein."
-		  end
-
+  			end 
 	end
 	
 	
@@ -48,7 +48,8 @@ class ProjectsController < ApplicationController
 
 		else
 			#TODO: error handling
-			raise
+			redirect_to project_path(@project)
+			flash[:error] = "Dieser Benutzer existiert nicht, bitte prüfen sie ihre Eingabe"
 		end
 		redirect_to project_path(@project)
 	end 

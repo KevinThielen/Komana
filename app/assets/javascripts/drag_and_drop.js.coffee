@@ -1,9 +1,70 @@
 
 ###
-	Drag and Drop for Tasks in a List.
+	Drag and Drop for Tasks
 ###
 
 
+#dragable
+
+dragged_task = null
+
+dragstartEvent = (e, id, position, list) ->
+	dragged_task = e.target
+	dragged_task.id = id
+	dragged_task.position = position
+	dragged_task.list = list
+	
+	console.log("Task: "+dragged_task.id+", Position: "+dragged_task.position+", List: "+dragged_task.list)
+	
+window.dragstartEvent = dragstartEvent
+
+#droptarget
+
+#get all droptargets and give them the drag events 
+ready = () ->
+	$('.droptarget').bind 'dragenter', dragenterEvent
+	$('.droptarget').bind 'dragleave', dragleaveEvent
+	$('.droptarget').bind 'dragover', dragoverEvent
+
+
+dragoverEvent = (e) ->
+	e.preventDefault() 
+
+window.dragoverEvent = dragoverEvent
+
+dragenterEvent = (e) ->
+	e.originalEvent.stopPropagation()
+	e.originalEvent.preventDefault()
+	$(e.originalEvent.target).css('background-color','yellow')
+
+window.dragenterEvent = dragenterEvent
+	
+	
+dragleaveEvent = (e) ->
+	e.originalEvent.stopPropagation()
+	e.originalEvent.preventDefault()
+	$(e.originalEvent.target).css('background-color','blue')
+	
+window.dragleaveEvent = dragleaveEvent
+
+dropEvent = (e, position, list) ->
+	if isOtherTask(position, list)  
+		console.log("target: Position: "+position+", List: "+list)
+		$(e.target).css('background-color','blue')
+		
+		$(e.target).before($('.'+dragged_task.id))
+
+
+isOtherTask = (position, list) ->
+	return list isnt dragged_task.list or (position isnt dragged_task.position and position-1 isnt dragged_task.position) 
+		
+window.dropEvent = dropEvent
+
+	  
+$(document).ready(ready)
+$(document).on('page:load', ready) 
+
+###
 drop_target = null
 dragged_element = null
 
@@ -70,3 +131,4 @@ window.allow_drop = allow_drop
 window.drag_enter = drag_enter
 window.drag = drag
 window.drop = drop
+###

@@ -8,7 +8,7 @@
       </ol>
     </div>
   </div>
-  <div class="table-responsive"> 
+  <div class="table-responsive">
     <table class="table table-hover"> 
      
      <% @projects = Project.joins(:users).where("user_id = ?", current_user.id) %>
@@ -20,12 +20,13 @@
       </tr>
       <% @projects.each do |project| %>
 
-      <% @project_owner = ProjectsUsers.joins(:users).where("role=? and project_id=?, \"author\", project.id") %>
+      <% @project_owner = ProjectsUsers.where(:role => 'author', :project_id => project.id).first %>
+      <% @project_user = User.where("id = ?", @project_owner.user_id).first %>
       <tr>
         <td><%= link_to project.name, project_path(project) %></td>
-        <td>[Projektleiter]</td>
+        <td><%= @project_user.firstname %> <%= @project_user.lastname %> </td>
         <td><%= project.created_at.strftime("%d.%m.%Y") %></td>
-        <td><%= project.updated_at.strftime("%d.%m.%Y") %></td>
+        <td><%= project.get_last_updated.strftime("%d.%m.%Y") %></td>
       </tr>
      <% end %>
     </table>
