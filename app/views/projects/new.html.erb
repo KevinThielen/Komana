@@ -24,7 +24,7 @@
 <%# validation handling %>
   <div class="validation-group">
     <% @project.errors.full_messages_for(:name).each do |msg| %>
-      <%= msg if @project.errors.full_messages_for(:name).second == msg %>
+      <%= msg %>
     <% end %>
   </div>
 

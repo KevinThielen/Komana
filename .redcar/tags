@@ -1,4 +1,4 @@
-1392889773
+1392909787
 Ability	/media/sf_Share/Komana/app/models/ability.rb	class Ability
 AddAttachments	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	class AddAttachments 
 AddDescriptionToTasks	/media/sf_Share/Komana/db/migrate/20140109121953_add_description_to_tasks.rb	class AddDescriptionToTasks 
@@ -125,6 +125,7 @@ delete	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def 
 destroy	/media/sf_Share/Komana/app/controllers/tasks_controller.rb	    def destroy 
 destroy	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def destroy 
 destroy	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def destroy 
+does something	/media/sf_Share/Komana/spec/Task_spec.rb	it "does something" do
 down	/media/sf_Share/Komana/db/migrate/20140107080660_add_notified_object.mailboxer_engine.rb	  def self.down
 down	/media/sf_Share/Komana/db/migrate/20140107080659_create_mailboxer.mailboxer_engine.rb	  def self.down
 down	/media/sf_Share/Komana/db/migrate/20140121154945_create_activities.rb	  def self.down
@@ -133,6 +134,8 @@ down	/media/sf_Share/Komana/db/migrate/20140107080661_add_notification_code.mail
 down	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	  def self.down
 fetch_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def fetch_params(key, *subkeys)
 field_class	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def field_class(resource, field_name)
+get_last_updated	/media/sf_Share/Komana/app/models/project.rb		 def get_last_updated
+get_title_class	/media/sf_Share/Komana/app/helpers/projects_helper.rb	  def get_title_class(assigned_user)
 index	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def index
 index	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def index
 index	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def index
@@ -158,6 +161,7 @@ search	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def search
 show	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def show
 show	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def show	
 show	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def show
+something	/media/sf_Share/Komana/spec/Task_spec.rb	describe "something" do
 task_params	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def task_params
 trash	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def trash
 untrash	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def untrash

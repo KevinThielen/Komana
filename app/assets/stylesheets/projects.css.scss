@@ -47,18 +47,23 @@ i.priority-high {
 
 /* User batches */
 .batch-task {
-  position: relative;
-  top: -23px;
+  margin-top: -40px;
 }
 
 .task-title {
   margin-bottom: -3px;
+  height: 30px;
+}
+
+.task-title-small {
   margin-top: 10px;
 }
 
-.task-title a {
+.task-title a,
+.task-title-small a {
   display: inline;
   vertical-align: middle;
+  color: #120000;
 }
 
 .panel-heading a.close {
