@@ -33,7 +33,7 @@
 					
 					<!-- list header, changes to input field for list name on click -->
 					<h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
-						<a class="text-weak" onClick = "toggleList(this, <%= list.id %>)"><i class="fa fa-chevron-down"></i></a>
+						<a class="text-weak" onClick = "toggleList(this, 'list<%= list.id %>')"><i class="fa fa-chevron-down"></i></a>
 					  
 						<div class="dropdown pull-right">
 						
@@ -50,13 +50,11 @@
 <br/>  
 					<!-- Get all Tasks in the List and renders them-->  
 					<% list.tasks.each do |task| %>
-					
-						<!-- TODO: Dynamisch mit coffescript hinzufügen, vor alle tagged elemente -->
+
 						<!-- Drag & Drop target Div -->
-						<div class ="droptarget"></div>
+						<div class ="droptarget task<%= task.id %> list<%= list.id %>" ondrop = "dropEvent(event, '<%= task.position %>', '<%= task.list.id %>');"></div>
 <br/>
-						<div class="panel panel-default draggable <%= list.id %>" dragstart = "dragstartEvent" draggable="true">
-							
+						<div class="panel panel-default task<%= task.id %>  list<%= list.id %> draggable" draggable="true" ondragstart = "dragstartEvent(event, '<%= task.id %>', '<%= task.position %>', '<%= task.list.id %>');">
 							<!-- task header -->
 							<div class="panel-heading">
 
@@ -72,13 +70,14 @@
 								
 								<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>', '<%= task.priority %>', '<%= task.deadline %>' );">
 									<strong>
-                    <% case task.priority
-                      when "low" %><i class="fa fa-dot-circle-o priority-low"></i>
-                      <% when "medium" %><i class="fa fa-dot-circle-o priority-medium"></i>
-                      <% when "high" %><i class="fa fa-dot-circle-o priority-high"></i>
-                    <% end %>
-										
-                    <%= task.titel %>
+									
+								<% case task.priority
+								  when "low" %><i class="fa fa-dot-circle-o priority-low"></i>
+								  <% when "medium" %><i class="fa fa-dot-circle-o priority-medium"></i>
+								  <% when "high" %><i class="fa fa-dot-circle-o priority-high"></i>
+								<% end %>
+													
+								<%= task.titel %>
 									</strong>
 								</a>
 								
@@ -111,7 +110,7 @@
 								<%= task.text %>
 <br>
 <br>
-                <% if task.deadline.present? %>
+							<% if task.deadline.present? %>
 								<!-- task footer in the body that displays the remaining time for a task -->
 								<small class="text-weak">   
 									<!-- clock symbol -->
@@ -119,7 +118,7 @@
 									
 									Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %>
 								</small>
-                <% end %>
+							<% end %>
 <br>
 							</div> <!-- /task header -->
 						</div> <!-- / task panel -->
