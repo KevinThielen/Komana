@@ -10,6 +10,7 @@
   width: 70%;
 }
 
+/*Priority highlighting */
 div.priority-low {
   background-color: #3AAE3F;
 }
@@ -32,6 +33,19 @@ div.priority {
   border-top-left-radius: 3px;
 }
 
+i.priority-low {
+  color: #3AAE3F;
+}
+
+i.priority-medium {
+  color: gray;
+}
+
+i.priority-high {
+  color: #DA4244;
+}
+
+/* User batches */
 .batch-task {
   position: relative;
   top: -23px;
