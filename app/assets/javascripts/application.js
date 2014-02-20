@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-datepicker/core
+//= require EventHelpers.js
+//= require DragDropHelpers.js
 //= require_tree
 
 

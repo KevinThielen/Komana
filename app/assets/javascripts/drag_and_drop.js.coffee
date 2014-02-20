@@ -4,6 +4,22 @@
 ###
 
 
+
+dragstartEvent = (event) ->
+	alert('hshhs')
+	
+dragEvent = (event) ->
+	alert('hshhs')
+	
+dragendEvent = (event) ->
+	alert('hshhs')
+
+	
+window.dragstartEvent = dragstartEvent
+window.dragEvent = dragEvent
+window.dragendEvent = dragendEvent
+
+###
 drop_target = null
 dragged_element = null
 
@@ -70,3 +86,4 @@ window.allow_drop = allow_drop
 window.drag_enter = drag_enter
 window.drag = drag
 window.drop = drop
+###
