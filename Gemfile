@@ -77,6 +77,7 @@ end
 # Admin gems
 gem 'cancan'
 gem 'rolify'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 #logger
 gem 'public_activity'
