@@ -21,9 +21,9 @@
       </tr>
       <% @tasks.each do |task| %>
       <tr>
-        <td><a><%= task.titel %></a></td>
+        <td><a><%= link_to task.titel, project_path(task.list.project.id) %></a></td>
         <td> <% if task.deadline.present? %>Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %><% else %><span class="text-weak">Keine Frist gesetzt<span><% end %></td>
-        <td>[Projektname]</td>
+        <td><%= task.list.project.name %></td>
         <td>
           <% case task.priority
             when "low" %><i class="fa fa-arrow-down priority-low"></i>
