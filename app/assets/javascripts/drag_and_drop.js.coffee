@@ -52,8 +52,17 @@ dropEvent = (e, position, list) ->
 		console.log("target: Position: "+position+", List: "+list)
 		$(e.target).css('background-color','blue')
 		
-		$(e.target).before($('.'+dragged_task.id))
-
+		$(e.target).before($('.task'+dragged_task.id))
+		
+		#increase the position of all previous tasks
+		
+		i = 0
+		previous_tasks = $(dragged_task).prevAll('.draggable')
+		previous_tasks.each ->
+			extractedtaskId = this.
+			console.log(task)
+			
+		
 
 isOtherTask = (position, list) ->
 	return list isnt dragged_task.list or (position isnt dragged_task.position and position-1 isnt dragged_task.position) 
