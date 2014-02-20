@@ -31,7 +31,7 @@
             <% when "high" %><i class="fa fa-arrow-up priority-high"></i>
           <% end %>          
         </td>
-        <td><%= select_tag :class => "form-control" %></td>
+        <td><%= select_tag "user_id", options_from_collection_for_select(task.list.project.users, "id", "firstname"), include_blank: true, :class => "form-control" %> </td>
       </tr>
      <% end %>
     </table>

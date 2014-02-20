@@ -71,7 +71,7 @@
                     <i class="fa fa-exclamation fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= Task.where("priority = ?", "high").count %></p>
+                    <p class="announcement-heading"><%= Task.where("priority = ?", "high").joins(:users).where("user_id == ?", current_user.id).count %></p>
                     <p class="announcement-heading"></p>
                     <p class="announcement-text">Dringende Aufgaben</p>
                   </div>
