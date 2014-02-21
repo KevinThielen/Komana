@@ -54,15 +54,18 @@ dropEvent = (e, position, list) ->
 		
 		$(e.target).before($('.task'+dragged_task.id))
 		
-		#increase the position of all previous tasks
+		#change the old list class to the new one
+		$('.task'+dragged_task.id).removeClass('list'+dragged_task.list)
+		$('.task'+dragged_task.id).addClass('list'+list)
 		
+		#increase the position of all previous tasks
+		###
 		i = 0
 		previous_tasks = $(dragged_task).prevAll('.draggable')
 		previous_tasks.each ->
 			extractedtaskId = this.
 			console.log(task)
-			
-		
+		###
 
 isOtherTask = (position, list) ->
 	return list isnt dragged_task.list or (position isnt dragged_task.position and position-1 isnt dragged_task.position) 
@@ -72,6 +75,8 @@ window.dropEvent = dropEvent
 	  
 $(document).ready(ready)
 $(document).on('page:load', ready) 
+
+
 
 ###
 drop_target = null
