@@ -71,3 +71,53 @@ i.priority-high {
   margin-bottom: 10px;
 
 }
+
+/* list table format */
+ul.lists-ul {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space:nowrap;
+  display: block;
+  position:fixed !important;
+  top:190px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  border-color:blue;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;  
+}
+
+li.lists-li {
+  width: 330px;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+
+}
+
+.lists-well {
+  height: 100%;
+}
+
+/* Tasks list */
+
+ul.tasks-ul {
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+  margin: 0px 0px 0px 0px;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+}
+
+li.tasks-li {
+  display: block;
+  width: 100%;
+}
+
+
+
