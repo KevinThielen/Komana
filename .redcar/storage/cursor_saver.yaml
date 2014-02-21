@@ -385,4 +385,9 @@ cursor_positions:
   - :path: app/views/welcome/dashboard.html.erb
     :cursor_offset: 3047
     :timestamp: 2014-02-20 10:51:53 +01:00
+  - :path: app/views/projects/original-show.html.erb
+    :cursor_offset: 6059
+    :timestamp: 2014-02-21 12:01:26 +01:00
+    :selection_offset: 6384
+    :block_selection_mode: false
 files_to_retain: 0

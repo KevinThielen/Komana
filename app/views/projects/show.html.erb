@@ -39,77 +39,79 @@
       </h4><!-- list header -->
       
       <br/>
+      <ul class="tasks-ul">
+        <!-- Get all Tasks in the List and renders them-->  
+			  <% list.tasks.each do |task| %><%# tasks loop %>
+        <li class="tasks-li">
+			    <!-- TODO: Dynamisch mit coffescript hinzufügen, vor alle tagged elemente -->
+			    <!-- Drag & Drop target Div -->
+			    <div  id = "position<%= task.position %>" ondragover = "allow_drop(event)" class="droptarget<%=task.id%> panel panel-default" ondragenter="drag_enter(event, <%= task.position %>, <%=task.list.id%>)" ></div>     
+          <!-- /Drag & Drop target div -->
       
-      <!-- Get all Tasks in the List and renders them-->  
-			<% list.tasks.each do |task| %><%# tasks loop %>
-      
-			<!-- TODO: Dynamisch mit coffescript hinzufügen, vor alle tagged elemente -->
-			<!-- Drag & Drop target Div -->
-			<div  id = "position<%= task.position %>" ondragover = "allow_drop(event)" class="droptarget<%=task.id%> panel panel-default" ondragenter="drag_enter(event, <%= task.position %>, <%=task.list.id%>)" ></div>     
-      <!-- /Drag & Drop target div -->
-      
-      <!-- task -->
-			<div id = "task<%=task.id%>" class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.id %>, <%= task.position %>, <%=list.id%>)" >
-        <!-- task header -->
-				<div class="panel-heading">
-          <%# Select and display the priority %>
-          <% case task.priority
-            when "low" %><div class="priority priority-low"></div>
-            <% when "medium" %><div class="priority priority-medium"></div>
-            <% when "high" %><div class="priority priority-high"></div>
-            <% end %>
-            <%# /priority select%>
+          <!-- task -->
+			    <div id = "task<%=task.id%>" class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.id %>, <%= task.position %>, <%=list.id%>)" >
+            <!-- task header -->
+				    <div class="panel-heading">
+              <%# Select and display the priority %>
+              <% case task.priority
+                when "low" %><div class="priority priority-low"></div>
+                <% when "medium" %><div class="priority priority-medium"></div>
+                <% when "high" %><div class="priority priority-high"></div>
+                <% end %>
+                <%# /priority select%>
             
-            <%# Gets the to this task assigned user %>
-						<% assigned_user = task.users.first %>
-            <!-- shows the to this task assigned user, if there is any -->
-						<% if assigned_user.present? %>
-              <%# Needed to set the default value of the tasks modal %>
-							<%  assigned_user_id = assigned_user.id %>
-              <!-- renders the user short batch with initials and his avatar -->
-							<div class="user-batch batch-task">
-								<%= image_tag avatar_url(assigned_user, 30), :class => "user-image" %>
-								<div class="user-name">
-									<%= assigned_user.firstname.first %><%= assigned_user.lastname.first %>
-								</div><!-- /user initials -->
-							</div><!-- /user batch -->
-            <% else %>
-              <% assigned_user_id = NIL %>
-            <% end %>
+                <%# Gets the to this task assigned user %>
+						    <% assigned_user = task.users.first %>
+                <!-- shows the to this task assigned user, if there is any -->
+						    <% if assigned_user.present? %>
+                  <%# Needed to set the default value of the tasks modal %>
+							    <%  assigned_user_id = assigned_user.id %>
+                  <!-- renders the user short batch with initials and his avatar -->
+							    <div class="user-batch batch-task">
+								    <%= image_tag avatar_url(assigned_user, 30), :class => "user-image" %>
+								    <div class="user-name">
+									    <%= assigned_user.firstname.first %><%= assigned_user.lastname.first %>
+								    </div><!-- /user initials -->
+							    </div><!-- /user batch -->
+                <% else %>
+                  <% assigned_user_id = NIL %>
+                <% end %>
             
-            <!-- Task title -->
-            <div class="<%= get_title_class(assigned_user) %>">
-              <!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
-							<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>', '<%= task.priority %>', '<%= task.deadline %>' );">
-								<strong>
-                  <%= task.titel %>
-								</strong>
-							</a><!-- /Link to task edit modal -->
-              <!-- button to delete the task. Opens confirmation window before -->
-							<%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
-            </div><!-- /Task title -->
-        </div><!-- /task header -->
+                <!-- Task title -->
+                <div class="<%= get_title_class(assigned_user) %>">
+                  <!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
+							    <a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>', '<%= task.priority %>', '<%= task.deadline %>' );">
+								    <strong>
+                      <%= task.titel %>
+								    </strong>
+							    </a><!-- /Link to task edit modal -->
+                  <!-- button to delete the task. Opens confirmation window before -->
+							    <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
+                </div><!-- /Task title -->
+            </div><!-- /task header -->
         
-        <!-- Task description body -->
-        <div class="panel-body">
-          <!-- Task description -->
-          <%= task.text %>
-          <br>
-          <br>
-          <%# Show deadline if it is set %>
-          <% if task.deadline.present? %>
-          <!-- task footer in the body that displays the remaining time for a task -->
-					<small class="text-weak">
-            <!-- clock symbol -->
-						<i class="fa fa-clock-o"></i>
-            Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %>
-          </small><!-- /Task footer -->
-          <% end %>
-        </div><!-- /Task description body -->
-      </div><!-- /task -->
-      <% end %> <%# /task loop%>
+            <!-- Task description body -->
+            <div class="panel-body">
+              <!-- Task description -->
+              <%= task.text %>
+              <br>
+              <br>
+              <%# Show deadline if it is set %>
+              <% if task.deadline.present? %>
+              <!-- task footer in the body that displays the remaining time for a task -->
+					    <small class="text-weak">
+                <!-- clock symbol -->
+						    <i class="fa fa-clock-o"></i>
+                Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %>
+              </small><!-- /Task footer -->
+              <% end %>
+            </div><!-- /Task description body -->
+          </div><!-- /task -->
+        </li><!-- /tasks-li -->
+        <% end %> <%# /task loop%>
+      </ul><!-- /tasks-ul -->
     </div><!-- /lists-well -->
-  </li>
+  </li><!-- lists-li -->
   <% end %><%# /List loop %>
   
   <!-- Add an additional List on click -->

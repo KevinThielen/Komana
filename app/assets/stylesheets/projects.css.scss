@@ -76,7 +76,7 @@ i.priority-high {
 ul.lists-ul {
   overflow-x: auto;
   overflow-y: hidden;
-  white-space:nowrap;
+  white-space: nowrap;
   display: block;
   position:fixed !important;
   top:190px;
@@ -89,7 +89,7 @@ ul.lists-ul {
 }
 
 li.lists-li {
-  width: 330px;
+  width: 350px;
   height: 100%;
   display: inline-block;
   vertical-align: top;
@@ -110,13 +110,14 @@ ul.tasks-ul {
   overflow-y: auto;
   display: block;
   margin: 0px 0px 0px 0px;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
+  padding-left: 0px;
+  list-style-type: none;
+  height: 85%;
 }
 
 li.tasks-li {
   display: block;
-  width: 100%;
+  width: 100%; 
 }
 
 
