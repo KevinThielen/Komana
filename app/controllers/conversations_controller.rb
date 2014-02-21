@@ -15,11 +15,7 @@ class ConversationsController < ApplicationController
   
 
   def index
-	 if params[:partial]
-		@partial = params[:partial]
-	 else
-		@partial = "conversations/inbox"
-	 end
+	 
   end
   
   def reply

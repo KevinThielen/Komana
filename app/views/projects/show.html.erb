@@ -45,7 +45,7 @@
       
 			<!-- TODO: Dynamisch mit coffescript hinzufügen, vor alle tagged elemente -->
 			<!-- Drag & Drop target Div -->
-			<div  id = "position<%= task.position %>" ondragover = "allow_drop(event)" class="droptarget<%=task.id%> panel panel-default" ondragenter="drag_enter(event, <%= task.position %>, <%=task.list.id%>)" ></div>     
+			<div class ="droptarget task<%= task.id %> list<%= list.id %>" ondrop = "dropEvent(event, '<%= task.position %>', '<%= task.list.id %>');"></div>
       <!-- /Drag & Drop target div -->
       
       <!-- task -->

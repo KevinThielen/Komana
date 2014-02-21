@@ -311,9 +311,6 @@ cursor_positions:
   - :path: app/assets/stylesheets/bootstrap-datepicker.css
     :cursor_offset: 17945
     :timestamp: 2014-02-17 18:13:15 +01:00
-  - :path: app/assets/javascripts/project.js.coffee.erb
-    :cursor_offset: 0
-    :timestamp: 2014-02-08 18:07:30 +01:00
   - :path: app/assets/javascripts/project.js.coffee
     :cursor_offset: 0
     :timestamp: 2014-02-08 18:07:30 +01:00
@@ -370,9 +367,6 @@ cursor_positions:
   - :path: app/helpers/application_helper.rb
     :cursor_offset: 656
     :timestamp: 2014-02-19 19:27:55 +01:00
-  - :path: app/assets/stylesheets/projects.css.scss
-    :cursor_offset: 937
-    :timestamp: 2014-02-20 12:47:03 +01:00
   - :path: app/helpers/projects_helper.rb
     :cursor_offset: 69
     :timestamp: 2014-02-20 12:39:13 +01:00
@@ -380,9 +374,18 @@ cursor_positions:
     :cursor_offset: 1970
     :timestamp: 2014-02-20 12:47:18 +01:00
   - :path: app/views/projects/show.html.erb
-    :cursor_offset: 6358
-    :timestamp: 2014-02-20 22:52:17 +01:00
+    :cursor_offset: 6404
+    :timestamp: 2014-02-21 13:42:19 +01:00
+  - :path: app/views/projects/_settings_modal.html.erb
+    :cursor_offset: 842
+    :timestamp: 2014-02-21 12:29:33 +01:00
+  - :path: app/assets/stylesheets/projects.css.scss
+    :cursor_offset: 1233
+    :timestamp: 2014-02-21 14:03:10 +01:00
   - :path: app/views/welcome/dashboard.html.erb
-    :cursor_offset: 3047
-    :timestamp: 2014-02-20 10:51:53 +01:00
+    :cursor_offset: 2943
+    :timestamp: 2014-02-21 14:05:08 +01:00
+  - :path: app/assets/javascripts/project.js.coffee.erb
+    :cursor_offset: 0
+    :timestamp: 2014-02-20 10:50:57 +01:00
 files_to_retain: 0
