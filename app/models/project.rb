@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
 	 #include PublicActivity::Model
 	 #tracked
 
-	 def get_last_updated
+	def get_last_updated
 
 	 	@project = Project.find(id)
 	 	last_updated_list = List.where("project_id = ?", id).order(updated_at).first
