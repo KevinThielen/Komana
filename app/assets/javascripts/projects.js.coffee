@@ -146,6 +146,9 @@ datepicker = () ->
 		startDate: "+1d"
 	});
 
-$(document).ready () ->
-  datepicker()
+ready = -> 
+	datepicker()
+	  
+$(document).ready(ready)
+$(document).on('page:load', ready) 
   

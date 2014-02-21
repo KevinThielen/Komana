@@ -45,6 +45,7 @@ i.priority-high {
   color: #DA4244;
 }
 
+
 /* User batches */
 .batch-task {
   margin-top: -40px;
@@ -120,5 +121,12 @@ li.tasks-li {
   width: 100%; 
 }
 
+.droptarget {
+  height: 150px;
+  background-color: transparent;
+}
 
+.droptarget-action {
+  backgroundcolor: green;
+}
 
