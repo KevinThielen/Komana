@@ -40,16 +40,17 @@
       
       <br/>
       
-      <!-- Get all Tasks in the List and renders them-->  
-			<% list.tasks.each do |task| %><%# tasks loop %>
+      <!-- Get all Tasks in the List and renders them-->
+      <% ordered_tasks = list.tasks.order("position DESC") %>
+			<% ordered_tasks.each do |task| %><%# tasks loop %>
       
 			<!-- TODO: Dynamisch mit coffescript hinzufügen, vor alle tagged elemente -->
 			<!-- Drag & Drop target Div -->
-			<div class ="droptarget task<%= task.id %> list<%= list.id %>" ondrop = "dropEvent(event, '<%= task.position %>', '<%= task.list.id %>');"></div>
+			<div class ="droptarget task<%= task.id %> position<%=task.position%> list<%= list.id %>" ondrop = "dropEvent(event, '<%= task.position %>', '<%= task.list.id %>');"></div>
       <!-- /Drag & Drop target div -->
       
       <!-- task -->
-			<div id = "task<%=task.id%>" class="panel panel-default <%= list.id %>" draggable="true" ondragstart="drag(event, <%= task.id %>, <%= task.position %>, <%=list.id%>)" >
+			<div class="panel panel-default task<%= task.id %> position<%=task.position%>  list<%= list.id %> draggable" draggable="true" ondragstart = "dragstartEvent(event, '<%= task.id %>', '<%= task.position %>', '<%= task.list.id %>');">
         <!-- task header -->
 				<div class="panel-heading">
           <%# Select and display the priority %>
@@ -86,7 +87,7 @@
 								</strong>
 							</a><!-- /Link to task edit modal -->
               <!-- button to delete the task. Opens confirmation window before -->
-							<%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
+							<%= link_to '&times;'.html_safe, project_task_path(project_id:@project, task_id:task), method: :delete, :class => "close", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
             </div><!-- /Task title -->
         </div><!-- /task header -->
         
@@ -108,6 +109,8 @@
         </div><!-- /Task description body -->
       </div><!-- /task -->
       <% end %> <%# /task loop%>
+      <!-- Default Drag & Drop target Div -->
+      <div class ="droptarget position0 list<%= list.id %>" ondrop = "dropEvent(event, 0, '<%= list.id %>');"></div>
     </div><!-- /lists-well -->
   </li>
   <% end %><%# /List loop %>

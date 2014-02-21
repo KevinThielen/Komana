@@ -379,13 +379,13 @@ cursor_positions:
   - :path: app/views/projects/_settings_modal.html.erb
     :cursor_offset: 842
     :timestamp: 2014-02-21 12:29:33 +01:00
-  - :path: app/assets/stylesheets/projects.css.scss
-    :cursor_offset: 1233
-    :timestamp: 2014-02-21 14:03:10 +01:00
   - :path: app/views/welcome/dashboard.html.erb
     :cursor_offset: 2943
     :timestamp: 2014-02-21 14:05:08 +01:00
   - :path: app/assets/javascripts/project.js.coffee.erb
     :cursor_offset: 0
     :timestamp: 2014-02-20 10:50:57 +01:00
+  - :path: app/assets/stylesheets/projects.css.scss
+    :cursor_offset: 1830
+    :timestamp: 2014-02-21 14:14:15 +01:00
 files_to_retain: 0

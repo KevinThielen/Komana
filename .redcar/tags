@@ -1,4 +1,4 @@
-1392988455
+1392989900
 Ability	/media/sf_Share/Komana/app/models/ability.rb	class Ability
 AddAttachments	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	class AddAttachments 
 AddDescriptionToTasks	/media/sf_Share/Komana/db/migrate/20140109121953_add_description_to_tasks.rb	class AddDescriptionToTasks 
@@ -116,15 +116,15 @@ configure_permitted_parameters	/media/sf_Share/Komana/app/controllers/applicatio
 contact	/media/sf_Share/Komana/app/controllers/portfolios_controller.rb	  def contact
 conversation	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation
 conversation_params	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def conversation_params(*keys)
-create	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def create
 create	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def create
 create	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def create
 create	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def create
+create	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def create
 create_temp_deleted_user	/media/sf_Share/Komana/app/helpers/application_helper.rb	  def create_temp_deleted_user
 delete	/media/sf_Share/Komana/app/controllers/conversations_controller.rb	  def delete
-destroy	/media/sf_Share/Komana/app/controllers/tasks_controller.rb	    def destroy 
 destroy	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def destroy 
 destroy	/media/sf_Share/Komana/app/controllers/projects_controller.rb		def destroy 
+destroy	/media/sf_Share/Komana/app/controllers/tasks_controller.rb	    def destroy 
 does something	/media/sf_Share/Komana/spec/Task_spec.rb	it "does something" do
 doesShowVisualCues	/media/sf_Share/Komana/app/assets/javascripts/DragDropHelpers.js	function doesShowVisualCues(e)
 down	/media/sf_Share/Komana/db/migrate/20140107080660_add_notified_object.mailboxer_engine.rb	  def self.down
@@ -181,6 +181,6 @@ up	/media/sf_Share/Komana/db/migrate/20140121154945_create_activities.rb	  def s
 up	/media/sf_Share/Komana/db/migrate/20140107080663_rename_receipts_read.mailboxer_engine.rb	  def up
 up	/media/sf_Share/Komana/db/migrate/20140107080661_add_notification_code.mailboxer_engine.rb	  def self.up
 up	/media/sf_Share/Komana/db/migrate/20140107080662_add_attachments.mailboxer_engine.rb	  def self.up
-update	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def update
 update	/media/sf_Share/Komana/app/controllers/lists_controller.rb		def update
+update	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def update
 update_position	/media/sf_Share/Komana/app/controllers/tasks_controller.rb		def update_position
