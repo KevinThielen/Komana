@@ -31,6 +31,11 @@ class TasksController < ApplicationController
 
 	   @list = List.find(params[:list_id])
 	   @task = @list.tasks.find(params[:task_id])
+	   @project = @list.project
+
+	   @project.updated_at = @task.updated_at
+	   @project.save
+
 	   @task.destroy
 	
 	   redirect_to project_path(params[:project_id])
