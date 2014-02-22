@@ -71,7 +71,18 @@
                     <i class="fa fa-exclamation fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= Task.where("priority = ?", "high").count %></p>
+                    <p class="announcement-heading">
+                    <% @count = 0 %> 
+                    <% @tasks = Task.where("priority = ?", "high") %>
+                    <% @tasks.each do |task| %>
+                      <% @project_user = ProjectsUsers.where("project_id = ?", task.list.project.id).where("user_id = ?", current_user.id).first %>
+                      <% if @project_user %>
+                        <% if current_user.id == @project_user.user_id %>
+                         <% @count = @count + 1 %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                    <%= @count %></p>
                     <p class="announcement-text">Dringende Aufgaben</p>
                   </div>
                 </div>
