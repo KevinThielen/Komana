@@ -63,6 +63,7 @@ updateList = (element, id) ->
 		input.setAttribute('type','text')
 		input.setAttribute('name','Listname')
 		$(input).addClass("form-control")
+    
 		
 		input.value = listTag.innerHTML
 		listTag.appendChild(input)

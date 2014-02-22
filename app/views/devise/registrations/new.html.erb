@@ -4,75 +4,79 @@
   
  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 
-  <div class="input-group">
+  <div class="<%= field_class(@user, :firstname)%>" >
     <label for="inputFirstname" class="control-label">Vorname</label>
-    <div class="">
-      <%= f.text_field :firstname, :autofocus => true, :placeholder => 'Vorname', :id => "inputFirstname", :class => "form-control"  %>
+    <%= f.text_field :firstname, :autofocus => true, :placeholder => 'Vorname', :id => "inputFirstname", :class => "form-control"  %>
+    <%# validation handling %>
+    <div class="validation-group  text-danger">
+     <% @user.errors.full_messages_for(:firstname).each do |msg| %>
+      <%= msg %>
+     <% end %>
     </div>
   </div>
 
-  <%# validation handling %>
-  <div class="validation-group">
-    <% @user.errors.full_messages_for(:firstname).each do |msg| %>
-      <%= msg %>
-    <% end %>
-  </div>
+  
 
-  <div class="input-group">
+
+  <div class="<%= field_class(@user, :lastname)%>">
     <label for="inputLastname" class="control-label">Nachname</label>
     <div class="">
       <%= f.text_field :lastname, :placeholder => 'Nachname', :id => "inputLastname", :class => "form-control"  %>
+      <%# validation handling %>
+      <div class="validation-group text-danger">
+        <% @user.errors.full_messages_for(:lastname).each do |msg| %>
+          <%= msg %>
+       <% end %>
+     </div>
     </div>
   </div>
 
-  <%# validation handling %>
-  <div class="validation-group">
-    <% @user.errors.full_messages_for(:lastname).each do |msg| %>
-      <%= msg %>
-    <% end %>
-  </div>
+  
 
-  <div class="input-group">
+  <div class="<%= field_class(@user, :email)%>">
     <label for="inputEmail" class="control-label">E-Mail</label>
     <div class="">
       <%= f.email_field :email, :placeholder => 'E-Mail', :id => "inputEmail", :class => "form-control"  %>
+      <%# validation handling %>
+      <div class="validation-group text-danger">
+       <% @user.errors.full_messages_for(:email).each do |msg| %>
+         <%= msg %>
+       <% end %>
+     </div>
     </div>
   </div>
 
-  <%# validation handling %>
-  <div class="validation-group">
-    <% @user.errors.full_messages_for(:email).each do |msg| %>
-      <%= msg %>
-    <% end %>
-  </div>
+  
 
-  <div class="input-group">
+  <div class="<%= field_class(@user, :password)%>">
     <label for="inputPassword" class="control-label">Passwort</label>
     <div class="">
-      <%= f.password_field :password, :placeholder => 'Passwort', :id => "inputPassword", :class => "form-control"  %>
+      <%= f.password_field :password, :placeholder => 'Passwort (min. 6 Zeichen)', :id => "inputPassword", :class => "form-control"  %>
+      <%# validation handling %>
+      <div class="validation-group text-danger">
+       <% @user.errors.full_messages_for(:password).each do |msg| %>
+         <%= msg if @user.errors.full_messages_for(:password).second == msg %>
+       <% end %>
+      </div>
     </div>
   </div>
 
-  <%# validation handling %>
-  <div class="validation-group">
-    <% @user.errors.full_messages_for(:password).each do |msg| %>
-      <%= msg if @user.errors.full_messages_for(:password).second == msg %>
-    <% end %>
-  </div>
+  
 
-  <div class="input-group">
+  <div class="<%= field_class(@user, :password_confirmation)%>">
     <label for="inputConfirmPassword" class="control-label">Passwort wiederholen</label>
     <div class="">
       <%= f.password_field :password_confirmation, :placeholder => 'Passwort wiederholen', :id => "inputConfirmPassword", :class => "form-control"  %>
+      <%# validation handling %>
+      <div class="validation-group text-danger">
+        <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
+         <%= msg %>
+      <% end %>
+     </div>
     </div>
   </div>
 
-  <%# validation handling %>
-  <div class="validation-group">
-    <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
-      <%= msg %>
-    <% end %>
-  </div>
+
 
   <div class="input-group border-form-button">
     <div class="">
