@@ -75,7 +75,7 @@
 <<<<<<< HEAD
                   
 =======
-                    <p class="announcement-heading"><%= Task.where("priority = ?", "high").joins(:users).where("user_id == ?", current_user.id).count %></p>
+                    <p class="announcement-heading"><%= Task.where("priority = ?", "high").joins(:users).where("user_id = ?", current_user.id).count %></p>
 >>>>>>> 83ba8e2cedfead9d089e491c2da4481e8c3e3ec0
                     <p class="announcement-heading"></p>
 =======
