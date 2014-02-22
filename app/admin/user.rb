@@ -13,5 +13,13 @@ ActiveAdmin.register User do
   #  permitted << :other if resource.something?
   #  permitted
   # end
+
+  index do
+    column :id
+    column :email
+    column :firstname
+    column :lastname
+    default_actions
+  end
   
 end
