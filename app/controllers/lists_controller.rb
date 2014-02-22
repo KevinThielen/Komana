@@ -53,6 +53,10 @@ class ListsController < ApplicationController
 	def destroy 
 	   @project = Project.find(params[:project_id])
 	   @list = List.find(params[:list_id])
+
+	   @project.updated_at = @list.updated_at
+	   @project.save
+
 	   @list.destroy
 	   
 	   redirect_to project_path(@project)

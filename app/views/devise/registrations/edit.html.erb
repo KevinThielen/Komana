@@ -66,11 +66,11 @@
     <div class="<%= field_class(@user, :password)%>">
       <label for="inputNewPassword" class="col-sm-4 control-label">Neues Passwort</label>
       <div class="col-sm-8">
-        <%= f.password_field :password, :placeholder => 'Passwort', :id => "inputNewPassword", :class => "form-control"  %>
+        <%= f.password_field :password, :placeholder => 'Passwort (min. 6 Zeichen)', :id => "inputNewPassword", :class => "form-control"  %>
         <%# validation handling %>
         <div class="validation-group text-danger">
           <% @user.errors.full_messages_for(:password).each do |msg| %>
-           <%= msg if @user.errors.full_messages_for(:password).second == msg %>
+           <%= msg %>
           <% end %>
         </div>        
       </div>
