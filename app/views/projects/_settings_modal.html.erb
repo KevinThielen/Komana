@@ -8,8 +8,8 @@
 			</div>
 			
 			<div class="modal-body">
-				<!-- Display all user who are added the current in the project -->
-
+        
+				<!-- Display long batches of the users who are added the current in the project -->
 				<% @project.users.each_with_index do |user| %>     
 					<div class="user-batch">
 						<%= image_tag avatar_url(user, 30), :class => "user-image" %>
@@ -17,22 +17,28 @@
 							<%= user.firstname %> <%= user.lastname %>
 						</div>
 					</div>
-				<% end %>
+				<% end %><%# /User batch %>
 			
 				<!-- add a new user to the project -->
-				<%= form_tag project_add_user_path(@project.id) do %>
-				<div class="form-group">
-					<label for="exampleInputEmail1">Benutzer hinzufügen</label>
-					<%= text_field_tag :user_email, nil, :class => "form-control", :placeholder => 'E-Mail' %>
-					</div>
+				<% @user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first %>
+				<% if @user.role == "author" %>
+					<%= form_tag project_add_user_path(@project.id) do %>
+					<div class="form-group"> <br>
+						<label for="exampleInputEmail1">Benutzer hinzufügen</label>
+						<%= text_field_tag :user_email, nil, :class => "form-control", :placeholder => 'E-Mail' %>
+						</div>
 
-				<%= submit_tag "Hinzufügen", :class=>'btn btn-primary'%>
-			</div>
-			
-			<div class="modal-footer">
-				<%= submit_tag "Speichern", :class => 'btn btn-primary' %>
-				<% end %>        
-				<button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+					<%= submit_tag "Hinzufügen", :class=>'btn btn-primary' if @user.role == "author"%> <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+					</div>
+				  <% end %>
+				<% end %>
+        <hr>
+        <% @user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first %>
+        <% if @user.role == "author" %>
+          <%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+        <% end %>
+
+			<div class="modal-footer">        
 			</div><!-- /.modal-footer -->
 			
 		</div><!--/.modal-content -->

@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
-
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -72,22 +69,20 @@ gem 'bootstrap-datepicker-rails'
 
 group :development do
   gem 'rails_layout'
-  gem 'rspec-rails','~>3.0.0.beta'
+  # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  gem 'capybara'
-end
-
-group :production do 
-	gem 'pg'
-	gem 'rails_12factor'
-
+  gem 'rspec-rails', '~> 3.0.0.beta'
 end
 
 # Admin gems
 gem 'cancan'
 gem 'rolify'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 #logger
 gem 'public_activity'
 
-
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end

@@ -3,8 +3,6 @@ class TasksController < ApplicationController
 	
 	
 	def search	
-	 
-	
 	 if params[:partial]
 		@partial = params[:partial]
 	 else
@@ -29,8 +27,12 @@ class TasksController < ApplicationController
   
     def destroy 
 
-	   @list = List.find(params[:list_id])
-	   @task = @list.tasks.find(params[:task_id])
+	   @task = Task.find(params[:task_id])
+	   @project = @task.list.project
+
+	   @project.updated_at = @task.updated_at
+	   @project.save
+
 	   @task.destroy
 	
 	   redirect_to project_path(params[:project_id])
@@ -54,7 +56,7 @@ class TasksController < ApplicationController
 		moved_to_position = params[:position]
 		
 		#check if there are other taks after this in the old list and reduce their positions by 1
-		sibling_tasks = Task.where("list_id = ? and position > ?", moved_task.list, moved_task.position).order("position ASC")
+		sibling_tasks = Task.where("list_id = ? and position > ?", moved_task.list, moved_task.position)
 		
 		sibling_tasks.each do |t|
 			old_position = t.position
@@ -70,12 +72,10 @@ class TasksController < ApplicationController
 			new_sibling_tasks.each do |t|
 				old_position = t.position
 				t.update!(:position => old_position+1)
-			end
-			
-			moved_task.update!(:position => moved_to_position)
-			moved_to_list.tasks << moved_task
+			end	
 		end
-		
+		moved_task.update!(:position => moved_to_position)
+		moved_to_list.tasks << moved_task
 			
 		redirect_to project_path(moved_to_list.project_id)
 	end 

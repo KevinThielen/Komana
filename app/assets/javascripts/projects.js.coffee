@@ -10,7 +10,7 @@
 
 
 
-updateTask = (id, titel, text, user) ->
+updateTask = (id, titel, text, user, priority, deadline) ->
 	taskTitel = document.getElementById('task_titel')
 	taskTitel.value = titel
 	taskText = document.getElementById('task_text')
@@ -24,6 +24,13 @@ updateTask = (id, titel, text, user) ->
 	while i < assigned_user.options.length
 		assigned_user.options[i].selected = true  if assigned_user.options[i].value is user
 		i++
+
+	# default value for priority
+	$('input:radio[name="priority"]').filter('[value='+priority+']').attr('checked', true)
+	
+	#default value for deadline
+	taskDeadline = document.getElementById('deadline')
+	taskDeadline.value = deadline
 
 	$('#editTaskModal').modal('show')
     
@@ -56,6 +63,7 @@ updateList = (element, id) ->
 		input.setAttribute('type','text')
 		input.setAttribute('name','Listname')
 		$(input).addClass("form-control")
+    
 		
 		input.value = listTag.innerHTML
 		listTag.appendChild(input)
@@ -120,3 +128,27 @@ toggleList = (list, list_class) ->
 		$(list).removeClass('hidden_list')
 
 window.toggleList = toggleList
+
+
+
+
+### 
+	DatePicker
+###
+
+
+datepicker = () ->
+	$('.date').datepicker({
+		todayBtn: true,
+		language: "de",
+		autoclose: true,
+		todayHighlight: false,
+		startDate: "+1d"
+	});
+
+ready = -> 
+	datepicker()
+	  
+$(document).ready(ready)
+$(document).on('page:load', ready) 
+  
