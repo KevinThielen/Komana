@@ -29,10 +29,7 @@ class ProjectsController < ApplicationController
 				redirect_to project_path(@project)
 
 		  	else 
-		  		 @project.errors.full_messages_for(:name).each do |msg| 
-    				 flash[:error] = msg
-  				 end 
-			  redirect_to new_project_path
+			  	render new_project_path
   			end 
 	end
 	

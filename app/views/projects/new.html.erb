@@ -22,11 +22,13 @@
 </div>
 
 <%# validation handling %>
-<div class="validation-group">
-  <% @project.errors.full_messages_for(:name).each do |msg| %>
-    <%= msg %>
-  <% end %>
-</div>
+<div class="validation-group  text-danger">
+     <% @project.errors.full_messages_for(:name).each do |msg| %>
+      <%= msg %>
+      <% break %> 
+     <% end %>
+    </div>
+  </div>
 
 <br/ >
 <div class="row">
