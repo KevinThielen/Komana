@@ -10,7 +10,7 @@ feature 'The Home Page' do
 		
 	
 
-	it 'Does not point to dashboard if wrong login' do
+	it 'Does not point to Dashboard if wrong login' do
 		visit root_path
 		click_link 'Anmelden'
 		fill_in 'E-Mail', with: user.email
@@ -29,7 +29,7 @@ feature 'The Home Page' do
 		page.should have_content 'Dashboard'
 	end
 
-	it 'lets a user logout'do
+	it 'Lets a user logout'do
 		user.save!
 		visit root_path	
 		click_link 'Anmelden'
@@ -43,7 +43,7 @@ feature 'The Home Page' do
 
 	it 'Lets a visitor register' do
 		visit root_path
-		click_link 'Registrieren'
+		first(:link, 'Registrieren').click
 		fill_in 'E-Mail', with: user.email
 		fill_in 'Vorname', with: user.firstname
 		fill_in 'Nachname', with: user.lastname
@@ -53,10 +53,10 @@ feature 'The Home Page' do
 		page.should have_content 'Dashboard'
 	end
 
-	it 'Does not allow for a user to register tiwce with the same Email' do
+	it 'Does not allow for a user to register twice with the same Email' do
 		user.save!
 		visit root_path
-		click_link 'Registrieren'
+		first(:link, 'Registrieren').click
 		fill_in 'E-Mail', with: user.email
 		fill_in 'Vorname', with: user.firstname
 		fill_in 'Nachname', with: user.lastname
@@ -68,7 +68,7 @@ feature 'The Home Page' do
 
 	it 'Does notice when password confirmation is wrong' do
 		visit root_path
-		click_link 'Registrieren'
+		first(:link, 'Registrieren').click
 		fill_in 'E-Mail', with: user.email
 		fill_in 'Vorname', with: user.firstname
 		fill_in 'Nachname', with: user.lastname
@@ -80,7 +80,7 @@ feature 'The Home Page' do
 
 	it 'does notice when E-Mail is not valid at all' do
 		visit root_path
-		click_link 'Registrieren'
+		first(:link, 'Registrieren').click
 		fill_in 'E-Mail', with: 'abcdefghij'
 		fill_in 'Vorname', with: user.firstname
 		fill_in 'Nachname', with: user.lastname
@@ -92,7 +92,7 @@ feature 'The Home Page' do
 
 	it 'does not allow short passwords' do
 		visit root_path
-		click_link 'Registrieren'
+		first(:link, 'Registrieren').click
 		fill_in 'E-Mail', with: user.email
 		fill_in 'Vorname', with: user.firstname
 		fill_in 'Nachname', with: user.lastname
@@ -104,7 +104,7 @@ feature 'The Home Page' do
 
 	it 'notices when either first- or lastname is missing' do
 		visit root_path
-		click_link 'Registrieren'
+		first(:link, 'Registrieren').click
 		fill_in 'E-Mail', with: user.email
 		fill_in 'Passwort', with: user.password
 		fill_in 'Passwort wiederholen', with: user.password_confirmation
