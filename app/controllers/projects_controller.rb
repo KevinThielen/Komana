@@ -42,13 +42,11 @@ class ProjectsController < ApplicationController
 
 			ProjectsUsers.addUserToProject(@project.id, @user.id, "member") 
 			@user.notify("#{current_user.firstname} #{current_user.lastname} added you to Project \"#{@project.name}\"." , "added to Project" ).conversation
-
+			redirect_to project_path(@project)
 		else
-			#TODO: error handling
 			redirect_to project_path(@project)
 			flash[:error] = "Dieser Benutzer existiert nicht, bitte prüfen sie ihre Eingabe"
 		end
-		redirect_to project_path(@project)
 	end 
 	
 	def show
