@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require_tree
-*= require bootstrap-datepicker
+ *= require bootstrap-datepicker
  */
 
 /* User sign in and sign forms. */
@@ -84,19 +84,14 @@ div.user-batch div.user-name {
   vertical-align:middle;
   padding: 5px 10px 5px 40px;
 }
-div.panel-heading a{
-  display: inline;
-  color: #120000;
-}
+
 
 div.panel-heading > * {
     vertical-align:middle;  // Align children to middle of line
 }
 
-/* Border image */
-div img.border-image {
-  
-}
+
+
 
 
 

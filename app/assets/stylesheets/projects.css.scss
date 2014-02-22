@@ -10,6 +10,29 @@
   width: 70%;
 }
 
+/*Priority highlighting */
+div.priority-low {
+  background-color: #3AAE3F;
+}
+
+div.priority-medium {
+  background-color: gray;
+}
+
+div.priority-high {
+  background-color: #DA4244;
+}
+
+div.priority {
+  margin-top: -10px;
+  margin-left: -15px;
+  margin-right: -15px;
+  height: 5px;
+  width: auto;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
 i.priority-low {
   color: #3AAE3F;
 }
@@ -22,7 +45,90 @@ i.priority-high {
   color: #DA4244;
 }
 
-.droptarget {
-  height: 150px;
-  background-color: blue;
+
+/* User batches */
+.batch-task {
+  margin-top: -40px;
 }
+
+.task-title {
+  margin-bottom: -3px;
+  height: 30px;
+}
+
+.task-title-small {
+  margin-top: 10px;
+}
+
+.task-title a,
+.task-title-small a {
+  display: inline;
+  vertical-align: middle;
+  color: #120000;
+}
+
+.panel-heading a.close {
+  margin-right: 5px;
+  margin-bottom: 10px;
+
+}
+
+/* list table format */
+ul.lists-ul {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: block;
+  position:fixed !important;
+  top:190px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  border-color:blue;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;  
+}
+
+li.lists-li {
+  width: 350px;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+
+}
+
+.lists-well {
+  height: 100%;
+}
+
+/* Tasks list */
+
+ul.tasks-ul {
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+  margin: 0px 0px 0px 0px;
+  padding-left: 0px;
+  list-style-type: none;
+  height: 85%;
+}
+
+li.tasks-li {
+  display: block;
+  width: 100%; 
+}
+
+.droptarget-default {
+   height: 10px;
+   background-color: transparent;
+}
+
+.droptarget-active {
+  height: 150px;
+  background-color: green;
+}
+
+

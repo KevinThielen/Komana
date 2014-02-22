@@ -72,7 +72,6 @@
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading"><%= Task.where("priority = ?", "high").count %></p>
-                    <p class="announcement-heading"></p>
                     <p class="announcement-text">Dringende Aufgaben</p>
                   </div>
                 </div>
@@ -101,7 +100,20 @@
                   <div class="col-xs-6 text-right">
                     <% @free_tasks = Task.includes(:users).where("users.id is NULL") %>
                     
-					           <p class="announcement-heading"><%= Task.includes(:users).where("users.id is NULL").count %></p> 
+					           <p class="announcement-heading">
+                      <% @tasks_count = 0 %>
+                      <% @project_users = ProjectsUsers.where("user_id = ?", current_user.id) %>
+                      <% @project_users.each do |project_user| %>
+
+                        <% @lists = List.where("project_id = ?", project_user.project_id) %>
+                        <% @lists.each do |list| %>
+
+
+                          <% @tasks_count = @tasks_count + Task.includes(:users).where("users.id is NULL", "list_id = ?", list.id).count %>
+                        <% end %>
+                      <% end %>
+                      <%= @tasks_count %>
+                     </p> 
                     <p class="announcement-text">Freie Aufgaben</p>
                   </div>
                 </div>
@@ -124,9 +136,9 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Traffic Statistics: October 1, 2013 - October 31, 2013</h3>
+                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Hier könnten wir noch eine Chart unterbringen</h3>
               </div>
               <div class="panel-body">
                 <div id="morris-chart-area"></div>
@@ -137,9 +149,9 @@
 
         <div class="row">
           <div class="col-lg-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Traffic Sources: October 1, 2013 - October 31, 2013</h3>
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Hier vielleicht alle User, mit denen man in Projekten zusammenarbeitet</h3>
               </div>
               <div class="panel-body">
                 <div id="morris-chart-donut"></div>
@@ -150,7 +162,7 @@
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-clock-o"></i> Letzte Aktivitäten</h3>
               </div>
@@ -196,9 +208,9 @@
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-money"></i> Recent Transactions</h3>
+                <h3 class="panel-title"><i class="fa fa-money"></i> Hier vielleicht Aufgaben oder ähnliches?</h3>
               </div>
               <div class="panel-body">
                 <div class="table-responsive">
@@ -264,7 +276,7 @@
                   </table>
                 </div>
                 <div class="text-right">
-                  <a href="#">Alle Transaktionen anzeigen <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="#">Alle Aufgaben anzeigen <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div>
             </div>
@@ -274,3 +286,4 @@
       </div><!-- /#page-wrapper -->
 
     </div><!-- /#wrapper -->
+    

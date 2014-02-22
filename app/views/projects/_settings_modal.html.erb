@@ -8,8 +8,8 @@
 			</div>
 			
 			<div class="modal-body">
-				<!-- Display all user who are added the current in the project -->
-
+        
+				<!-- Display long batches of the users who are added the current in the project -->
 				<% @project.users.each_with_index do |user| %>     
 					<div class="user-batch">
 						<%= image_tag avatar_url(user, 30), :class => "user-image" %>
@@ -17,7 +17,7 @@
 							<%= user.firstname %> <%= user.lastname %>
 						</div>
 					</div>
-				<% end %>
+				<% end %><%# /User batch %>
 			
 				<!-- add a new user to the project -->
 				<% @user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first %>
@@ -30,10 +30,13 @@
 
 					<%= submit_tag "Hinzufügen", :class=>'btn btn-primary' if @user.role == "author"%> <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
 					</div>
+				  <% end %>
 				<% end %>
-
-
-				<% end %>
+        <hr>
+        <% @user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first %>
+        <% if @user.role == "author" %>
+          <%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+        <% end %>
 
 			<div class="modal-footer">        
 			</div><!-- /.modal-footer -->
