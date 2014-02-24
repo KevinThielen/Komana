@@ -33,10 +33,10 @@ class Task < ActiveRecord::Base
     count_free = 0 
     @tasks = Task.includes(:users).where("users.id is NULL") 
     @tasks.each do |task| 
-	  @project_user = ProjectsUsers.where("project_id = ?", task.list.project.id).where("user_id = ?", current_user.id).first 
+	  @project_user = ProjectsUsers.where("project_id = ?", task.list.project.id).where("user_id = ?", user_id).first 
 	    if @project_user 
-		  if current_user.id == @project_user.user_id 
-		   count_free = @count_free + 1 
+		  if user_id == @project_user.user_id 
+		   count_free = count_free + 1 
 		  end 
 	    end 
     end 
