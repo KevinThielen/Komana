@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
 
   def create
 
-    #macht paar Probleme: flash zeigt error an ?! (We're sorry, but something went wrong.)
+    
     @user = User.where("email = ?", params[:recipients]).first
     if @user.present?
 
@@ -18,7 +18,7 @@ class ConversationsController < ApplicationController
       redirect_to conversations_path
 
     else 
-      #flash[:error] = "Dieser Benutzer existiert nicht, bitte prüfen sie ihre Eingabe"
+      
       redirect_to new_conversation_path
     end
   end

@@ -17,7 +17,9 @@
                     <i class="fa fa-clipboard fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= Project.joins(:users).where("user_id = ?", current_user.id).count %></p>
+                    <p class="announcement-heading">
+                      <%= Project.get_my_projects(current_user.id).count %>
+                    </p>
                     <p class="announcement-text">Aktuelle Projekte</p>
                   </div>
                 </div>
@@ -44,12 +46,12 @@
                     <i class="fa fa-edit fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= Task.joins(:users).where("user_id = ?", current_user.id).count %></p>
+                    <p class="announcement-heading"><%= Task.get_my_tasks(current_user.id).count %></p>
                     <p class="announcement-text">Aufgaben warten</p>
                   </div>
                 </div>
               </div>
-			         <%= link_to task_search_path(0), :method => :post do%>
+			    <%= link_to task_search_path(0), :method => :post do%>
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -72,18 +74,11 @@
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading">
-                    <% @count_urgent = 0 %> 
-                    <% @tasks = Task.where("priority = ?", "high") %>
-                    <% @tasks.each do |task| %>
-                      <% @project_user = ProjectsUsers.where("project_id = ?", task.list.project.id).where("user_id = ?", current_user.id).first %>
-                      <% if @project_user %>
-                        <% if current_user.id == @project_user.user_id %>
-                         <% @count_urgent = @count_urgent + 1 %>
-                        <% end %>
-                      <% end %>
-                    <% end %>
-                    <%= @count_urgent %></p>
-                    <p class="announcement-text">Dringende Aufgaben</p>
+                      <%= Task.get_urgent_tasks_count(current_user.id) %>
+                    </p>
+                    <p class="announcement-text">
+						Dringende Aufgaben
+					</p>
                   </div>
                 </div>
               </div>
@@ -109,18 +104,8 @@
                     <i class="fa fa-tasks fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                  <p class="announcement-heading">
-                  <% @count_free = 0 %>
-                  <% @tasks = Task.includes(:users).where("users.id is NULL") %>
-                  <% @tasks.each do |task| %>
-                    <% @project_user = ProjectsUsers.where("project_id = ?", task.list.project.id).where("user_id = ?", current_user.id).first %>
-                      <% if @project_user %>
-                        <% if current_user.id == @project_user.user_id %>
-                         <% @count_free = @count_free + 1 %>
-                        <% end %>
-                      <% end %>
-                  <% end %>
-                  <%= @count_free %></p>
+                  <p class="announcement-heading">       
+                    <%= Task.get_free_tasks(current_user.id) %></p>
                   <p class="announcement-text">Freie Aufgaben</p>
                   </div>
                 </div>
