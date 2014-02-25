@@ -10,14 +10,13 @@ class ConversationsController < ApplicationController
       recipient_emails = conversation_params(:recipients)
       recipients = User.where(email: recipient_emails).all
 
-      conversation = current_user.
-      send_message(recipients, *conversation_params(:body, :subject)).conversation
+      conversation = current_user.send_message(recipients, *conversation_params(:body, :subject)).conversation
   	  flash[:notice] = "Die Nachricht wurde erfolgreich gesendet."
 	
       redirect_to conversations_path
     else
-      flash[:error] = "Der User konnte nicht gefunden werden"
-      redirect_to new_conversation_path
+      flash[:error] = "Der Benutzer konnte nicht gefunden werden."
+      redirect_to conversations_path
     end
   end
   

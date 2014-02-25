@@ -20,7 +20,7 @@
             <th></th>
             <th>Letzte Nachricht</th>
             <th>Themenstarter</th>
-            <th><%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_conversation_path, {:'data-toogle' => 'tooltip', :title => 'Neue Konversation beginnen', :class => 'text-weak'}%></th>            
+            <th><%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_conversation_path,  {:'title' => 'Neue Konversation beginnen', :class => 'text-weak'} %></th>           
             <th><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, {}, {:'data-toogle' => 'tooltip', :title => 'Ausgewählte in den Papierkorb verschieben', :class => 'text-weak'}%></th>
           </tr>
           <% current_user.mailbox.inbox.order('updated_at ASC').each do |conversation|%>

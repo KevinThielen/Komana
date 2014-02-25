@@ -1,6 +1,6 @@
   <div class="row">
     <div class="col-lg-2"></div>
-    <div class="col-lg-8"><h3>Konversationen <small>(Gesamt: <%= current_user.mailbox.inbox.count %>)</small></h3></div>
+    <div class="col-lg-8"><h3>Gesendet <small>(Gesamt: <%= current_user.mailbox.sentbox.count %>)</small></h3></div>
     <div class="col-lg-2"></div>
   </div>
   
@@ -17,7 +17,7 @@
             <th></th>
             <th>Letzte Nachricht</th>
             <th>Themenstarter</th>
-            <th><%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_conversation_path, {:'data-toogle' => 'tooltip', :title => 'Neue Konversation beginnen', :class => 'text-weak'}%></th>           
+            <th><%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_conversation_path,  {:'title' => 'Neue Konversation beginnen', :class => 'text-weak'} %></th>           
           </tr>
           <% current_user.mailbox.sentbox.order('updated_at ASC').each do |conversation|%>
           <% @Originator = User.where(email: conversation.originator.email).first%>
