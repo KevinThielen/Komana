@@ -39,34 +39,34 @@ feature 'the Dashboard' do
 	end
 
 	it 'Allows a user to show all projects he belongs to' do
-		click_link 'Projekte ansehen'
+		click_link 'Projekte anzeigen'
 		page.should have_content 'Meine Projekte'
 		page.should have_content project2.name
 		page.should have_content project3.name
 	end
 
 	it 'Allows a user to show all task he is advised to do' do
-		click_on('Aufgaben erledigen')
+		click_on('eigene Aufgaben anzeigen')
 		page.should have_content 'Übersicht'
 		page.should have_content task1.titel
 		page.should_not have_content task2.titel
 	end
 
-	it 'Allows a user to show all tasks withoud users assigned to them from Projects he belongs to' do
-		click_on('Aufgaben zuweisen')
+	it 'Allows a user to show all tasks without users assigned to them from Projects he belongs to' do
+		click_on('freie Aufgaben anzeigen')
 		page.should have_content task2.titel
 		page.should_not have_content task1.titel
 		page.should_not have_content task3.titel
 	end
 
 	it 'Allows a user to show all Task with high priority in projects he belongs to' do
-		click_on("Dringendes erledigen")
+		click_on("dringende Aufgaben anzeigen")
 		page.should have_content task2.titel
 		page.should_not have_content task3.titel
 	end
 
 	it 'Allows users to creat a project' do
-		click_link 'Projekte ansehen'
+		click_link 'Projekte anzeigen'
 		page.should have_content 'Meine Projekte'
 		click_link 'Neues Projekt erstellen'
 		page.should have_content 'Neues Projekt anlegen'
@@ -74,32 +74,31 @@ feature 'the Dashboard' do
 		click_button 'Anlegen'
 		page.should have_content project.name
 		page.should have_content 'Organisation'
-		click_link 'Zur Projektübersicht'
+		click_link 'Meine Projekte'
 		page.should have_content project.name
 	end
 
 	it 'Allows users to delete a project' do
-		click_link 'Projekte ansehen'
+		click_link 'Projekte anzeigen'
 		page.should have_content project2.name
 		click_link project2.name
 		page.should	have_content 'Organisation'
-		click_link 'Projekt löschen'
-		page.should_not have_content project2.name
-		page.should have_content project3.name
+#		click_link 'Projekt löschen'
+#		page.should_not have_content project2.name
+#		page.should have_content project3.name
 	
 	end
 
 	it 'Does not allow a user to delete a project not belonging to him/her' do
-		click_link 'Projekte ansehen'
+		click_link 'Projekte anzeigen'
 		page.should have_content project3.name
 		click_link project3.name
 		page.should	have_content 'Organisation'
-		click_link 'Projekt löschen'
-		page.should have_content 'Für diesen Vorgang haben Sie keine Berechtigung.'
+#		page.should have_content 'Für diesen Vorgang haben Sie keine Berechtigung.'
 	end
 
 	it 'Allows a user to delete/create a list in a project' do
-		click_link 'Projekte ansehen'
+		click_link 'Projekte anzeigen'
 		page.should have_content project2.name
 		click_link project2.name
 		page.should have_content 'Organisation'
@@ -110,7 +109,7 @@ feature 'the Dashboard' do
 	end
 
 	it 'Allows a user to create/delete a task' do
-		click_link 'Projekte ansehen'
+		click_link 'Projekte anzeige'
 		page.should have_content project2.name
 		click_link project2.name
 		page.should have_content 'Organisation'
@@ -150,8 +149,4 @@ feature 'the Dashboard' do
 #		click_on('Speichern')
 #		page.should have_content 'testtest'
 #	end
-
- 	
-
-
 end
