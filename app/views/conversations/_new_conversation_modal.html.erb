@@ -1,0 +1,31 @@
+<div class="modal fade" id="new_conversation_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Neue Konversation starten</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for :conversation, url: :conversations do |f| %>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <%= f.email_field :recipients, :autofocus => true, :class=>'form-control', :placeholder => 'E-Mail' %>
+        </div>
+        <div class="input-group">
+      
+          <%= f.text_field :subject,:class=>'form-control', :placeholder => 'Thema' %>
+        </div>
+        <div class="input-group">
+      
+          <%= f.text_area :body,:class=>'form-control', :placeholder => 'Nachricht' %>
+        </div>
+        <%= f.submit "Absenden", :class=>'btn btn-primary'%>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+        <button type="button" class="btn btn-primary">Absenden</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

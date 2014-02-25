@@ -8,7 +8,7 @@
 			</div>
 			
 			<div class="modal-body">
-        
+        <label>Projektteilnehmer</label><br>
 				<!-- Display long batches of the users who are added the current in the project -->
 				<% @project.users.each_with_index do |user| %>     
 					<div class="user-batch">
@@ -23,31 +23,37 @@
 				<% @user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first %>
 				<% if @user.role == "author" %>
 					<%= form_tag project_add_user_path(@project.id) do %>
-					<div class="form-group"> <br>
+					<div class="form-group">
 						<label for="exampleInputEmail1">Benutzer hinzufügen</label>
 						<%= text_field_tag :user_email, nil, :class => "form-control", :placeholder => 'E-Mail' %>
 						</div>
 
-					<%= submit_tag "Hinzufügen", :class=>'btn btn-primary' if @user.role == "author"%> <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
-					</div>
+					<%= submit_tag "Hinzufügen", :class=>'btn btn-primary' if @user.role == "author"%>
+					
 				  <% end %>
-				<% end %>
+				<% end %><%# IF User is author%>
+        
+        <hr>
 
 				<!-- leave current Project -->
-				<%= form_tag project_remove_user_path(@project.id) do %>
-					<div class="form-group"> <br>
-
-					<%= submit_tag "Verlassen", :class=>'btn btn-primary' if @user.role != "author"%>
+        <% if @user.role != "author" %>
+				<%= form_tag project_remove_user_path(@project.id) do  %>
+        <div class="form-group">
+					<%= submit_tag "Projekt verlassen", :class=>'btn btn-danger'%>
 					</div>
-				<% end %>
-        <hr>
-        <% @user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first %>
-        <% if @user.role == "author" %>
-          <%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
-        <% end %>
+				<% end %><%# /leave current project form%>
+        <% else %>
+        <form role="form">
+          <div class="form-group">
+            <%= link_to 'Projekt löschen', project_path(:project_id => @project), method: :delete, :confirm => "Soll das Projekt wirklich gelöscht werden?", :class => 'btn btn-danger' %>
+          </div>
+        </div>
+        <% end %><%# /leave current project%>
 
-			<div class="modal-footer">        
-			</div><!-- /.modal-footer -->
+        
+      </div>
+
+
 			
 		</div><!--/.modal-content -->
 	</div><!-- /.modal-dialog -->
