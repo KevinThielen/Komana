@@ -81,6 +81,7 @@ dropEvent = (e, position, list) ->
 		$(e.target).addClass('droptarget-default')
 		$(e.target).removeClass('droptarget-active')
 		
+		++position
 		#ajax call to update the task
 		$.ajax({
 			type: "POST",
@@ -97,11 +98,11 @@ dropEvent = (e, position, list) ->
 		$('.task'+dragged_task.id).removeClass('list'+dragged_task.list)
 		$('.task'+dragged_task.id).addClass('list'+list)
 			
-		$(dragged_task).removeClass 'position'+dragged_task.position
-		if (list is dragged_task.list and position < dragged_task.position) || list isnt dragged_task.list
-			++position
+		
 			
-		$(dragged_task).addClass 'position'+position
+		$('.task'+dragged_task.id).removeClass 'position'+dragged_task.position
+		$('.task'+dragged_task.id).addClass 'position'+position
+		
 		#change their dragstart function to the updated values
 		$(dragged_task).removeAttr("ondragstart").unbind("dragstart");
 		$(dragged_task).bind 'dragstart', ->
@@ -116,14 +117,16 @@ dropEvent = (e, position, list) ->
 		#iterate over the new tasks in the list previously to this task and increase their position by 1
 		previous_tasks = $(dragged_task).prevAll('.draggable')
 		previous_tasks.each ->
-			taskPositionClassname = getFullClassName(this, 'position')
-			extractedTaskPosition = taskPositionClassname.substr 'position'.length
-			$(this).removeClass taskPositionClassname
-			extractedTaskPosition++
-			$(this).addClass 'position'+extractedTaskPosition
-			
 			taskIdClassname = getFullClassName(this, 'task')
 			extractedTaskId = taskIdClassname.substr 'task'.length
+			
+			taskPositionClassname = getFullClassName(this, 'position')
+			extractedTaskPosition = taskPositionClassname.substr 'position'.length
+			
+			$('.task'+extractedTaskId).removeClass taskPositionClassname
+			extractedTaskPosition++
+			$('.task'+extractedTaskId).addClass 'position'+extractedTaskPosition
+			
 			
 			#change their dragstart function to the updated values
 			$(this).removeAttr("ondragstart").unbind("dragstart");
@@ -137,14 +140,15 @@ dropEvent = (e, position, list) ->
 			
 		#decrease the position/function param for all previous tasks in the previous list
 		old_previous_tasks.each ->
-			taskPositionClassname = getFullClassName(this, 'position')
-			extractedTaskPosition = taskPositionClassname.substr 'position'.length
-			$(this).removeClass taskPositionClassname
-			extractedTaskPosition--
-			$(this).addClass 'position'+extractedTaskPosition
-			
 			taskIdClassname = getFullClassName(this, 'task')
 			extractedTaskId = taskIdClassname.substr 'task'.length
+			
+			taskPositionClassname = getFullClassName(this, 'position')
+			extractedTaskPosition = taskPositionClassname.substr 'position'.length
+			
+			$('.task'+extractedTaskId).removeClass taskPositionClassname
+			extractedTaskPosition--
+			$('.task'+extractedTaskId).addClass 'position'+extractedTaskPosition
 			
 			#change their dragstart function to the updated values
 			$(this).removeAttr("ondragstart").unbind("dragstart");
@@ -158,7 +162,7 @@ dropEvent = (e, position, list) ->
 
 # checks if the passed position isnt adjacent to the dragged task		
 isOtherTask = (position, list) ->
-	return list isnt dragged_task.list or (position isnt dragged_task.position and parseInt(position)+1 isnt parseInt(dragged_task.position)) 
+	return list isnt dragged_task.list or (parseInt(position) isnt parseInt(dragged_task.position) and parseInt(position)+1 isnt parseInt(dragged_task.position)) 
 		
 window.dropEvent = dropEvent
 
