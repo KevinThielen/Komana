@@ -14,7 +14,7 @@
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
     <div class="form-group">
       <div class="col-sm-4 col-sm-offset-4 col-sm-8">
-      <%= link_to ("http://www.gravatar.com/emails/"), :data => {:toggle => "tooltip"}, :html_options => {:title => "Some tooltip text!"} do %>
+      <%= link_to ("http://www.gravatar.com/emails/"), {:'data-toogle' => 'tooltip', :title => 'Profilbild auf Gravatar ändern'} do %>
         <%= image_tag avatar_url(current_user,150), :size => "150", :class => "pull-left" %>
         <% end %>
       </div>      

@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Task Title length */
 .modal-title input{
   width: 50%;
 }
@@ -79,7 +80,6 @@ ul.lists-ul {
   overflow-y: hidden;
   white-space: nowrap;
   display: block;
-  position:fixed !important;
   top:190px;
   right:0px;
   bottom:0px;
@@ -91,7 +91,6 @@ ul.lists-ul {
 
 li.lists-li {
   width: 350px;
-  height: 100%;
   display: inline-block;
   vertical-align: top;
   padding-left: 10px;

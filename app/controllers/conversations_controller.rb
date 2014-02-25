@@ -16,8 +16,8 @@ class ConversationsController < ApplicationController
       redirect_to conversations_path
 
     else
-      flash[:error] = "Der User konnte nicht gefunden werden"
-      redirect_to new_conversation_path
+      flash[:error] = "Der Benutzer konnte nicht gefunden werden."
+      redirect_to conversations_path
     end
   end
   
