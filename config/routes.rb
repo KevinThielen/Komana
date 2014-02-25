@@ -21,7 +21,9 @@ Komana::Application.routes.draw do
   end
     
   resources :tasks do
-	post "search"
+     collection do
+	    get "search"
+    end
 	post :update_position
   end
   
