@@ -21,7 +21,8 @@ Komana::Application.routes.draw do
     post :mark_as_read
     delete :delete
   end
-    
+  
+  
   resources :tasks do
      collection do
 	    get "search"
@@ -33,6 +34,8 @@ Komana::Application.routes.draw do
 		post "move_up"
 		post "move_down"
   end
+  
+
   resources :projects do
 	post "add_user"
 	resources :lists do

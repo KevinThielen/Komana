@@ -1,41 +1,43 @@
 <div id="page-wrapper">
-<div class="row">
-          <div class="col-lg-12">
-            <h1>Meine Projekte <small>Neues Projekt anlegen</small></h1>
-            <ol class="breadcrumb">
-              <li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
-              <li><%= link_to '<i class="fa fa-clipboard"></i> Meine Projekte'.html_safe , projects_path %></li>
-              <li class="active"><i class="fa fa-plus"></i> Neues Projekt anlegen</li>
-            </ol>
-          </div>
-        </div>
+	<div class="row">
+		<div class="col-lg-12">
+			<h1>Meine Projekte <small>Neues Projekt anlegen</small></h1>
+			<ol class="breadcrumb">
+				<li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
+				<li><%= link_to '<i class="fa fa-clipboard"></i> Meine Projekte'.html_safe , projects_path %></li>
+				<li class="active"><i class="fa fa-plus"></i> Neues Projekt anlegen</li>
+			</ol>
+		</div>
+	</div>
 
 
-<!-- Form that will submit name to create action of projects controller  -->
-<%= form_for :project, url: projects_path, :role => 'form' do |f| %>
+	<!-- Form that will submit name to create action of projects controller  -->
+	<%= form_for :project, url: projects_path, :role => 'form' do |f| %>
 
-	<%= f.label "Projektname" %>
-    <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
-    <%= f.text_field :name,:class=>'form-control', :placeholder => 'Projektname' %>
-  </div>
-</div>
+		<%= f.label "Projektname" %>
+		<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+		<%= f.text_field :name,:class=>'form-control', :placeholder => 'Projektname' %>
+	  </div>
+	</div>
 
-<%# validation handling %>
-<div class="validation-group  text-danger">
-     <% @project.errors.full_messages_for(:name).each do |msg| %>
-      <%= msg %>
-      <% break %> 
-     <% end %>
-    </div>
-  </div>
+	<%# validation handling %>
+	<div class="validation-group  text-danger">
+		 <% @project.errors.full_messages_for(:name).each do |msg| %>
+		   <%= msg %>
+		   <% break %> 
+		 <% end %>
+	</div>
 
-<br/ >
-<div class="row">
-    <div class="col-xs-12 col-md-4 col-lg-2 ">
-    <%= f.submit "Anlegen", :class=>'btn btn-primary'%> <%= link_to 'Abbrechen', projects_path, :class => 'btn btn-default' %>
-  </div>
-</div>
-		
-<% end %>
+
+	<br/ >
+	<div class="row">
+		<div class="col-xs-12 col-md-4 col-lg-2 ">
+		<%= f.submit "Anlegen", :class=>'btn btn-primary'%> 
+
+		<%= link_to 'Abbrechen', projects_path, :class => 'btn btn-default' %>
+	  </div>
+	</div>
+			
+	<% end %>
 </div>
