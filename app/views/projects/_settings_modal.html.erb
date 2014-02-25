@@ -32,6 +32,14 @@
 					</div>
 				  <% end %>
 				<% end %>
+
+				<!-- leave current Project -->
+				<%= form_tag project_remove_user_path(@project.id) do %>
+					<div class="form-group"> <br>
+
+					<%= submit_tag "Verlassen", :class=>'btn btn-primary' if @user.role != "author"%>
+					</div>
+				<% end %>
         <hr>
         <% @user = ProjectsUsers.where("user_id =? and project_id=?", current_user, @project.id).first %>
         <% if @user.role == "author" %>
