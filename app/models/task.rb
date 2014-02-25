@@ -21,11 +21,12 @@ class Task < ActiveRecord::Base
     @tasks.each do |task|
       @project_user = ProjectsUsers.where("project_id = ?", task.list.project.id).where("user_id = ?", user_id).first
       if @project_user
-        if user_idid == @project_user.user_id
-	      @count_urgent = @count_urgent + 1
+        if user_id == @project_user.user_id
+	      count_urgent = count_urgent + 1
         end
       end
     end	
+    
     return count_urgent
   end
   
