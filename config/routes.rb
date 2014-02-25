@@ -33,6 +33,7 @@ Komana::Application.routes.draw do
   end
   resources :projects do
 	post "add_user"
+  post "remove_user"
 	resources :lists do
 		resources :tasks
 	end

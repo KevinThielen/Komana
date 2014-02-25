@@ -48,6 +48,20 @@ class ProjectsController < ApplicationController
 			flash[:error] = "Dieser Benutzer existiert nicht, bitte prüfen sie ihre Eingabe"
 		end
 	end 
+
+	def remove_user
+		project = Project.find(params[:project_id])
+		user = current_user
+
+		if user.present?
+			user.notify("Sie haben Project \"#{project.name}\" verlassen." , "added to Project" ).conversation
+			ProjectsUsers.removeUserFromProject(project.id, user.id)
+			redirect_to projects_path
+		else
+			redirect_to project_path(project)
+			flash[:error] = "Ein Fehler ist aufgetreten, bitte versuchen sie es erneut"
+		end
+	end
 	
 	def show
 		@project = Project.find(params[:id])
