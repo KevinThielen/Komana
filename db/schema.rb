@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(version: 20140220115949) do
     t.integer  "list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "decription"
     t.string   "titel"
+    t.string   "decription"
     t.date     "deadline"
     t.string   "priority"
   end
