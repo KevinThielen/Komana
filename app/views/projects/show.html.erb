@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1><%= @project.name %> <small>Organisation</small></h1>
-		
+
 			<ol class="breadcrumb">
 				<li><%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , root_path %></li>
 				<li><%= link_to '<i class="fa fa-clipboard"></i> Meine Projekte'.html_safe , projects_path %></li>
@@ -120,6 +120,7 @@
 	  <div class="well well-lg">
 			<h4><strong><%= link_to 'Neue Liste anlegen...',  project_lists_path(@project), :method => :POST %></strong></h4>
 		</div>
+<<<<<<< HEAD
 
 	</div>  
 		  
@@ -281,8 +282,11 @@
 <!-- =======
  </li><! add list button 
 >>>>>>> remotes/origin/development-->
+=======
+  </li><!-- add list button -->
+</ul><!-- /lists-ul -->
+>>>>>>> 690cede38f8ef563f0c61e13daa1319e4fd67544
 
 <!-- modal partials -->
 <%= render 'task_modal' %>
 <%= render 'settings_modal' %> 
-
