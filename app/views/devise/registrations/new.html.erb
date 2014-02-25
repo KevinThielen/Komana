@@ -71,6 +71,7 @@
       <div class="validation-group text-danger">
         <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
          <%= msg %>
+         <% break %>
       <% end %>
      </div>
     </div>

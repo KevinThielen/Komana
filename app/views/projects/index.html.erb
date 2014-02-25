@@ -21,10 +21,14 @@
       <% @projects.each do |project| %>
 
       <% @project_owner = ProjectsUsers.where(:role => 'author', :project_id => project.id).first %>
-      <% @project_user = User.where("id = ?", @project_owner.user_id).first %>
+      <% @project_user = User.where("id = ?", @project_owner.user_id).first if @project_owner.present?%>
       <tr>
         <td><%= link_to project.name, project_path(project) %></td>
+        <% if @project_owner.present? %>
         <td><%= @project_user.firstname %> <%= @project_user.lastname %> </td>
+        <% else %>
+        <td> Gelöschter Nutzer </td>
+        <% end %>
         <td><%= project.created_at.strftime("%d.%m.%Y") %></td>
         <td><%= project.get_last_updated.strftime("%d.%m.%Y") %></td>
       </tr>
