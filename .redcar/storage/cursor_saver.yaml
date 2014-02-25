@@ -51,13 +51,16 @@ cursor_positions:
   - :path: app/controllers/tasks_controller.rb
     :cursor_offset: 0
     :timestamp: 2014-02-21 15:08:19 +01:00
-  - :path: app/views/welcome/dashboard.html.erb
-    :cursor_offset: 5012
-    :timestamp: 2014-02-21 16:07:05 +01:00
-  - :path: config/routes.rb
-    :cursor_offset: 388
-    :timestamp: 2014-02-21 16:04:09 +01:00
   - :path: app/views/conversations/index.html.erb
     :cursor_offset: 348
     :timestamp: 2014-02-21 15:54:49 +01:00
+  - :path: config/routes.rb
+    :cursor_offset: 268
+    :timestamp: 2014-02-25 10:31:48 +01:00
+  - :path: Gemfile
+    :cursor_offset: 0
+    :timestamp: 2014-02-21 15:08:19 +01:00
+  - :path: app/views/welcome/dashboard.html.erb
+    :cursor_offset: 2091
+    :timestamp: 2014-02-25 10:37:43 +01:00
 files_to_retain: 0

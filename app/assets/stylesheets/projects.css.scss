@@ -121,12 +121,14 @@ li.tasks-li {
   width: 100%; 
 }
 
-.droptarget {
-  height: 150px;
-  background-color: transparent;
+.droptarget-default {
+   height: 10px;
+   background-color: transparent;
 }
 
-.droptarget-action {
-  backgroundcolor: green;
+.droptarget-active {
+  height: 150px;
+  background-color: green;
 }
+
 

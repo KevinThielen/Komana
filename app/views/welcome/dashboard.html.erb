@@ -26,7 +26,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Projekte ansehen
+                      Projekte anzeigen
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -49,11 +49,13 @@
                   </div>
                 </div>
               </div>
+
 			  <%= link_to search_tasks_path do%>
+
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Aufgaben erledigen
+                      Aufgaben anzeigen
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -71,7 +73,18 @@
                     <i class="fa fa-exclamation fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%= Task.where("priority = ?", "high").count %></p>
+                    <p class="announcement-heading">
+                    <% @count_urgent = 0 %> 
+                    <% @tasks = Task.where("priority = ?", "high") %>
+                    <% @tasks.each do |task| %>
+                      <% @project_user = ProjectsUsers.where("project_id = ?", task.list.project.id).where("user_id = ?", current_user.id).first %>
+                      <% if @project_user %>
+                        <% if current_user.id == @project_user.user_id %>
+                         <% @count_urgent = @count_urgent + 1 %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                    <%= @count_urgent %></p>
                     <p class="announcement-text">Dringende Aufgaben</p>
                   </div>
                 </div>
@@ -80,7 +93,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Dringendes erledigen
+                      Aufgaben anzeigen
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -98,23 +111,19 @@
                     <i class="fa fa-tasks fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <% @free_tasks = Task.includes(:users).where("users.id is NULL") %>
-                    
-					           <p class="announcement-heading">
-                      <% @tasks_count = 0 %>
-                      <% @project_users = ProjectsUsers.where("user_id = ?", current_user.id) %>
-                      <% @project_users.each do |project_user| %>
-
-                        <% @lists = List.where("project_id = ?", project_user.project_id) %>
-                        <% @lists.each do |list| %>
-
-
-                          <% @tasks_count = @tasks_count + Task.includes(:users).where("users.id is NULL", "list_id = ?", list.id).count %>
+                  <p class="announcement-heading">
+                  <% @count_free = 0 %>
+                  <% @tasks = Task.includes(:users).where("users.id is NULL") %>
+                  <% @tasks.each do |task| %>
+                    <% @project_user = ProjectsUsers.where("project_id = ?", task.list.project.id).where("user_id = ?", current_user.id).first %>
+                      <% if @project_user %>
+                        <% if current_user.id == @project_user.user_id %>
+                         <% @count_free = @count_free + 1 %>
                         <% end %>
                       <% end %>
-                      <%= @tasks_count %>
-                     </p> 
-                    <p class="announcement-text">Freie Aufgaben</p>
+                  <% end %>
+                  <%= @count_free %></p>
+                  <p class="announcement-text">Freie Aufgaben</p>
                   </div>
                 </div>
               </div>
@@ -122,7 +131,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Aufgaben zuweisen
+                      Aufgaben anzeigen
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>

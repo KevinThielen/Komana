@@ -11,35 +11,32 @@
   </div>
 <div class="table-responsive"> 
     <table class="table table-hover"> 
-      <% @project_users = ProjectsUsers.where("user_id = ?", current_user.id) %>
-      <% @project_users.each do |project_user| %>
-
-        <% @lists = List.where("project_id = ?", project_user.project_id) %>
-        <% @lists.each do |list| %>
-
-          <% @tasks = Task.includes(:users).where("users.id is NULL", "list_id = ?", list.id) %>
-          <tr>
-            <th>Aufgabe</th>
-            <th>Frist</th>
-            <th>Projekt</th>
-            <th>Priorität</th>
-          </tr>
-          <% @tasks.each do |task| %>
-          <tr>
+      <% @tasks = Task.includes(:users).where("users.id is NULL") %>
+      <tr>
+        <th>Aufgabe</th>
+        <th>Frist</th>
+        <th>Projekt</th>
+        <th>Priorität</th>
+      </tr>
+      <% @tasks.each do |task| %>
+        <% @project_user = ProjectsUsers.where("project_id = ?", task.list.project.id).where("user_id = ?", current_user.id).first %>
+        <% if @project_user %>
+          <% if current_user.id == @project_user.user_id %>
+            <tr>
             <td><a><%= link_to task.titel, project_path(task.list.project.id) %></a></td>
             <td> <% if task.deadline.present? %>Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %><% else %><span class="text-weak">Keine Frist gesetzt<span><% end %></td>
             <td><%= task.list.project.name %></td>
             <td>
-              <% case task.priority
-                when "low" %><i class="fa fa-arrow-down priority-low"></i>
-                <% when "medium" %><i class="fa fa-circle priority-medium"></i>
-                <% when "high" %><i class="fa fa-arrow-up priority-high"></i>
-              <% end %>          
+            <% case task.priority
+              when "low" %><i class="fa fa-arrow-down priority-low"></i>
+              <% when "medium" %><i class="fa fa-circle priority-medium"></i>
+              <% when "high" %><i class="fa fa-arrow-up priority-high"></i>
+            <% end %>          
             </td>
-          </tr>
-         <% end %>
+          <% end %>
         <% end %>
       <% end %>
+      </tr>
     </table>
   </div>
 </div>
