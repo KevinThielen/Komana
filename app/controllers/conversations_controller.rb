@@ -5,9 +5,8 @@ class ConversationsController < ApplicationController
   def create
 
     
-    @user = User.where("email = ?", params[:recipients]).first
+    @user = User.where("email = ?",conversation_params(:recipients)).first
     if @user.present?
-
       recipient_emails = conversation_params(:recipients)
       recipients = User.where(email: recipient_emails).all
 
@@ -17,8 +16,8 @@ class ConversationsController < ApplicationController
 	
       redirect_to conversations_path
 
-    else 
-      
+    else
+      flash[:error] = "Der User konnte nicht gefunden werden"
       redirect_to new_conversation_path
     end
   end

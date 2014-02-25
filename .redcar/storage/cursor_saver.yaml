@@ -6,13 +6,61 @@ cursor_positions:
   - :path: app/assets/javascripts/drag_and_drop.js.coffee
     :cursor_offset: 0
     :timestamp: 2014-02-21 15:08:19 +01:00
-  - :path: app/assets/stylesheets/projects.css.scss
-    :cursor_offset: 1873
-    :timestamp: 2014-02-21 15:25:00 +01:00
   - :path: app/views/projects/show.html.erb
     :cursor_offset: 6683
     :timestamp: 2014-02-21 15:21:52 +01:00
   - :path: app/views/devise/passwords/edit.html.erb
     :cursor_offset: 0
     :timestamp: 2014-02-08 18:07:30 +01:00
+  - :path: app/views/devise/passwords/new.html.erb
+    :cursor_offset: 467
+    :timestamp: 2014-02-21 15:43:18 +01:00
+  - :path: app/views/devise/sessions/new.html.erb
+    :cursor_offset: 730
+    :timestamp: 2014-02-20 10:49:33 +01:00
+    :selection_offset: 823
+    :block_selection_mode: false
+  - :path: app/views/welcome/index.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-02-08 18:07:30 +01:00
+  - :path: app/controllers/welcome_controller.rb
+    :cursor_offset: 173
+    :timestamp: 2014-02-20 10:50:57 +01:00
+  - :path: app/views/devise/confirmations/new.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-02-08 18:07:30 +01:00
+  - :path: app/views/devise/mailer/confirmation_instructions.html.erb
+    :cursor_offset: 0
+    :timestamp: 2014-02-08 18:07:30 +01:00
+  - :path: app/views/projects/_settings_modal.html.erb
+    :cursor_offset: 745
+    :timestamp: 2014-02-21 12:29:33 +01:00
+    :selection_offset: 787
+    :block_selection_mode: false
+  - :path: app/views/devise/mailer/reset_password_instructions.html.erb
+    :cursor_offset: 129
+    :timestamp: 2014-02-21 15:52:28 +01:00
+    :selection_offset: 77
+    :block_selection_mode: false
+  - :path: app/assets/stylesheets/projects.css.scss
+    :cursor_offset: 1648
+    :timestamp: 2014-02-21 16:08:31 +01:00
+  - :path: app/controllers/projects_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2014-02-21 15:08:19 +01:00
+  - :path: app/controllers/tasks_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2014-02-21 15:08:19 +01:00
+  - :path: app/views/conversations/index.html.erb
+    :cursor_offset: 348
+    :timestamp: 2014-02-21 15:54:49 +01:00
+  - :path: config/routes.rb
+    :cursor_offset: 268
+    :timestamp: 2014-02-25 10:31:48 +01:00
+  - :path: Gemfile
+    :cursor_offset: 0
+    :timestamp: 2014-02-21 15:08:19 +01:00
+  - :path: app/views/welcome/dashboard.html.erb
+    :cursor_offset: 2091
+    :timestamp: 2014-02-25 10:37:43 +01:00
 files_to_retain: 0
