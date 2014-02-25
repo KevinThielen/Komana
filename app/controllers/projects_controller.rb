@@ -29,10 +29,7 @@ class ProjectsController < ApplicationController
 				redirect_to project_path(@project)
 
 		  	else 
-		  		 @project.errors.full_messages_for(:name).each do |msg| 
-    				 flash[:error] = msg
-  				 end 
-			  redirect_to new_project_path
+			  	render new_project_path
   			end 
 	end
 	
@@ -45,14 +42,26 @@ class ProjectsController < ApplicationController
 
 			ProjectsUsers.addUserToProject(@project.id, @user.id, "member") 
 			@user.notify("#{current_user.firstname} #{current_user.lastname} added you to Project \"#{@project.name}\"." , "added to Project" ).conversation
-
+			redirect_to project_path(@project)
 		else
-			#TODO: error handling
 			redirect_to project_path(@project)
 			flash[:error] = "Dieser Benutzer existiert nicht, bitte prüfen sie ihre Eingabe"
 		end
-		redirect_to project_path(@project)
 	end 
+
+	def remove_user
+		project = Project.find(params[:project_id])
+		user = current_user
+
+		if user.present?
+			user.notify("Sie haben Project \"#{project.name}\" verlassen." , "added to Project" ).conversation
+			ProjectsUsers.removeUserFromProject(project.id, user.id)
+			redirect_to projects_path
+		else
+			redirect_to project_path(project)
+			flash[:error] = "Ein Fehler ist aufgetreten, bitte versuchen sie es erneut"
+		end
+	end
 	
 	def show
 		@project = Project.find(params[:id])
@@ -72,6 +81,7 @@ class ProjectsController < ApplicationController
 	   
 	   redirect_to projects_path
 	end
+	
 	
 private
 	def project_params

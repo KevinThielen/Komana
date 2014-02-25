@@ -12,7 +12,11 @@
  
 <div class="table-responsive"> 
     <table class="table table-hover"> 
+<<<<<<< HEAD
       <% @tasks = Task.where("priority = ?", "high").joins(:users).where("user_id = ?", current_user.id) %>
+=======
+      <% @tasks = Task.where("priority = ?", "high") %>
+>>>>>>> origin/development
       <tr>
         <th>Aufgabe</th>
         <th>Frist</th>
@@ -20,18 +24,23 @@
         <th>Priorität</th>
       </tr>
       <% @tasks.each do |task| %>
-      <tr>
-        <td><a><%= link_to task.titel, project_path(task.list.project.id) %></a></td>
-        <td> <% if task.deadline.present? %>Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %><% else %><span class="text-weak">Keine Frist gesetzt<span><% end %></td>
-        <td><%= task.list.project.name %></td>
-        <td>
-          <% case task.priority
-            when "low" %><i class="fa fa-arrow-down priority-low"></i>
-            <% when "medium" %><i class="fa fa-circle priority-medium"></i>
-            <% when "high" %><i class="fa fa-arrow-up priority-high"></i>
-          <% end %>
-        </td>
-      </tr>
+      <% @project_user = ProjectsUsers.where("project_id = ?", task.list.project.id).where("user_id = ?", current_user.id).first %>
+      <% if @project_user %>
+        <% if current_user.id == @project_user.user_id %>
+          <tr>
+            <td><a><%= link_to task.titel, project_path(task.list.project.id) %></a></td>
+            <td> <% if task.deadline.present? %>Endet in <%= distance_of_time_in_words(Time.now.utc.localtime, task.deadline.to_datetime) %><% else %><span class="text-weak">Keine Frist gesetzt<span><% end %></td>
+            <td><%= task.list.project.name %></td>
+            <td>
+              <% case task.priority
+                when "low" %><i class="fa fa-arrow-down priority-low"></i>
+                <% when "medium" %><i class="fa fa-circle priority-medium"></i>
+                <% when "high" %><i class="fa fa-arrow-up priority-high"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
      <% end %>
     </table>
   </div>

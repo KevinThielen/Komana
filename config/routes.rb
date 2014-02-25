@@ -1,4 +1,6 @@
 Komana::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users
   resources :projects
   get "welcome/index"
@@ -19,9 +21,12 @@ Komana::Application.routes.draw do
     post :mark_as_read
     delete :delete
   end
-    
+  
+  
   resources :tasks do
-	post "search"
+     collection do
+	    get "search"
+    end
 	post :update_position
   end
   
@@ -29,8 +34,11 @@ Komana::Application.routes.draw do
 		post "move_up"
 		post "move_down"
   end
+  
+
   resources :projects do
 	post "add_user"
+  post "remove_user"
 	resources :lists do
 		resources :tasks
 	end

@@ -5,9 +5,13 @@ class Project < ActiveRecord::Base
 
 	validates :name, presence: true, length: { minimum: 3 }
 	
-	 #include PublicActivity::Model
-	 #tracked
-
+	
+	def self.get_my_projects(user_id)
+		my_projects = Project.joins(:users).where("user_id = ?", user_id)
+		return my_projects
+	end
+	
+	
 	def get_last_updated
 
 	 	@project = Project.find(id)
@@ -29,4 +33,5 @@ class Project < ActiveRecord::Base
 			end
 		return @project.updated_at
 	end
+	
 end
