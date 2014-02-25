@@ -21,6 +21,7 @@
       <% @projects.each do |project| %>
 
       <% @project_owner = ProjectsUsers.where(:role => 'author', :project_id => project.id).first %>
+     
       <% @project_user = User.where("id = ?", @project_owner.user_id).first %>
       <tr>
         <td><%= link_to project.name, project_path(project) %></td>
