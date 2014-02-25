@@ -9,19 +9,32 @@
       </ol>
     </div>
   </div><!-- /.row -->
-
-<%= form_for :conversation, url: :conversations do |f| %>
-	<div class="input-group">
-		  <span class="input-group-addon"><i class="fa fa-user"></i></span>
-		  <%= f.email_field :recipients, :autofocus => true, :class=>'form-control', :placeholder => 'E-Mail' %>
-		</div>
-		<div class="input-group">
-			<%= f.text_field :subject,:class=>'form-control', :placeholder => 'Thema' %>
-		</div>
-		<div class="input-group">
-		  <%= f.text_area :body,:class=>'form-control', :placeholder => 'Nachricht' %>
-		</div>
-	<%= f.submit "Absenden", :class=>'btn btn-primary'%>
-<% end %>
-
 </div>
+
+<div class="border-form-div">
+  <%= form_for :conversation, url: :conversations do |f| %>
+  <div class="form-group">
+	<div class="input-group">
+		<span class="input-group-addon">@</span>
+		<%= f.email_field :recipients, :autofocus => true, :class=>'form-control', :placeholder => 'E-Mail' %>
+	</div>
+  </div>
+  <div class="form-group">
+	<div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-quote-left"></i></span>
+		<%= f.text_field :subject, :class=>'form-control', :placeholder => 'Konversationsthema' %>
+	</div>
+  </div>
+  <div class="form-group">
+	<div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-comment"></i></span>
+		<%= f.text_area :body, :class=>'form-control', :placeholder => 'Nachricht' %>
+	</div>
+  </div>
+  <div class="form-group">
+	<%= f.submit "Absenden", :class=>'btn btn-primary'%>
+  </div>
+  <% end %>
+</div>
+
+
