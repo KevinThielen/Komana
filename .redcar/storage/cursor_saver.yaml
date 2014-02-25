@@ -70,9 +70,6 @@ cursor_positions:
   - :path: app/views/projects/show.html.erb
     :cursor_offset: 1571
     :timestamp: 2014-02-25 13:30:16 +01:00
-  - :path: app/views/conversations/new.html.erb
-    :cursor_offset: 327
-    :timestamp: 2014-02-25 13:32:59 +01:00
   - :path: app/views/conversations/index.html.erb
     :cursor_offset: 23
     :timestamp: 2014-02-25 13:32:17 +01:00
@@ -108,4 +105,7 @@ cursor_positions:
   - :path: spec/Task_spec.rb
     :cursor_offset: 0
     :timestamp: 2014-02-20 10:50:57 +01:00
+  - :path: app/views/conversations/new.html.erb
+    :cursor_offset: 913
+    :timestamp: 2014-02-25 14:20:42 +01:00
 files_to_retain: 0
