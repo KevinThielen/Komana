@@ -14,7 +14,6 @@ class ConversationsController < ApplicationController
   	  flash[:notice] = "Die Nachricht wurde erfolgreich gesendet."
 	
       redirect_to conversations_path
-
     else
       flash[:error] = "Der Benutzer konnte nicht gefunden werden."
       redirect_to conversations_path
@@ -22,9 +21,14 @@ class ConversationsController < ApplicationController
   end
   
 
-  def index
-	 
-  end
+    def index
+ 	if params[:partial]
+ 		@partial = params[:partial]
+ 	 else
+ 		@partial = "conversations/inbox"
+ 	 end
+ 	 
+    end
   
   def reply
 	    current_conversation = Conversation.find(params[:conversation_id])

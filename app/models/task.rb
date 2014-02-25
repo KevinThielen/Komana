@@ -26,6 +26,7 @@ class Task < ActiveRecord::Base
         end
       end
     end	
+    
     return count_urgent
   end
   
