@@ -5,7 +5,7 @@
 	<div class="modal-dialog">
 		
 		<div class="modal-content">
-			<%= form_tag project_task_path(@project.id, 0), :method => :put, :html => {:class => 'form-inline'} do %>
+			<%= form_tag project_list_task_path(@project.id, 0, 0), :method => :put, :html => {:class => 'form-inline'} do %>
 			<%= hidden_field_tag 'task_id', NIL, {:class => 'form-control'} %>
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

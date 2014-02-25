@@ -14,17 +14,17 @@ Komana::Application.routes.draw do
   resources :portfolios
  
   resources :conversations do
-		post :reply
-		post :trash
-		post :untrash
+	post :reply
+	post :trash
+	post :untrash
     post :mark_as_unread
     post :mark_as_read
     delete :delete
   end
   
-  
+  #needed for the dashboard overview
   resources :tasks do
-     collection do
+    collection do
 	    get "search"
     end
 	post :update_position
@@ -37,14 +37,10 @@ Komana::Application.routes.draw do
   
 
   resources :projects do
-	post "add_user"
-    post "remove_user"
+		post "add_user"
+		post "remove_user"
 	resources :lists do
 		resources :tasks
-	end
-	
-	resources :tasks do
-
 	end
   end
 end

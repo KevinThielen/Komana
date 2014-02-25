@@ -23,13 +23,14 @@
             <% else %>
             <li class="<%= "active" if params[:controller] == "welcome" %>"><%= link_to '<i class="fa fa-home"></i> Start'.html_safe , root_path %></li>
             <% end %>
-            <li class="dropdown alerts-dropdown <%= "active" if params[:controller] == "portfolios" %>">
+         <!--   <li class="dropdown alerts-dropdown <%= "active" if params[:controller] == "portfolios" %>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-info"></i> Über uns <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to '<i class="fa fa-users"></i> Das Team'.html_safe , portfolios_path %></li>
                 <li><%= link_to '<i class="fa fa-phone"></i> Kontakt'.html_safe , portfolios_contact_path %></li>
               </ul>
             </li>
+           --> 
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
