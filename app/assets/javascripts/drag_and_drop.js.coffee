@@ -14,7 +14,7 @@ dragstartEvent = (e, id, position, list) ->
 	dragged_task.position = position
 	dragged_task.list = list
 	
-	console.log("Task: "+dragged_task.id+", Position: "+dragged_task.position+", List: "+dragged_task.list)
+	
 	
 window.dragstartEvent = dragstartEvent
 
@@ -77,7 +77,7 @@ window.dragendEvent = dragendEvent
 
 dropEvent = (e, position, list) ->
 	if isOtherTask(position, list)  
-		console.log("target: Position: "+position+", List: "+list)
+
 		$(e.target).addClass('droptarget-default')
 		$(e.target).removeClass('droptarget-active')
 		
