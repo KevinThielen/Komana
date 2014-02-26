@@ -21,8 +21,9 @@
       <% @projects.each do |project| %>
 
       <% @project_owner = ProjectsUsers.where(:role => 'author', :project_id => project.id).first %>
+
       <% @project_user = User.where("id = ?", @project_owner.user_id).first if @project_owner.present?%>
-      <tr>
+        <tr>
         <td><%= link_to project.name, project_path(project) %></td>
         <% if @project_owner.present? %>
         <td><%= @project_user.firstname %> <%= @project_user.lastname %> </td>

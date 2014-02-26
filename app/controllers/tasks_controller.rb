@@ -64,7 +64,7 @@ class TasksController < ApplicationController
 		end
 	
 			
-		if( moved_task.list.id != moved_to_list.id)
+		
 			#check if there are other taks after this and increase thei positions by 1
 			
 			new_sibling_tasks = Task.where("list_id = ? and position >= ?", moved_to_list.id, moved_to_position).order("position ASC")
@@ -73,7 +73,7 @@ class TasksController < ApplicationController
 				old_position = t.position
 				t.update!(:position => old_position+1)
 			end	
-		end
+
 		moved_task.update!(:position => moved_to_position)
 		moved_to_list.tasks << moved_task
 			

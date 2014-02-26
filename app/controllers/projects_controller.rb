@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
 		user = current_user
 
 		if user.present?
-			user.notify("Sie haben Project \"#{project.name}\" verlassen." , "added to Project" ).conversation
+			user.notify("Sie haben Project \"#{project.name}\" verlassen." , "left the Project" ).conversation
 			ProjectsUsers.removeUserFromProject(project.id, user.id)
 			redirect_to projects_path
 		else

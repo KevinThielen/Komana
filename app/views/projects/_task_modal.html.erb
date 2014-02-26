@@ -5,7 +5,7 @@
 	<div class="modal-dialog">
 		
 		<div class="modal-content">
-			<%= form_tag project_task_path(@project.id, 0), :method => :put, :html => {:class => 'form-inline'} do %>
+			<%= form_tag project_list_task_path(@project.id, 0, 0), :method => :put, :html => {:class => 'form-inline'} do %>
 			<%= hidden_field_tag 'task_id', NIL, {:class => 'form-control'} %>
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -13,18 +13,20 @@
 			</div>
 		
 			<div class="modal-body">
-				Zuweisen an:<%= select_tag "user_id", options_from_collection_for_select(@project.users, "id", "firstname"), include_blank: true, :class => "form-control" %>
+				<h4>Zuweisen an: </h4><%= select_tag "user_id", options_from_collection_for_select(@project.users, "id", "firstname"), include_blank: true, :class => "form-control" %>
 				<%# form for priority %> 
 				
-				Priorität: <p>
+				<h4>Priorität: </h4>
+        <p>
 				<%= radio_button_tag(:priority, "low") %>
 				<%= label_tag(:priority_low, "Niedrig") %>
 				<%= radio_button_tag(:priority, "medium") %>
 				<%= label_tag(:priority_medium, "Mittel") %>
 				<%= radio_button_tag(:priority, "high") %>
-				<%= label_tag(:priority_high, "Hoch") %> <p>
-				
-				<%# for for deadline %> Deadline: <p>
+				<%= label_tag(:priority_high, "Hoch") %>
+        </p>
+      
+      <%# for for deadline %> <h4>Frist: </h4>
         <div class="input-group date">
 				  <%= text_field_tag(:deadline, nil, class: 'form-control') %><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
         </div>

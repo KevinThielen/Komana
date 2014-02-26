@@ -24,8 +24,8 @@
       
       <!-- list header, changes to input field for list name on click -->
 <h4> <strong class="list-title" onClick = "updateList(this, <%= list.id%>);"><%= list.name %></strong>
-        <!-- listbutton for dropdownlist [deprecated]-->
-<a class="text-weak" onClick = "toggleList(this, <%= list.id %>)"><i class="fa fa-chevron-down"></i></a><!-- /listbutton for dropdownlist -->
+
+
         <!-- lists dropdown menu -->
 <div class="dropdown pull-right">
 <!-- settings for the list. Allows to add a new task and delete the whole list -->
@@ -81,13 +81,16 @@
             <!-- Task title -->
             <div class="<%= get_title_class(assigned_user) %>">
               <!-- opens the task modal on click to edit its values. Changes will be saved with Ajax call. -->
-<a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>', '<%= task.priority %>', '<%= task.deadline %>' );">
-<strong>
+
+			  <a class ="task_modal" onClick = "updateTask(<%= task.id %>, '<%= task.titel %>','<%= task.text %>', '<%= assigned_user_id %>', '<%= task.priority %>', '<%= task.deadline %>' );">
+			    <strong>
                   <%= task.titel %>
-</strong>
-</a><!-- /Link to task edit modal -->
+				</strong>
+				
+			  </a><!-- /Link to task edit modal -->
               <!-- button to delete the task. Opens confirmation window before -->
-<%= link_to '&times;'.html_safe, project_task_path(project_id:@project, task_id:task), method: :delete, :class => "close", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
+				  <%= link_to '&times;'.html_safe, project_list_task_path(project_id:@project, list_id:list, task_id:task), method: :delete, :class => "close", :confirm => "Soll die Aufgabe wirklich gelöscht werden?" %>
+
             </div><!-- /Task title -->
         </div><!-- /task header -->
         

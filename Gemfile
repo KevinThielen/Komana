@@ -86,8 +86,6 @@ gem 'cancan'
 gem 'rolify'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
-#logger
-gem 'public_activity'
 
 group :production do
   gem 'rails_12factor'
