@@ -16,15 +16,15 @@ Benutzer können mittels Nachrichten mit einander Kommunizieren.
 
 SETUP
 --------------
--1. 'git clone https://github.com/KevinThielen/Komana.git' 
--2. Falls noch nicht installiert: 'apt-get install libpq-dev' und 'apt-get install libsqlite3-dev'
--3. 'bundle install' im root verzichnis des Projekts aufrufen
--4. 'rake db:migrate'
--5  'rake db:migrate RAILS_ENV=test' für rspec tests
--6. 'rake db:seed' für seed daten
--7. 'rspec' um alle rspec tests durchlaufen zu lassen
--8. 'rails server'
--9. Seed User Login: 'natural@selection.uk'
+- 'git clone https://github.com/KevinThielen/Komana.git' 
+- Falls noch nicht installiert: 'apt-get install libpq-dev' und 'apt-get install libsqlite3-dev'
+- 'bundle install' im root verzichnis des Projekts aufrufen
+- 'rake db:migrate'
+- 'rake db:migrate RAILS_ENV=test' für rspec tests
+- 'rake db:seed' für seed daten
+- 'rspec' um alle rspec tests durchlaufen zu lassen
+- 'rails server'
+- Seed User Login: 'natural@selection.uk'
 			 Passwort: 'Evolution'
 
 Heroku Link
