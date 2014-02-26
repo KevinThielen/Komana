@@ -87,7 +87,3 @@ gem 'rolify'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 
-group :production do
-  gem 'rails_12factor'
-  gem 'pg'
-end
