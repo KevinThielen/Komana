@@ -26,6 +26,8 @@ SETUP
 - 'rails server'
 - Seed User Login: 'natural@selection.uk'
 			 Passwort: 'Evolution'
+- Für Passwortreset: $ export GMAIL_SMTP_USER=username@gmail.com
+$ export GMAIL_SMTP_PASSWORD=yourpassword
 
 Heroku Link
 --------------
