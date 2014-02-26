@@ -12,11 +12,9 @@
  
 <div class="table-responsive"> 
     <table class="table table-hover"> 
-<<<<<<< HEAD
-      <% @tasks = Task.where("priority = ?", "high").joins(:users).where("user_id = ?", current_user.id) %>
-=======
+
       <% @tasks = Task.where("priority = ?", "high") %>
->>>>>>> origin/development
+
       <tr>
         <th>Aufgabe</th>
         <th>Frist</th>
