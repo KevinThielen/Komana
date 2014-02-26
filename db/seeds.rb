@@ -18,8 +18,8 @@ projects = Project.create([{name: 'Unreval the thruth'},
 
 projects.each do |p|
 	p.lists.create(:name=>'TO DO',:position=>1)
-	p.lists.create(:name=>'PENDING',:position=>1)
-	p.lists.create(:name=>'FINISHED',:position=>1)
+	p.lists.create(:name=>'PENDING',:position=>2)
+	p.lists.create(:name=>'FINISHED',:position=>3)
 end
 
 users.each do |e|
