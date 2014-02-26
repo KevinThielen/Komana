@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
 	end
 	
 	
-	def get_last_updated
+	def get_last_updated(id)
 
 	 	@project = Project.find(id)
 	 	last_updated_list = List.where("project_id = ?", id).order(updated_at).first

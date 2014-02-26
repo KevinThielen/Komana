@@ -12,11 +12,9 @@
  
 <div class="table-responsive"> 
     <table class="table table-hover"> 
-<<<<<<< HEAD
+
       <% @tasks = Task.joins(:users).where("user_id = ?", current_user.id) %>
-=======
-      <% @tasks = Task.get_my_tasks(current_user.id) %>
->>>>>>> origin/development
+
       <tr>
         <th>Aufgabe</th>
         <th>Frist</th>
