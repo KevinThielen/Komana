@@ -1,37 +1,50 @@
-== The jobless Donkeys
-Michael Landreh, Sebastian Schmitt, Sergej Fedorchenko, Kevin Thielen
+Komana
+==============
 
-== ABOUT
+The jobless Donkeys
+--------------
+*Michael Landreh
+*Sebastian Schmitt
+*Sergej Fedorchenko
+*Kevin Thielen
+
+ABOUT
+--------------
 Komana ist ein Projektmanagement-tool. Der Benutzer kann in seinem Projekt listen anlegen und verschieben,
 sowie einzelne Aufgaben per Drag and Drop den einzelnn Listen zuweisen.
 Benutzer können mittels Nachrichten mit einander Kommunizieren.
 
-== SETUP
-1. 'git clone https://github.com/KevinThielen/Komana.git' 
-2. Falls noch nicht installiert: 'apt-get install libpq-dev' und 'apt-get install libsqlite3-dev'
-3. 'bundle install' im root verzichnis des Projekts aufrufen
-4. 'rake db:migrate'
-5  'rake db:migrate RAILS_ENV=test' für rspec tests
-6. 'rake db:seed' für seed daten
-7. 'rspec' um alle rspec tests durchlaufen zu lassen
-8. 'rails server'
-9. Seed User Login: 'natural@selection.uk'
+SETUP
+--------------
+-1. 'git clone https://github.com/KevinThielen/Komana.git' 
+-2. Falls noch nicht installiert: 'apt-get install libpq-dev' und 'apt-get install libsqlite3-dev'
+-3. 'bundle install' im root verzichnis des Projekts aufrufen
+-4. 'rake db:migrate'
+-5  'rake db:migrate RAILS_ENV=test' für rspec tests
+-6. 'rake db:seed' für seed daten
+-7. 'rspec' um alle rspec tests durchlaufen zu lassen
+-8. 'rails server'
+-9. Seed User Login: 'natural@selection.uk'
 			 Passwort: 'Evolution'
 
-== Heroku Link
+Heroku Link
+--------------
 http://lit-savannah-9375.herokuapp.com/
 
-== Active Admin
+Active Admin
+--------------
    http://localhost:3000/admin/
 bzw. http://lit-savannah-9375.herokuapp.com/admin/
 
    Admin Login: 'admin@example.com'
 		 Passwort: 'password'
 		 
-== User Stories
+User Stories
+--------------
 als PDF im Wurzelverzeichnis des Projekts		
 
-== zusätzliche GEMS
+zusätzliche GEMS
+--------------
 * activeadmin (1.0.0.pre d7a2624)
 * rolify (3.2.0)
 * cancan (1.6.10)
