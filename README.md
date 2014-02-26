@@ -11,7 +11,8 @@ The jobless Donkeys
 ABOUT
 --------------
 Komana ist ein Projektmanagement-tool. Der Benutzer kann in seinem Projekt listen anlegen und verschieben,
-sowie einzelne Aufgaben per Drag and Drop den einzelnn Listen zuweisen.
+sowie einzelne Aufgaben per Drag and Drop den einzelnn Listen zuweisen. Listennamen und Tasks können mittels 
+klick auf deren Titel angepasst werden.
 Benutzer können mittels Nachrichten mit einander Kommunizieren.
 
 SETUP
